@@ -1,0 +1,10 @@
+
+.background-image-wrap {
+    flex: 0 0 auto;
+}
+
+.background-image {
+background-image: none !important;
+background-color: #fff !important;
+background-color: #bcbcc1;
+}
