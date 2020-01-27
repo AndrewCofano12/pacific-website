@@ -1,0 +1,8 @@
+.ImageLoader {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.ImageLoader::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
