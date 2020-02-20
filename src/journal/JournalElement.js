@@ -8,13 +8,14 @@ export default class JournalElement extends Component {
       <div 
       style={{
         flexDirection: 'column',
-        marginBottom: '15%'
+        marginBottom: '15%',
+        width: '1000px'
       }}
       className="JournalContainer">
         <img style={{
                     maxWidth: '100%',
                     height: "auto", 
-                    width: "auto",
+                    width: 'auto',
                 }} 
                 src={require('../images/' + this.props.imgSrc)} alt="fuck"/>
           <div style={{flexDirection: 'row', marginTop: 15}} className="JournalTextContainer">
