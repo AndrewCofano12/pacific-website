@@ -5,6 +5,12 @@
 
 .navigationWrapper {
     margin-top: 55px;
+    top: 0;
+    overflow: 'hidden';
+    position: fixed;
+    background: transparent;
+    align-self: center;
+    width: 100%;
 }
 
 .siteLogo {

@@ -14,7 +14,6 @@ export default class Home extends Component {
       }}
       className="Home">
         <ImageLoader/> 
-        <ImageLoader/> 
       </div>
     );
   }
