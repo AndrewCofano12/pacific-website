@@ -1,0 +1,36 @@
+.textFormat {
+    font-family: 'Questrial', sans-serif;
+    font-size: 18px;
+}
+
+.navigationWrapper {
+    margin-top: 55px;
+}
+
+.siteLogo {
+    font-size: 36px;
+}
+
+.navigationHeaderContainer {
+    text-align: center;
+}
+
+.siteLogoContainer {
+    display: inline-block;
+    margin-bottom: 13px;
+    color: #232323;
+}
+
+.pageSelected {
+    color: #232323;
+}
+
+.navContainer {
+    color: #606060;
+    margin-top: 13px;
+}
+
+.navSeparator {
+    margin-right: 10px;
+    margin-left: 10px;
+}

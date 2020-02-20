@@ -3,6 +3,9 @@ import './App.css';
 import Journal from './journal/Journal';
 import Home from './home/Home';
 
+import ImageLoader from './components/ImageLoader'
+import NavigationHeader from './components/NavigationHeader';
+require('typeface-questrial')
 
 export default class App extends Component {
 
