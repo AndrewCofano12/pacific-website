@@ -11,6 +11,8 @@ body {
 html {
   overflow: scroll;
   overflow-x: hidden;
+  overscroll-behavior-x: none; /* Prevents back swipe on chrome */
+  overscroll-behavior-y: none;
   overflow-y: scroll;
   scrollbar-width: none;
 }
