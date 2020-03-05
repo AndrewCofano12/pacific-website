@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ImageThing from './Image'
 import './imageLoader.css';
 export default class ImageLoader extends Component {
     constructor(props) {
