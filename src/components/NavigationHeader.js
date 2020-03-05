@@ -1,36 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NavigationHeader.css'
+import { Link} from 'react-router-dom';  
 
-export default class NavigationHeader extends Component {
-
-  render() {
-    return (
-      <div className="navigationWrapper textFormat">
-        <div className="navigationHeaderContainer">
-          <div className="siteLogoContainer">
-            <div className="siteLogo">
+export default function NavigationHeader() {
+  return (
+  <div className="navigationWrapper textFormat">
+    <div className="navigationHeaderContainer">
+      <div className="siteLogoContainer">
+        <div className="siteLogo">
+          <Link to="/" className={'siteLogo'}>
               pacific
-            </div>
-            <div className="navContainer">
-                <span className="pageNav musicNav">
-                    music
-                </span>
-                <span className="navSeparator">
-                    /
-                </span>
-                <span className="pageNav journalNav pageSelected">
-                    journal
-                </span>
-                <span className="navSeparator">
-                    /
-                </span>
-                <span className="pageNav filmsNav">
-                    films
-                </span>                
-            </div>
-          </div>
-        </div> 
+          </Link>
+        </div>
+        <div className="navContainer">
+          <span className="pageNav musicNav">
+            <Link to="/music" className={'pageNav'}>
+              music
+            </Link>
+          </span>
+          <span className="navSeparator">
+                /
+          </span>
+          <span className="pageNav journalNav pageSelected">
+            <Link to="/journal" className={'pageNav'}>
+              journal
+            </Link>
+          </span>
+          <span className="navSeparator">
+                /
+          </span>
+          <span className="pageNav filmsNav">
+            <Link to="/films" className={'pageNav'}>
+              films
+            </Link>
+          </span>                
+        </div>
       </div>
-    );
-  }
+    </div> 
+    </div>
+  )
 }
+
