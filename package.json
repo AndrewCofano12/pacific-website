@@ -12,10 +12,15 @@
     "react-audio-player": "^0.11.1",
     "react-dom": "^16.12.0",
     "react-iframe": "^1.8.0",
+    "react-responsive-carousel": "^3.1.51",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "typeface-questrial": "0.0.72",
-    "vimeo": "^2.1.1"
+    "vimeo": "^2.1.1",
+    "react-slick": "^0.25.2",
+    "react-swipeable-views": "^0.13.9",
+    "slick-carousel": "^1.8.1",
+    "typeface-questrial": "0.0.72"
   },
   "scripts": {
     "start": "react-scripts start",

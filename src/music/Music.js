@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
+import Iframe from 'react-iframe';
+import './MusicStyles.css';
+import ReactAudioPlayer from 'react-audio-player';
+import EpisodeSlider from './EpisodeSlider';
+import SimpleSlider from './SimpleSlider';
+
 
 export default class Music extends Component {
   render() {
+    
     return (
-      <div>
+      <div className="musicBackground" style={{
+        msOverflowStyle: "none",
+        overflow: "scroll",
+      }}>
         <NavigationHeader/>
-        <text>music</text>
+        <EpisodeSlider/>
+        {/* <div className="sliderContainer">
+          <SimpleSlider/>
+        </div> */}
       </div>
-    );
-  }
+        // <div className="musicBackground">
+        // <NavigationHeader/>
+        // <div className="artworkWrapper">
+
+        //   <div className="coverContainer flex-item">
+        //     <img className="coverImage" src={require("../images/ep2-front.jpg")} alt="fuck"/>
+        //   </div>
+        //   <div className="tracklistContainer flex-item">
+        //     <img className="tracklistImage" src={require("../images/ep2-back.jpg")} alt="fuck"/>
+        //   </div>
+        // </div>
+        // </div>
+      );  }
 }
 
 
