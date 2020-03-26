@@ -1,0 +1,33 @@
+.swipeableView {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.artworkContainer {
+    /* width: auto; */
+    width: 100%;
+    border: 1px solid blue;
+}
+
+.react-swipeable-view-container {
+    height: 100vh;
+    align-items: center;
+}
+
+.artworkWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    /* position: relative; */
+    /* top: 50%; */
+    /* background-color: inherit; */
+    /* display: flex; */
+    /* flex-direction: row;     make main axis horizontal (default setting) */
+    /* justify-content: center; center items horizontally, in this case */
+    /* align-items: center;     center items vertically, in this case */
+    /* align-self: center; */
+    /* height: 50%; */
+}

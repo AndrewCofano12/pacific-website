@@ -11,10 +11,7 @@ export default class Music extends Component {
   render() {
     
     return (
-      <div className="musicBackground" style={{
-        msOverflowStyle: "none",
-        overflow: "scroll",
-      }}>
+      <div className="musicBackground">
         <NavigationHeader/>
         <EpisodeSlider/>
         {/* <div className="sliderContainer">
