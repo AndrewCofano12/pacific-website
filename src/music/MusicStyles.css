@@ -3,7 +3,6 @@
     margin-left: 300px;
 }
 
-
 .musicBackground {
     background-color: #C9C2BB;
     display: flex;
@@ -23,23 +22,6 @@
     width: 0;
 }
   
-
-.sliderContainer {
-    /* width: 100%;
-    height: 100%; */
-}
-
-/* html, body {
-    height: 100%;
-}
-body {
-    margin: 0;
-} */
-
-.tryingToFixShit {
-width: 1000px;
-}
-
 .episodeSlider {
     position: absolute;
     display: flex;
@@ -47,88 +29,14 @@ width: 1000px;
     width: 100%;
 }
 
-
-
-.artworkWrapper {
-    /* position: relative; */
-    /* top: 50%; */
-    background-color: inherit;
-    /* display: flex; */
-    flex-direction: row;     /* make main axis horizontal (default setting) */
-    /* justify-content: center; center items horizontally, in this case */
-    /* align-items: center;     center items vertically, in this case */
-    /* align-self: center; */
-    height: 50%;
-}
-
-
-.flex-item {
-    /* display: inline; */
-    /* width: 490px; */
-    /* margin: 25px; */
-    /* text-align: center; */
-    /* background-color: tomato;
-    padding: 5px;
-    width: 450;
-    height: 450px;
-    margin: 10px;
-    line-height: 20px; */
-    /* color: white;
-    font-weight: bold;
-    font-size: 2em; */
-    /* text-align: center; */
-}
-
-
-.artworkContainer {
-    /* position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 950px;
-    height: 400px;
-    background-color: #C9C2BB; */
-
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center; */
-}
-
-.artworkWrapper {
-    /* height: 100%; */
-    /* text-align: center;
-    background-color: #C9C2BB;
-    overflow:auto; */
-
-}
-
-.coverContainer {
-    /* width: 50px;
-    height: 50px;*/
-    /* float: left;
-    margin-right: 20px;
-    object-fit: contain; */
-    /* flex: 2; */
-}
-
-.tracklistContainer {
-    /* display: inline; */
-    /* float: right;
-    margin-left: 20px;
-    object-fit: contain;
-    flex: 2; */
-}
-
 .coverImage {
-    height: 490px;
-    width: 490px;
+    margin-right: 15px;
+    height: 100%;
+    width: auto;
 }
 
 .tracklistImage {
-    height: 490px;
-    width: 490px;
+    margin-left: 15px;
+    height: 100%;
+    width: auto;
 }

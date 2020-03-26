@@ -8,9 +8,7 @@ export default class Home extends Component {
     return (
     <div 
       style={{
-        msOverflowStyle: "none",
-        overflow: "scroll",
-        flexDirection: 'column',
+        
       }}
       className="Home">
         <NavigationHeader/>
