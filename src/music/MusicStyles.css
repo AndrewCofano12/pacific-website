@@ -3,28 +3,120 @@
     margin-left: 300px;
 }
 
-.filmPlayer {
+
+.musicBackground {
+    background-color: #C9C2BB;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.musicBackground::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+  
+
+.sliderContainer {
     width: 100%;
     height: 100%;
 }
 
+/* html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+} */
+
+.tryingToFixShit {
+width: 1000px;
+}
+
+
+.artworkWrapper {
+    position: relative;
+    top: 50%;
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;     /* make main axis horizontal (default setting) */
+    justify-content: center; /* center items horizontally, in this case */
+    align-items: center;     /* center items vertically, in this case */
+    height: 1000px;
+}
 
 .artworkContainer {
-    width: 600px;
-    height: 300px;
-    align-self: center;
+    width: auto;
+    border: 1px solid blue;
+    
+}
+.flex-item {
+    width: 490px;
+    margin: 25px;
+    text-align: center;
+    /* background-color: tomato;
+    padding: 5px;
+    width: 450;
+    height: 450px;
+    margin: 10px;
+    line-height: 20px; */
+    /* color: white;
+    font-weight: bold;
+    font-size: 2em; */
+    /* text-align: center; */
+}
+
+
+.artworkContainer {
+    /* position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 950px;
+    height: 400px;
+    background-color: #C9C2BB; */
+
     /* display: flex;
-    flex-direction: row; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; */
+}
+
+.artworkWrapper {
+    /* text-align: center;
+    background-color: #C9C2BB;
+    overflow:auto; */
+
 }
 
 .coverContainer {
-    float: left;
+    /* width: 50px;
+    height: 50px;*/
+    /* float: left;
     margin-right: 20px;
-    object-fit: contain; 
+    object-fit: contain; */
+    /* flex: 2; */
 }
 
 .tracklistContainer {
-    margin: 25px;
-    object-fit: contain;;
+    /* display: inline; */
+    /* float: right;
+    margin-left: 20px;
+    object-fit: contain;
+    flex: 2; */
 }
 
+.coverImage {
+    height: 490px;
+    width: 490px;
+}
+
+.tracklistImage {
+    height: 490px;
+    width: 490px;
+}
