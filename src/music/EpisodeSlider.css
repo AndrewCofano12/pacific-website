@@ -1,6 +1,6 @@
 .swipeableView {
     height: 100%;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     align-items: center;
 }
@@ -11,6 +11,15 @@
     border: 1px solid blue;
 }
 
+/* prevents image from being highlighted */
+.noselect {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 .react-swipeable-view-container {
     height: 100vh;
     align-items: center;
@@ -18,16 +27,13 @@
 
 .artworkWrapper {
     display: flex;
-    flex-direction: row;
+    background-color: inherit;
+    flex-direction: row;     /* make main axis horizontal (default setting) */
+    height: 40vh;
+    width: 100vw;
     justify-content: center;
-    height: 100%;
-    /* position: relative; */
-    /* top: 50%; */
-    /* background-color: inherit; */
-    /* display: flex; */
-    /* flex-direction: row;     make main axis horizontal (default setting) */
-    /* justify-content: center; center items horizontally, in this case */
-    /* align-items: center;     center items vertically, in this case */
-    /* align-self: center; */
-    /* height: 50%; */
+}
+
+.episodeSliderPagination {
+    align-self: center;
 }
