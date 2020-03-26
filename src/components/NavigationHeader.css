@@ -11,6 +11,7 @@
     background: transparent;
     align-self: center;
     width: 100%;
+    z-index: 10;
 }
 
 .siteLogo {
@@ -33,6 +34,17 @@
     color: #232323;
 }
 
+/* .pageSelected {
+    color: white
+}   
+.lightFormat {
+    color: white
+}    */
+
+.pageSelected.lightFormat{
+    color: white
+}   
+
 .navContainer {
     color: #606060;
     margin-top: 13px;
@@ -47,3 +59,17 @@
     text-decoration: none;
     color: #606060;
 }
+
+.siteLogo .lightFormat {
+    color: #FFFFFF
+}
+
+.navContainer .lightFormat {
+    color: #EAEAEA;
+}
+
+.pageNav .lightFormat {
+    color: #EAEAEA;
+}
+
+

@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
-import Iframe from 'react-iframe';
-import './MusicStyles.css';
-import ReactAudioPlayer from 'react-audio-player';
-
 
 export default class Music extends Component {
   render() {
     return (
-      <div className='filmPlayer'>
+      <div>
         <NavigationHeader/>
-          <div className="artworkContainer">
-<div className="coverContainer"> <img src={require("../images/ep2-front.jpg")} alt="fuck"
-              /></div>
-
-<div className="tracklistContainer">            <img src={require("../images/ep2-back.jpg")} alt="fuck"
-            />
-</div>
-          </div>
-          </div>
-
-          );
+        <text>music</text>
+      </div>
+    );
   }
 }
 
