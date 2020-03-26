@@ -21,8 +21,9 @@ export default class VideoPlayer extends Component {
         // })); 
         var options01 = {
             id: "https://player.vimeo.com/video/395326240?background=1&muted=0",
-            width: window.width,
-            height: window.height
+            width: window.innerWidth,
+            height: window.innerHeight,
+            background: true
           };
         //   var options02 = {
         //     url: {video02_url},
@@ -39,7 +40,7 @@ export default class VideoPlayer extends Component {
             console.log('Played the first video');
           });
 
-        //   video01Player.
+      
     }
 
     // updateTime() {
@@ -74,27 +75,7 @@ export default class VideoPlayer extends Component {
                 <div id="video01_name"></div>
             </div>
         );
-    //     return (
-    //         // <div className="videoPlayer">
-    //         <div class="video-background">
-    // <div class="video-foreground">
-    //             {/* <button onClick={() => this.fuck()}>Activitate</button> */}
-    //             {/* <text style={{position: "absolute"}}>{this.state.seconds}</text> */}
-    //             <iframe 
-    //             // position="absolute"
-    //                 title="video"
-    //                 src="https://player.vimeo.com/video/395326240?background=1&muted=0" 
-    //                 // width={window.width} 
-    //                 // height={window.height} 
-    //                 // left="0"
-    //                 // top="0"
-    //                 // right="auto"
-    //                 frameBorder="0" 
-    //                 allow="autoplay; fullscreen"/>
-    //         </div>
-    //         </div>
-            
-    //     );
+
     }
         
 }
