@@ -10,3 +10,64 @@
   display: none;
   width: 0;
 }
+
+.imageLoaderContainer {
+  position: absolute;
+  z-index: -1;
+}
+
+.contentContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  align-self: center;
+
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  z-index: 12;
+}
+
+.childContent {
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  
+}
+
+.mainLeftContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftContainerChild {
+  margin-bottom: auto;
+}
+
+.mainRightContainer {
+
+}
+
+.brandNameContainer {
+  text-align: left;
+}
+
+.brandLogoContainer {
+  width: 70px;
+  height: 50px;
+}
+
+#brandLogo {
+  width: 70px;
+  height: 50px;
+}
+
+.nameSubContainer {
+  
+}
+
+.nameSubChild {
+  width: 400px;
+  margin: 50px;
+}
