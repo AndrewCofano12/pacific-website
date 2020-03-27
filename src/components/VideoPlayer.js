@@ -12,6 +12,7 @@ export default class VideoPlayer extends Component {
         this.state = {seconds: 0,
           width: window.innerWidth,
           height: window.innerHeight,
+          volume: .5
         }
     }
 
@@ -33,8 +34,8 @@ export default class VideoPlayer extends Component {
       window.addEventListener("resize", this.handleResize.bind(this))
       var iframe = document.querySelector('iframe');
       this.player = new Vimeo(iframe)
+      this.player.setVolume(this.state.volume)
 
-      this.handlePlayPause(this.player)
       this.player.on('play', function() {
         console.log('Played the video');
       });
@@ -51,6 +52,18 @@ export default class VideoPlayer extends Component {
       });
     }
 
+    increaseVolume(player) {
+      var newVolume = this.state.volume +.05
+      this.setState({volume: newVolume})
+      player.setVolume(this.state.volume)
+    }
+
+    decreaseVolume(player) {
+      var newVolume = this.state.volume -.05
+      this.setState({volume: newVolume})
+      player.setVolume(this.state.volume)
+    }
+
     render() {
         return(
             <div style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
@@ -65,8 +78,12 @@ export default class VideoPlayer extends Component {
               webkitallowfullscreen 
               mozallowfullscreen 
               allowfullscreen
+              fullscreen
+              allow="autoplay"
               />
-              <button onClick={() => this.handlePlayPause(this.player)} style={{position: 'absolute', top: 40, left: 100}}>Click Me!</button>
+              <button onClick={() => this.handlePlayPause(this.player)} style={{position: 'absolute', top: 40, left: 100}}>Play/Pause</button>
+              <button onClick={() => this.increaseVolume(this.player)} style={{zIndex: 20, position: 'absolute', top: 80, left: 100}}>Increase Volume</button>
+              <button onClick={() => this.decreaseVolume(this.player)} style={{zIndex: 20, position: 'absolute', top: 120, left: 100}}>Decrease Volume</button>
                 {/* <div style={{height: this.state.height, width: this.state.width}} id="video01_name"></div> */}
             </div>
         );
