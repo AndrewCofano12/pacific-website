@@ -6,7 +6,8 @@ import Pagination from '../components/pagination/Pagination';
 export default class EpisodeSlider extends Component {
     state = {
         index: 0,
-        centerWidth: window.innerWidth
+        centerWidth: window.innerWidth,
+        color: ''
       };
 
     handleChangeIndex = index => {
@@ -22,7 +23,8 @@ export default class EpisodeSlider extends Component {
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <SwipeableViews className="swipeableView" enableMouseEvents={true} axis="x" 
                 index={index} 
-                onChangeIndex={this.handleChangeIndex}>
+                onChangeIndex={this.handleChangeIndex}
+                onSwitching={(index, type) =>  {if (index == 2) {this.setState({color: '#FFFFFF'})}}}>
                     <div style={Object.assign({})}>
                         <div className="artworkWrapper">
                             <img className="coverImage noselect" src={require("../images/ep2-front.jpg")} alt="fuck"/>
