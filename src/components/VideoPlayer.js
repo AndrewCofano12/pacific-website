@@ -10,7 +10,7 @@ export default class VideoPlayer extends Component {
   
   constructor(props) {
       super(props)
-      
+      this.myRef = React.createRef();
       let player 
       this.state = {
         seconds: 0,
@@ -33,7 +33,7 @@ export default class VideoPlayer extends Component {
     }
 
     hidePlayerControls() {
-      this.setState({ showPlayerControls: false, });
+      this.setState({ showPlayerControls: false });
     }
 
     hideWithTimer() {
@@ -59,6 +59,15 @@ export default class VideoPlayer extends Component {
 
     resetTimer() {
       this.setState({mouseTimer: 0})
+    }
+
+    formatTime(time) {
+      var minute = Math.floor(time / 60)
+      var seconds = Math.floor(time % 60)
+      if(seconds < 10) {
+        return minute + ":0" + seconds
+      }
+      return minute + ":" + seconds
     }
 
     bubbleIframeMouseMove(iframe){
@@ -103,15 +112,14 @@ export default class VideoPlayer extends Component {
 
     componentDidMount() {  
       this.handleResize()
-      var iframe = document.querySelector('iframe');
-        
+      var iframe = document.querySelector('iframe');  
+      var videoSeekbar = document.querySelector('progress'); 
       this.player = new Vimeo(iframe)
       window.addEventListener("resize", this.handleResize.bind(this))
       window.addEventListener("mousemove", this.showPlayerControls.bind(this))
-      window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
+      // window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
       this.player.setVolume(this.state.volume)
 
-      // var playerr = document.getE('video')
       this.player.on('timeupdate', (event) => {
         this.setState({playbackPosition: event.seconds})
       })
@@ -123,6 +131,18 @@ export default class VideoPlayer extends Component {
       this.player.on('play', function() {
         console.log('Played the video');
       });
+    }
+
+    componentDidUpdate() {
+      if(this.state.showPlayerControls) {
+        
+        document.getElementById("seekbar").addEventListener("click", (e) => {
+          var value_clicked = e.offsetX * this.max / this.offsetWidth;      
+          this.player.setCurrentTime(e.offsetX / (window.innerWidth - 160) * this.state.playbackLength) 
+          
+          
+        })
+      }
     }
 
 
@@ -171,12 +191,12 @@ export default class VideoPlayer extends Component {
               allow="autoplay"
               />
               {this.state.showPlayerControls ? (
-              <div style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 80, marginRight: 40, marginLeft: 40, bottom: 20}}>
-
-                <input id="seekbar" type="range" min="0" max={this.state.playbackLength} value={this.state.playbackPosition} class="seekbar" id="myRange"/>
-                {/* <button onClick={() => this.handlePlayPause(this.player)} style={{ top: 40, left: 100}}>Play/Pause</button>
-                <button onClick={() => this.increaseVolume(this.player)} style={{zIndex: 20, position: 'absolute', top: 80, left: 100}}>Increase Volume</button>
-                <button onClick={() => this.decreaseVolume(this.player)} style={{zIndex: 20, position: 'absolute', top: 120, left: 100}}>Decrease Volume</button> */}
+              <div>
+                <div style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 160, marginRight: 80, marginLeft: 80, bottom: 60}}>
+                  <text className="playbackTime" style={{color: '#d3d3d3'}}>{this.formatTime(this.state.playbackPosition)}</text>
+                  <text className="playbackTime" style={{position: 'absolute', right: '0', color: '#d3d3d3'}}>{this.formatTime(this.state.playbackLength)}</text>
+                  <progress ref={this.myRef} id="seekbar" className="seekbar" value={this.state.playbackPosition} max={this.state.playbackLength}/>
+                </div>
               </div>
               ) : null}
             </div>

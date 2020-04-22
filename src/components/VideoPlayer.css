@@ -6,27 +6,19 @@
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
-    height: 5px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
+    height: 2.5px; /* Specified height */
+    background: #a6a6a6; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .5s; /* 0.2 seconds transition on hover */
     transition: opacity .5s;
+    cursor: pointer;
 }
 
-
-.seekbar::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 5px; /* Set a specific slider handle width */
-    height: 5px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-.seekbar::-moz-range-thumb {
-width: 5px; /* Set a specific slider handle width */
-height: 5px; /* Slider handle height */
-background: #4CAF50; /* Green background */
-cursor: pointer; /* Cursor on hover */
+.playbackTime {
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
 }
+
+progress::-moz-progress-bar { background: #cccccc; }
+progress::-webkit-progress-value { background: #cccccc; }
