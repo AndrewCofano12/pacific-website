@@ -12,7 +12,7 @@ export default class Music extends Component {
     
     return (
       <div className="musicBackground">
-        <NavigationHeader/>
+        <NavigationHeader formatString="lightFormat" page="music"/>
         <EpisodeSlider/>
         {/* <div className="sliderContainer">
           <SimpleSlider/>

@@ -20,12 +20,16 @@ const styles = {
   },
   active: {
     backgroundColor: '#FFFFFF',
+    height: 8,
+    width: 8,
+    borderRadius: 6,
+    margin: 3,
   },
 };
 
 class PaginationDot extends React.Component {
   handleClick = event => {
-    // this.props.onClick(event, this.props.index);
+    this.props.onClick(event, this.props.index);
   };
 
   render() {
