@@ -7,30 +7,30 @@ export default function NavigationHeader(props) {
   <div className="navigationWrapper textFormat">
     <div className="navigationHeaderContainer">
       <div className="siteLogoContainer">
-        <div className={`siteLogo ${props.formatString}`}>
-          <Link to="/" className={'siteLogo'}>
+        <div className={`siteLogo`}>
+          <Link to="/" className={`siteLogo ${props.formatString}`}>
               pacific
           </Link>
         </div>
-        <div className={`navContainer ${props.formatString}`}>
-          <span className={`pageNav musicNav ${props.page === "music" ? "pageSelected" : ""} ${props.formatString}`} >
-            <Link to="/music" className={'pageNav'}>
+        <div className={`navContainer`}>
+          <span className={`pageNavContainer musicNav`} >
+            <Link to="/music" className={` ${props.page == "music" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
               music
             </Link>
           </span>
-          <span className="navSeparator">
+          <span className={`navSeparator ${props.formatString}`}>
                 /
           </span>
-          <span className={`pageNav journalNav ${props.page === "journal" ? "pageSelected" : ""} ${props.formatString}`}>
-            <Link to="/journal" className={'pageNav'}>
+          <span className={`pageNavContainer journalNav`}>
+            <Link to="/journal" className={` ${props.page == "journal" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
               journal
             </Link>
           </span>
-          <span className="navSeparator">
+          <span className={`navSeparator ${props.formatString}`}>
                 /
           </span>
-          <span className={`pageNav filmsNav ${props.page === "films" ? "pageSelected" : ""} ${props.formatString}`}>
-            <Link to="/films" className={'pageNav'}>
+          <span className={`pageNavContainer filmsNav`}>
+            <Link to="/films" className={` ${props.page == "films" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
               films
             </Link>
           </span>                

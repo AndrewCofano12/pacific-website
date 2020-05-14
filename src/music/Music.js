@@ -4,7 +4,6 @@ import Iframe from 'react-iframe';
 import './MusicStyles.css';
 import ReactAudioPlayer from 'react-audio-player';
 import EpisodeSlider from './EpisodeSlider';
-import SimpleSlider from './SimpleSlider';
 
 
 export default class Music extends Component {
@@ -12,7 +11,7 @@ export default class Music extends Component {
     
     return (
       <div className="musicBackground">
-        <NavigationHeader/>
+        <NavigationHeader formatString="lightFormat" page="music"/>
         <EpisodeSlider/>
         {/* <div className="sliderContainer">
           <SimpleSlider/>

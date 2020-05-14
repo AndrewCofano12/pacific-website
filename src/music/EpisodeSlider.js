@@ -3,57 +3,73 @@ import SwipeableViews from 'react-swipeable-views';
 import './EpisodeSlider.css'
 import Pagination from '../components/pagination/Pagination';
 import { handleColorOnSliderChange } from '../jslibrary.js'
+import _ from 'lodash'
+import AwesomeDebouncePromise from 'awesome-debounce-promise'
+import { useAsync } from 'react-async-hook'
+import { useConstant } from 'use-constant'
 
 export default class EpisodeSlider extends Component {
-    state = {
-        index: 0,
-        centerWidth: window.innerWidth,
-        color: ''
-      };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0,
+            centerWidth: window.innerWidth,
+            color: '',
+            lastScrollTop: 0,
+            scrolling: false,
+            timer: 0
+        };
+        this.scrollDebounce = true
+    }
+    
     handleChangeIndex = index => {
-        this.setState({
-          index,
-        });
-      };
-
-    handleChange = (event, value) => {
-        console.log("HERE")
-        this.setState({
-            index: value + 1,
-        });
-
-        console.log(this.state)
+        this.setState({index});
     };
-
-
-    componentDidMount() {  
-        
-        window.addEventListener("scroll", this.handleChange.bind(this))
+    
+    nextPage() {
+        console.log("nextPage")
+        if(this.state.index < 5){
+            this.setState({
+                index: this.state.index + 1,
+            });
+        }
     }
 
+    previousPage() {
+        console.log("previousPage")
+        if(this.state.index > 0){
+            this.setState({
+                index: this.state.index - 1,
+            });
+        }
+    }
+
+    detectUpOrDownScroll(e) {
+        if (this.scrollDebounce) {            
+            this.scrollDebounce = false
+            setTimeout(() => {this.scrollDebounce = true}, 1000)
+            if (e.deltaY > 0) {
+                this.nextPage()
+                this.scrollAccumulator = 0
+            } else if (e.deltaY < 0) {
+                this.previousPage();
+                this.scrollAccumulator = 0
+            }
+        }
+    }
 
     render() {
-    //     var lastScrollTop = 0;
-    //   // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-    //   element.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-    //      var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-    //      if (st > lastScrollTop){
-            
-    //      } else {
-    //         // upscroll code
-    //      }
-    //      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    //   }, false);
-        const { index } = this.state.index;
+        const { index } = this.state
 
         return (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <SwipeableViews className="swipeableView" enableMouseEvents={true} axis="x" 
+            <div style={{display: 'flex', justifyContent: 'center'}} 
+             className="EpisodeSlider"
+             onWheel = {(e) => {this.detectUpOrDownScroll(e)}}>
+
+                <SwipeableViews className="swipeableView" enableMouseEvents={true}
                 draggable={false}
                 index={index} 
-                ignoreNativeScroll={true}
-                enableMouseEvents={true}
+                ignoreNativeScroll={true}  
                 onChangeIndex={this.handleChangeIndex}
                 onSwitching={(index, type) =>  {handleColorOnSliderChange(index)}}>
                     <div style={Object.assign({})}>
@@ -74,8 +90,28 @@ export default class EpisodeSlider extends Component {
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
                     </div>
+
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+
                 </SwipeableViews>
-                <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex} />                
+                <Pagination dots={6} index={index} onChangeIndex={this.handleChangeIndex} />                
             </div>
     );
 }}

@@ -27,7 +27,7 @@ export default class Home extends Component {
 
               </div>
               <div className="grid-item">
-                <div className="brandName brandChild">
+                <div className="brandNametext brandChild">
                   pacific
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default class Home extends Component {
             <div className="rightGridContainer">
               <div className="grid-item">
                 <div className="brandLogoContainer">
-                    <img id="brandLogo" src={require("../images/squiggles.png")} alt="fuck"/>
+                    <img id="brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
                   </div>
               </div>
               <div className="grid-item logoSub logoSubChild">
