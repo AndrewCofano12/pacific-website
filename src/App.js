@@ -13,16 +13,10 @@ import Music from './music/Music';
 import Home from './home/Home';
 import HomeMobile from './components-mobile/HomeMobile';
 import Films from './films/Films'
+
 require('typeface-questrial')
 
 export default class App extends Component {
-
-  componentDidMount() {
-    
-  }
-
-
-
 
   render() {
     return (
@@ -43,25 +37,6 @@ export default class App extends Component {
             </Route>
           </BrowserView>
           </Switch>
-          <Switch>
-            <MobileView>
-              <Route path="/music">
-                <Music/>
-              </Route>
-              <Route path="/films">
-                <Films />
-              </Route>
-              <Route path="/journal">
-                <Journal/>
-              </Route>
-              <Route exact path="/">
-                <HomeMobile />
-              </Route>
-
-
-
-            </MobileView>
-           </Switch>
       </div>
     );
   }
