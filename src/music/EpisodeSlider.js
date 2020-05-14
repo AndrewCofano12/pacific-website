@@ -5,55 +5,71 @@ import Pagination from '../components/pagination/Pagination';
 import { handleColorOnSliderChange } from '../jslibrary.js'
 
 export default class EpisodeSlider extends Component {
-    state = {
-        index: 0,
-        centerWidth: window.innerWidth,
-        color: ''
-      };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0,
+            centerWidth: window.innerWidth,
+            color: '',
+            lastScrollTop: 0,
+            scrolling: false,
+            timer: 0
+        };
+        this.scrollDebounce = true
+    }
+    
     handleChangeIndex = index => {
-        this.setState({
-          index,
-        });
-      };
-
-    handleChange = (event, value) => {
-        console.log("HERE")
-        this.setState({
-            index: value + 1,
-        });
-
-        console.log(this.state)
+        this.setState({index});
     };
 
-
-    componentDidMount() {  
-        
-        window.addEventListener("scroll", this.handleChange.bind(this))
+    nextPage() {
+        console.log("nextPage")
+        if(this.state.index < 2){
+            this.setState({
+                index: this.state.index + 1,
+            });
+        }
     }
 
+    previousPage() {
+        console.log("previousPage")
+        if(this.state.index > 0){
+            this.setState({
+                index: this.state.index - 1,
+            });
+        }
+    }
+
+    detectUpOrDownScroll() {
+        console.log("detectUpOrDownScroll")
+        if(this.scrollDebounce) {
+            this.scrollDebounce = false
+            setTimeout(() => {this.scrollDebounce = true}, 500)
+            console.log("detectUpOrDownScroll")
+            var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > this.state.lastScrollTop){
+                this.nextPage()   
+            } else {
+                this.previousPage()   
+            }
+        }
+        
+    }
+
+    componentDidMount() {  
+        window.addEventListener("scroll", () => this.detectUpOrDownScroll(), false)
+    }
 
     render() {
-    //     var lastScrollTop = 0;
-    //   // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-    //   element.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-    //      var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-    //      if (st > lastScrollTop){
-            
-    //      } else {
-    //         // upscroll code
-    //      }
-    //      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    //   }, false);
-        const { index } = this.state.index;
+        const { index } = this.state
 
         return (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <SwipeableViews className="swipeableView" enableMouseEvents={true} axis="x" 
+            <div style={{display: 'flex', justifyContent: 'center'}} className="EpisodeSlider">
+                <SwipeableViews className="swipeableView" enableMouseEvents={true}
                 draggable={false}
                 index={index} 
                 ignoreNativeScroll={true}
-                enableMouseEvents={true}
+                
                 onChangeIndex={this.handleChangeIndex}
                 onSwitching={(index, type) =>  {handleColorOnSliderChange(index)}}>
                     <div style={Object.assign({})}>

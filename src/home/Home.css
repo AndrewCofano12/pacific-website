@@ -108,16 +108,15 @@
 
 
 
-.brandName {
-  text-align: left;
-  font-size: 55px;
+#brandLogoImage {
+  width: 160px;
+  height: 42px;
 }
 
-#brandLogo {
-  width: 188px;
-  height: 47px;
-}
 
+.brandLogoContainer {
+  display: flex;
+}
 
 
 
@@ -141,9 +140,9 @@
   
 }
 
-.brandName {
+.brandNametext {
+  font-size: 50px;
   text-align: left;
-  font-size: 55px;
 }
 
 /* 

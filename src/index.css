@@ -1,5 +1,17 @@
 body {
-  margin: 0;
+  /* margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: #00000000;  
+  overflow: auto;
+  line-height: normal; */
+}
+
+html, body {
+  /* margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -8,20 +20,36 @@ body {
   scrollbar-color: #00000000;  
   overflow: auto;
   line-height: normal;
-}
 
-html {
-  overflow: scroll;
+
   overflow-x: hidden;
-  overscroll-behavior-x: none; /* Prevents back swipe on chrome */
+  overscroll-behavior-x: none; 
   overscroll-behavior-y: none;
   overflow-y: scroll;
   scrollbar-width: none;
-  /* overflow: hidden; */
+  overflow: hidden; */
+
+  /* overscroll-behavior-x: none;
+  overscroll-behavior-y: none; 
+
+  height: 100%;
+  width: 100%;
+  overflow: auto; */
+
+  /* overscroll-behavior-x: none; */
+  /* scrollbar-color: #00000000;   */
+  overscroll-behavior-x: none;
 }
+
+/* height: 100%;
+  width: 100%;
+  overflow: auto; */
+
 ::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  /* Remove scrollbar space */
+  /* width: 0px;   */
+  /* Optional: just make scrollbar invisible  */
+  /* background: transparent;   */
 }
 
 code {

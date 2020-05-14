@@ -43,25 +43,6 @@ export default class App extends Component {
             </Route>
           </BrowserView>
           </Switch>
-          <Switch>
-            <MobileView>
-              <Route path="/music">
-                <Music/>
-              </Route>
-              <Route path="/films">
-                <Films />
-              </Route>
-              <Route path="/journal">
-                <Journal/>
-              </Route>
-              <Route exact path="/">
-                <HomeMobile />
-              </Route>
-
-
-
-            </MobileView>
-           </Switch>
       </div>
     );
   }
