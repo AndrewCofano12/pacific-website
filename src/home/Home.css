@@ -1,223 +1,223 @@
 .Home {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none;
-  overflow: scroll;
-  flex-direction: column;
-}
-
-.Home::-webkit-scrollbar {
-  display: none;
-  width: 0;
-}
-
-.imageLoaderContainer {
-  position: absolute;
-  z-index: -1;
-}
-
-.contentContainer {
-  position: fixed;
-
-  display: flex;
-  flex-direction: row;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    overflow: scroll;
+    flex-direction: column;
+  }
   
-  height: 100vh;
-  width: 100vw;
-  /* align-self: baseline; */
-  font-family: 'Questrial', sans-serif;
-  color: white;
-  z-index: 12;
-}
-
-
-.childContent {
-  width: 50%;
-  /* height: 500px; */
-  position: relative;
-  margin-top: auto;
-}
-
-
-.leftGridContainer {
-  /* position: absolute; */
-  bottom: 0;
-  display: grid;
-
-  /* grid-template-columns: auto auto auto auto; */
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-column-gap: 80px;
-  grid-row-gap: 416px;
-  margin-left: 80px;
-
-  align-items: end;
-  align-self: baseline;
-}
-
-.rightGridContainer {
-  /*position: absolute; */
-  bottom: 0;
-  display: grid;
-
-  /* grid-template-columns: auto auto auto auto; */
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-column-gap: 80px;
-  grid-row-gap: 416px;
-  /* text-align: center; */
-  align-items: end;
-  align-self: baseline;
-  margin-left: auto;
-  margin-right: auto;
-  width: -webkit-fit-content;
-}
-
-
-.grid-item {
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  font-size: 30px;
-  width: 100%;
-  height: 100%;
-  vertical-align: text-top;
-  min-width: 120px;
-}
-
-
-.nameSubChild {
-  font-size:16px;
-  text-align: left;
-  height: 200px;
-
-}
-
-
-.logoSubChild {
-  font-family: 'Questrial', sans-serif;
-
-  font-size: 16px;
-  height: 200px;
-
-}
-
-.homePageNav {
-  text-decoration: none;
-  color: white;
-}
-
-
-
-#brandLogoImage {
-  width: 160px;
-  height: 42px;
-}
-
-
-.brandLogoContainer {
-  display: flex;
-}
-
-
-
-.mainLeftContainer {
-  display: flex;
-  flex-direction: column;
-  margin-left: 80px;
-}
-
-.leftContainerChild {
-  margin-bottom: auto;
-}
-
-.mainRightContainer {
-
-}
-
-.brandNameContainer {
-  display: flex;
-  flex-direction: row;
+  .Home::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
   
-}
-
-.brandNametext {
-  font-size: 50px;
-  text-align: left;
-}
-
-/* 
-.brandNameContainer {
-  text-align: left top;
-  font-size: 55px;
-  margin-right: auto;
-  margin-left: 40px;
-  height: 100%;
-  margin-bottom: 415px; */
-  /* margin-left: 355px;
+  .imageLoaderContainer {
+    position: absolute;
+    z-index: -1;
+  }
   
-}
-
-
-@media only screen and (max-width: 1200px) {
-  .brandNameContainer {
-    margin-inline-start: 197px;
-
+  .contentContainer {
+    position: fixed;
+  
+    display: flex;
+    flex-direction: row;
     
+    height: 100vh;
+    width: 100vw;
+    /* align-self: baseline; */
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    z-index: 12;
   }
-} */
-.brandChild {
-  min-width: 120px;
-  width: auto;
-}
-
-#leftBrandChild {
-  margin-right: auto;
-}
-#rightBrandChild {
-  margin-right: auto;
-}
-
-.namePadding {
-  min-width: 250px; 
-  margin-right: auto;
-}
-
-.nameSubContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.contactInfoCopy {
-  display: none;
-}
-
-@media only screen and (max-width: 1200px) {
+  
+  
   .childContent {
-    margin-top: 0px;
-
+    width: 50%;
+    /* height: 500px; */
+    position: relative;
+    margin-top: auto;
   }
-
-
+  
+  
   .leftGridContainer {
+    /* position: absolute; */
+    bottom: 0;
+    display: grid;
+  
+    /* grid-template-columns: auto auto auto auto; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 80px;
+    grid-row-gap: 416px;
+    margin-left: 80px;
+  
+    align-items: end;
+    align-self: baseline;
+  }
+  
+  .rightGridContainer {
+    /*position: absolute; */
+    bottom: 0;
+    display: grid;
+  
+    /* grid-template-columns: auto auto auto auto; */
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-row-gap: 25px;
-    margin-left: 50px;
-
+    grid-column-gap: 80px;
+    grid-row-gap: 416px;
+    /* text-align: center; */
+    align-items: end;
+    align-self: baseline;
+    margin-left: auto;
+    margin-right: auto;
+    width: -webkit-fit-content;
   }
-
-  .rightChild {
+  
+  
+  .grid-item {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    vertical-align: text-top;
+    min-width: 120px;
+  }
+  
+  
+  .nameSubChild {
+    font-size:16px;
+    text-align: left;
+    height: 200px;
+  
+  }
+  
+  
+  .logoSubChild {
+    font-family: 'Questrial', sans-serif;
+  
+    font-size: 16px;
+    height: 200px;
+  
+  }
+  
+  .homePageNav {
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  
+  #brandLogoImage {
+    width: 160px;
+    height: 42px;
+  }
+  
+  
+  .brandLogoContainer {
+    display: flex;
+  }
+  
+  
+  
+  .mainLeftContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+  }
+  
+  .leftContainerChild {
+    margin-bottom: auto;
+  }
+  
+  .mainRightContainer {
+  
+  }
+  
+  .brandNameContainer {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .brandNametext {
+    font-size: 50px;
+    text-align: left;
+  }
+  
+  /* 
+  .brandNameContainer {
+    text-align: left top;
+    font-size: 55px;
+    margin-right: auto;
+    margin-left: 40px;
+    height: 100%;
+    margin-bottom: 415px; */
+    /* margin-left: 355px;
+    
+  }
+  
+  
+  @media only screen and (max-width: 1200px) {
+    .brandNameContainer {
+      margin-inline-start: 197px;
+  
+      
+    }
+  } */
+  .brandChild {
+    min-width: 120px;
+    width: auto;
+  }
+  
+  #leftBrandChild {
+    margin-right: auto;
+  }
+  #rightBrandChild {
+    margin-right: auto;
+  }
+  
+  .namePadding {
+    min-width: 250px; 
+    margin-right: auto;
+  }
+  
+  .nameSubContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .contactInfoCopy {
     display: none;
   }
-
-  .nameSubChild {
-    height: auto;
-
+  
+  @media only screen and (max-width: 1200px) {
+    .childContent {
+      margin-top: 0px;
+  
+    }
+  
+  
+    .leftGridContainer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 25px;
+      margin-left: 50px;
+  
+    }
+  
+    .rightChild {
+      display: none;
+    }
+  
+    .nameSubChild {
+      height: auto;
+  
+    }
+  
+    .contactInfoCopy {
+      display: block;
+    }
+  
+  
   }
-
-  .contactInfoCopy {
-    display: block;
-  }
-
-
-}

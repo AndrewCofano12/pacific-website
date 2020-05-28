@@ -3,6 +3,10 @@ import SwipeableViews from 'react-swipeable-views';
 import './EpisodeSlider.css'
 import Pagination from '../components/pagination/Pagination';
 import { handleColorOnSliderChange } from '../jslibrary.js'
+import _ from 'lodash'
+import AwesomeDebouncePromise from 'awesome-debounce-promise'
+import { useAsync } from 'react-async-hook'
+import { useConstant } from 'use-constant'
 
 export default class EpisodeSlider extends Component {
     constructor(props) {
@@ -21,10 +25,10 @@ export default class EpisodeSlider extends Component {
     handleChangeIndex = index => {
         this.setState({index});
     };
-
+    
     nextPage() {
         console.log("nextPage")
-        if(this.state.index < 2){
+        if(this.state.index < 5){
             this.setState({
                 index: this.state.index + 1,
             });
@@ -40,36 +44,32 @@ export default class EpisodeSlider extends Component {
         }
     }
 
-    detectUpOrDownScroll() {
-        console.log("detectUpOrDownScroll")
-        if(this.scrollDebounce) {
+    detectUpOrDownScroll(e) {
+        if (this.scrollDebounce) {            
             this.scrollDebounce = false
-            setTimeout(() => {this.scrollDebounce = true}, 500)
-            console.log("detectUpOrDownScroll")
-            var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-            if (st > this.state.lastScrollTop){
-                this.nextPage()   
-            } else {
-                this.previousPage()   
+            setTimeout(() => {this.scrollDebounce = true}, 1000)
+            if (e.deltaY > 0) {
+                this.nextPage()
+                this.scrollAccumulator = 0
+            } else if (e.deltaY < 0) {
+                this.previousPage();
+                this.scrollAccumulator = 0
             }
         }
-        
-    }
-
-    componentDidMount() {  
-        window.addEventListener("scroll", () => this.detectUpOrDownScroll(), false)
     }
 
     render() {
         const { index } = this.state
 
         return (
-            <div style={{display: 'flex', justifyContent: 'center'}} className="EpisodeSlider">
+            <div style={{display: 'flex', justifyContent: 'center'}} 
+             className="EpisodeSlider"
+             onWheel = {(e) => {this.detectUpOrDownScroll(e)}}>
+
                 <SwipeableViews className="swipeableView" enableMouseEvents={true}
                 draggable={false}
                 index={index} 
-                ignoreNativeScroll={true}
-                
+                ignoreNativeScroll={true}  
                 onChangeIndex={this.handleChangeIndex}
                 onSwitching={(index, type) =>  {handleColorOnSliderChange(index)}}>
                     <div style={Object.assign({})}>
@@ -90,8 +90,28 @@ export default class EpisodeSlider extends Component {
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
                     </div>
+
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+                    <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
+                        <div className="artworkWrapper">
+                            <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
+                            <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
+                        </div>
+                    </div>
+
                 </SwipeableViews>
-                <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex} />                
+                <Pagination dots={6} index={index} onChangeIndex={this.handleChangeIndex} />                
             </div>
     );
 }}
