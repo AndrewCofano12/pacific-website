@@ -13,16 +13,10 @@ import Music from './music/Music';
 import Home from './home/Home';
 import HomeMobile from './components-mobile/HomeMobile';
 import Films from './films/Films'
+
 require('typeface-questrial')
 
 export default class App extends Component {
-
-  componentDidMount() {
-    
-  }
-
-
-
 
   render() {
     return (

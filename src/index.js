@@ -5,11 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
 var doc = document.getElementById('root')
+var scroll = function(e) {
+    // compute state
+    
+}
 doc.addEventListener(
-    'touchmove',
-    function(e) {
-    e.preventDefault();
-    },
+    'mousewheel',
+    scroll,
     false
     );
 ReactDOM.render(
