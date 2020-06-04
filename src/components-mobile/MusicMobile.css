@@ -1,0 +1,55 @@
+.episodeSection {
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.episodeContainer {
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-bottom: -30px;
+}
+
+.artworkWrapper {
+    width: auto;
+    height: 40vh;
+
+}
+
+.linkContainer {
+    padding-top: 50px;
+    text-align: center;
+    font-family: 'questrial', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    height: inherit;
+    width: inherit;
+}
+
+.episodeSectionContainer {
+    position: relative;
+    display: flex;
+    background-color: inherit;
+    flex-direction: column;
+
+    width: 100%; 
+    height: 100%;
+}
+
+.colorBackgroundContainer {
+    height: 5px;
+}

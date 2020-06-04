@@ -2,219 +2,84 @@
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     -ms-overflow-style: none;
-    overflow: scroll;
     flex-direction: column;
+    height: 100% !important;
   }
+
   
   .Home::-webkit-scrollbar {
     display: none;
-    height: 0;
   }
   
   .imageLoaderContainer {
     position: absolute;
     z-index: -1;
   }
-  
-  .contentContainer {
-    position: fixed;
-  
-    display: flex;
-    flex-direction: row;
-    
-    height: 100%;
-    width: 100%;
-    /* align-self: baseline; */
-    font-family: 'Questrial', sans-serif;
-    color: white;
-    z-index: 12;
-  }
-  
-  
-  .childContent {
-    width: 50%;
-    /* height: 500px; */
-    position: relative;
-    margin-top: auto;
-  }
-  
-  
-  .leftGridContainer {
-    /* position: absolute; */
-    bottom: 0;
-    display: grid;
-  
-    /* grid-template-columns: auto auto auto auto; */
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-column-gap: 80px;
-    grid-row-gap: 416px;
-    margin-left: 80px;
-  
-    align-items: end;
-    align-self: baseline;
-  }
-  
-  .rightGridContainer {
-    /*position: absolute; */
-    bottom: 0;
-    display: grid;
-  
-    /* grid-template-columns: auto auto auto auto; */
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-column-gap: 80px;
-    grid-row-gap: 416px;
-    /* text-align: center; */
-    align-items: end;
-    align-self: baseline;
-    margin-left: auto;
-    margin-right: auto;
-    width: -webkit-fit-content;
-  }
-  
-  
-  .grid-item {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
-    font-size: 30px;
-    width: 100%;
-    height: 100%;
-    vertical-align: text-top;
-    min-width: 120px;
-  }
-  
-  
-  .nameSubChild {
-    font-size:16px;
-    text-align: left;
-    height: 200px;
-  
-  }
-  
-  
-  .logoSubChild {
-    font-family: 'Questrial', sans-serif;
-  
-    font-size: 16px;
-    height: 200px;
-  
-  }
-  
-  .homePageNav {
-    text-decoration: none;
-    color: white;
-  }
-  
-  
-  
-  .brandName {
-    text-align: left;
-    font-size: 50px;
-  }
-  
-  #brandLogo {
-    width: 188px;
-    height: 47px;
-  }
-  
-  
-  
-  
-  .mainLeftContainer {
-    display: flex;
-    flex-direction: column;
-    margin-left: 80px;
-  }
-  
-  .leftContainerChild {
-    margin-bottom: auto;
-  }
-  
-  .mainRightContainer {
-  
-  }
-  
-  .brandNameContainer {
-    display: flex;
-    flex-direction: row;
-    
+
+  .spacerContainer {
+    height: 146px;
   }
 
   
-  /* 
-  .brandNameContainer {
-    text-align: left top;
-    font-size: 55px;
-    margin-right: auto;
+  .brandContainer {
+    /* position: -webkit-sticky;
+    position: sticky;
+    z-index: unset; */
+
+
+    margin-left: 38px;
+  } 
+
+
+  .sticky {
+    position: fixed;
+    top: 50px;
+  }
+
+
+
+  .sticky + .subContainer {
+    padding-top: 52px;
+  }
+  .subContainer {
     margin-left: 40px;
-    height: 100%;
-    margin-bottom: 415px; */
-    /* margin-left: 355px;
+    margin-top: 110px;
+  }
+
+  .brandName {
+    text-align: left;
+    font-size: 50px;
+    font-family: 'Questrial';
+    color: white;
     
   }
-  
-  
-  @media only screen and (max-width: 1200px) {
-    .brandNameContainer {
-      margin-inline-start: 197px;
-  
-      
-    }
-  } */
-  .brandChild {
-    min-width: 120px;
-    width: auto;
+
+  .nameSubChild {
+    font-size:16px;
+    text-align: left;
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    width: 70%;
+    margin-bottom: 25px;
+   
   }
   
-  #leftBrandChild {
-    margin-right: auto;
+
+  .subTitle {
+    margin-bottom: 5px;
   }
-  #rightBrandChild {
-    margin-right: auto;
+
+  .emailLink {
+    text-decoration: none;
+    color: white;
   }
-  
-  .namePadding {
-    min-width: 250px; 
-    margin-right: auto;
+
+  .socialLink {
+    text-decoration: none;
+    color: white;
   }
-  
-  .nameSubContainer {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .contactInfoCopy {
-    display: none;
-  }
-  
-  @media only screen and (max-width: 1200px) {
-    .childContent {
-      margin-top: 0px;
-  
-    }
-  
-  
-    .leftGridContainer {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      grid-row-gap: 25px;
-      margin-left: 50px;
-  
-    }
-  
-    .rightChild {
-      display: none;
-    }
-  
-    .nameSubChild {
-      height: auto;
-  
-    }
-  
-    .contactInfoCopy {
-      display: block;
-    }
-  
-  
+
+  .homePageNav {
+    text-decoration: none;
+    color: white;
   }

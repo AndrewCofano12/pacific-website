@@ -26,10 +26,10 @@ export default class ImageLoaderMobile extends Component {
                 display: "flex",
                 flexDirection: "column",
                 overflowy: "scroll",
-                overflowx: "hidden",
+                overflowx: "none",
                 height: this.state.height, 
-                width: "100%",
-                height: "100%"}}
+                width: this.state.width,
+   }}
                 className="ImageLoader"
             >
                 <img style={{
@@ -37,26 +37,8 @@ export default class ImageLoaderMobile extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-                    height: "100%", 
-                    width: "auto"
-                }} 
-                src={require("../images/1.jpg")} alt="fuck"/>
-                <img style={{
-                    top: 0,
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    height: "100%", 
-                    width: "auto"
-                }} 
-                src={require("../images/2.jpg")} alt="fuck"/>
-                <img style={{
-                    top: 0,
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    height: "100%", 
-                    width: "auto"
+                    height: "auto", 
+                    width: "100%"
                 }} 
                 src={require("../images/3.jpg")} alt="fuck"/>
                 <img style={{
@@ -64,10 +46,28 @@ export default class ImageLoaderMobile extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-                    height: "100%", 
-                    width: "auto"
+                    height: "auto", 
+                    width: "100%"
                 }} 
                 src={require("../images/4.jpg")} alt="fuck"/>
+                <img style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "auto", 
+                    width: "100%"
+                }} 
+                src={require("../images/2.jpg")} alt="fuck"/>
+                <img style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "auto", 
+                    width: "100%"
+                }} 
+                src={require("../images/1.jpg")} alt="fuck"/>
             </div>
         )
     }

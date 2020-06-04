@@ -24,24 +24,29 @@ export default class EpisodeSlider extends Component {
     
     handleChangeIndex = index => {
         this.setState({index});
+        handleColorOnSliderChange(index)
     };
     
     nextPage() {
         console.log("nextPage")
+        var index = this.state.index;
         if(this.state.index < 5){
             this.setState({
                 index: this.state.index + 1,
             });
         }
+        handleColorOnSliderChange(index + 1)
     }
 
     previousPage() {
         console.log("previousPage")
+        var index = this.state.index;
         if(this.state.index > 0){
             this.setState({
                 index: this.state.index - 1,
             });
         }
+        handleColorOnSliderChange(index - 1)
     }
 
     detectUpOrDownScroll(e) {
