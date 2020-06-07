@@ -34,3 +34,6 @@
     transform: translate(-50%, -50%);
 }
   
+.pageNav {
+    text-decoration: none;
+}

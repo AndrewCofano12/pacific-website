@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import JournalElement from './JournalElement'
 import NavigationHeader from '../components/NavigationHeader';
 
+
 export default class Journal extends Component {
+
   render() {
     return (
       <div>
@@ -20,6 +22,7 @@ export default class Journal extends Component {
           <JournalElement imgSrc={'sf.jpeg'} title={`my city's filthy`} shotBy={'andrew cofano'}/>
           <JournalElement imgSrc={'palms.jpeg'} title={'back in the OC'} shotBy={'costin pirvu'}/>
         </div>
+
       </div>
     );
   }

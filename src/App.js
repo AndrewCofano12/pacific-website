@@ -11,8 +11,9 @@ import {
 import Journal from './journal/Journal';
 import Music from './music/Music';
 import Home from './home/Home';
-import HomeMobile from './components-mobile/HomeMobile';
+//import HomeMobile from './components-mobile/HomeMobile';
 import Films from './films/Films'
+import JournalEntry from './journal/JournalEntry';
 
 require('typeface-questrial')
 
@@ -34,6 +35,9 @@ export default class App extends Component {
             </Route>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/journal/summer">
+              <JournalEntry />
             </Route>
           </BrowserView>
           </Switch>

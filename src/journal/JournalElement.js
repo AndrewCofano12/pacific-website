@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './JournalElement.css';
+import { Link } from 'react-router-dom';  
+
 require('typeface-questrial')
 
 
@@ -13,6 +15,7 @@ export default class JournalElement extends Component {
         width: '69%',
       }}
       className="JournalContainer">
+        <Link to="/journal/summer" class="pageNav">
         <img style={{
                     maxWidth: '100%',
                     height: "auto", 
@@ -24,6 +27,8 @@ export default class JournalElement extends Component {
               <text className="Text">shot by {this.props.shotBy}</text>
             
           </div>
+
+          </Link>
       </div>
     );
   }
