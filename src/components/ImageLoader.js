@@ -27,11 +27,13 @@ export default class ImageLoader extends Component {
                 flexDirection: "row",
                 overflow: "scroll",
                 height: this.state.height, 
-                width: "auto",
-                maxWidth: "100%"}}
+                minwidth: this.state.width,
+                maxWidth: "100%"
+            }}
                 className="ImageLoader"
             >
-                <img style={{
+                <img className="backgroundPhoto"
+                style={{
                     top: 0,
                     bottom: 0,
                     right: 0,
@@ -39,8 +41,9 @@ export default class ImageLoader extends Component {
                     height: "100%", 
                     width: "auto"
                 }} 
-                src={require("../images/1.jpg")} alt="fuck"/>
-                <img style={{
+                src={require("../images/homepage/01.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
                     top: 0,
                     bottom: 0,
                     right: 0,
@@ -48,8 +51,9 @@ export default class ImageLoader extends Component {
                     height: "100%", 
                     width: "auto"
                 }} 
-                src={require("../images/2.jpg")} alt="fuck"/>
-                <img style={{
+                src={require("../images/homepage/02.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto" 
+                style={{
                     top: 0,
                     bottom: 0,
                     right: 0,
@@ -57,8 +61,9 @@ export default class ImageLoader extends Component {
                     height: "100%", 
                     width: "auto"
                 }} 
-                src={require("../images/3.jpg")} alt="fuck"/>
-                <img style={{
+                src={require("../images/homepage/03.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
                     top: 0,
                     bottom: 0,
                     right: 0,
@@ -66,7 +71,97 @@ export default class ImageLoader extends Component {
                     height: "100%", 
                     width: "auto"
                 }} 
-                src={require("../images/4.jpg")} alt="fuck"/>
+                src={require("../images/homepage/04.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/05.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/06.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/07.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/08.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/09.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/010.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/011.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/012.jpg")} alt="fuck"/>
+                <img className="backgroundPhoto"
+                style={{
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    height: "100%", 
+                    width: "auto"
+                }} 
+                src={require("../images/homepage/013.jpg")} alt="fuck"/>
             </div>
         )
     }
