@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './JournalElement.css';
+import './JournalElementMobile.css';
 require('typeface-questrial')
 
 
-export default class JournalElement extends Component {
+export default class JournalElementMobile extends Component {
   render() {
     return (
       <div 
@@ -20,8 +20,8 @@ export default class JournalElement extends Component {
                 }} 
                 src={require('../images/' + this.props.imgSrc)} alt="fuck"/>
           <div className="centered">
-              <text style={{marginRight: 20}} className="Text">{this.props.title}</text>
-              <text className="Text">shot by {this.props.shotBy}</text>
+              <text style={{marginRight: 20}} className="titleText">{this.props.title}</text>
+              <text className="titleText">shot by {this.props.shotBy}</text>
             
           </div>
       </div>

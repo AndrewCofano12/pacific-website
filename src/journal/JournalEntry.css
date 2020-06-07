@@ -1,0 +1,19 @@
+.logoContainer {
+    margin-top: 55px;
+    top: 0;
+    overflow: 'hidden';
+    position: fixed;
+    background: transparent;
+    align-self: center;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+}
+
+
+.logoName {
+    font-family: 'questrial';
+    font-size: 35px;
+    color: white;
+    text-decoration: none;
+}
