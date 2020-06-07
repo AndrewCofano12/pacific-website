@@ -1,0 +1,36 @@
+.entry-img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    margin-bottom: 35px;
+    max-width: 570px;
+    margin: 0 auto;
+}
+
+.journal-article {
+    margin-bottom: 150px;
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+    color: white;   
+}
+
+.Text {
+    font-family: 'helvetica';
+    font-size: 1vw;
+    font-weight: 400;
+    transition: color 0.5s cubic-bezier(1, 1, 1, 1);
+    transition-delay: 0s;
+}
+
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+  

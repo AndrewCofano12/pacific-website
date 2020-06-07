@@ -10,15 +10,15 @@ export default class Journal extends Component {
         <div 
         style={{
           display: 'flex',
-          paddingTop: '15%',
+          paddingTop: '9%',
           flexDirection: 'column',
           alignItems: 'center'
           
         }}
         className="JournalPage">
-          <JournalElement imgSrc={'1.jpg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
-          <JournalElement imgSrc={'2.jpg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
-          <JournalElement imgSrc={'3.jpg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
+          <JournalElement imgSrc={'italy.jpeg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
+          <JournalElement imgSrc={'sf.jpeg'} title={`my city's filthy`} shotBy={'andrew cofano'}/>
+          <JournalElement imgSrc={'palms.jpeg'} title={'back in the OC'} shotBy={'costin pirvu'}/>
         </div>
       </div>
     );

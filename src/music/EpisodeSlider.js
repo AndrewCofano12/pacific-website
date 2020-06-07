@@ -7,6 +7,9 @@ import _ from 'lodash'
 import AwesomeDebouncePromise from 'awesome-debounce-promise'
 import { useAsync } from 'react-async-hook'
 import { useConstant } from 'use-constant'
+import AudioPlayer, { RHAP_UI, CURRENT_TIME } from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
 
 export default class EpisodeSlider extends Component {
     constructor(props) {
@@ -82,11 +85,31 @@ export default class EpisodeSlider extends Component {
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep3-front.jpg")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep3-back.jpg")} alt="fuck"/>
                         </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
+                        </div>
                     </div>
                     <div style={Object.assign({})}>
                         <div className="artworkWrapper" style={{backgroundColor: this.state.color}}>
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep2-front.jpg")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep2-back.jpg")} alt="fuck"/>
+                        </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
                         </div>
                     </div>
                     <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
@@ -94,6 +117,17 @@ export default class EpisodeSlider extends Component {
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
+                        </div>
+
                     </div>
 
                     <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
@@ -101,18 +135,51 @@ export default class EpisodeSlider extends Component {
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
+                        </div>
+
                     </div>
                     <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
                         <div className="artworkWrapper">
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
+                        </div>
+
                     </div>
                     <div style={Object.assign({})} style={{backgroundColor: this.state.color}}>
                         <div className="artworkWrapper">
                             <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
                             <img draggable="false" className="tracklistImage noselect" src={require("../images/ep1-back.jpeg")} alt="fuck"/>
                         </div>
+
+                        <div className="audioPlayerContainer">
+                            <AudioPlayer 
+                            src={'../images/EP-3_VIDEO_MIX.wav'}
+                            layout="horizontal-reverse"
+                            showJumpControls={false}
+                            customVolumeControls={[]}
+                            customAdditionalControls={[]}
+                            />
+                        </div>
+
                     </div>
 
                 </SwipeableViews>
