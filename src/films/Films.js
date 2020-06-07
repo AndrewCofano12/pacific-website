@@ -6,14 +6,10 @@ import VideoPlayer from '../components/VideoPlayer'
 import request from "../node/vimeoApi"
 let Vimeo = require('vimeo').Vimeo;
 
-export default class Films extends Component {
-
-  
-
-  
-  
+export default class Films extends Component {  
   
   render() {
+
     
     return (
       <div className="videoPlayer">

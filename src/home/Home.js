@@ -6,9 +6,36 @@ import './Home.css';
 import ImageLoader from '../components/ImageLoader'
 import NavigationHeader from '../components/NavigationHeader';
 import { Link } from 'react-router-dom';  
+import $ from 'jquery';
 
 
 export default class Home extends Component {
+
+  componentDidMount() {
+    document.addEventListener('wheel', function (event) {
+      
+          //leave zoom
+          if (event.ctrlKey) return true;
+          event.preventDefault();
+          event.stopPropagation();
+
+          var delta = '';
+
+          var FF = !(window.mozInnerScreenX == null);
+          if (FF) {
+              delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
+              delta *= -50;
+          } else {
+              delta = event.wheelDelta;
+          }
+
+          $(window).scrollLeft($(window).scrollLeft() - (delta / 10));
+
+          return false;
+
+    }, {passive: false});
+  }
+  
   render() {
     return (
     <div 

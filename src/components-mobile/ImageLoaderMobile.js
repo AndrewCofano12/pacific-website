@@ -26,10 +26,7 @@ export default class ImageLoaderMobile extends Component {
                 display: "flex",
                 flexDirection: "column",
                 overflowy: "scroll",
-                overflowx: "none",
-                height: this.state.height, 
-                width: this.state.width,
-   }}
+                overflowx: "none"}}
                 className="ImageLoader"
             >
                 <img style={{
