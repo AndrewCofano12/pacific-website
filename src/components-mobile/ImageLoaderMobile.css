@@ -1,8 +1,8 @@
 .ImageLoader {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    /* -ms-overflow-style: none;  Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-    overscroll-behavior-y: none;
-    overscroll-behavior-x: none;
+    /* overscroll-behavior-y: none; */
+    /* overscroll-behavior-x: none; */
 }
 .ImageLoader::-webkit-scrollbar {
     display: none;
