@@ -1,12 +1,15 @@
 body {
   /* Gets rid of whitespace border (Chrome, Firefox, Safari) */
   margin: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
   
   /* Prevents overscroll bounce (Chrome) */
-  overflow: scroll;
+  overflow: none;
+
   
   /* Prevents back swipe, overscroll x/y bounce (Chrome, Firefox) */
   overscroll-behavior-x: none; 

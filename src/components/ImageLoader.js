@@ -22,20 +22,17 @@ export default class ImageLoader extends Component {
     
     render() {
         return(
+            /** */
             <div style={{
                 display: "flex",
                 flexDirection: "row",
                 overflow: "scroll",
                 height: this.state.height, 
                 minwidth: this.state.width,
-                maxWidth: "100%"
-            }}
-<<<<<<< HEAD
+                maxWidth: "100%"}}
                 className="ImageLoader"
             >
-=======
-                className="ImageLoader">
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
+
                 <img className="backgroundPhoto"
                 style={{
                     top: 0,
@@ -45,6 +42,7 @@ export default class ImageLoader extends Component {
                     height: "auto",
                     objectFit: "cover",
                     width: "100vw"
+
                 }} 
                 src={require("../images/homepage/01.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -86,14 +84,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "50vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/05.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -102,14 +95,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto",
                     objectFit: "cover",
                     width: "50vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/06.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -118,14 +106,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto",
                     objectFit: "cover",
                     width: "50vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/07.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -134,14 +117,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/08.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -150,14 +128,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/09.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -166,30 +139,21 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/010.jpg")} alt="fuck"/>
+
                 <img className="backgroundPhoto"
                 style={{
                     top: 0,
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/011.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -198,14 +162,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/012.jpg")} alt="fuck"/>
                 <img className="backgroundPhoto"
@@ -214,14 +173,9 @@ export default class ImageLoader extends Component {
                     bottom: 0,
                     right: 0,
                     left: 0,
-<<<<<<< HEAD
-                    height: "100%", 
-                    width: "auto"
-=======
                     height: "auto", 
                     objectFit: "cover",
                     width: "100vw"
->>>>>>> 2b51f5d64491aad3d777613385eac438e4d0d93d
                 }} 
                 src={require("../images/homepage/013.jpg")} alt="fuck"/>
             </div>
