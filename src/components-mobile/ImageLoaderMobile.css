@@ -1,10 +1,10 @@
-.ImageLoader {
+.ImageLoaderMobile {
     /* -ms-overflow-style: none;  Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     /* overscroll-behavior-y: none; */
     /* overscroll-behavior-x: none; */
 }
-.ImageLoader::-webkit-scrollbar {
+.ImageLoaderMobile::-webkit-scrollbar {
     display: none;
     width: 0;
 }

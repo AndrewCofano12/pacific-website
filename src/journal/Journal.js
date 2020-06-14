@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import JournalElement from './JournalElement'
 import NavigationHeader from '../components/NavigationHeader';
+import './Journal.css'
+import LazyLoad from 'react-lazyload';
 import $ from 'jquery';
 
 export default class Journal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        entries: props.entries
+    };
+  }
 
   componentDidMount() {
     document.addEventListener('wheel', function (event) {
@@ -46,10 +54,15 @@ export default class Journal extends Component {
           alignItems: 'center'
           
         }}
-        className="JournalPage">
-          <JournalElement imgSrc={'italy.jpeg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
-          <JournalElement imgSrc={'sf.jpeg'} title={`my city's filthy`} shotBy={'andrew cofano'}/>
-          <JournalElement imgSrc={'palms.jpeg'} title={'back in the OC'} shotBy={'costin pirvu'}/>
+        className="Journal">
+          {this.state.entries.map((item,i) => {
+                  return (
+                  <LazyLoad key={i} once>
+                    <JournalElement imgSrc={item.coverImageSrc} title={item.title} shotBy={item.shotBy} id={item.id} linkPrefix={this.props.linkPrefix}/>
+                  </LazyLoad>
+
+                  )
+          })}
         </div>
       </div>
     );

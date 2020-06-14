@@ -22,7 +22,7 @@ export default function NavigationHeader(props) {
                 /
           </span>
           <span className={`pageNavContainer journalNav`}>
-            <Link to="/journal" className={` ${props.page == "journal" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
+            <Link to="/journal/" className={` ${props.page == "journal" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
               journal
             </Link>
           </span>

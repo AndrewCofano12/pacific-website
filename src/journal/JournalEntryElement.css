@@ -1,15 +1,15 @@
-.entry-img {
+.journalEntryEl-entryImg {
     max-width: 100%;
     margin: 0 auto;
 }
 
-.container {
+.journalEntryEl-container {
     margin-bottom: 35px;
     max-width: 570px;
     margin: 0 auto;
 }
 
-.journal-article {
+.journalEntryEl-journalArticle {
     margin-bottom: 150px;
     position: relative;
     text-align: center;
@@ -17,7 +17,7 @@
     color: white;   
 }
 
-.Text {
+.journalEntryEl-text {
     font-family: 'helvetica';
     font-size: 1vw;
     font-weight: 400;
@@ -26,7 +26,7 @@
 }
 
 
-.centered {
+.journalEntryEl-centered {
     position: absolute;
     top: 50%;
     left: 50%;

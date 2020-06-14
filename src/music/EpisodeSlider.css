@@ -6,21 +6,25 @@ body {
 }
 
 
-.swipeableView {
+.music-swipeableView {
     height: 100%;
     width: 100vw;
     justify-content: center;
     align-items: center;
 }
 
-.artworkContainer {
+.music-singleEpisodeContainer {
+    margin-top: 3%;
+}
+
+.music-artworkContainer {
     /* width: auto; */
     width: 100%;
     border: 1px solid blue;
 }
 
 /* prevents image from being highlighted */
-.noselect {
+.music-noselect {
     -khtml-user-select: none;
     -o-user-select: none;
     -moz-user-select: none;
@@ -33,7 +37,11 @@ body {
     align-items: center;
 }
 
-.artworkWrapper {
+.music-artwork {
+    height: inherit;
+} 
+
+.music-artworkWrapper {
     display: flex;
     background-color: inherit;
     flex-direction: row;     /* make main axis horizontal (default setting) */
@@ -42,12 +50,12 @@ body {
     justify-content: center;
 }
 
-.episodeSliderPagination {
+.music-episodeSliderPagination {
     align-self: center;
 }
 
 
-.audioPlayerContainer {
+.music-audioPlayerContainer {
     margin-left: auto;
     margin-right: auto;
     width: 760px;

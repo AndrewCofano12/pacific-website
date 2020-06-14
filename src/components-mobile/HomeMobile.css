@@ -1,4 +1,4 @@
-.Home {
+.HomeMobile {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     -ms-overflow-style: none;
@@ -7,21 +7,21 @@
   }
 
   
-  .Home::-webkit-scrollbar {
+  .HomeMobile::-webkit-scrollbar {
     display: none;
   }
   
-  .imageLoaderContainer {
+  .homeMobile-imageLoaderContainer {
     position: absolute;
     z-index: -1;
   }
 
-  .spacerContainer {
+  .homeMobile-spacerContainer {
     height: 146px;
   }
 
   
-  .brandContainer {
+  .homeMobile-brandContainer {
     /* position: -webkit-sticky;
     position: sticky;
     z-index: unset; */
@@ -31,22 +31,22 @@
   } 
 
 
-  .sticky {
+  .homeMobile-sticky {
     position: fixed;
     top: 50px;
   }
 
 
 
-  .sticky + .subContainer {
+  .homeMobile-sticky + .homeMobile-subContainer {
     padding-top: 52px;
   }
-  .subContainer {
+  .homeMobile-subContainer {
     margin-left: 40px;
     margin-top: 110px;
   }
 
-  .brandName {
+  .homeMobile-brandName {
     text-align: left;
     font-size: 50px;
     font-family: 'Questrial';
@@ -54,7 +54,7 @@
     
   }
 
-  .nameSubChild {
+  .homeMobile-nameSubChild {
     font-size:16px;
     text-align: left;
     font-family: 'Questrial', sans-serif;
@@ -65,21 +65,21 @@
   }
   
 
-  .subTitle {
+  .homeMobile-subTitle {
     margin-bottom: 5px;
   }
 
-  .emailLink {
+  .homeMobile-emailLink {
     text-decoration: none;
     color: white;
   }
 
-  .socialLink {
+  .homeMobile-socialLink {
     text-decoration: none;
     color: white;
   }
 
-  .homePageNav {
+  .homeMobile-homePageNav {
     text-decoration: none;
     color: white;
   }

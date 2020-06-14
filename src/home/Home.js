@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
 import './Home.css';
-import ImageLoader from '../components/ImageLoader'
-import NavigationHeader from '../components/NavigationHeader';
+import ImageLoader from '../components/ImageLoader';
 import { Link } from 'react-router-dom';  
 import $ from 'jquery';
+import _ from 'lodash';
 
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        homeObject: props.dbdata
+    };
+}
+
 
   componentDidMount() {
     document.addEventListener('wheel', function (event) {
@@ -44,160 +48,62 @@ export default class Home extends Component {
         overflow: "scroll"
       }}
       className="Home">
-        <div className="imageLoaderContainer">
-          <ImageLoader/> 
+        <div className="home-imageLoaderContainer">
+          <ImageLoader images={this.state.homeObject.images}/> 
         </div>
-        <div className="contentContainer">
-          <div className="childContent">
-            <div className="leftGridContainer">
-              <div class="grid-item">
+        <div className="home-contentContainer">
+          <div className="home-childContent">
+            <div className="home-leftGridContainer">
+              <div className="home-grid-item">
 
               </div>
-              <div className="grid-item">
-                <div className="brandNametext brandChild">
+              <div className="home-gridItem">
+                <div className="home-brandNameText home-brandChild">
                   pacific
                 </div>
               </div>
-              <div className="grid-item">
+              <div className="home-gridItem">
 
               </div>
               
-              <div className="grid-item nameSubChild">
-                <Link to="/music" className="homePageNav">
-                  <div className="leftSubTitle">music</div>
-                  <div className="leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
+              <div className="home-gridItem home-nameSubChild">
+                <Link to="/music" className="home-homePageNav">
+                  <div className="home-leftSubTitle">music</div>
+                  <div className="home-leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
                 </Link>
               </div>
-              <div className="grid-item nameSubChild">
-                <Link to="/journal" className="homePageNav">
-                  <div className="middleSubTitle">journal</div>
-                  <div className="middleDescription">lorem ipsum dolor sit amet, vis e</div>
+              <div className="home-gridItem home-nameSubChild">
+                <Link to="/journal" className="home-homePageNav">
+                  <div className="home-middleSubTitle">journal</div>
+                  <div className="home-middleDescription">lorem ipsum dolor sit amet, vis e</div>
                 </Link>
               </div>
-              <div className="grid-item nameSubChild">
-                <Link to="/films" className="homePageNav">
-                  <div className="rightSubTitle">films</div>
-                  <div className="rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
+              <div className="home-gridItem home-nameSubChild">
+                <Link to="/films" className="home-homePageNav">
+                  <div className="home-rightSubTitle">films</div>
+                  <div className="home-rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
                 </Link>
               </div>
-              <div className="grid-item nameSubChild contactInfoCopy">
+              <div className="home-gridItem home-nameSubChild home-contactInfoCopy">
                 <div>pacificfilmstudio@gmail.com</div>
                 <div>@pacific.film</div>
               </div>
             </div>
           </div>
           
-          <div className="rightChild childContent">
-            <div className="rightGridContainer">
-              <div className="grid-item">
-                <div className="brandLogoContainer">
-                    <img id="brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
+          <div className="home-rightChild home-childContent">
+            <div className="home-rightGridContainer">
+              <div className="home-gridItem">
+                <div className="home-brandLogoContainer">
+                    <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
                   </div>
               </div>
-              <div className="grid-item logoSub logoSubChild">
+              <div className="home-gridItem home-logoSub home-logoSubChild">
                 <div>pacificfilmstudio@gmail.com</div>
                 <div>@pacific.film</div>
               </div>
             </div>
           </div>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* <div className="grid-container">
-            <div class="grid-item">
-
-            </div>
-            <div className="grid-item">
-            <div className="brandName brandChild">
-                pacific
-              </div>
-            </div>
-            <div className="grid-item">
-
-            </div>
-            <div className="grid-item">
-            <div className="brandLogoContainer">
-                <img id="brandLogo" src={require("../images/squiggles.png")} alt="fuck"/>
-              </div>
-            </div>
-            <div className="grid-item nameSubChild">
-            <div className="leftSubTitle">music</div>
-              <div className="leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
-
-            </div>
-            <div className="grid-item nameSubChild">
-            <div className="middleSubTitle">journal</div>
-              <div className="middleDescription">lorem ipsum dolor sit amet, vis e</div>
-   
-            </div>
-            <div className="grid-item nameSubChild">
-            <div className="rightSubTitle">films</div>
-                <div className="rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
-
-            </div>
-            <div className="grid-item logoSub logoSubChild">
-            <div>pacificfilmstudio@gmail.com</div>
-              <div>@pacific.film</div>
-
-            </div>
-
-          </div> */}
-
-
-
-
-
-
-
-
-        {/* <Container>
-          <Row>
-            <Col sm={12}>
-            </Col>
-            <Col sm={57}>
-              <div className="brandName brandChild">
-                pacific
-              </div>
-            </Col>
-            <Col sm={8}>
-            </Col>
-            <Col sm={4}>
-              <div className="brandLogoContainer">
-                <img id="brandLogo" src={require("../images/squiggles.png")} alt="fuck"/>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm>
-              <div className="leftSubTitle">music</div>
-              <div className="leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
-            </Col>
-            <Col sm>
-              <div className="middleSubTitle">journal</div>
-              <div className="middleDescription">lorem ipsum dolor sit amet, vis e</div>
-            </Col>
-            <Col sm>
-                <div className="rightSubTitle">films</div>
-                <div className="rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
-            </Col>
-            <Col sm>
-            <div>pacificfilmstudio@gmail.com</div>
-              <div>@pacific.film</div>
-
-            </Col>
-          </Row>
-      </Container> */}
         </div>
       </div>
     );

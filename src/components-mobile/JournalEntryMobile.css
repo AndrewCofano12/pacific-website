@@ -1,4 +1,4 @@
-.journalEntry-logoContainer {
+.journalEntryMobile-logoContainer {
     margin-top: 55px;
     top: 0;
     overflow: 'hidden';
@@ -11,9 +11,14 @@
 }
 
 
-.journalEntry-logoName {
+.journalEntryMobile-logoName {
     font-family: 'questrial';
     font-size: 35px;
     color: white;
+    text-decoration: none;
+
+}
+
+a {
     text-decoration: none;
 }

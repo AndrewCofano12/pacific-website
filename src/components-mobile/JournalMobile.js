@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import JournalElementMobile from './JournalElementMobile'
 import NavigationHeader from '../components/NavigationHeader';
+import LazyLoad from 'react-lazyload';
 
 export default class JournalMobile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        entries: props.entries
+    };
+  }
+
+
   render() {
     return (
       <div>
@@ -15,10 +24,14 @@ export default class JournalMobile extends Component {
           alignItems: 'center'
           
         }}
-        className="JournalPage">
-          <JournalElementMobile imgSrc={'italy.jpeg'} title={'a mediterrean summer'} shotBy={'costin pirvu'}/>
-          <JournalElementMobile imgSrc={'sf.jpeg'} title={`my city's filthy`} shotBy={'andrew cofano'}/>
-          <JournalElementMobile imgSrc={'palms.jpeg'} title={'back in the OC'} shotBy={'costin pirvu'}/>
+        className="JournalMobile">
+          {this.state.entries.map((item,i) => {
+            return (
+              <LazyLoad height="400" key={i} once>
+                <JournalElementMobile imgSrc={item.coverImageSrc} title={item.title} shotBy={item.shotBy} id={item.id} linkPrefix={this.props.linkPrefix}/>
+              </LazyLoad>
+            )
+          })}
         </div>
       </div>
     );
