@@ -16,14 +16,12 @@ const styles = {
     height: 8,
     width: 8,
     borderRadius: 6,
-    margin: 3,
   },
   active: {
     backgroundColor: '#FFFFFF',
     height: 8,
     width: 8,
     borderRadius: 6,
-    margin: 3,
   },
 };
 

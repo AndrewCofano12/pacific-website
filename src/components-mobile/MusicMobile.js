@@ -1,62 +1,51 @@
 import React, { Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
 import './MusicMobile.css';
+import LazyLoad from 'react-lazyload';
 import ScrollingColorBackground from 'react-scrolling-color-background';
 
 
-export default class Music extends Component {
-  render() {
-    
+export default class MusicMobile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            musicObject: props.dbdata
+        };
+      }
+
+    render() {
+
     return (
-      <div>
+        <div>
         <NavigationHeader formatString="lightFormat" page="music"/>
         <ScrollingColorBackground
         selector='.js-color-stop[data-background-color]'
         colorDataAttribute='data-background-color'
         initialRgb='rgb(0, 0, 0)'/>
-        <div className="episodeSectionContainer">
-        <section
-        data-background-color='rgb(141, 150, 146)'
-        className='js-color-stop episodeSection'
-        id="episode3Container">
-            <div className="episodeContainer">
-                <div className="artworkWrapper">
-                    <img draggable="false" className="coverImage noselect" src={require("../images/ep3-front.jpg")} alt="fuck"/>
-                </div>
-                <div className="linkContainer">
-                    <a href="https://soundcloud.com/pacificstudios/not-a-virus">listen on SoundCloud</a>
-                </div>
-            </div>
-        </section>
+        <div className="musicMobile-episodeSectionContainer">
+            {this.state.musicObject.episodes.map((episode,i) => {
+                return (
+                    <section
+                    data-background-color={episode.backgroundColor}
+                    className='js-color-stop musicMobile-episodeSection'
+                    id={`musicMobile-${episode.name}Container`}>
+                        <LazyLoad height={500} key={i} once>
+                        <div className="musicMobile-episodeContainer">
+                            <div className="musicMobile-artworkWrapper">
+                                <img draggable="false" className="musicMobile-coverImage musicMobile-noselect" src={require('../images/' + episode.frontArtwork)} alt="fuck"/>
+                            </div>
+                            <div className="musicMobile-linkContainer">
+                                <a className="musicMobile-episodeLink" href={episode.link}>listen on SoundCloud</a>
+                            </div>
+                        </div>
+                        </LazyLoad>
 
-        <section
-        data-background-color='rgb(201, 194, 187)'
-        className='js-color-stop episodeSection'
-        id="episode2Container">
-            <div className="episodeContainer">
-                <div className="artworkWrapper">
-                    <img draggable="false" className="coverImage noselect" src={require("../images/ep2-front.jpg")} alt="fuck"/>
-                </div>
-                <div className="linkContainer">
-                    <a href="https://soundcloud.com/pacificstudios/pacific-music-ep-2">listen on SoundCloud</a>
-                </div>  
-            </div>
-        </section>
-        <section
-        data-background-color='rgb(200, 201, 187)'
-        className='js-color-stop episodeSection'
-        id="episode1Container">
-            <div className="episodeContainer">
-                <div className="artworkWrapper">
-                    <img draggable="false" className="coverImage noselect" src={require("../images/ep1-cover.png")} alt="fuck"/>
-                </div>
-                <div className="linkContainer">
-                <a href="https://soundcloud.com/pacificstudios/pacific-music-ep-1">listen on SoundCloud</a>
-                </div>  
-            </div>
-        </section>
+                    </section>
+                )
+            })}
+
         </div>
         </div>
 
-      );  }
-}
+        );  }
+    }

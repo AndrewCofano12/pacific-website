@@ -1,0 +1,118 @@
+ {
+    "home" : {
+        "images" : [
+            {
+                "url":"01.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"02.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"03.jpg",
+                "sizing":"half"
+            },
+            {
+                "url":"04.jpg",
+                "sizing":"half"
+            },
+            {
+                "url":"05.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"06.jpg",
+                "sizing":"half"
+            },
+            {
+                "url":"07.jpg",
+                "sizing":"half"
+            },
+            {
+                "url":"08.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"09.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"010.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"011.jpg",
+                "sizing":"half"
+            },
+            {
+                "url":"012.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"013.jpg",
+                "sizing":"full"
+            }           
+        ]
+   
+    },
+    "music": {
+        "episodes" : [
+            {
+                "name": "episode3",
+                "frontArtwork": "ep3-front.jpg",
+                "backArtwork": "ep3-back.jpg",
+                "file": "EP-3.mp3",
+                "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                "backgroundColor" : "rgb(141, 150, 146)"
+            },
+            {
+                "name": "episode2",
+                "frontArtwork": "ep2-front.jpg",
+                "backArtwork": "ep2-back.jpg",
+                "file": "EP-2.mp3",
+                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
+                "backgroundColor" : "rgb(201, 194, 187)"
+            },
+            {
+                "name": "episode1",
+                "frontArtwork": "ep1-cover.png",
+                "backArtwork": "ep1-back.jpeg",
+                "file": "EP-1.mp3",
+                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
+                "backgroundColor" : "rgb(200, 201, 187)"
+
+            }
+
+        ]
+    },
+    "journal" : {
+        "journalEntries" : [
+            {
+                "id":"summer",
+                "title": "a mediterranean summer",
+                "shotBy": ["costin pirvu"],
+                "coverImageSrc": "italy.jpeg",
+                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+            },
+            {
+                "id":"tokyo",
+                "title": "a week in tokyo",
+                "shotBy": ["costin pirvu","peter hou"],
+                "coverImageSrc": "sf.jpeg",
+                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+            },
+            {
+                "id":"napali",
+                "title": "backpacking the napali coast",
+                "shotBy": ["costin pirvu", "peter hou", "paul studer"],
+                "coverImageSrc": "palms.jpeg",
+                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+            }
+        ]
+
+    },
+    "films" : {
+    }
+
+}

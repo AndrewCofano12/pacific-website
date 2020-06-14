@@ -1,4 +1,4 @@
-.episodeSection {
+.musicMobile-episodeSection {
     display: flex;
     flex-direction: column;
     z-index: 5;
@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.episodeContainer {
+.musicMobile-episodeContainer {
     display: flex;
     flex-direction: column;
     left: 0;
@@ -18,29 +18,29 @@
     margin-bottom: -30px;
 }
 
-.artworkWrapper {
+.musicMobile-artworkWrapper {
     width: auto;
     height: 40vh;
 
 }
 
-.linkContainer {
+.musicMobile-linkContainer {
     padding-top: 50px;
     text-align: center;
     font-family: 'questrial', sans-serif;
 }
 
-a {
+.musicMobile-episodeLink {
     text-decoration: none;
     color: white;
 }
 
-img {
+.musicMobile-coverImage {
     height: inherit;
     width: inherit;
 }
 
-.episodeSectionContainer {
+.musicMobile-episodeSectionContainer {
     position: relative;
     display: flex;
     background-color: inherit;

@@ -11,12 +11,12 @@
     width: 0;
   }
   
-  .imageLoaderContainer {
+  .home-imageLoaderContainer {
     position: absolute;
     z-index: -1;
   }
   
-  .contentContainer {
+  .home-contentContainer {
     position: fixed;
   
     display: flex;
@@ -31,7 +31,7 @@
   }
   
   
-  .childContent {
+  .home-childContent {
     width: 50%;
     /* height: 500px; */
     position: relative;
@@ -39,7 +39,7 @@
   }
   
   
-  .leftGridContainer {
+  .home-leftGridContainer {
     /* position: absolute; */
     bottom: 0;
     display: grid;
@@ -55,7 +55,7 @@
     align-self: baseline;
   }
   
-  .rightGridContainer {
+  .home-rightGridContainer {
     /*position: absolute; */
     bottom: 0;
     display: grid;
@@ -74,7 +74,7 @@
   }
   
   
-  .grid-item {
+  .home-gridItem {
     /* background-color: rgba(255, 255, 255, 0.8); */
     /* border: 1px solid rgba(0, 0, 0, 0.8); */
     font-size: 30px;
@@ -85,7 +85,7 @@
   }
   
   
-  .nameSubChild {
+  .home-nameSubChild {
     font-size:16px;
     text-align: left;
     height: 200px;
@@ -93,7 +93,7 @@
   }
   
   
-  .logoSubChild {
+  .home-logoSubChild {
     font-family: 'Questrial', sans-serif;
   
     font-size: 16px;
@@ -101,46 +101,43 @@
   
   }
   
-  .homePageNav {
+  .home-homePageNav {
     text-decoration: none;
     color: white;
   }
   
   
   
-  #brandLogoImage {
+  #home-brandLogoImage {
     width: 160px;
     height: 42px;
   }
   
   
-  .brandLogoContainer {
+  .home-brandLogoContainer {
     display: flex;
   }
   
   
   
-  .mainLeftContainer {
+  .home-mainLeftContainer {
     display: flex;
     flex-direction: column;
     margin-left: 80px;
   }
   
-  .leftContainerChild {
+  .home-leftContainerChild {
     margin-bottom: auto;
   }
+
   
-  .mainRightContainer {
-  
-  }
-  
-  .brandNameContainer {
+  .home-brandNameContainer {
     display: flex;
     flex-direction: row;
     
   }
   
-  .brandNametext {
+  .home-brandNameText {
     font-size: 50px;
     text-align: left;
   }
@@ -165,40 +162,40 @@
       
     }
   } */
-  .brandChild {
+  .home-brandChild {
     min-width: 120px;
     width: auto;
   }
   
-  #leftBrandChild {
+  #home-leftBrandChild {
     margin-right: auto;
   }
-  #rightBrandChild {
+  #home-rightBrandChild {
     margin-right: auto;
   }
   
-  .namePadding {
+  .home-namePadding {
     min-width: 250px; 
     margin-right: auto;
   }
   
-  .nameSubContainer {
+  .home-nameSubContainer {
     display: flex;
     flex-direction: row;
   }
   
-  .contactInfoCopy {
+  .home-contactInfoCopy {
     display: none;
   }
   
   @media only screen and (max-width: 1200px) {
-    .childContent {
+    .home-childContent {
       margin-top: 0px;
   
     }
   
   
-    .leftGridContainer {
+    .home-leftGridContainer {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
       grid-row-gap: 25px;
@@ -206,16 +203,16 @@
   
     }
   
-    .rightChild {
+    .home-rightChild {
       display: none;
     }
   
-    .nameSubChild {
+    .home-nameSubChild {
       height: auto;
   
     }
   
-    .contactInfoCopy {
+    .home-contactInfoCopy {
       display: block;
     }
   }
