@@ -1,11 +1,4 @@
-.journalEl-text {
-    font-family: 'helvetica';
-    font-size: 1vw;
-    font-weight: 400;
-    transition: color 0.5s cubic-bezier(1, 1, 1, 1);
-    transition-delay: 0s;
-    
-}
+
 
 .journalEl-journalContainer {
     position: relative;
@@ -13,27 +6,7 @@
     color: white;
   }
 
-  .journalEl-journalContainer:hover {
-      cursor: pointer;
-  }
-
-
-.journalEl-journalContainer:hover > .journalEl-centered {
+.journalEl-journalContainer:hover {
     cursor: pointer;
-    color: #c9c9c9
-
 }
 
-
-
-
-.journalEl-centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.journalEl-pageNav {
-    text-decoration: none;
-}

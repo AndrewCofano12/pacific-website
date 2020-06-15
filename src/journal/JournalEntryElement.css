@@ -16,21 +16,3 @@
     flex-direction: column;
     color: white;   
 }
-
-.journalEntryEl-text {
-    font-family: 'helvetica';
-    font-size: 1vw;
-    font-weight: 400;
-    transition: color 0.5s cubic-bezier(1, 1, 1, 1);
-    transition-delay: 0s;
-}
-
-
-.journalEntryEl-centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-}
-  

@@ -34,7 +34,7 @@ export default class JournalEntry extends Component {
         }}
         className="JournalEntry">
           <LazyLoad once>
-            <JournalEntryElement imgSrc={this.state.entryObject.coverImageSrc} title={this.state.entryObject.title} shotBy={this.state.entryObject.shotBy}/>
+            <JournalEntryElement showText={true} imgSrc={this.state.entryObject.coverImageSrc} title={this.state.entryObject.title} shotBy={this.state.entryObject.shotBy}/>
           </LazyLoad>
           {this.state.entryObject.images.map((item,i) => {
             return (

@@ -89,26 +89,27 @@
     "journal" : {
         "journalEntries" : [
             {
+                "id":"napali",
+                "title": ["backpacking the", "napali coast"],
+                "shotBy": ["costin pirvu /", "peter hou / paul", "studer"],
+                "coverImageSrc": "journal-1-cover.jpg",
+                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+            },
+            {
                 "id":"summer",
-                "title": "a mediterranean summer",
+                "title": ["a mediterranean summer"],
                 "shotBy": ["costin pirvu"],
-                "coverImageSrc": "italy.jpeg",
+                "coverImageSrc": "journal-2-cover.jpg",
                 "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
             },
             {
                 "id":"tokyo",
-                "title": "a week in tokyo",
-                "shotBy": ["costin pirvu","peter hou"],
-                "coverImageSrc": "sf.jpeg",
-                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
-            },
-            {
-                "id":"napali",
-                "title": "backpacking the napali coast",
-                "shotBy": ["costin pirvu", "peter hou", "paul studer"],
-                "coverImageSrc": "palms.jpeg",
+                "title": ["a week in tokyo"],
+                "shotBy": ["costin pirvu /","peter hou"],
+                "coverImageSrc": "journal-3-cover.jpg",
                 "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
             }
+
         ]
 
     },
