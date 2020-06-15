@@ -58,7 +58,13 @@ export default class Journal extends Component {
           {this.state.entries.map((item,i) => {
                   return (
                   <LazyLoad key={i} once>
-                    <JournalElement imgSrc={item.coverImageSrc} title={item.title} shotBy={item.shotBy} id={item.id} linkPrefix={this.props.linkPrefix}/>
+                    <JournalElement 
+                      imgSrc={item.coverImageSrc} 
+                      title={item.title} 
+                      shotBy={item.shotBy} 
+                      id={item.id} 
+                      linkPrefix={this.props.linkPrefix}
+                    />
                   </LazyLoad>
 
                   )

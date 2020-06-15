@@ -43,7 +43,7 @@ export default class ImageLoader extends Component {
                                     bottom: 0,
                                     right: 0,
                                     left: 0,
-                                    height: "auto",
+                                    height: "100%",
                                     objectFit: "cover",
                                     width: "101vw"
                 
@@ -61,7 +61,7 @@ export default class ImageLoader extends Component {
                                 bottom: 0,
                                 right: 0,
                                 left: 0,
-                                height: "auto",
+                                height: "100%",
                                 objectFit: "cover",
                                 width: (item.sizing == "full" ? "102vw" : "52vw")
             

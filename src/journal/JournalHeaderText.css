@@ -1,0 +1,45 @@
+
+.journalHeaderText-headerText {
+    font-family: 'helvetica';
+    font-size: 1vw;
+    font-weight: 400;
+    transition: color 0.5s cubic-bezier(1, 1, 1, 1);
+    transition-delay: 0s;
+    color: white;
+}
+
+
+.journalHeaderText-link:hover {
+    cursor: pointer;
+    color: #c9c9c9
+
+}
+
+.journalHeaderText-noHighlight {
+    cursor: default;
+}
+
+
+.journalHeaderText-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: 100%;    
+    align-items: auto;
+    justify-content: center;
+    
+    flex-direction: row;
+    transform: translate(-50%, -50%);
+}
+
+.journalHeaderText-titleTextContainer {
+    width: auto;
+    text-align: left;
+    margin-right: 50px;
+}
+
+.journalHeaderText-shotTextContainer {
+    width: auto;
+    text-align: left;
+}

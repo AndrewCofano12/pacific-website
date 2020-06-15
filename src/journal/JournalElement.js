@@ -1,6 +1,7 @@
 import React, { Component, Text } from 'react';
 import './JournalElement.css';
 import { Link } from 'react-router-dom';  
+import JournalHeaderText from './JouranlHeaderText';
 require('typeface-questrial')
 
 
@@ -25,10 +26,8 @@ export default class JournalElement extends Component {
                 src={require('../images/' + this.props.imgSrc)} 
                 alt="fuck"
                 />
-          <div className="journalEl-centered">
-              <span style={{marginRight: 20}} className="journalEl-text">{this.props.title}</span>
-              <span className="journalEl-text">shot by {this.props.shotBy}</span>
-          </div>
+        <JournalHeaderText link={false} title={this.props.title} shotBy={this.props.shotBy}/>
+
 
           </Link>
       </div>
