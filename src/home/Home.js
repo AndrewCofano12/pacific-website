@@ -28,7 +28,7 @@ export default class Home extends Component {
           var FF = !(window.mozInnerScreenX == null);
           if (FF) {
               delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
-              delta *= -50;
+              delta *= -5;
           } else {
               delta = event.wheelDelta;
           }
@@ -54,7 +54,8 @@ export default class Home extends Component {
         <div className="home-contentContainer">
           <div className="home-childContent">
             <div className="home-leftGridContainer">
-              <div className="home-grid-item">
+              
+              <div className="home-gridItem">
 
               </div>
               <div className="home-gridItem">
@@ -63,25 +64,24 @@ export default class Home extends Component {
                 </div>
               </div>
               <div className="home-gridItem">
-
               </div>
               
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
-                  <div className="home-leftSubTitle">music</div>
-                  <div className="home-leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
+                  <div className="home-leftSubTitle home-titleText">music</div>
+                  <div className="home-subtext">universial connection in energy</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/journal" className="home-homePageNav">
-                  <div className="home-middleSubTitle">journal</div>
-                  <div className="home-middleDescription">lorem ipsum dolor sit amet, vis e</div>
+                  <div className="home-middleSubTitle home-titleText">narrative</div>
+                  <div className="home-subtext">portraying stories of personal nature.</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/films" className="home-homePageNav">
-                  <div className="home-rightSubTitle">films</div>
-                  <div className="home-rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
+                  <div className="home-rightSubTitle home-titleText">visual</div>
+                  <div className="home-subtext">motion landscape</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-contactInfoCopy">
@@ -98,9 +98,9 @@ export default class Home extends Component {
                     <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
                   </div>
               </div>
-              <div className="home-gridItem home-logoSub home-logoSubChild">
-                <div>pacificfilmstudio@gmail.com</div>
-                <div>@pacific.film</div>
+              <div className="home-gridItem home-logoSub home-logoSubChild">                
+                <div id="home-atIcon"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
+                <div className="home-email"><a className="home-socialLink" href="mailto:info@pacificfilm.com">info@pacificfilm.co</a></div>
               </div>
             </div>
           </div>
