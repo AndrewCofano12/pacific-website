@@ -36,7 +36,7 @@ export default class ImageLoader extends Component {
                 {this.state.images.map((item,i) => {
                     if (i == 0) {
                         return (
-                            <LazyLoad offset={100} once={true} key={i} overflow>
+                            <LazyLoad offset={100} key={i} overflow>
                                 <img className="imageLoader-backgroundPhoto"
                                 style={{
                                     top: 0,
@@ -54,7 +54,7 @@ export default class ImageLoader extends Component {
                     }
                     else {
                         return (
-                            <LazyLoad offset={100} once={true} key={i} overflow>
+                            <LazyLoad offset={100} key={i} overflow>
                             <img className="imageLoader-backgroundPhoto"
                             style={{
                                 top: 0,
