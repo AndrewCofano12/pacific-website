@@ -146,6 +146,31 @@
 
     },
     "films" : {
+        "filmsEntries" : [
+            {
+                "id": "film1",
+                "src":"https://player.vimeo.com/video/91148889?autoplay=true&controls=false&muted=false&loop=true"
+            },
+            {
+                "id": "film2",
+                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
+            },
+            {
+                "id": "film3",
+                "src":"https://player.vimeo.com/video/194871272?autoplay=true&controls=false&muted=false&loop=true"
+            },
+            {
+                "id": "film4",
+                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
+            },
+            {
+                "id": "film5",
+                "src":"https://player.vimeo.com/video/91148889?autoplay=true&controls=false&muted=false&loop=true"
+            },
+            {
+                "id": "film6",
+                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
+            }
+        ]
     }
-
 }
