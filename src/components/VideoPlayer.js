@@ -14,7 +14,7 @@ export default class VideoPlayer extends Component {
         seconds: 0,
         width: window.innerWidth,
         height: window.innerHeight,
-        volume: 0,
+        volume: 30,
         playbackPosition: 0,
         left: 0,
         showPlayerControls: false,
@@ -175,7 +175,8 @@ export default class VideoPlayer extends Component {
               <iframe 
               className="frame"
               title="video" 
-              src="https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true" 
+              src={this.props.src}
+              // src="https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true" 
               width={this.state.width} 
               height={this.state.height}
               top="0"

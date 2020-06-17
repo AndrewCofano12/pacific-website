@@ -14,7 +14,7 @@ import Home from './home/Home';
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
 import JournalRouterMobile from './components-mobile/JournalRouterMobile';
-import Films from './films/Films'
+import FilmsRouter from './films/FilmsRouter'
 import JournalEntry from './journal/JournalEntry';
 import JournalRouter from './journal/JournalRouter';
 import Journal from './journal/Journal';
@@ -30,7 +30,6 @@ export default class App extends Component {
     const music = db.music;
     const journal = db.journal;
     const films = db.films;
-    console.log(home);
 
     if(!isMobile) {
       return (
@@ -38,7 +37,7 @@ export default class App extends Component {
           <Switch>
             <BrowserView>
               <Route path="/music" render={(props) => <Music {...props} dbdata={music}/>}/>
-              <Route path="/films" render={(props) => <Films {...props} dbdata={films}/>}/>
+              <Route path="/films" render={(props) => <FilmsRouter {...props} dbdata={films}/>}/>
               <Route path="/journal" render={(props) => <JournalRouter {...props} dbdata={journal}/>}/>
               <Route exact path="/" render={(props) => <Home {...props} dbdata={home}/>}/>
             </BrowserView>
