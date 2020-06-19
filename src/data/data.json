@@ -84,7 +84,19 @@
             {
                 "url":"021.jpg",
                 "sizing":"full"
-            }           
+            },           
+            {
+                "url":"022.jpg",
+                "sizing":"full"
+            },
+            {
+                "url":"023.jpg",
+                "sizing":"half"
+            },           
+            {
+                "url":"024.jpg",
+                "sizing":"half"
+            }
         ]
    
     },

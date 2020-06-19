@@ -1,7 +1,10 @@
-import React, { Component, Text, useCallback } from 'react';
+import React, { useRef, useState, Component, Text, useCallback } from 'react';
 import "./VideoPlayer.css"
 import request from "../node/vimeoApi"
 import Vimeo from '@vimeo/player'
+import { FiMaximize, FiMinimize, FiXCircle } from 'react-icons/fi';
+import Fullscreen from "react-full-screen";
+
 
 export default class VideoPlayer extends Component {
   timer
@@ -18,9 +21,18 @@ export default class VideoPlayer extends Component {
         playbackPosition: 0,
         left: 0,
         showPlayerControls: false,
-        playbackLength: 0
+        playbackLength: 0,
+        isFull: false
+
       }
+      this.handleExit = this.handleExit.bind(this);
+
   }
+
+  handleExit() {
+    this.props.history.push('/films');
+  }
+
 
     showPlayerControls() {
       if(!this.state.showPlayerControls) {
@@ -169,9 +181,24 @@ export default class VideoPlayer extends Component {
       player.setVolume(this.state.volume)
     }
 
+
+    goFull = () => {
+      this.setState({ isFull: true });
+    }
+  
+    exitFull = () => {
+      this.setState({ isFull: false });
+    }
+  
+
     render() {
+
         return(
-            <div style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
+          <div style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
+            <Fullscreen
+              enabled={this.state.isFull}
+              onChange={isFull => this.setState({isFull})}
+            >
               <iframe 
               className="frame"
               title="video" 
@@ -188,16 +215,39 @@ export default class VideoPlayer extends Component {
               fullscreen="true"
               allow="autoplay"
               />
+
               {this.state.showPlayerControls ? (
               <div>
+                  <div className="films-exitVideo">
+                    <FiXCircle id="exitControl"onClick={this.handleExit}/>
+
+                  </div>
                 <div style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 160, marginRight: 80, marginLeft: 80, bottom: 60}}>
-                  <text className="playbackTime" style={{color: '#d3d3d3'}}>{this.formatTime(this.state.playbackPosition)}</text>
-                  <text className="playbackTime" style={{position: 'absolute', right: '0', color: '#d3d3d3'}}>{this.formatTime(this.state.playbackLength)}</text>
-                  <progress ref={this.myRef} id="seekbar" className="seekbar" value={this.state.playbackPosition} max={this.state.playbackLength}/>
+
+                  <div className="progressContainer">
+                    <div className="films-timeContainer">
+                      <text className="playbackTime" style={{color: '#d3d3d3'}}>{this.formatTime(this.state.playbackPosition)}</text>
+                      <text className="playbackTime" style={{position: 'relative', right: '5', color: '#d3d3d3', float: 'right'}}>{this.formatTime(this.state.playbackLength)}</text>
+                    </div>
+                    <div>
+                      <progress ref={this.myRef} id="seekbar" className="seekbar" value={this.state.playbackPosition} max={this.state.playbackLength}/>
+                    </div>
+                  </div>
+                  <span className="films-maximizeVideo">
+                    {this.state.isFull ? (
+                      <FiMinimize id="maxControl" onClick={this.exitFull}/>
+
+                    ): (
+                      <FiMaximize id="maxControl" onClick={this.goFull}/>
+
+                    )}
+                  </span>
+
                 </div>
               </div>
               ) : null}
-            </div>
+            </Fullscreen>
+          </div>
         );
     }
 }

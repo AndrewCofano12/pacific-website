@@ -38,7 +38,7 @@ export default class Films extends Component {
 
 
         </video>
-        <div style={{display: "flex", bottom: 60, left: 80, width: "100vw", position: "absolute", flexDirection:"row"}}>
+        <div style={{display: "flex", bottom: 60, left: 80, position: "absolute", flexDirection:"row"}}>
           <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
             <Link to={`${this.props.linkPrefix}/${this.state.entries[0].id}`} >
             <text>Fall '17</text>
