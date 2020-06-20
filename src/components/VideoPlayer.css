@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.films-videoPage {
+    cursor: url("../images/icons/pause1.png"), auto;
+}
+
 .films-maximizeVideo {
 
 
@@ -36,7 +40,11 @@
     color: #d3d3d3;
 }
 
-#maxControl {
+#exitControl:hover {
+    cursor: pointer;
+}
+
+.maxControlAction {
     width: 30px;
     height: 30px;
     stroke-width: 2px;
@@ -45,6 +53,10 @@
     position:absolute;                  
     bottom:0;                          
     right:0;      
+}
+
+.maxControlAction:hover {
+    cursor: pointer;      
 }
 
 .films-exitVideo {

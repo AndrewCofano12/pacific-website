@@ -4,6 +4,7 @@ import request from "../node/vimeoApi"
 import Vimeo from '@vimeo/player'
 import { FiMaximize, FiMinimize, FiXCircle } from 'react-icons/fi';
 import Fullscreen from "react-full-screen";
+import $ from 'jquery'
 
 
 export default class VideoPlayer extends Component {
@@ -22,7 +23,8 @@ export default class VideoPlayer extends Component {
         left: 0,
         showPlayerControls: false,
         playbackLength: 0,
-        isFull: false
+        isFull: false,
+        isPlaying: false
 
       }
       this.handleExit = this.handleExit.bind(this);
@@ -64,6 +66,21 @@ export default class VideoPlayer extends Component {
         
       } else {
         this.setState({width: width, height: width *.5625 }) //shrink vertically
+      }
+    }
+
+    handlePlayPause(videoPlayer) {
+      if (this.state.isPlaying) {
+        videoPlayer.pause().then(() => {
+          this.setState({ isPlaying: false});
+          $('.films-videoPage').css('cursor', "URL('../images/icons/play1.png')");
+        });
+      }
+      else {
+        videoPlayer.play().then(() => {
+          this.setState({ isPlaying: true});
+          $('.films-videoPage').css('cursor', "URL('../images/icons/pause1.png')");
+        });
       }
     }
 
@@ -127,7 +144,7 @@ export default class VideoPlayer extends Component {
       this.player = new Vimeo(iframe)
       window.addEventListener("resize", this.handleResize.bind(this))
       window.addEventListener("mousemove", this.showPlayerControls.bind(this))
-      // window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
+      window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
       this.player.setVolume(this.state.volume)
 
       this.player.on('timeupdate', (event) => {
@@ -140,7 +157,10 @@ export default class VideoPlayer extends Component {
 
       this.player.on('play', function() {
         console.log('Played the video');
+        this.setState({ isPlaying: true });
+        this.handleCursor();
       });
+
     }
 
     componentDidUpdate() {
@@ -194,7 +214,7 @@ export default class VideoPlayer extends Component {
     render() {
 
         return(
-          <div style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
+          <div className="films-videoPage" style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
             <Fullscreen
               enabled={this.state.isFull}
               onChange={isFull => this.setState({isFull})}
@@ -235,10 +255,10 @@ export default class VideoPlayer extends Component {
                   </div>
                   <span className="films-maximizeVideo">
                     {this.state.isFull ? (
-                      <FiMinimize id="maxControl" onClick={this.exitFull}/>
+                      <FiMinimize className="maxControlAction" id="minControl" onClick={this.exitFull}/>
 
                     ): (
-                      <FiMaximize id="maxControl" onClick={this.goFull}/>
+                      <FiMaximize className="maxControlAction" id="maxControl" onClick={this.goFull}/>
 
                     )}
                   </span>
