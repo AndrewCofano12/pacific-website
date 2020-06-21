@@ -2,7 +2,7 @@ import React, { useRef, useState, Component, Text, useCallback } from 'react';
 import "./VideoPlayer.css"
 import request from "../node/vimeoApi"
 import Vimeo from '@vimeo/player'
-import { FiMaximize, FiMinimize, FiXCircle } from 'react-icons/fi';
+import { FiMaximize, FiMinimize, FiXCircle, FiPlay, FiPause} from 'react-icons/fi';
 import Fullscreen from "react-full-screen";
 import $ from 'jquery'
 
@@ -24,10 +24,11 @@ export default class VideoPlayer extends Component {
         showPlayerControls: false,
         playbackLength: 0,
         isFull: false,
-        isPlaying: false
+        isPlaying: true
 
       }
       this.handleExit = this.handleExit.bind(this);
+      // this.handlePlayPause = this.handlePlayPause.bind(this)(player);
 
   }
 
@@ -49,9 +50,9 @@ export default class VideoPlayer extends Component {
     }
 
     hideWithTimer() {
-      this.timer = setTimeout(() => {
+      // this.timer = setTimeout(() => {
         this.hidePlayerControls()
-      }, 4000)
+      // }, 4000)
     }
 
     handleResize() {
@@ -73,13 +74,13 @@ export default class VideoPlayer extends Component {
       if (this.state.isPlaying) {
         videoPlayer.pause().then(() => {
           this.setState({ isPlaying: false});
-          $('.films-videoPage').css('cursor', "URL('../images/icons/play1.png')");
+          // $('.films-videoPage').css('cursor', "URL('../images/icons/play1.png')");
         });
       }
       else {
         videoPlayer.play().then(() => {
           this.setState({ isPlaying: true});
-          $('.films-videoPage').css('cursor', "URL('../images/icons/pause1.png')");
+          // $('.films-videoPage').css('cursor', "URL('../images/icons/pause1.png')");
         });
       }
     }
@@ -144,7 +145,7 @@ export default class VideoPlayer extends Component {
       this.player = new Vimeo(iframe)
       window.addEventListener("resize", this.handleResize.bind(this))
       window.addEventListener("mousemove", this.showPlayerControls.bind(this))
-      window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
+      // window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
       this.player.setVolume(this.state.volume)
 
       this.player.on('timeupdate', (event) => {
@@ -156,9 +157,10 @@ export default class VideoPlayer extends Component {
       });
 
       this.player.on('play', function() {
-        console.log('Played the video');
+        console.log('Played the video');        
+        console.log('isPlaying');
+
         this.setState({ isPlaying: true });
-        this.handleCursor();
       });
 
     }
@@ -175,15 +177,15 @@ export default class VideoPlayer extends Component {
     }
 
 
-    handlePlayPause(player) {
-      player.getPaused().then((paused) => {
-        if(paused) {
-          player.play()
-        } else {
-          player.pause()
-        }
-      });
-    }
+    // handlePlayPause(player) {
+    //   player.getPaused().then((paused) => {
+    //     if(paused) {
+    //       player.play()
+    //     } else {
+    //       player.pause()
+    //     }
+    //   });
+    // }
 
     onVideoProgress(player) {
       player.getCurrentTime()
@@ -242,16 +244,24 @@ export default class VideoPlayer extends Component {
                     <FiXCircle id="exitControl"onClick={this.handleExit}/>
 
                   </div>
-                <div style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 160, marginRight: 80, marginLeft: 80, bottom: 60}}>
+                <div className="films-controlContainer" style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 160, marginRight: 80, marginLeft: 80, bottom: 60}}>
+                    <span className="films-playVideo">
+                      {this.state.isPlaying ? (
+                        <FiPause className="playControlAction" id="playControl" onClick={this.handlePlayPause.bind(this, this.player)}/>
+
+                      ): (
+                        <FiPlay className="playControlAction" id="pauseControl" onClick={this.handlePlayPause.bind(this, this.player)}/>
+
+                      )}
+                    </span>
 
                   <div className="progressContainer">
+
                     <div className="films-timeContainer">
-                      <text className="playbackTime" style={{color: '#d3d3d3'}}>{this.formatTime(this.state.playbackPosition)}</text>
-                      <text className="playbackTime" style={{position: 'relative', right: '5', color: '#d3d3d3', float: 'right'}}>{this.formatTime(this.state.playbackLength)}</text>
+                      <span className="playbackTime" id="films-timeElapsed">{this.formatTime(this.state.playbackPosition)}</span>
+                      <span className="playbackTime" id="films-timeLeft">{this.formatTime(this.state.playbackLength)}</span>
                     </div>
-                    <div>
                       <progress ref={this.myRef} id="seekbar" className="seekbar" value={this.state.playbackPosition} max={this.state.playbackLength}/>
-                    </div>
                   </div>
                   <span className="films-maximizeVideo">
                     {this.state.isFull ? (

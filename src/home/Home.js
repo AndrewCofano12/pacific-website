@@ -10,12 +10,14 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        homeObject: props.dbdata
+        homeObject: props.dbdata,
+        dbImages: null
     };
 }
 
 
   componentDidMount() {
+    
     document.addEventListener('wheel', function (event) {
       
           //leave zoom
@@ -38,7 +40,52 @@ export default class Home extends Component {
           return false;
 
     }, {passive: false});
-  }
+
+    console.log("hello")
+    fetch('/')
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      console.log("herlllllllo")
+      console.log(json.express);
+    });
+
+    // fetch('/')
+		// .then(res => res.json())
+		// .then(data => {
+		// 	if(data.data.cod === '404') {
+				
+		// 	} else {
+    //     console.log(data);
+		// 	   let imageId = data.data[0].name;
+    //      this.setState({ dbImages: imageId })
+
+		// 	}
+		// })
+		// .catch(err => {
+		//    console.log(err);
+		// })	
+
+      // Call our fetch function below once the component mounts
+    // this.callBackendAPI()
+    //   .then(res => this.setState({ dbImages: res }))
+    //   .catch(err => console.log(err));
+    }
+
+
+    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+    callBackendAPI = async () => {
+    const response = await fetch("/");
+    const body = await response.json();
+    console.log(body);
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+  
   
   render() {
     return (
@@ -68,7 +115,7 @@ export default class Home extends Component {
               
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
-                  <div className="home-leftSubTitle home-titleText">music</div>
+                  <div className="home-leftSubTitle home-titleText">{this.state.dbImages}</div>
                   <div className="home-subtext">universial connection in energy</div>
                 </Link>
               </div>
