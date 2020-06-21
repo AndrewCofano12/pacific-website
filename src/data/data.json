@@ -91,11 +91,7 @@
             },
             {
                 "url":"023.jpg",
-                "sizing":"half"
-            },           
-            {
-                "url":"024.jpg",
-                "sizing":"half"
+                "sizing":"full"
             }
         ]
    

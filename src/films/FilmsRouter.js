@@ -37,22 +37,22 @@ export default class FilmsRouter extends Component {
     console.log(this.state.filmsObject)
     return (
             <div>
-              <Wrapper>
+              {/* <Wrapper>
                 <TransitionGroup className="transition-group">
                   <CSSTransition
                   // key={location.key}
                   timeout={{ enter: 300, exit: 300 }}
                   classNames="fade"
-                  >
+                  > */}
                     <Route exact path={this.props.match.path} render={(props) => <Films {...props} entries={this.state.filmsObject.filmsEntries} linkPrefix={this.props.match.path}/>} />
                     {this.state.filmsObject.filmsEntries.map((item,i) => {
                       return (
                         <Route path={`${this.props.match.path}/${item.id}`} key={i} render={(props) => <VideoPlayer {...props} src={item.src}/>}/>
                       )
                     })}
-                  </CSSTransition>
+                  {/* </CSSTransition>
                 </TransitionGroup>
-                </Wrapper>
+                </Wrapper> */}
             </div>
     )}
 
