@@ -4,7 +4,6 @@ import './MusicStyles.css';
 import EpisodeSlider from './EpisodeSlider';
 import $ from 'jquery';
 
-
 export default class Music extends Component {
   constructor(props) {
     super(props);

@@ -5,6 +5,8 @@ import Pagination from '../components/pagination/Pagination';
 import AudioPlayer, { RHAP_UI, CURRENT_TIME } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import LazyLoad from 'react-lazyload';
+import pMepisode from '../audio/test.mp3'
+
 
 export default class EpisodeSlider extends Component {
     constructor(props) {
@@ -95,8 +97,8 @@ export default class EpisodeSlider extends Component {
                                 <div className="music-audioPlayerContainer">
                                     <AudioPlayer 
                                     autoPlay={true}
-                                    // src={'../audio/' + episode.file}
-                                    src='../audio/sample.mp3'
+                                    //src={'../audio/' + episode.file}
+                                    src={pMepisode}
                                     layout="horizontal-reverse"
                                     showJumpControls={false}
                                     customVolumeControls={[]}
