@@ -5,7 +5,7 @@ module.exports = app => {
     // app.post("/customers", customers.create);
   
     // Retrieve all Images
-    // app.get("/", images.findAll);
+    app.get("/", images.findAll);
   
     // Retrieve a single Image with imageId
     app.get("/images/:imageId", images.findOne);
