@@ -23,7 +23,7 @@ export default function NavigationHeader(props) {
           </span>
           <span className={`pageNavContainer journalNav`}>
             <Link to="/journal/" className={` ${props.page == "journal" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
-              journal
+              narrative
             </Link>
           </span>
           <span className={`navSeparator ${props.formatString}`}>
@@ -31,7 +31,7 @@ export default function NavigationHeader(props) {
           </span>
           <span className={`pageNavContainer filmsNav`}>
             <Link to="/films" className={` ${props.page == "films" ? "pageNavSelected" : "pageNav"} ${props.formatString}`}>
-              films
+              visual
             </Link>
           </span>                
         </div>

@@ -1,284 +1,269 @@
-import React, { useRef, useState, Component, Text, useCallback } from 'react';
-import "./VideoPlayer.css"
-import request from "../node/vimeoApi"
-import Vimeo from '@vimeo/player'
-import { FiMaximize, FiMinimize, FiXCircle, FiPlay, FiPause} from 'react-icons/fi';
+import React, { Component } from "react";
+import "./VideoPlayer.css";
+import Vimeo from "@vimeo/player";
 import Fullscreen from "react-full-screen";
-import $ from 'jquery'
-
+import PlayerController from "./PlayerController";
+import CreditsOverlay from "./CreditsOverlay"
 
 export default class VideoPlayer extends Component {
-  timer
-  
+  timer;
+  seekbar;
+  volume = 30;
+
   constructor(props) {
-      super(props)
-      this.myRef = React.createRef();
-      let player 
-      this.state = {
-        seconds: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        volume: 30,
-        playbackPosition: 0,
-        left: 0,
-        showPlayerControls: false,
-        playbackLength: 0,
-        isFull: false,
-        isPlaying: true
-
-      }
-      this.handleExit = this.handleExit.bind(this);
-      // this.handlePlayPause = this.handlePlayPause.bind(this)(player);
-
+    super(props);
+    this.state = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      volume: 30,
+      playbackPosition: 0,
+      left: 0,
+      top: 0, 
+      right: 0,
+      showPlayerControls: false,
+      playbackLength: 0,
+      isFull: false,
+      isPlaying: true,
+      looped: false,
+    };
   }
 
-  handleExit() {
-    this.props.history.push('/films');
+  showPlayerControls() {
+    if (!this.state.showPlayerControls) {
+      clearTimeout(this.timer);
+      this.hideWithTimer();
+      this.setState({ showPlayerControls: true });
+    }
   }
 
+  hidePlayerControls() {
+    this.setState({ showPlayerControls: false });
+  }
 
-    showPlayerControls() {
-      if(!this.state.showPlayerControls) {
-        clearTimeout(this.timer)
-        this.hideWithTimer();
-        this.setState({ showPlayerControls: true });
+  hideWithTimer() {
+    this.timer = setTimeout(() => {
+      this.hidePlayerControls();
+    }, 4000);
+  }
+
+  handleResize() {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  }
+
+  pauseVideo() {
+    this.player.pause().then(() => {
+      this.setState({
+        isPlaying: false,
+      });
+    });
+  }
+
+  playVideo() {
+    this.player.play().then(() => {
+      this.setState({
+        isPlaying: true,
+        looped: false,
+      });
+    });
+  }
+
+  bubbleIframeMouseMove(iframe) {
+    // Save any previous onmousemove handler
+    var existingOnMouseMove = iframe.contentWindow.onmousemove;
+
+    // Attach a new onmousemove listener
+    iframe.contentWindow.onmousemove = function (e) {
+      // Fire any existing onmousemove listener
+      if (existingOnMouseMove) existingOnMouseMove(e);
+
+      // Create a new event for the this window
+      var evt = document.createEvent("MouseEvents");
+
+      // We'll need this to offset the mouse move appropriately
+      var boundingClientRect = iframe.getBoundingClientRect();
+
+      // Initialize the event, copying exiting event values
+      // for the most part
+      evt.initMouseEvent(
+        "mousemove",
+        true, // bubbles
+        false, // not cancelable
+        window,
+        e.detail,
+        e.screenX,
+        e.screenY,
+        e.clientX + boundingClientRect.left,
+        e.clientY + boundingClientRect.top,
+        e.ctrlKey,
+        e.altKey,
+        e.shiftKey,
+        e.metaKey,
+        e.button,
+        null // no related element
+      );
+
+      // Dispatch the mousemove event on the iframe element
+      iframe.dispatchEvent(evt);
+    };
+  }
+
+  componentDidMount() {
+    this.handleResize();
+
+    var iframe = document.querySelector("iframe");
+    this.player = new Vimeo(iframe);
+
+    this.player.setVolume(this.volume);
+
+    this.attachListeners();
+    this.attachVideoListener();
+  }
+
+  attachVideoListener() {
+    this.player.getDuration().then((duration) => {
+      this.setState({ playbackLength: duration - .5});
+    });
+
+    this.player.on("play", function () {
+      this.setState({ isPlaying: true });
+    });
+
+    this.player.on("timeupdate", (event) => {
+      this.setState({ playbackPosition: event.seconds });
+      if (this.state.playbackLength < event.seconds) {
+        this.goBackToBeginning();
       }
-    }
+    });
+  }
 
-    hidePlayerControls() {
-      this.setState({ showPlayerControls: false });
-    }
+  attachListeners() {
+    window.addEventListener("resize", this.handleResize.bind(this));
+    window.addEventListener("mousemove", this.showPlayerControls.bind(this));
+  }
 
-    hideWithTimer() {
-      // this.timer = setTimeout(() => {
-        this.hidePlayerControls()
-      // }, 4000)
-    }
+  goBackToBeginning() {
+    
+    this.player.pause();
+    this.player.setCurrentTime(0);
+    // this.player.updateVideoPosition(.1)
+    this.setState({
+      isPlaying: false,
+      looped: true,
+    });
+  }
 
-    handleResize() {
-      // window shrinks horizontally
-      const height = window.innerHeight
-      const width = window.innerWidth
+  /** Funcs to pass as props */
+
+  updateVideoPosition = (time) => {
+    this.player.setCurrentTime(time);
+  };
+
+  goFull = () => {
+    this.setState({ isFull: true });
+  };
+
+  exitFull = () => {
+    this.setState({ isFull: false });
+  };
+
+  handleExit = () => {
+    this.props.history.push("/films");
+  };
+
+  handlePlayPause = () => {
+    if (this.state.isPlaying) {
+      this.pauseVideo();
+    } else {
+      this.playVideo();
+    }
+  };
+
+  renderVideoFrame() {
+    return (
+      <div
+      style={{
+        display:"block",
+        overflow:"hidden",
+      }}>
+        <iframe
+        className="frame"
+        title="video"
+        src={this.props.src}
+        backgroundColor="black"
+        style={this.state.looped ? {opacity: .5} : {opacity: 1}}
+        width={this.state.width}
+        height={this.state.height}
+        frameBorder="0"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+        allowFullScreen={true}
+        fullscreen="true"
+        allow="autoplay"
+      />
+      </div>
       
-      // 16:9 aspect ratio
-      if(height / width > .5625) {
-        this.setState({left: this.state.left + (this.state.width - width) * -.5})
-        this.setState({width: height / .5625, height: height }) //shrink horizontally
-        
-      } else {
-        this.setState({width: width, height: width *.5625 }) //shrink vertically
-      }
-    }
-
-    handlePlayPause(videoPlayer) {
-      if (this.state.isPlaying) {
-        videoPlayer.pause().then(() => {
-          this.setState({ isPlaying: false});
-          // $('.films-videoPage').css('cursor', "URL('../images/icons/play1.png')");
-        });
-      }
-      else {
-        videoPlayer.play().then(() => {
-          this.setState({ isPlaying: true});
-          // $('.films-videoPage').css('cursor', "URL('../images/icons/pause1.png')");
-        });
-      }
-    }
-
-    resetTimer() {
-      this.setState({mouseTimer: 0})
-    }
-
-    formatTime(time) {
-      var minute = Math.floor(time / 60)
-      var seconds = Math.floor(time % 60)
-      if(seconds < 10) {
-        return minute + ":0" + seconds
-      }
-      return minute + ":" + seconds
-    }
-
-    bubbleIframeMouseMove(iframe){
-      // Save any previous onmousemove handler
-      var existingOnMouseMove = iframe.contentWindow.onmousemove;
-  
-      // Attach a new onmousemove listener
-      iframe.contentWindow.onmousemove = function(e){
-          // Fire any existing onmousemove listener 
-          if(existingOnMouseMove) existingOnMouseMove(e);
-  
-          // Create a new event for the this window
-          var evt = document.createEvent("MouseEvents");
-  
-          // We'll need this to offset the mouse move appropriately
-          var boundingClientRect = iframe.getBoundingClientRect();
-  
-          // Initialize the event, copying exiting event values
-          // for the most part
-          evt.initMouseEvent( 
-              "mousemove", 
-              true, // bubbles
-              false, // not cancelable 
-              window,
-              e.detail,
-              e.screenX,
-              e.screenY, 
-              e.clientX + boundingClientRect.left, 
-              e.clientY + boundingClientRect.top, 
-              e.ctrlKey, 
-              e.altKey,
-              e.shiftKey, 
-              e.metaKey,
-              e.button, 
-              null // no related element
-          );
-  
-          // Dispatch the mousemove event on the iframe element
-          iframe.dispatchEvent(evt);
-      };
+    );
   }
 
-    componentDidMount() {  
-      this.handleResize()
-      var iframe = document.querySelector('iframe');  
-      var videoSeekbar = document.querySelector('progress'); 
-      this.player = new Vimeo(iframe)
-      window.addEventListener("resize", this.handleResize.bind(this))
-      window.addEventListener("mousemove", this.showPlayerControls.bind(this))
-      // window.addEventListener("mousedown", () => this.handlePlayPause(this.player))
-      this.player.setVolume(this.state.volume)
+  renderControls() {
+    return (
+      <div>
+        <PlayerController
+          handleExit={this.handleExit}
+          isShowing={this.state.showPlayerControls}
+          isPlaying={this.state.isPlaying}
+          handlePlayPause={this.handlePlayPause}
+          playbackPosition={this.state.playbackPosition}
+          playbackLength={this.state.playbackLength}
+          updateVideoPosition={this.updateVideoPosition}
+          isFullScreen={this.state.isFull}
+          goFull={this.goFull}
+          exitFull={this.exitFull}
+          looped={this.state.looped}
+        />
+      </div>
+    );
+  }
 
-      this.player.on('timeupdate', (event) => {
-        this.setState({playbackPosition: event.seconds})
-      })
-
-      this.player.getDuration().then( (duration) => {
-        this.setState({playbackLength: duration})
-      });
-
-      this.player.on('play', function() {
-        console.log('Played the video');        
-        console.log('isPlaying');
-
-        this.setState({ isPlaying: true });
-      });
-
-    }
-
-    componentDidUpdate() {
-      if(this.state.showPlayerControls) {
-        
-        document.getElementById("seekbar").addEventListener("click", (e) => {
-          var value_clicked = e.offsetX * this.max / this.offsetWidth;      
-          this.player.setCurrentTime(e.offsetX / (window.innerWidth - 160) * this.state.playbackLength) 
+  render() {
+    return (
+      <div>
+      <Fullscreen
+          enabled={this.state.isFull}
+          onChange={(isFull) => this.setState({ 
+            isFull
+          })}
+        >
           
-        })
-      }
-    }
+      <div
+        className="films-videoPage"
+        style={{
+          height: "100%",
+          width: "100vw",
+          display: "block",
+          backgroundColor: "black",
+        }}
+      >
+        <div
+        
+        // className="films-overlay"
+        // style={{
+        //   height: "100%",
+        //   width: "100vw"
+        // }}
+        >
+        
 
+            {this.renderVideoFrame()}
+            {this.renderControls()}
+            </div>
 
-    // handlePlayPause(player) {
-    //   player.getPaused().then((paused) => {
-    //     if(paused) {
-    //       player.play()
-    //     } else {
-    //       player.pause()
-    //     }
-    //   });
-    // }
-
-    onVideoProgress(player) {
-      player.getCurrentTime()
-    }
-
-    increaseVolume(player) {
-      var newVolume = this.state.volume +.05
-      this.setState({volume: newVolume})
-      player.setVolume(this.state.volume)
-    }
-
-    decreaseVolume(player) {
-      var newVolume = this.state.volume -.05
-      this.setState({volume: newVolume})
-      player.setVolume(this.state.volume)
-    }
-
-
-    goFull = () => {
-      this.setState({ isFull: true });
-    }
-  
-    exitFull = () => {
-      this.setState({ isFull: false });
-    }
-  
-
-    render() {
-
-        return(
-          <div className="films-videoPage" style={{height: "100%", width: "100", display: "block", backgroundColor: 'black'}}>
-            <Fullscreen
-              enabled={this.state.isFull}
-              onChange={isFull => this.setState({isFull})}
-            >
-              <iframe 
-              className="frame"
-              title="video" 
-              src={this.props.src}
-              // src="https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true" 
-              width={this.state.width} 
-              height={this.state.height}
-              top="0"
-              left={this.state.left}
-              frameBorder="0" 
-              webkitallowfullscreen="true"
-              mozallowfullscreen="true"
-              allowFullScreen={true}
-              fullscreen="true"
-              allow="autoplay"
-              />
-
-              {this.state.showPlayerControls ? (
-              <div>
-                  <div className="films-exitVideo">
-                    <FiXCircle id="exitControl"onClick={this.handleExit}/>
-
-                  </div>
-                <div className="films-controlContainer" style={{zIndex: 20, position: 'absolute', width: window.innerWidth - 160, marginRight: 80, marginLeft: 80, bottom: 60}}>
-                    <span className="films-playVideo">
-                      {this.state.isPlaying ? (
-                        <FiPause className="playControlAction" id="playControl" onClick={this.handlePlayPause.bind(this, this.player)}/>
-
-                      ): (
-                        <FiPlay className="playControlAction" id="pauseControl" onClick={this.handlePlayPause.bind(this, this.player)}/>
-
-                      )}
-                    </span>
-
-                  <div className="progressContainer">
-
-                    <div className="films-timeContainer">
-                      <span className="playbackTime" id="films-timeElapsed">{this.formatTime(this.state.playbackPosition)}</span>
-                      <span className="playbackTime" id="films-timeLeft">{this.formatTime(this.state.playbackLength)}</span>
-                    </div>
-                      <progress ref={this.myRef} id="seekbar" className="seekbar" value={this.state.playbackPosition} max={this.state.playbackLength}/>
-                  </div>
-                  <span className="films-maximizeVideo">
-                    {this.state.isFull ? (
-                      <FiMinimize className="maxControlAction" id="minControl" onClick={this.exitFull}/>
-
-                    ): (
-                      <FiMaximize className="maxControlAction" id="maxControl" onClick={this.goFull}/>
-
-                    )}
-                  </span>
-
-                </div>
-              </div>
-              ) : null}
-            </Fullscreen>
-          </div>
-        );
-    }
+      </div>
+      </Fullscreen>
+      </div>
+    );
+  }
 }
-

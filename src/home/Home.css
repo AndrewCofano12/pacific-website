@@ -25,7 +25,7 @@
     height: 100vh;
     width: 100vw;
     /* align-self: baseline; */
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     color: white;
     z-index: 12;  
   }
@@ -41,29 +41,11 @@
   }
   
 
-  .home-subtext {
-    font-weight: 500;
-  }
+
   
-.home-titleText {
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-
-.home-email {
-  /* margin-bottom: 3px; */
-}
-
-#home-atIcon {
-  margin-bottom: 3px;
-}
 
 
 
-.home-socialLink {
-  text-decoration: none;
-  color: white;
-}
 /* 
   .home-leftGridContainer {
 
@@ -81,11 +63,11 @@
     /* grid-template-columns: auto auto auto auto; */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 50px;
-    grid-row-gap: 416px;
+    grid-column-gap: 32px;
+    grid-row-gap: 410px;
     margin-left: auto;
     margin-right: auto;
-    width: 88%;
+    width: 79%;
  
   }
   
@@ -99,7 +81,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-column-gap: 40px;
-    grid-row-gap: 416px;
+    grid-row-gap: 410px;
     /* text-align: center; */
     align-items: end;
     align-self: baseline;
@@ -125,16 +107,18 @@
   .home-nameSubChild {
     font-size:16px;
     text-align: left;
-    height: 200px;
+    height: 185px;
   
   }
   
-  
+
+
   .home-logoSubChild {
-    font-family: 'Questrial', sans-serif;
-  
+    font-family: 'Helvetica Neue', sans-serif;
+    /* font-weight: 300;
+    line-height: 20px; */
     font-size: 16px;
-    height: 200px;
+    height: 185px;
   
   }
   
@@ -143,16 +127,38 @@
     color: white;
   }
   
+  .home-titleText {
+    font-weight: 400;
+    margin-bottom: 1px;
+  }
+
+  .home-subtext {
+    font-weight: 400;
+    line-height: 18px;
+  }
   
-  
+
+  .home-email {
+    margin-bottom: 1px;
+  }
+
+  .home-socialLink {
+    text-decoration: none;
+    color: white;
+    font-weight: 400
+  }
+
   #home-brandLogoImage {
-    width: 160px;
-    height: 42px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
   }
   
   
   .home-brandLogoContainer {
     display: flex;
+    align-items: flex-end;
+    width: 200px;
   }
   
   
@@ -176,6 +182,7 @@
   
   .home-brandNameText {
     font-size: 50px;
+    font-family: 'Questrial', sans-serif;
     text-align: left;
   }
   
@@ -224,11 +231,51 @@
   .home-contactInfoCopy {
     display: none;
   }
+
+
+  @media only screen and (min-height: 1210px) {
+    .home-leftGridContainer{
+      grid-row-gap: 540px;
+   
+    }
+    
+    .home-rightGridContainer {
+      grid-row-gap: 540px;
+    }
+    
+    .home-brandNameText {
+      font-size: 57px;
+    }
+    
+    .home-nameSubChild {
+      font-size: 17px;
+      height: 210px;
+    
+    }
+    
+    .home-brandLogoContainer {
+      width: 218px;
+    }
   
-  @media only screen and (max-width: 1200px) {
+    .home-logoSubChild {
+      font-size: 17px;
+      height: 220px;
+    
+    }
+    
+  }
+  
+  @media only screen and (max-width: 1100px) {
+    .home-brandGridItem {
+      height: 40px;
+    }
+
+    #home-visualLink {
+      height: 210px
+    }
+
     .home-childContent {
-      margin-top: 0px;
-  
+      width: 100%;
     }
   
   
@@ -250,6 +297,51 @@
     }
   
     .home-contactInfoCopy {
+      height: 185px;
       display: block;
     }
   }
+
+
+
+
+
+
+  @media only screen and (max-width: 1100px) and (min-height: 1210px) {
+
+    .home-brandGridItem {
+      height: 75px;
+    }
+
+    #home-visualLink {
+      height: 310px
+    }
+
+    .home-childContent {
+      width: 100%;
+    }
+  
+  
+    .home-leftGridContainer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      margin-left: 50px;
+  
+    }
+  
+    .home-rightChild {
+      display: none;
+    }
+  
+    .home-nameSubChild {
+      height: auto;
+  
+    }
+  
+    .home-contactInfoCopy {
+      height: 220px;
+      display: block;
+    }
+
+  }
+

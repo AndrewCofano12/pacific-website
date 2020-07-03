@@ -19,6 +19,7 @@ export default class Films extends Component {
     }
   }
   render() {
+
     // console.log("this.props.entries is not null " + this.props.entries.id != null)
 
     // this.props.entries.map ((entry) => console.log(entry.id))
@@ -27,52 +28,36 @@ export default class Films extends Component {
     //   setVideoPath(URL.createObjectURL('../../public/test.MP4'));
     //   };
     
-    
     return (
       <div className="videoPlayer">
         <NavigationHeader formatString="lightFormat" page="films"/>
-        <ReactPlayer url={myVideo} width="100%" height="100%" playing/>
-        {/* <video 
+        <video 
         className="testVideo"
-        // style={{height: "100vw", width: "100vw", position:"absolute", top: 0, bottom: 0, right: 0, left: 0}}
-        autoplay="true"
-        loop 
-        muted 
-        webkit-playsinline 
-        playsinline 
-        //src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
-        src="../../public/test.MP4"
+        autoPlay={true}
+        loop={true} 
+        muted={true}
+        webkit-playsinline={true} 
+        playsinline={true}
+        src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
         >
 
-
-        </video> */}
+        </video> 
         
-
-        <div style={{display: "flex", bottom: 60, left: 80, position: "absolute", flexDirection:"row"}}>
-          <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
+        <div className="films-linkContainer" >
+          <div className="filmSeletion">
             <Link to={`${this.props.linkPrefix}/${this.state.entries[0].id}`} >
-            <text>Fall '17</text>
+            <text>motion + sound</text>
             </Link>
           </div>
 
-          <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
+          <div className="filmSeletion">
             <Link to={`${this.props.linkPrefix}/${this.state.entries[1].id}`}>
-              <text>Spring '18</text>
+              <text>thanks for the memories</text>
             </Link>
           </div>
-          <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
+          <div className="filmSeletion">
             <Link to={`${this.props.linkPrefix}/${this.state.entries[2].id}`}>
-              <text>LA Street Shit</text>
-            </Link>
-          </div>
-          <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
-            <Link to={`${this.props.linkPrefix}/${this.state.entries[3].id}`}>
-              <text>Central Coast Crafted</text>
-            </Link>
-          </div>
-          <div className="filmSeletion" style={{zIndex: 20, marginRight: 30 }}>
-            <Link to={`${this.props.linkPrefix}/${this.state.entries[4].id}`}>
-              <text>pacificMusic EP1</text>
+              <text>pacificMUSIC ep. 1</text>
             </Link>
           </div>
         </div>

@@ -4,8 +4,8 @@ import './PaginationDot.css'
 
 const styles = {
   root: {
-    height: 10,
-    width: 10,
+    height: 20,
+    width: 20,
     cursor: 'pointer',
     border: 0,
     background: 'none',
@@ -13,15 +13,15 @@ const styles = {
   },
   dot:  {
     backgroundColor: '#EAEAEA',
-    height: 8,
-    width: 8,
-    borderRadius: 6,
+    height: 12,
+    width: 12,
+    borderRadius: 10,
   },
   active: {
     backgroundColor: '#FFFFFF',
-    height: 8,
-    width: 8,
-    borderRadius: 6,
+    height: 12,
+    width: 12,
+    borderRadius: 10,
   },
 };
 

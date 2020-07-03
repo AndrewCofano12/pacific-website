@@ -1,0 +1,186 @@
+.frame {
+    pointer-events: none;
+}
+
+.seekbar {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 96.5%; /* Full-width */
+    height: 2.5px; /* Specified height */
+    background: #a6a6a6; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .5s; /* 0.2 seconds transition on hover */
+    transition: opacity .5s;
+    cursor: pointer;
+}
+
+/* .films-videoPage {
+    cursor: url("../images/icons/pause1.png"), auto;
+} */
+
+#films-timeElapsed {
+    width: 50%;
+    text-align: left;
+    color: #d3d3d3;
+}
+
+#films-timeLeft {
+    width: 50%;
+    text-align: right;
+    color: #d3d3d3;
+}
+
+.films-controlContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.films-timeContainer {
+    margin: 0 auto;
+    width: 96.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.progressContainer {
+    display: inline;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+#exitControl {
+    width: 35px;
+    height: 35px;
+    stroke-width: 1.5px;
+    color: #d3d3d3;
+}
+
+#exitControl:hover {
+    cursor: pointer;
+}
+
+.films-playVideo {
+
+    position:relative;                  
+    bottom:0;            
+    left:0; 
+}
+
+.playControlAction {
+    width: 30px;
+    height: 30px;
+    stroke-width: 2px;
+    color: #d3d3d3;
+/* 
+    position:absolute;                  
+    bottom:0;                          
+    left:0;       */
+}
+
+.films-maximizeVideo {
+
+    position:relative;                  
+    bottom:0;                          
+    right:0;   
+
+}
+.maxControlAction {
+    width: 30px;
+    height: 30px;
+    stroke-width: 2px;
+    color: #d3d3d3;   
+}
+
+.maxControlAction:hover {
+    cursor: pointer;      
+}
+
+.films-exitVideo {
+    position:absolute;
+    top:0;
+    right:0;
+    margin-top: 50px;
+    margin-right: 80px;
+    z-index:300;
+    min-width:0;
+
+}
+
+.playbackTime {
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+    
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
+    }
+    
+    @-moz-keyframes fadeOut {
+        0% {opacity:1;}
+        100% {opacity:0;}
+    }
+    
+    @-webkit-keyframes fadeOut {
+        0% {opacity:1;}
+        100% {opacity:0;}
+    }
+    
+    @-o-keyframes fadeOut {
+        0% {opacity:1;}
+        100% {opacity:0;}
+    }
+    
+    @-ms-keyframes fadeOut {
+        0% {opacity:1;}
+        100% {opacity:0;}
+    }
+
+.fade-out {
+    animation: fadeOut 1s;
+    -webkit-animation: fadeOut 1s;
+    -moz-animation: fadeOut 1s;
+    -o-animation: fadeOut 1s;
+    -ms-animation: fadeOut 1s;
+    opacity: 0;
+}
+
+progress::-moz-progress-bar { background: #cccccc; }
+progress::-webkit-progress-value { background: #cccccc; }

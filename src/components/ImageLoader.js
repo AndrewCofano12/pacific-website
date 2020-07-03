@@ -37,7 +37,7 @@ export default class ImageLoader extends Component {
                     if (i == 0) {
                         return (
                             <LazyLoad offset={100} key={i} overflow>
-                                <img className="imageLoader-backgroundPhoto"
+                                <img className="imageLoader-backgroundPhoto imageLoader-full"
                                 style={{
                                     top: 0,
                                     bottom: 0,
@@ -55,7 +55,7 @@ export default class ImageLoader extends Component {
                     else {
                         return (
                             <LazyLoad offset={100} key={i} overflow>
-                            <img className="imageLoader-backgroundPhoto"
+                            <img className={`imageLoader-backgroundPhoto ${item.sizing == "full" ? "imageLoader-full" : "imageLoader-half"} `}
                             style={{
                                 top: 0,
                                 bottom: 0,
