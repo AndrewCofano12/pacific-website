@@ -22,10 +22,10 @@
     /* 
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     /* scrollbar-width: none;  Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none;
-    overflow: scroll;
+    /*-ms-overflow-style: none;  /* Internet Explorer 10+ */
+    /*scrollbar-width: none;  /* Firefox */
+    /*-ms-overflow-style: none;
+    /*soverflow: scroll;*/
 }
 
 .music-musicBackground::-webkit-scrollbar {
@@ -51,3 +51,116 @@
     height: 100%;
     width: auto;
 }
+
+/******* MUSIC CATALOG STYLES *******/
+
+.music-mainContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    margin-top: 14%;
+    height: 80%;
+    width: 100%;
+
+
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    padding-left: 50px;
+}
+
+/* MUSIC NAVIGATION CONTAINER */
+
+.music-musicNavigationContainer {
+    width: 15%;
+}
+
+
+.music-nowPlayingContainer {
+    margin-bottom: 50px;
+}
+
+.music-nowPlayingIndictator {
+    color: #e4e4e4;
+}
+
+.music-nowPlayingTitle {
+    font-weight: 500;
+}
+
+.music-playlistNavigationContainer {
+    font-weight: 500;
+    color: #e4e4e4;
+}
+
+.music-playlistNavigationItem:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.music-playlistNavigationItem-selected {
+    color: white;
+}
+
+.music-playlistNavigationItem {
+    margin-bottom: 15px;
+}
+
+/* PLAYLIST CONTENT CONTAINER */
+
+.music-playlistContentContainer {
+    width: 85%;
+}
+
+
+
+.music-playlistGrid {
+    display: grid;
+    width: 80%;
+
+    /* grid-template-columns: auto auto auto auto; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 70px;
+    /*grid-row-gap: 410px; */
+}
+
+
+.music-playlistGridItem {
+
+    /* height: 100%; */
+    /* vertical-align: text-top; */
+    width: 350px;
+    height: 350px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+
+.music-gridItemImage {
+    width: 350px;
+    height: 350px;
+}
+
+.music-gridItemPlaybackControl {
+    display: none;
+    left: 0;
+    bottom: 0;
+    
+    z-index: 20; 
+}
+
+.music-playlistGridItem:hover > .music-gridItemPlaybackControl{
+    display: block;
+}
+
+.music-playControlAction {
+    width: 30px;
+    height: 30px;
+    stroke-width: 2px;
+    color: #d3d3d3;
+/* 
+    position:absolute;                  
+    bottom:0;                          
+    left:0;       */
+}
+  
