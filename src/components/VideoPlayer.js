@@ -3,6 +3,7 @@ import "./VideoPlayer.css"
 import request from "../node/vimeoApi"
 import Vimeo from '@vimeo/player'
 import { FiMaximize, FiMinimize, FiXCircle, FiPlay, FiPause} from 'react-icons/fi';
+import { FaRegPlayCircle, FaRegPauseCircle} from 'react-icons/fa';
 import Fullscreen from "react-full-screen";
 import $ from 'jquery'
 
@@ -50,9 +51,9 @@ export default class VideoPlayer extends Component {
     }
 
     hideWithTimer() {
-      // this.timer = setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.hidePlayerControls()
-      // }, 4000)
+      }, 4000)
     }
 
     handleResize() {
