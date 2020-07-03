@@ -10,3 +10,21 @@
     display: none;
     width: 0;
 }
+
+@media only screen and (max-width: 100px) {
+
+    .ImageLoader {
+
+    }
+
+    .imageLoader-full {
+        width: 1600px !important;
+    }
+
+    .imageLoader-half {
+        width: 800px !important;
+    }
+
+
+
+}

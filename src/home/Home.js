@@ -41,25 +41,25 @@ export default class Home extends Component {
             return false;
 
       }, {passive: false});
-      // Call our fetch function below once the component mounts
-      this.callBackendAPI()
-        .then(res => this.setState({ data: res }))
-        .catch(err => console.log(err));
+      // // Call our fetch function below once the component mounts
+      // this.callBackendAPI()
+      //   .then(res => this.setState({ data: res }))
+      //   .catch(err => console.log(err));
       }
 
 
 
-    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-    callBackendAPI = async () => {
-    // const response = await fetch(`${config.API_URI}/`);
-    const response = await fetch("/");
-    const body = await response.json();
+  //   // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+  //   callBackendAPI = async () => {
+  //   // const response = await fetch(`${config.API_URI}/`);
+  //   const response = await fetch("/");
+  //   const body = await response.json();
 
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
+  //   if (response.status !== 200) {
+  //     throw Error(body.message) 
+  //   }
+  //   return body;
+  // };
   
   render() {
     return (
@@ -79,7 +79,7 @@ export default class Home extends Component {
               <div className="home-gridItem">
 
               </div>
-              <div className="home-gridItem">
+              <div className="home-gridItem home-brandGridItem">
                 <div className="home-brandNameText home-brandChild">
                   pacific
                 </div>
@@ -89,7 +89,7 @@ export default class Home extends Component {
               
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
-                  <div className="home-leftSubTitle home-titleText">{this.state.dbImages}</div>
+                  <div className="home-leftSubTitle home-titleText">music</div>
                   <div className="home-subtext">universial connection in energy</div>
                 </Link>
               </div>
@@ -99,14 +99,14 @@ export default class Home extends Component {
                   <div className="home-subtext">portraying stories of personal nature.</div>
                 </Link>
               </div>
-              <div className="home-gridItem home-nameSubChild">
+              <div id="home-visualLink" className="home-gridItem home-nameSubChild">
                 <Link to="/films" className="home-homePageNav">
                   <div className="home-rightSubTitle home-titleText">visual</div>
-                  <div className="home-subtext">motion landscape</div>
+                  <div className="home-subtext">universial connection in energy</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-contactInfoCopy">
-                <div>pacificfilmstudio@gmail.com</div>
+                <div className="home-contactText">pacificfilmstudio@gmail.com</div>
                 <div>@pacific.film</div>
               </div>
             </div>
@@ -119,9 +119,9 @@ export default class Home extends Component {
                     <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
                   </div>
               </div>
-              <div className="home-gridItem home-logoSub home-logoSubChild">                
-                <div id="home-atIcon"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
-                <div className="home-email"><a className="home-socialLink" href="mailto:info@pacificfilm.com">info@pacificfilm.co</a></div>
+              <div className="home-gridItem home-logoSub home-logoSubChild">                 
+                <div className="home-email home-subtext"><a className="home-socialLink" href="mailto:info@pacificfilm.com">contact@pacificfilm.co</a></div>
+                <div id="home-subtext"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
               </div>
             </div>
           </div>

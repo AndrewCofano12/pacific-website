@@ -14,7 +14,7 @@ body {
 }
 
 .music-singleEpisodeContainer {
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 .music-artworkContainer {
@@ -58,8 +58,10 @@ body {
 .music-audioPlayerContainer {
     margin-left: auto;
     margin-right: auto;
-    width: 760px;
-    padding-top: 30px;
+    /* width: 945px; */
+    width: 50%;
+    padding-top: 55
+    px;
 }
 
 .rhap_progress-indicator {
@@ -79,7 +81,19 @@ body {
     box-shadow: none !important;
 }
 
-.rhap_controls-section {
+.rhap_container:focus {
+    outline: none;
+
+}
+
+* { /* Narrowing, to specific elements, like  input, textarea is PREFFERED */
+    -webkit-user-select: none !important;  
+     -moz-user-select: none !important;    
+     -ms-user-select: none !important;      
+     user-select: none !important;
+   }
+   
+   .rhap_controls-section {
     flex: none !important;
 }
 
@@ -94,8 +108,10 @@ body {
 
 .rhap_time {
     color: white !important;
+    font-family: 'Helvetica Neue';
 }
 
 .rhap_main-controls-button {
     color: white !important;
 }
+

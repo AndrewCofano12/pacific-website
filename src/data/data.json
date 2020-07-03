@@ -100,25 +100,25 @@
         "episodes" : [
             {
                 "name": "episode3",
-                "frontArtwork": "ep3-front.jpg",
-                "backArtwork": "ep3-back.jpg",
-                "file": "EP-3.mp3",
+                "frontArtwork": "03-front.jpg",
+                "backArtwork": "03-back.jpg",
+                "file": "test.mp3",
                 "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
-                "backgroundColor" : "rgb(141, 150, 146)"
+                "backgroundColor" : "rgb(199, 196, 183)"
             },
             {
                 "name": "episode2",
-                "frontArtwork": "ep2-front.jpg",
-                "backArtwork": "ep2-back.jpg",
-                "file": "EP-2.mp3",
+                "frontArtwork": "02-front.JPG",
+                "backArtwork": "02-back.jpg",
+                "file": "test1.mp3",
                 "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
-                "backgroundColor" : "rgb(201, 194, 187)"
+                "backgroundColor" : "rgb(189, 182, 174)"
             },
             {
                 "name": "episode1",
-                "frontArtwork": "ep1-cover.png",
-                "backArtwork": "ep1-back.jpeg",
-                "file": "EP-1.mp3",
+                "frontArtwork": "01-front.png",
+                "backArtwork": "01-back.jpeg",
+                "file": "test1.mp3",
                 "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
                 "backgroundColor" : "rgb(200, 201, 187)"
 
@@ -157,28 +157,17 @@
         "filmsEntries" : [
             {
                 "id": "film1",
-                "src":"https://player.vimeo.com/video/91148889?autoplay=true&controls=false&muted=false&loop=true"
+                "src":"https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false"
             },
             {
                 "id": "film2",
-                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
+                "src":"https://player.vimeo.com/video/326483854?autoplay=true&controls=false&muted=false"
             },
             {
                 "id": "film3",
-                "src":"https://player.vimeo.com/video/194871272?autoplay=true&controls=false&muted=false&loop=true"
-            },
-            {
-                "id": "film4",
-                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
-            },
-            {
-                "id": "film5",
-                "src":"https://player.vimeo.com/video/91148889?autoplay=true&controls=false&muted=false&loop=true"
-            },
-            {
-                "id": "film6",
-                "src":"https://player.vimeo.com/video/395326240?autoplay=true&controls=false&muted=true&loop=true"
+                "src":"https://player.vimeo.com/video/273835449?autoplay=true&controls=false&muted=false"
             }
+
         ]
     }
 }
