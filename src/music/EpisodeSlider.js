@@ -87,7 +87,8 @@ export default class EpisodeSlider extends Component {
                 index={index} 
                 ignoreNativeScroll={true}  
                 onChangeIndex={this.handleChangeIndex}
-                onSwitching={(index, type) =>  {this.handleColorOnSliderChange(index)}}>
+                // onSwitching={(index, type) =>  {this.handleColorOnSliderChange(index)}}
+                >
                     {this.state.episodes.map((episode,i) => {
                         return (
                             <LazyLoad offset={500} key={i}>

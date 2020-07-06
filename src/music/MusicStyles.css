@@ -33,12 +33,12 @@
     width: 0;
 }
   
-.music-episodeSlider {
+/* .music-episodeSlider {
     position: absolute;
     display: flex;
     height: 80%;
     width: 100%;
-}
+} */
 
 .music-coverImage {
     margin-right: 15px;
@@ -71,7 +71,7 @@
 /* MUSIC NAVIGATION CONTAINER */
 
 .music-musicNavigationContainer {
-    width: 15%;
+    width: 10%;
 }
 
 
@@ -108,12 +108,12 @@
 /* PLAYLIST CONTENT CONTAINER */
 
 .music-playlistContentContainer {
-    width: 85%;
+    width: 90%;
 }
 
 
 
-.music-playlistGrid {
+.music-playlistGridView {
     display: grid;
     width: 80%;
 
@@ -125,42 +125,8 @@
 }
 
 
-.music-playlistGridItem {
+/* CAROUSEL */
 
-    /* height: 100%; */
-    /* vertical-align: text-top; */
-    width: 350px;
-    height: 350px;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-}
-
-
-.music-gridItemImage {
-    width: 350px;
-    height: 350px;
-}
-
-.music-gridItemPlaybackControl {
-    display: none;
-    left: 0;
-    bottom: 0;
-    
-    z-index: 20; 
-}
-
-.music-playlistGridItem:hover > .music-gridItemPlaybackControl{
-    display: block;
-}
-
-.music-playControlAction {
-    width: 30px;
-    height: 30px;
-    stroke-width: 2px;
-    color: #d3d3d3;
-/* 
-    position:absolute;                  
-    bottom:0;                          
-    left:0;       */
-}
-  
+.BrainhubCarousel__track {
+    margin-left: -120px !important;
+} 

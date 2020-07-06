@@ -97,33 +97,52 @@
    
     },
     "music": {
-        "episodes" : [
+        "playlists" : [
             {
-                "name": "episode3",
-                "frontArtwork": "03-front.jpg",
-                "backArtwork": "03-back.jpg",
-                "file": "test.mp3",
-                "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
-                "backgroundColor" : "rgb(199, 196, 183)"
-            },
-            {
-                "name": "episode2",
-                "frontArtwork": "02-front.JPG",
-                "backArtwork": "02-back.jpg",
-                "file": "test1.mp3",
-                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
-                "backgroundColor" : "rgb(189, 182, 174)"
-            },
-            {
-                "name": "episode1",
-                "frontArtwork": "01-front.png",
-                "backArtwork": "01-back.jpeg",
-                "file": "test1.mp3",
-                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
-                "backgroundColor" : "rgb(200, 201, 187)"
+                "playlistName" : "episodes",
+                "url": "episodes",
+                "items" : [
+                    {
+                        "name": "pacific music ep.3",
+                        "frontArtwork": "03-front.jpg",
+                        "backArtwork": "03-back.jpg",
+                        "file": "test.mp3",
+                        "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                        "backgroundColor" : "rgb(199, 196, 183)"
+                    },
+                    {
+                        "name": "pacific music ep.2",
+                        "frontArtwork": "02-front.JPG",
+                        "backArtwork": "02-back.jpg",
+                        "file": "test1.mp3",
+                        "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
+                        "backgroundColor" : "rgb(189, 182, 174)"
+                    },
+                    {
+                        "name": "pacific music ep.1",
+                        "frontArtwork": "01-front.png",
+                        "backArtwork": "01-back.jpeg",
+                        "file": "test1.mp3",
+                        "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
+                        "backgroundColor" : "rgb(200, 201, 187)"
 
+                    }
+                ]
+            },
+            {
+                "playlistName" : "mvsic shit",
+                "url": "/mvsic-shit",
+                "items" : [
+                    {
+                        "name": "mvsic shit vol. 1",
+                        "frontArtwork": "vol-1-front.png",
+                        "backArtwork": "03-back.jpg",
+                        "file": "test.mp3",
+                        "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                        "backgroundColor" : "rgb(199, 196, 183)"
+                    }
+                ]
             }
-
         ]
     },
     "journal" : {

@@ -6,16 +6,16 @@ body {
 }
 
 
-.music-swipeableView {
+/* .music-swipeableView {
     height: 100%;
     width: 100vw;
     justify-content: center;
     align-items: center;
-}
-
+} */
+/* 
 .music-singleEpisodeContainer {
     margin-top: 5%;
-}
+} */
 
 .music-artworkContainer {
     /* width: auto; */
@@ -31,11 +31,11 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
-
+/* 
 .react-swipeable-view-container {
     height: 100vh;
     align-items: center;
-}
+} */
 
 .music-artwork {
     height: inherit;
@@ -46,72 +46,11 @@ body {
     background-color: inherit;
     flex-direction: row;     /* make main axis horizontal (default setting) */
     height: 50vh;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
 }
 
 .music-episodeSliderPagination {
     align-self: center;
-}
-
-
-.music-audioPlayerContainer {
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 945px; */
-    width: 50%;
-    padding-top: 55
-    px;
-}
-
-.rhap_progress-indicator {
-    background: white !important;
-    top: -5px !important;
-    width: 15px !important;
-    height: 15px !important;
-}
-
-.rhap_progress-bar-show-download {
-    background-color: rgba(172, 172, 172, 0.5) !important;
-    box-shadow: none !important;
-}
-
-.rhap_container {
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-
-.rhap_container:focus {
-    outline: none;
-
-}
-
-* { /* Narrowing, to specific elements, like  input, textarea is PREFFERED */
-    -webkit-user-select: none !important;  
-     -moz-user-select: none !important;    
-     -ms-user-select: none !important;      
-     user-select: none !important;
-   }
-   
-   .rhap_controls-section {
-    flex: none !important;
-}
-
-
-.rhap_progress-filled {
-    background-color: white !important;
-}
-
-.rhap_progress-bar-show-download {
-    background-color: #ECECEC !important;
-}
-
-.rhap_time {
-    color: white !important;
-    font-family: 'Helvetica Neue';
-}
-
-.rhap_main-controls-button {
-    color: white !important;
 }
 

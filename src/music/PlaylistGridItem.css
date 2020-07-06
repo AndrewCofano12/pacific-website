@@ -1,0 +1,41 @@
+
+.music-playlistGridItem {
+
+    /* height: 100%; */
+    /* vertical-align: text-top; */
+    width: 350px;
+    position: relative;
+    height: 350px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+
+.music-gridItemImage {
+    width: 350px;
+    height: 350px;
+}
+
+.music-gridItemPlaybackControl {
+    left: 0;
+    bottom: 0;
+    float: left;
+
+    z-index: 100; 
+}
+
+.music-playControlAction {
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    z-index: 100; 
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-weight: 100;
+    position:absolute;                  
+}
+  
+.music-playControlAction:hover {
+    cursor: pointer;
+}
