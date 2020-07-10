@@ -8,22 +8,39 @@ export default class PlaylistCoverView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        playlistData: props.playlistData,
-        value: 0
+        playlistItems: props.playlistData,
+        value: this.props.selectedIndex
     };
-    this.onChange = this.onChange.bind(this);
+    // this.onChange = this.onChange.bind(this);
     this.goForward = this.goForward.bind(this);
     this.goBack = this.goBack.bind(this);
 
   }
 
-  onChange(value) {
-    this.setState({ value });
+  componentDidMount() {
+    //this.setState({value: this.props.selectedIndex})
+     
+}
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps.selectedIndex)
+    if (this.state.value !== newProps.selectedIndex) {
+      this.setState({value: newProps.selectedIndex})
+    }
+    // this.setState({value: this.props.selectedIndex})
   }
+
+
+  // onChange(value) {
+  //   this.setState({ value: value });
+  // }
 
   goForward() {
     // TO-DO: Handle out-of-bounds
-    this.setState({value : this.state.value + 1,})
+    console.log(this.state.value);  
+    if (this.state.value < (this.state.playlistItems.length - 1)) {
+      this.setState({value : this.state.value + 1,})
+    }
   }
 
   goBack() {
@@ -37,9 +54,9 @@ export default class PlaylistCoverView extends Component {
     return (
         <Carousel
             value={this.state.value}
-            onChange={this.onChange}
+            // onChange={this.onChange}
             draggable={false}
-            slides={this.state.playlistData.map((episode,i) => {
+            slides={this.state.playlistItems.map((episode,i) => {
                 return (
                     <div key={i}>
                     <Episode childKey={i} epData={episode} resolve={() => import('../audio/' + episode.file)} goForward={this.goForward} goBack={this.goBack}/>

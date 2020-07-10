@@ -1,23 +1,65 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import './Playlist.css';
+//import './Playlist.css';
+import PlaylistGridItem from './PlaylistGridItem';
+import PlaylistCoverView from './PlaylistCoverView';
 
 export default class Playlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
         playlistData: props.playlistData,
-        gridView: true
+        gridView: null,
+        viewIndex: this.props.atIndex
     };
+    this.handleGridItemSelect = this.handleGridItemSelect.bind(this);
   }
 
     componentDidMount() {
+    
     // const resolve = this.props.resolve;
     // const { default: episodeAudio } = await resolve();
     // this.setState({ episodeAudio });
+    if (this.props.location.state && this.props.location.state.fromLink) {
+        console.log("FROM LINK")
+        if (!this.props.location.state.showCover) {
+            this.setState({gridView: true})
+        }
+        else {
+            this.setState({gridView: false, viewIndex: this.props.location.state.showCoverIndex})
+        }
+
+    }
+    else {
+        if (this.props.showCover) {
+            this.setState({gridView: false, viewIndex: this.props.atIndex})
+        }
+        else {
+            this.setState({gridView: true})
+        }    
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    //   console.log("entered willReceiveProps... " + this.props.location.state.showCover + " & " + this.props.location.state.showCoverIndex)
+      if (newProps.location.state && newProps.location.state.fromLink) {
+      console.log("entered willReceiveProps... " + newProps.location.state.showCover + " & " + newProps.location.state.showCoverIndex)
+        if (!newProps.location.state.showCover) {
+            console.log("changing to grid view")
+            this.setState({gridView: true})
+        }
+        else {
+            this.setState({gridView: false, viewIndex: newProps.location.state.showCoverIndex})
+        }
+      } 
 
   }
 
+handleGridItemSelect(index) {
+    console.log(index);
+    this.setState({gridView: false, viewIndex: index})
+    // console.log(this.state.viewIndex)
+}
 
 render() {
     return (
@@ -27,13 +69,13 @@ render() {
                 <div className="music-playlistGridView">
                     {this.state.playlistData.items.map((item,i) => {
                     return (
-                        <PlaylistGridItem key={i} itemData={item}/>
+                        <PlaylistGridItem key={i} itemIndex={i} itemData={item} selectItem={this.handleGridItemSelect}/>
                     )
                     })}
                 </div>
             ):(
                 <div className="music-playlistCoverView">
-                    <PlaylistCoverView selectedIndex={this.state.selectedIndex} playlistData={this.state.playlistData}/>
+                    <PlaylistCoverView selectedIndex={this.state.viewIndex} playlistData={this.state.playlistData.items}/>
                 </div>
             )}
         </div>

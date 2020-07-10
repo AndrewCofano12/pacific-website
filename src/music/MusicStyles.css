@@ -85,10 +85,21 @@
 
 .music-nowPlayingTitle {
     font-weight: 500;
+    color: white;
+}
+
+.music-nowPlayingTitle:hover {
+    text-decoration: underline;
 }
 
 .music-playlistNavigationContainer {
     font-weight: 500;
+    color: #e4e4e4;
+}
+
+.music-playlistNavigationItem {
+    margin-bottom: 15px;
+    text-decoration: none;
     color: #e4e4e4;
 }
 
@@ -101,14 +112,13 @@
     color: white;
 }
 
-.music-playlistNavigationItem {
-    margin-bottom: 15px;
-}
+
 
 /* PLAYLIST CONTENT CONTAINER */
 
 .music-playlistContentContainer {
     width: 90%;
+    padding-left: 20px;
 }
 
 

@@ -2,33 +2,61 @@ import React, { Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
 import './MusicStyles.css';
 import PlaylistGridItem from './PlaylistGridItem';
+import Playlist from './Playlist';
 import EpisodeSlider from './EpisodeSlider';
 import { FaRegPlayCircle, FaRegPauseCircle} from 'react-icons/fa';
 import { RiPlayCircleLine } from "react-icons/ri";
 import $ from 'jquery';
 import PlaylistCoverView from './PlaylistCoverView';
-import { Route } from 'react-router';
+import { Route, Redirect, Link, useLocation } from 'react-router-dom';
 //import './MusicScripts.js';
+
 
 export default class Music extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        musicObject: props.dbdata,
+        nowPlayling: null,
+        musicObject: props.dbdata
     };
+
+  }
+
+  updateCurrentSelected() {
+    const path = document.location.pathname;
+    $('.music-playlistNavigationItem').each(function(i, obj) {
+      // console.log($(obj).data())
+      if ($(obj).data("url") == path) {
+        $(obj).addClass("music-playlistNavigationItem-selected");
+      }
+      else {
+        $(obj).removeClass("music-playlistNavigationItem-selected");
+
+      }
+    });
+
+    
   }
 
   componentDidMount () {
     
-    // $('html, body').css('overflow', 'hidden');   
+    // $('html, body').css('overflow', 'hidden'); 
+    // const path = document.location.pathname;
+    // this.setState({})
+    // console.log(path);
+    this.updateCurrentSelected();
+  }
+
+  componentDidUpdate() {
+    this.updateCurrentSelected();
   }
 
 
   render() {
-    let firstPlaylist = this.state.musicObject.playlist[0];
+    let firstPlaylist = this.state.musicObject.playlists[0];
     // console.log(this.state.musicObject)
     return (
-      <div className="music-musicBackground" style={{backgroundColor: this.state.musicObject.episodes[0].backgroundColor}}>
+      <div className="music-musicBackground" style={{backgroundColor: firstPlaylist.items[0].backgroundColor}}>
         <NavigationHeader formatString="lightFormat" page="music"/>
         {/* <EpisodeSlider episodes={this.state.musicObject.episodes}/> */}
 
@@ -50,9 +78,16 @@ export default class Music extends Component {
                 </div>
 
                 {/* Now Playing Title */}
+                <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/episodes`, 
+                                state: {
+                                  fromLink: true,
+                                  showCover: true,
+                                  showCoverIndex: 1
+                                }}}>
                 <div className="music-nowPlayingTitle">
-                  mvsic shit vol. 1
+                  pacific music ep. 2
                 </div>
+                </Link>
 
               </div>
 
@@ -62,13 +97,20 @@ export default class Music extends Component {
 
                 {/* Playlist Navigation Item Container */}
                 {/* <div className="music-playlistNavigationItemContainer"> */}
-                  
-                  <div className="music-playlistNavigationItem music-playlistNavigationItem-selected">
-                    episodes
-                  </div>
-                  <div className="music-playlistNavigationItem">
-                    mvsic shit
-                  </div>
+                {this.state.musicObject.playlists.map((playlist,i) => {
+                    return (
+                      <Link to={{pathname: `${this.props.match.path}/${playlist.url}`, 
+                                state: {
+                                  fromLink: true,
+                                  showCover: false
+                                }}}>
+                        <div data-url={`/music/${playlist.url}`} className="music-playlistNavigationItem">
+                          {playlist.playlistName}
+                        </div>
+                      </Link>
+                      )
+                  }
+                  )} 
 
                 {/* </div> */}
               </div>
@@ -82,34 +124,16 @@ export default class Music extends Component {
               exact path={this.props.match.path}
               render={() => {
                   return (
-                      <Redirect to={`/${firstPlaylist.url}`} />
+                      <Redirect to={`${this.props.match.path}/${firstPlaylist.url}`} />
                   )
               }}
             />
-            {this.state.musicObject.playlists.map((playlist,i) => {
-                return (
-                  <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => <Playlist {...props} playlistData={playlist} linkPrefix={this.props.match.path}/>} />
-                )
-              }
-            )}
-
-            {/* Playlist Grid Item */}
-            {false ? (            
-              <div className="music-playlistGridView">
-                {this.state.musicObject.episodes.map((episode,i) => {
-                  return (
-                    <PlaylistGridItem key={i} itemData={episode}/>
-                  )
-                })}
-              </div>
-              ) : null}
-
-            {/* Playlist Cover View */}
-            <div className="music-playlistCoverView">
-                {/* <EpisodeSlider episodes={this.state.musicObject.episodes}/> */}
-                <PlaylistCoverView playlistData={this.state.musicObject.episodes}/>
-            </div>
-              
+             {this.state.musicObject.playlists.map((playlist,i) => {
+                 return (
+                   <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => <Playlist {...props} showCover={false} atIndex={null} playlistData={playlist} linkPrefix={this.props.match.path}/>} />
+                 )
+               }
+             )}               
 
           </div>
 
