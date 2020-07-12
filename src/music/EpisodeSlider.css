@@ -45,7 +45,7 @@ body {
     display: flex;
     background-color: inherit;
     flex-direction: row;     /* make main axis horizontal (default setting) */
-    height: 50vh;
+    height: 53vh;
     width: 100%;
     justify-content: center;
 }

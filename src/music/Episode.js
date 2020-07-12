@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
 import AudioPlayer, { RHAP_UI, CURRENT_TIME } from 'react-h5-audio-player';
+import Player from './Player';
 import 'react-h5-audio-player/lib/styles.css';
 import $ from 'jquery';
 
@@ -16,10 +17,10 @@ export default class Episode extends Component {
     };
   }
 
-  async componentDidMount() {
-    const resolve = this.props.resolve;
-    const { default: episodeAudio } = await resolve();
-    this.setState({ episodeAudio });
+  componentDidMount() {
+    // const resolve = this.props.resolve;
+    // const { default: episodeAudio } = await resolve();
+    // this.setState({ episodeAudio });
 
   //   $('.rhap_main-controls').append(`<span className="music-prevSliderControl onClick={this.props.goBack}>
   //       prev
@@ -81,14 +82,16 @@ export default class Episode extends Component {
 
         {/* Item Playback Control */}
         <div className="music-audioPlayerContainer">
-            <AudioPlayer 
+          <Player resolve={() => import('../audio/' + this.state.episode.file)}/>
+            {/* <AudioPlayer 
             //src={'../audio/' + episode.file}
             src={this.state.episodeAudio}
             layout="stacked"
             showJumpControls={false}
             customVolumeControls={[]}
             customAdditionalControls={[]}
-            />
+            /> */}
+
         </div>
       </div>
 

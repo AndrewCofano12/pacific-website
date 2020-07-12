@@ -16,10 +16,11 @@ export default class Music extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        nowPlayling: null,
+        nowPlayingPlayer: null,
+        nowPlayingTitle: null,
         musicObject: props.dbdata
     };
-
+    this.updateNowPlaying = this.updateNowPlaying.bind(this);
   }
 
   updateCurrentSelected() {
@@ -34,8 +35,19 @@ export default class Music extends Component {
 
       }
     });
-
     
+  }
+
+  updateNowPlaying(playerObject) {
+    this.setState({nowPlayingPlayer: playerObject});
+    /* Pass this function to Playlist, then PlaylistCoverView. When player is started, 
+     replace nowPlayingObject with the currently playing player (so when current Playlist is unmounted, audio doesn't stop).
+     Then give PlaylistGridItem a ref to the audio player so it can play & pause.
+     Still need to figure out how to start audio from GridItem (maybe a callback function?).
+     
+     Thought: the only functional AudioPlayer exists within Music. As you render sub components (PlaylistGridItem, PlaylistCoverView),
+     replace the AudioPlayer in that component with the currently playing one.
+    */ 
   }
 
   componentDidMount () {

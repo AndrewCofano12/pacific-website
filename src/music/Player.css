@@ -1,0 +1,56 @@
+/* Audio Player */
+
+.rhap_progress-indicator {
+    background: white !important;
+    top: -5px !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.rhap_progress-bar-show-download {
+    background-color: rgba(172, 172, 172, 0.5) !important;
+    box-shadow: none !important;
+}
+
+.rhap_container {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.rhap_container:focus {
+    outline: none;
+
+}
+
+* { /* Narrowing, to specific elements, like  input, textarea is PREFFERED */
+    -webkit-user-select: none !important;  
+     -moz-user-select: none !important;    
+     -ms-user-select: none !important;      
+     user-select: none !important;
+   }
+   
+   .rhap_controls-section {
+    flex: none !important;
+}
+
+
+.rhap_progress-filled {
+    background-color: white !important;
+}
+
+.rhap_progress-bar-show-download {
+    background-color: #ECECEC !important;
+}
+
+.rhap_time {
+    color: white !important;
+    font-family: 'Helvetica Neue';
+}
+
+.rhap_main-controls-button {
+    color: white !important;
+}
+
+.rhap_stacked .rhap_controls-section {
+    margin-top: 35px !important;
+}
