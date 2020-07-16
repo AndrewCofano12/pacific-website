@@ -18,6 +18,7 @@ export default class PlaylistCoverView extends Component {
   }
 
   componentDidMount() {
+    console.log("PLAYLIST COVER VIEW... AUDIO IS: " + this.props.audioRef.current);
     //this.setState({value: this.props.selectedIndex})
      
 }
@@ -45,7 +46,9 @@ export default class PlaylistCoverView extends Component {
 
   goBack() {
       // TO-DO: Handle out-of-bounds
-    this.setState({value : this.state.value - 1,})
+    if (this.state.value > 0) {
+      this.setState({value : this.state.value - 1,})
+    }
   }
 
 
@@ -60,7 +63,16 @@ export default class PlaylistCoverView extends Component {
               console.log("index is..." + i)
                 return (
                     <div key={i}>
-                    <Episode  key={i} playlistKey={this.props.playlistKey} itemIndex={i} epData={episode} audioRef={this.props.audioRef} onPlay={this.props.onPlay} resolve={() => import('../audio/' + episode.file)} goForward={this.goForward} goBack={this.goBack}/>
+                    <Episode  
+                      key={i} 
+                      playlistKey={this.props.playlistKey} 
+                      itemIndex={i} 
+                      epData={episode} 
+                      audioRef={this.props.audioRef} 
+                      onPlay={this.props.onPlay} 
+                      resolve={() => import('../audio/' + episode.file)} 
+                      goForward={this.goForward} goBack={this.goBack}
+                      npFile={this.props.npFile}/>
                     </div>
                 )
             })}>

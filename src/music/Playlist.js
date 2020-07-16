@@ -68,13 +68,27 @@ render() {
                 <div className="music-playlistGridView">
                     {this.state.playlistData.items.map((item,i) => {
                     return (
-                        <PlaylistGridItem key={i} playlistKey={this.props.playlistKey} itemIndex={i} itemData={item} selectItem={this.handleGridItemSelect} onPlay={this.props.onPlay} onPause={this.props.onPause}/>
+                        <PlaylistGridItem 
+                            key={i} 
+                            playlistKey={this.props.playlistKey} 
+                            itemIndex={i} itemData={item} 
+                            selectItem={this.handleGridItemSelect} 
+                            onPlay={this.props.onPlay} 
+                            onPause={this.props.onPause}
+                            npFile={this.props.npFile}/>
                     )
                     })}
                 </div>
             ):(
                 <div className="music-playlistCoverView">
-                    <PlaylistCoverView playlistKey={this.props.playlistKey} selectedIndex={this.state.viewIndex} playlistData={this.state.playlistData.items} audioRef={this.props.audioRef} onPlay={this.props.onPlay} onPause={this.props.onPause}/>
+                    <PlaylistCoverView 
+                        playlistKey={this.props.playlistKey} 
+                        selectedIndex={this.state.viewIndex} 
+                        playlistData={this.state.playlistData.items} 
+                        audioRef={this.props.audioRef} 
+                        onPlay={this.props.onPlay} 
+                        onPause={this.props.onPause}
+                        npFile={this.props.npFile}/>
                 </div>
             )}
         </div>

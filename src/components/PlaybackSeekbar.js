@@ -30,7 +30,7 @@ export default class PlaybackSeekbar extends Component {
     }
 
     getCurrentProgress = (event) => {
-        const audio = this.props.audioRef;
+        const audio = this.props.audioRef.current;
         if (!audio.src || !isFinite(audio.currentTime) || !this.progressBar.current) {
             const currentTime = 0;
             const currentTimePos = '0%'
@@ -46,7 +46,7 @@ export default class PlaybackSeekbar extends Component {
         } else if (relativePos > maxRelativePos) {
           relativePos = maxRelativePos
         }
-        const currentTime = (this.props.audio.duration * relativePos) / maxRelativePos
+        const currentTime = (audio.duration * relativePos) / maxRelativePos
         const currentTimePos = `${((relativePos / maxRelativePos) * 100).toFixed(2)}%`
         return { currentTime, currentTimePos }
     }
@@ -91,7 +91,7 @@ export default class PlaybackSeekbar extends Component {
         event.stopPropagation()
         this.setState((prevState) => {
           if (prevState.isDraggingProgress && isFinite(this.timeOnMouseMove)) {
-            this.props.audio.currentTime = this.timeOnMouseMove
+            this.props.audioRef.current.currentTime = this.timeOnMouseMove
           }
           return { isDraggingProgress: false }
         })
@@ -114,34 +114,42 @@ export default class PlaybackSeekbar extends Component {
         const { duration, currentTime } = audio
         this.setState({
           currentTimePos: `${((currentTime / duration) * 100 || 0).toFixed(2)}%`,
+          playbackPosition: currentTime
         })
     }, this.props.progressUpdateInterval)
   
     componentDidMount() {
-        const audio = this.props.audioRef.current;
-        if (audio) {
-            $(audio).on('timeupdate', (event) => {
-                this.setState({playbackPosition: event.seconds})
-              })
+        const audio = this.props.audioRef;
+        // console.log("AUDIO COMPONENT IS: " + audio);
+        // audio.addEventListener('timeupdate', (event) => {
+        //   console.log('The currentTime attribute has been updated. Again.');
+        //   this.setState({playbackPosition: event.seconds})
+        // });
+        // audio.ontimeupdate = (event) => {
+        //   console.log('The currentTime attribute has been updated. Again.');
+        // };
+        // $(audio).on('timeupdate', (event) => {
+        //   console.log('')
+        //     this.setState({playbackPosition: event.seconds})
+        //   })
               // **** TO-DO *** //
             //   audio.getDuration().then( (duration) => {
             //     this.setState({playbackLength: duration})
             //   });
-    
-        }
+  
 
     
 
     }
 
-    componentDidUpdate() {
-        const audio  = this.props.audioRef.current;
-        if (audio && !this.hasAddedAudioEventListener) {
-            this.audio = audio
-            this.hasAddedAudioEventListener = true
-            audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
-            audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
-        }
+    componentDidUpdate() { 
+      const audio  = this.props.audioRef.current;
+      if (audio && !this.hasAddedAudioEventListener) {
+          this.audio = audio
+          this.hasAddedAudioEventListener = true
+          audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
+          audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
+      }
     }
 
     render() {
@@ -158,7 +166,7 @@ export default class PlaybackSeekbar extends Component {
                 >
                     <div className="seekbar-progressBar">
                         {/* <progress ref={this.myRef} className="seekbar-progressBarComponent" value={this.state.playbackPosition} max={this.state.playbackLength}/> */}
-                        <div className="seekbar-progressIndicator"></div>
+                        <div className="seekbar-progressIndicator" style={{ left: this.state.currentTimePos }}></div>
                         <div className="seekbar-progressFilled" style={{ width: this.state.currentTimePos }}/>
                         <div className="seekbar-downloadProgress"/>
                     </div>

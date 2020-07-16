@@ -21,6 +21,7 @@ export default class Episode extends Component {
   handlePlay() {
       //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
       this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
+        console.log("audio ready:::: " + this.props.audioRef.current.readyState);
       this.props.audioRef.current.play();
 
   }
@@ -68,7 +69,9 @@ export default class Episode extends Component {
 
         {/* Item Playback Control */}
         <div className="music-audioPlayerContainer">
-            <PlaybackSeekbar audioRef={this.props.audioRef}/>
+            <PlaybackSeekbar 
+              audioRef={this.props.audioRef}
+              npFile={this.props.npFile}/>
             <div className="music-itemControllerContainer">
               <div className="music-playlistSliderControl music-prevSliderControl" onClick={this.props.goBack}>prev</div>
               <div className="music-audioControlContainer">

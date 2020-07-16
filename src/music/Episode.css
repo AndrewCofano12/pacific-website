@@ -24,12 +24,15 @@
     margin-right: auto;
     /* width: 945px; */
     width: 100%;
-    padding-top: 55px;
+    /* padding-top: 55px; */
 }
 
 .music-itemControllerContainer {
     display: flex;
     flex-direction: row;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 .music-itemPlayControlAction {
@@ -37,4 +40,39 @@
     height: 60px;
     color: white;
     font-weight: 100;
+}
+
+
+.music-artworkContainer {
+    /* width: auto; */
+    width: 100%;
+    border: 1px solid blue;
+}
+
+/* prevents image from being highlighted */
+.music-noselect {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+/* 
+.react-swipeable-view-container {
+    height: 100vh;
+    align-items: center;
+} */
+
+.music-artwork {
+    height: inherit;
+} 
+
+.music-artworkWrapper {
+    display: flex;
+    background-color: inherit;
+    flex-direction: row;     /* make main axis horizontal (default setting) */
+    height: 53vh;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
 }

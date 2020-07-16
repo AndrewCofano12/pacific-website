@@ -3,7 +3,7 @@ import NavigationHeader from '../components/NavigationHeader';
 import './MusicStyles.css';
 import PlaylistGridItem from './PlaylistGridItem';
 import Playlist from './Playlist';
-import EpisodeSlider from './EpisodeSlider';
+// import EpisodeSlider from './EpisodeSlider';
 import { FaRegPlayCircle, FaRegPauseCircle} from 'react-icons/fa';
 import { RiPlayCircleLine } from "react-icons/ri";
 import $ from 'jquery';
@@ -119,7 +119,7 @@ export default class Music extends Component {
 
 
     // force update to pass this.audio to child components
-    this.forceUpdate()
+    // this.forceUpdate()
     // audio player object
     const audio = this.audio.current
 
@@ -241,7 +241,17 @@ export default class Music extends Component {
             />
              {this.state.musicObject.playlists.map((playlist,i) => {
                  return (
-                   <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => <Playlist {...props} showCover={false} atIndex={null} playlistKey={i} playlistData={playlist} linkPrefix={this.props.match.path} audioRef={this.audio} onPlay={this.handlePlay} onPause={this.handlePause}/>} />
+                  <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => 
+                    <Playlist {...props} 
+                      showCover={false} 
+                      atIndex={null} 
+                      playlistKey={i} 
+                      playlistData={playlist} 
+                      linkPrefix={this.props.match.path} 
+                      audioRef={this.audio} 
+                      onPlay={this.handlePlay} 
+                      onPause={this.handlePause} 
+                      npFile={this.state.npFile}/>} />
                  )
                }
              )}               
@@ -251,7 +261,9 @@ export default class Music extends Component {
       </div>
       <audio 
         ref={this.audio}
-        src={this.state.nowPlayingAudio}
+        //src={this.state.nowPlayingAudio}
+        src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
+        preload="auto"
         controls={false}
         loop={false}
         autoPlay={false}

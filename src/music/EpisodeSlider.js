@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import './EpisodeSlider.css'
+// import './EpisodeSlider.css'
 import Pagination from '../components/pagination/Pagination';
 //import AudioPlayer, { RHAP_UI, CURRENT_TIME } from 'react-h5-audio-player';
 //import 'react-h5-audio-player/lib/styles.css';
 import LazyLoad from 'react-lazyload';
-import Episode from './Episode';
+// import Episode from './Episode';
 import pMepisode from '../audio/test.mp3'
 
 
@@ -92,7 +92,7 @@ export default class EpisodeSlider extends Component {
                     {this.state.episodes.map((episode,i) => {
                         return (
                             <LazyLoad offset={500} key={i}>
-                                <Episode epData={episode} resolve={() => import('../audio/' + episode.file)}/>
+                                {/* <Episode epData={episode} resolve={() => import('../audio/' + episode.file)}/> */}
                             {/* <div className="music-singleEpisodeContainer"style={Object.assign({})}>
                                 <div className="music-artworkWrapper" style={{backgroundColor: this.state.color}}>
                                     <img draggable="false" className="music-artwork music-coverImage music-noselect" src={require('../images/' + episode.frontArtwork)} alt="fuck"/>
