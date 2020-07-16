@@ -27,3 +27,14 @@
     padding-top: 55px;
 }
 
+.music-itemControllerContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.music-itemPlayControlAction {
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-weight: 100;
+}

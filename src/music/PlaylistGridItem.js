@@ -8,6 +8,8 @@ export default class PlaylistGridItem extends Component {
     super(props);
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
     this.state = {
         itemData: props.itemData,
         isHovering: false
@@ -16,6 +18,14 @@ export default class PlaylistGridItem extends Component {
 
   componentDidUMount() {
     this.setState({selectItemCallback: this.props.selectItem})
+  }
+
+  handlePlay() {
+    this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
+  }
+
+  handlePause() {
+
   }
 
   handleMouseHover() {
@@ -49,9 +59,15 @@ export default class PlaylistGridItem extends Component {
             <img draggable="false" className="music-gridItemImage music-noselect" src={require('../images/music/' + this.state.itemData.frontArtwork)} alt="fuck"/>
 
             {/* Grid Item Playback Control */}
+            {/**
+             * Handle Play and Pause of grid item. Upon mounting, use prop to determine whether to show play or pause icon
+             * If playing, show icon always.
+             * If not playing, use this.state.isHovering 
+             */}
             {this.state.isHovering ? 
             ( 
-                <RiPlayCircleLine className="music-playControlAction" id="music-playControl"/>
+                
+                <RiPlayCircleLine className="music-playControlAction" id="music-playControl" onClick={this.handlePlay}/>
             ) 
             : null }  
         </div>

@@ -21,7 +21,6 @@ export default class Playlist extends Component {
     // const { default: episodeAudio } = await resolve();
     // this.setState({ episodeAudio });
     if (this.props.location.state && this.props.location.state.fromLink) {
-        console.log("FROM LINK")
         if (!this.props.location.state.showCover) {
             this.setState({gridView: true})
         }
@@ -69,13 +68,13 @@ render() {
                 <div className="music-playlistGridView">
                     {this.state.playlistData.items.map((item,i) => {
                     return (
-                        <PlaylistGridItem key={i} itemIndex={i} itemData={item} selectItem={this.handleGridItemSelect}/>
+                        <PlaylistGridItem key={i} playlistKey={this.props.playlistKey} itemIndex={i} itemData={item} selectItem={this.handleGridItemSelect} onPlay={this.props.onPlay} onPause={this.props.onPause}/>
                     )
                     })}
                 </div>
             ):(
                 <div className="music-playlistCoverView">
-                    <PlaylistCoverView selectedIndex={this.state.viewIndex} playlistData={this.state.playlistData.items}/>
+                    <PlaylistCoverView playlistKey={this.props.playlistKey} selectedIndex={this.state.viewIndex} playlistData={this.state.playlistData.items} audioRef={this.props.audioRef} onPlay={this.props.onPlay} onPause={this.props.onPause}/>
                 </div>
             )}
         </div>

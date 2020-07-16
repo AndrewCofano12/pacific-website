@@ -106,7 +106,7 @@
                         "name": "pacific music ep.3",
                         "frontArtwork": "03-front.jpg",
                         "backArtwork": "03-back.jpg",
-                        "file": "test.mp3",
+                        "file": "pM_Ep-3.mp3",
                         "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
                         "backgroundColor" : "rgb(199, 196, 183)"
                     },
@@ -114,7 +114,7 @@
                         "name": "pacific music ep.2",
                         "frontArtwork": "02-front.JPG",
                         "backArtwork": "02-back.jpg",
-                        "file": "test1.mp3",
+                        "file": "pM_Ep-2.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
                         "backgroundColor" : "rgb(189, 182, 174)"
                     },
@@ -122,7 +122,7 @@
                         "name": "pacific music ep.1",
                         "frontArtwork": "01-front.png",
                         "backArtwork": "01-back.jpeg",
-                        "file": "test1.mp3",
+                        "file": "pM_Ep-1.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
                         "backgroundColor" : "rgb(200, 201, 187)"
 

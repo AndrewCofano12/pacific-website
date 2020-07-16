@@ -24,87 +24,22 @@ export default class Episode extends Component {
         this.player = createRef(null)
         return (
             <AudioPlayer 
-            //src={'../audio/' + episode.file}
-            src={this.state.episodeAudio}
+            // src={this.state.episodeAudio}
             layout="stacked"
             showJumpControls={false}
             customVolumeControls={[]}
             customAdditionalControls={[]}
+            >
+              <audio
+              src={this.state.episodeAudio}
+              controls={false}
+              loop={false}
+              autoPlay={false}
+              preload={true}
+              ref={this.audio}
+              
             />
+            </AudioPlayer>
         )
     }
 }
-
-{/* <AudioPlayer 
-            //src={'../audio/' + episode.file}
-            src={this.state.episodeAudio}
-            layout="stacked"
-            showJumpControls={false}
-            customVolumeControls={[]}
-            customAdditionalControls={[]}
-            />
-
-
-const Player = ({
-  isPlaying,
-  playerJson,
-  PlaynPause,
-  SetPlayerRef,
-  ShowPlayer
-}) => {
-  const PlayerRef = useRef(null);
-  return isPlaying ? (
-    <div
-      className="music_player"
-      style={ShowPlayer ? { display: "block" } : { display: "none" }}
-    >
-      <header>Now Playing</header>
-      <div className="poster_photo">
-        <img
-          src={playerJson.artwork_url}
-          alt="poster"
-          style={{
-            width: "100%",
-            height: "100%"
-          }}
-        />
-      </div>
-      <AudioPlayer
-        ref={PlayerRef}
-        className="player_Real"
-        autoPlay
-        src={playerJson.audio_url}
-        onPlay={() => {
-          PlaynPause(true);
-          console.log(PlayerRef);
-          SetPlayerRef(PlayerRef);
-        }}
-        onPause={() => {
-          PlaynPause(false);
-          console.log(PlayerRef);
-          SetPlayerRef(PlayerRef);
-        }}
-        customAdditionalControls={[]}
-        customVolumeControls={[]}
-        showSkipControls={true}
-        showJumpControls={false}
-        // layout="stacked-reverse"
-        // other props here
-      />
-    </div>
-  ) : (
-    ""
-  );
-};
-
-const mapDispatchToProps = dispatch => ({
-  PlaynPause: bool => dispatch(PlaynPause(bool)),
-  SetPlayerRef: ref => dispatch(SetPlayerRef(ref))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Player);
-
-// My original Code */}

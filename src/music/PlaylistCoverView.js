@@ -57,9 +57,10 @@ export default class PlaylistCoverView extends Component {
             // onChange={this.onChange}
             draggable={false}
             slides={this.state.playlistItems.map((episode,i) => {
+              console.log("index is..." + i)
                 return (
                     <div key={i}>
-                    <Episode childKey={i} epData={episode} goForward={this.goForward} goBack={this.goBack}/>
+                    <Episode  key={i} playlistKey={this.props.playlistKey} itemIndex={i} epData={episode} audioRef={this.props.audioRef} onPlay={this.props.onPlay} resolve={() => import('../audio/' + episode.file)} goForward={this.goForward} goBack={this.goBack}/>
                     </div>
                 )
             })}>

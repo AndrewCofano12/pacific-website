@@ -4,9 +4,9 @@ import AudioPlayer, { RHAP_UI, CURRENT_TIME } from 'react-h5-audio-player';
 import Player from './Player';
 import 'react-h5-audio-player/lib/styles.css';
 import $ from 'jquery';
-
-
-import './Episode.css';
+import PlaybackSeekbar from '../components/PlaybackSeekbar';
+import { RiPlayCircleLine } from "react-icons/ri";
+import './Episode.css'
 
 export default class Episode extends Component {
   constructor(props) {
@@ -15,58 +15,44 @@ export default class Episode extends Component {
         episode: props.epData,
         episodeAudio: null
     };
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
+  handlePlay() {
+      //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
+      this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
+      this.props.audioRef.current.play();
+
+  }
+
+  //async componentDidMount() {
   componentDidMount() {
+    console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
     // const resolve = this.props.resolve;
     // const { default: episodeAudio } = await resolve();
     // this.setState({ episodeAudio });
 
-  //   $('.rhap_main-controls').append(`<span className="music-prevSliderControl onClick={this.props.goBack}>
-  //       prev
-  //     </span>
-  //     <span onClick={this.props.goForward}>
-  //       next
-  //     </span>`
-  // );
+    // if (this.props.childKey == 0) {
+    //   var prevControl = $('<span />').addClass('music-playlistSliderControl music-prevSliderControl').html('prev');
+    //   var goBack = this.props.goBack;
+    //   prevControl.click(function() {
+    //     goBack();
+    //   });
 
-    if (this.props.childKey == 0) {
-      var prevControl = $('<span />').addClass('music-playlistSliderControl music-prevSliderControl').html('prev');
-      var goBack = this.props.goBack;
-      prevControl.click(function() {
-        goBack();
-      });
-
-      var nextControl = $('<span />').addClass('music-playlistSliderControl music-nextSliderControl').html('next');
-      var goForward = this.props.goForward;
-      nextControl.click(function() {
-        goForward();
-      });
+    //   var nextControl = $('<span />').addClass('music-playlistSliderControl music-nextSliderControl').html('next');
+    //   var goForward = this.props.goForward;
+    //   nextControl.click(function() {
+    //     goForward();
+    //   });
 
 
-      // $('.rhap_main-controls').prepend(`<span className='music-playlistSliderControl music-prevSliderControl'>prev</span>`);
-      $('.rhap_main-controls').prepend(prevControl);
-      $('.rhap_main-controls').append(nextControl);
+    //   // $('.rhap_main-controls').prepend(`<span className='music-playlistSliderControl music-prevSliderControl'>prev</span>`);
+    //   $('.rhap_main-controls').prepend(prevControl);
+    //   $('.rhap_main-controls').append(nextControl);
 
-
-      //this.player = createRef();
-      
-    
-      // $('.music-prevSliderControl').click(function() {
-      //   console.log("attaching...")
-      //   (this.props.goBack)();
-      // });
-      // $('.music-nextSliderControl').click(function() {
-      //   (this.props.goForward)();
-      // });
-    }
+    // }
 
     
-    // $('.rhap_main-controls').addClass(`${this.state.episode.name}-audioControl`);
-    // $(`${this.state.episode.name}-audioControl`).append("<span>prev</span><span>next</span>");
-
-
-
   }
 
 
@@ -82,15 +68,27 @@ export default class Episode extends Component {
 
         {/* Item Playback Control */}
         <div className="music-audioPlayerContainer">
-          <Player resolve={() => import('../audio/' + this.state.episode.file)}/>
+            <PlaybackSeekbar audioRef={this.props.audioRef}/>
+            <div className="music-itemControllerContainer">
+              <div className="music-playlistSliderControl music-prevSliderControl" onClick={this.props.goBack}>prev</div>
+              <div className="music-audioControlContainer">
+                <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
+              </div>
+              <div className="music-playlistSliderControl music-nextSliderControl" onClick={this.props.goForward}>next</div>
+            </div>
+          {/* <Player resolve={() => import('../audio/' + this.state.episode.file)}/>  */}
             {/* <AudioPlayer 
-            //src={'../audio/' + episode.file}
-            src={this.state.episodeAudio}
+            // src={this.state.episodeAudio}
             layout="stacked"
             showJumpControls={false}
             customVolumeControls={[]}
             customAdditionalControls={[]}
+            onError={console.log("hitting error")}
             /> */}
+
+
+
+            
 
         </div>
       </div>

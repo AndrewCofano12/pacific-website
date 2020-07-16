@@ -1,0 +1,73 @@
+.seekbar-container {
+    display: flex;
+    flex: 3 1 auto;
+    align-items: center;
+    padding-top: 55px;
+}
+
+.seekbar-playbackPosition {
+}
+
+.seekbar-playbackLength {
+}
+
+.seekbar-progressBarContainer {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    flex: 1 0 auto;
+    align-self: center;
+    margin: 0 calc(10px + 1%);
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+.seekbar-progressBar {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #ECECEC;
+    border-radius: 2px;
+}
+
+.seekbar-progressBarComponent {
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    height: 5px;
+    /* background: #dddddd; */
+}
+
+.seekbar-progressIndicator {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 3;
+    width: 15px;
+    height: 15px;
+    margin-left: -10px;
+    top: -5px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: rgba(134, 134, 134, 0.5) 0 0 5px;
+}
+
+.seekbar-progressFilled {
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.seekbar-downloadProgress {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: #dddddd;
+    border-radius: 2px;
+}
+
+progress::-moz-progress-bar { background: #dddddd; }
+progress::-webkit-progress-value { background: #dddddd; }
