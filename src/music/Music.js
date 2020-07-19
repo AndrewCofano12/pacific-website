@@ -14,22 +14,30 @@ import { Route, Redirect, Link, useLocation } from 'react-router-dom';
 
 export default class Music extends Component {
 
-
   constructor(props) {
     super(props);
     this.state = {
         nowPlayingAudio: null,
-        npFile: null,
         npPlaylist: null,
-        npItem: null,
+        npItem: '',
+        npIndex: null,
         nowPlayingTitle: null,
         isPlaying: false,
-        musicObject: props.dbdata
+        musicObject: props.dbdata,
+        currentView: {
+          showCover: false,
+          item: null,
+        }
+      
     };
+    this.showCover = false;
+    this.itemIndex = 2;
     this.audio = createRef()
 
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.updateBackground = this.updateBackground.bind(this);
+    // this.updateView = this.updateView.bind(this);
   }
 
   updateCurrentSelected() {
@@ -47,37 +55,42 @@ export default class Music extends Component {
     
   }
 
-  handleColorOnSliderChange(backgroundColor) {
-    var episodes = this.state.episodes;
+  updateView = (cover, item) => {
+    console.log("UPDATE VIEW:   " + cover + " " + item)
+    this.showCover = cover;
+    this.itemIndex = item;
+  }
+
+  updateBackground(backgroundColor) {
     const BackgroundElement = document.querySelector('.music-musicBackground')
     BackgroundElement.style.cssText = "background-color: " + backgroundColor;
 
   }
 
+
+  
   // async handlePlay(playlistIndex, itemIndex) {
-  async handlePlay(file, backgroundColor) {
+  handlePlay(file, backgroundColor) {
     console.log(file);
     if (this.state.isPlaying) {
       //if (this.state.npPlaylist == playlistIndex && this.state.npItem == itemIndex) {
-      if (this.state.npFile == file) {
+      
         // resume current item
-      } else {
         // pause currently playing item
         // play new item
         //let file = this.state.musicObject.playlists[playlistIndex].items[itemIndex].file;
-        const resolve = () => import('../audio/' + file);
-        const { default: nowPlayingAudio} = await resolve();
-        this.setState({ nowPlayingAudio });
+        // const resolve = () => import('../audio/' + file);
+        // const { default: nowPlayingAudio} = await resolve();
+        // this.setState({ nowPlayingAudio });
         // this.forceUpdate()
 
         // this.audio.current.play();
-      }
     } else {
       // play new item
       //console.log("Hitting " + this.state.musicObject.playlists[playlistIndex]);
       //let file = this.state.musicObject.playlists[playlistIndex].items[itemIndex].file;
-      const resolve = () => import('../audio/' + file);
-      const { default: nowPlayingAudio} = await resolve();
+      // const resolve = () => import('../audio/' + file);
+      const nowPlayingAudio = `http://www.pacificfilm.co/wp-content/media/${file}`
       this.setState({ nowPlayingAudio });
       this.handleColorOnSliderChange(backgroundColor)
       // this.forceUpdate()
@@ -95,8 +108,8 @@ export default class Music extends Component {
     // pause current item
   }
 
-  updateNowPlaying(playerObject) {
-    this.setState({nowPlayingPlayer: playerObject});
+  updateNowPlaying(itemName, playlist, index) {
+    this.setState({npItem: itemName, npPlaylist: playlist, npIndex: index});
     /* Pass this function to Playlist, then PlaylistCoverView. When player is started, 
      replace nowPlayingObject with the currently playing player (so when current Playlist is unmounted, audio doesn't stop).
      Then give PlaylistGridItem a ref to the audio player so it can play & pause.
@@ -157,8 +170,10 @@ export default class Music extends Component {
     
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     this.updateCurrentSelected();
+    console.log("SHOW COVER: " + this.showCover + " ... INDEX: " + this.itemIndex)
+    
   }
 
 
@@ -189,14 +204,15 @@ export default class Music extends Component {
                 </div>
 
                 {/* Now Playing Title */}
-                <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/episodes`, 
+                {/* <NowPlaying/> */}
+                <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/${this.state.npPlaylist}`, 
                                 state: {
                                   fromLink: true,
                                   showCover: true,
-                                  showCoverIndex: 1
+                                  showCoverIndex: this.state.npIndex
                                 }}}>
                 <div className="music-nowPlayingTitle">
-                  pacific music ep. 2
+                  {this.state.npItem}
                 </div>
                 </Link>
 
@@ -243,14 +259,17 @@ export default class Music extends Component {
                  return (
                   <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => 
                     <Playlist {...props} 
-                      showCover={false} 
-                      atIndex={null} 
+                      showCover={this.showCover}
+                      atIndex={this.itemIndex} 
                       playlistKey={i} 
                       playlistData={playlist} 
                       linkPrefix={this.props.match.path} 
                       audioRef={this.audio} 
                       onPlay={this.handlePlay} 
                       onPause={this.handlePause} 
+                      updateBackground={this.updateBackground}
+                      updateView={this.updateView}
+                      updateNowPlaying={this.updateNowPlaying}
                       npFile={this.state.npFile}/>} />
                  )
                }
@@ -261,8 +280,8 @@ export default class Music extends Component {
       </div>
       <audio 
         ref={this.audio}
-        //src={this.state.nowPlayingAudio}
-        src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
+        src={this.state.nowPlayingAudio}
+        // src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
         preload="auto"
         controls={false}
         loop={false}

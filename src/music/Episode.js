@@ -5,7 +5,7 @@ import Player from './Player';
 import 'react-h5-audio-player/lib/styles.css';
 import $ from 'jquery';
 import PlaybackSeekbar from '../components/PlaybackSeekbar';
-import { RiPlayCircleLine } from "react-icons/ri";
+import { RiPlayCircleLine, RiPauseCircleLine } from "react-icons/ri";
 import './Episode.css'
 
 export default class Episode extends Component {
@@ -13,21 +13,62 @@ export default class Episode extends Component {
     super(props);
     this.state = {
         episode: props.epData,
-        episodeAudio: null
+        episodeAudio: null,
+        isPlaying: false,
+        isCurrent: false,
     };
-    this.handlePlay = this.handlePlay.bind(this);
+
+    // this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
   }
 
-  handlePlay() {
-      //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
-      this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
-        console.log("audio ready:::: " + this.props.audioRef.current.readyState);
+  handlePlay = () => {
+    if (this.state.isCurrent) {
+        
       this.props.audioRef.current.play();
+      this.setState({isPlaying : true});
+
+
+    }
+    else {
+
+      //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
+      //this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
+        // console.log("audio ready:::: " + this.props.audioRef.current.readyState);
+      this.setState({isPlaying : true, isCurrent: true})
+      this.props.updateNowPlaying(this.state.episode.name, this.props.playlistLink, this.props.itemIndex)
+      this.props.audioRef.current.src =  this.state.episode.file;
+      this.props.audioRef.current.load();
+      
+      const audio = this.props.audioRef.current;
+      audio.addEventListener('canplaythrough', function() { 
+        audio.play();
+      }, false);
+
+      const updateBg = this.props.updateBackground;
+      const itemBgColor = this.state.episode.backgroundColor;
+      audio.addEventListener('playing', function() {
+        updateBg(itemBgColor);
+
+      })
+    }
+  }
+
+  handlePause() {
+    this.setState({isPlaying : false})
+    this.props.audioRef.current.pause();
 
   }
 
   //async componentDidMount() {
   componentDidMount() {
+    const audio = this.props.audioRef.current;
+    if (audio && audio.src == this.state.episode.file) {
+      this.setState({isCurrent : true})
+      if (!audio.paused) {
+        this.setState({isPlaying: true})
+      }
+    }
     console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
     // const resolve = this.props.resolve;
     // const { default: episodeAudio } = await resolve();
@@ -71,11 +112,16 @@ export default class Episode extends Component {
         <div className="music-audioPlayerContainer">
             <PlaybackSeekbar 
               audioRef={this.props.audioRef}
-              npFile={this.props.npFile}/>
+              isCurrent={this.state.isCurrent}/>
             <div className="music-itemControllerContainer">
               <div className="music-playlistSliderControl music-prevSliderControl" onClick={this.props.goBack}>prev</div>
               <div className="music-audioControlContainer">
-                <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
+                {this.state.isPlaying ? (
+                  <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
+                ) : (
+                  <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
+
+                )}
               </div>
               <div className="music-playlistSliderControl music-nextSliderControl" onClick={this.props.goForward}>next</div>
             </div>

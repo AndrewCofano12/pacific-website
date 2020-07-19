@@ -16,7 +16,7 @@ export default class Playlist extends Component {
   }
 
     componentDidMount() {
-    
+    console.log(this.props.updateBackground);
     // const resolve = this.props.resolve;
     // const { default: episodeAudio } = await resolve();
     // this.setState({ episodeAudio });
@@ -26,10 +26,12 @@ export default class Playlist extends Component {
         }
         else {
             this.setState({gridView: false, viewIndex: this.props.location.state.showCoverIndex})
+            this.props.updateView(true, this.props.location.state.showCoverIndex)
         }
 
     }
     else {
+        console.log("PLAYLIST DID MOUNT " + this.props.showCover)
         if (this.props.showCover) {
             this.setState({gridView: false, viewIndex: this.props.atIndex})
         }
@@ -39,7 +41,10 @@ export default class Playlist extends Component {
     }
   }
 
+
   componentWillReceiveProps(newProps) {
+      console.log(newProps);
+      console.log("COMING FROM " + newProps.location.state.fromLink)
     //   console.log("entered willReceiveProps... " + this.props.location.state.showCover + " & " + this.props.location.state.showCoverIndex)
       if (newProps.location.state && newProps.location.state.fromLink) {
       console.log("entered willReceiveProps... " + newProps.location.state.showCover + " & " + newProps.location.state.showCoverIndex)
@@ -49,14 +54,25 @@ export default class Playlist extends Component {
         }
         else {
             this.setState({gridView: false, viewIndex: newProps.location.state.showCoverIndex})
+            this.props.updateView(true, newProps.location.state.showCoverIndex)
         }
       } 
+      else {
+        console.log("PLAYLIST WILL RECEIVE " + this.props.showCover)
+        if (this.props.showCover) {
+            this.setState({gridView: false, viewIndex: this.props.atIndex})
+        }
+        else {
+            this.setState({gridView: true})
+        }
+      }
 
   }
 
 handleGridItemSelect(index) {
     console.log(index);
     this.setState({gridView: false, viewIndex: index})
+    this.props.updateView(true, index)
     // console.log(this.state.viewIndex)
 }
 
@@ -75,20 +91,25 @@ render() {
                             selectItem={this.handleGridItemSelect} 
                             onPlay={this.props.onPlay} 
                             onPause={this.props.onPause}
-                            npFile={this.props.npFile}/>
+                            npFile={this.props.npFile}
+                            updateBackground={this.props.updateBackground}/>
                     )
                     })}
                 </div>
             ):(
                 <div className="music-playlistCoverView">
                     <PlaylistCoverView 
-                        playlistKey={this.props.playlistKey} 
+                        playlistKey={this.props.playlistKey}
+                        playlistLink={this.state.playlistData.url} 
                         selectedIndex={this.state.viewIndex} 
                         playlistData={this.state.playlistData.items} 
                         audioRef={this.props.audioRef} 
                         onPlay={this.props.onPlay} 
                         onPause={this.props.onPause}
-                        npFile={this.props.npFile}/>
+                        npFile={this.props.npFile}
+                        updateView={this.props.updateView}
+                        updateNowPlaying={this.props.updateNowPlaying}
+                        updateBackground={this.props.updateBackground}/>
                 </div>
             )}
         </div>

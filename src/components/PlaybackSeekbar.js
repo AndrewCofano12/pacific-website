@@ -144,16 +144,16 @@ export default class PlaybackSeekbar extends Component {
 
     componentDidUpdate() { 
       const audio  = this.props.audioRef.current;
-      if (audio && !this.hasAddedAudioEventListener) {
+      if (audio && !this.hasAddedAudioEventListener && this.props.isCurrent) {
           this.audio = audio
           this.hasAddedAudioEventListener = true
           audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
           audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
       }
     }
+    
 
     render() {
-        this.player = createRef(null)
         return (
             <div className="seekbar-container">
                 <div className="seekbar-playbackPosition">{this.formatTime(this.state.playbackPosition)}</div>

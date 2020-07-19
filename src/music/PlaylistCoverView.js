@@ -40,13 +40,15 @@ export default class PlaylistCoverView extends Component {
     // TO-DO: Handle out-of-bounds
     console.log(this.state.value);  
     if (this.state.value < (this.state.playlistItems.length - 1)) {
-      this.setState({value : this.state.value + 1,})
+      this.props.updateView(true, this.state.value + 1)
+      this.setState({value : this.state.value + 1})
     }
   }
 
   goBack() {
       // TO-DO: Handle out-of-bounds
     if (this.state.value > 0) {
+      this.props.updateView(true, this.state.value + 1)
       this.setState({value : this.state.value - 1,})
     }
   }
@@ -60,19 +62,22 @@ export default class PlaylistCoverView extends Component {
             // onChange={this.onChange}
             draggable={false}
             slides={this.state.playlistItems.map((episode,i) => {
-              console.log("index is..." + i)
                 return (
                     <div key={i}>
                     <Episode  
                       key={i} 
                       playlistKey={this.props.playlistKey} 
+                      playlistLink={this.props.playlistLink}
                       itemIndex={i} 
                       epData={episode} 
                       audioRef={this.props.audioRef} 
                       onPlay={this.props.onPlay} 
                       resolve={() => import('../audio/' + episode.file)} 
-                      goForward={this.goForward} goBack={this.goBack}
-                      npFile={this.props.npFile}/>
+                      goForward={this.goForward} 
+                      goBack={this.goBack}
+                      npFile={this.props.npFile}
+                      updateNowPlaying={this.props.updateNowPlaying}
+                      updateBackground={this.props.updateBackground}/>
                     </div>
                 )
             })}>
