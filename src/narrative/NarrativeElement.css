@@ -1,0 +1,33 @@
+.narrative-img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.narrative-elementContainer {
+    margin: 0 auto;
+}
+
+.narrative-elementArticle {
+    /* position: relative;
+    text-align: center; */
+}
+
+
+.narrative-noselect {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.narrative-element-small {
+    width: 500px;
+
+}
+
+.narrative-element-big {
+    width: 560px;
+
+}
+

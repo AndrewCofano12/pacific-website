@@ -145,30 +145,259 @@
             }
         ]
     },
-    "journal" : {
-        "journalEntries" : [
+    "narrative" : {
+        "story" : [
             {
-                "id":"napali",
-                "title": ["backpacking the", "napali coast"],
-                "shotBy": ["costin pirvu /", "peter hou / paul", "studer"],
-                "coverImageSrc": "journal-1-cover.jpg",
-                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+                "file" : "bc001.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
             },
             {
-                "id":"summer",
-                "title": ["a mediterranean summer"],
-                "shotBy": ["costin pirvu"],
-                "coverImageSrc": "journal-2-cover.jpg",
-                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+                "file" : "bc002.jpg",
+                "size" : "big",
+                "bottomSpacing" : "130"
             },
             {
-                "id":"tokyo",
-                "title": ["a week in tokyo"],
-                "shotBy": ["costin pirvu /","peter hou"],
-                "coverImageSrc": "journal-3-cover.jpg",
-                "images": ["italy.jpeg","sf.jpeg","palms.jpeg"]
+                "file" : "bc003.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc004.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc005.jpg",
+                "size" : "big",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc006.jpg",
+                "size" : "small",
+                "bottomSpacing" : "100"
+            },
+            {
+                "file" : "bc007.jpg",
+                "size" : "small",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc008.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc009.jpg",
+                "size" : "small",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc010.jpg",
+                "size" : "big",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc011.jpg",
+                "size" : "big",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc012.jpg",
+                "size" : "small",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc013.jpg",
+                "size" : "big",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc015.jpg",
+                "size" : "small",
+                "bottomSpacing" : "110"
+            },
+            {
+                "file" : "bc016.jpg",
+                "size" : "small",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc017.jpg",
+                "size" : "small",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc018.jpg",
+                "size" : "big",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc019.jpg",
+                "size" : "big",
+                "bottomSpacing" : "125"
+            },
+            {
+                "file" : "bc020.jpg",
+                "size" : "big",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc021.jpg",
+                "size" : "small",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc022.jpg",
+                "size" : "small",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc023.jpg",
+                "size" : "small",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc024.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc025.jpg",
+                "size" : "small",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc026.jpg",
+                "size" : "big",
+                "bottomSpacing" : "100"
+            },
+            {
+                "file" : "bc027.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc028.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc029.jpg",
+                "size" : "small",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc030.jpg",
+                "size" : "small",
+                "bottomSpacing" : "190"
+            },
+            {
+                "file" : "bc031.jpg",
+                "size" : "big",
+                "bottomSpacing" : "125"
+            },            
+            {
+                "file" : "bc033.jpg",
+                "size" : "big",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc032.jpg",
+                "size" : "big",
+                "bottomSpacing" : "170"
+            },
+            {
+                "file" : "bc034.jpg",
+                "size" : "small",
+                "bottomSpacing" : "190"
+            },
+            {
+                "file" : "bc035.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc036.jpg",
+                "size" : "small",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc037.jpg",
+                "size" : "big",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc038.jpg",
+                "size" : "small",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc040.jpg",
+                "size" : "big",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc041.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc042.jpg",
+                "size" : "small",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc043.jpg",
+                "size" : "small",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc044.jpg",
+                "size" : "big",
+                "bottomSpacing" : "150"
+            },
+            {
+                "file" : "bc045.jpg",
+                "size" : "big",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc046.jpg",
+                "size" : "big",
+                "bottomSpacing" : "100"
+            },
+            {
+                "file" : "bc047.jpg",
+                "size" : "big",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc048.jpg",
+                "size" : "small",
+                "bottomSpacing" : "130"
+            },
+            {
+                "file" : "bc049.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
+            },
+            {
+                "file" : "bc050.jpg",
+                "size" : "big",
+                "bottomSpacing" : "120"
+            },
+            {
+                "file" : "bc051.jpg",
+                "size" : "big",
+                "bottomSpacing" : "160"
+            },
+            {
+                "file" : "bc052.jpg",
+                "size" : "small",
+                "bottomSpacing" : "140"
             }
-
+            
         ]
 
     },

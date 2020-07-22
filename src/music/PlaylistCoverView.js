@@ -8,8 +8,8 @@ export default class PlaylistCoverView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        playlistItems: props.playlistData,
-        value: this.props.selectedIndex
+        playlistItems: this.props.playlistData.items,
+        value: null
     };
     // this.onChange = this.onChange.bind(this);
     this.goForward = this.goForward.bind(this);
@@ -18,37 +18,45 @@ export default class PlaylistCoverView extends Component {
   }
 
   componentDidMount() {
-    console.log("PLAYLIST COVER VIEW... AUDIO IS: " + this.props.audioRef.current);
-    //this.setState({value: this.props.selectedIndex})
+    console.log("MOUNTING...")
+    if (this.props.location.state && this.props.location.state.fromLink) {
+      this.setState({value : this.props.location.state.showCoverIndex})
+    } 
+    else {
+
+    }
+
      
 }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps.selectedIndex)
-    if (this.state.value !== newProps.selectedIndex) {
-      this.setState({value: newProps.selectedIndex})
-    }
-    // this.setState({value: this.props.selectedIndex})
+    console.log("RECEIVING...")
+    if (newProps.location.state && newProps.location.state.fromLink) {
+      if (newProps.location.state.showCoverIndex != this.state.value) {
+       // Do nothing 
+      } else {
+        this.setState({value : newProps.location.state.showCoverIndex})
+
+      }
+    } 
+    else {
+
+    }   
   }
 
 
-  // onChange(value) {
-  //   this.setState({ value: value });
-  // }
-
   goForward() {
-    // TO-DO: Handle out-of-bounds
-    console.log(this.state.value);  
+    const val = this.state.value;
     if (this.state.value < (this.state.playlistItems.length - 1)) {
-      this.props.updateView(true, this.state.value + 1)
+      this.props.updateView(true, val + 1)
       this.setState({value : this.state.value + 1})
     }
   }
 
   goBack() {
-      // TO-DO: Handle out-of-bounds
+    const val = this.state.value;
     if (this.state.value > 0) {
-      this.props.updateView(true, this.state.value + 1)
+      this.props.updateView(true, val + 1)
       this.setState({value : this.state.value - 1,})
     }
   }
@@ -57,6 +65,8 @@ export default class PlaylistCoverView extends Component {
 
   render() {
     return (
+      <div className="music-playlistCoverView">
+
         <Carousel
             value={this.state.value}
             // onChange={this.onChange}
@@ -81,7 +91,7 @@ export default class PlaylistCoverView extends Component {
                     </div>
                 )
             })}>
-        
         </Carousel>
+</div>
     );}
 }

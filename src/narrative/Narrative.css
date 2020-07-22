@@ -1,0 +1,55 @@
+.narrative-logoContainer {
+    margin-top: 45px;
+    top: 0;
+    position: fixed;
+    overflow: 'hidden';
+    background: transparent;
+    align-self: center;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+}
+
+
+.narrative-logoName {
+    font-family: 'questrial';
+    font-size: 35px;
+    color: white;
+    text-decoration: none;
+}
+
+.narrative-logoName:hover {
+    color: white;
+}
+
+.narrative-footer {
+    font-family: 'helvetica', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.narrative-elementsContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 7%;
+    align-items: center;
+    /* overflow: scroll !important; */
+}
+
+.narrative-backButtonContainer {
+    position:absolute;
+    top:0;
+    left:0;
+    margin-left: 40px;
+    margin-top: 40px; 
+
+}
+
+.narrative-backButton {
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-weight: 100;
+
+}

@@ -16,31 +16,30 @@ export default class Home extends Component {
     };
 }
 
+  changeScroll = (event) => {
+      //leave zoom
+      if (event.ctrlKey) return true;
+      event.preventDefault();
+      event.stopPropagation();
+
+      var delta = '';
+
+      var FF = !(window.mozInnerScreenX == null);
+      if (FF) {
+          delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
+          delta *= -5;
+      } else {
+          delta = event.wheelDelta;
+      }
+
+      $(window).scrollLeft($(window).scrollLeft() - (delta / 10));
+
+      return false;
+  }
 
   componentDidMount() {
     
-      document.addEventListener('wheel', function (event) {
-        
-            //leave zoom
-            if (event.ctrlKey) return true;
-            event.preventDefault();
-            event.stopPropagation();
-
-            var delta = '';
-
-            var FF = !(window.mozInnerScreenX == null);
-            if (FF) {
-                delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
-                delta *= -5;
-            } else {
-                delta = event.wheelDelta;
-            }
-
-            $(window).scrollLeft($(window).scrollLeft() - (delta / 10));
-
-            return false;
-
-      }, {passive: false});
+      document.addEventListener('wheel', this.changeScroll, {passive: false});
       // // Call our fetch function below once the component mounts
       // this.callBackendAPI()
       //   .then(res => this.setState({ data: res }))
@@ -61,6 +60,11 @@ export default class Home extends Component {
   //   return body;
   // };
   
+
+  componentWillUnmount() {
+    document.removeEventListener('wheel', this.changeScroll)
+  }
+
   render() {
     return (
     <div 
@@ -94,15 +98,15 @@ export default class Home extends Component {
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild">
-                <Link to="/journal" className="home-homePageNav">
+                <Link to="/narrative" className="home-homePageNav">
                   <div className="home-middleSubTitle home-titleText">narrative</div>
-                  <div className="home-subtext">portraying stories of personal nature.</div>
+                  <div className="home-subtext">portraying stories of personal nature</div>
                 </Link>
               </div>
               <div id="home-visualLink" className="home-gridItem home-nameSubChild">
                 <Link to="/films" className="home-homePageNav">
                   <div className="home-rightSubTitle home-titleText">visual</div>
-                  <div className="home-subtext">universial connection in energy</div>
+                  <div className="home-subtext">motion in landscape and time</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-contactInfoCopy">

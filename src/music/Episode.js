@@ -31,7 +31,11 @@ export default class Episode extends Component {
 
     }
     else {
-
+      // const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();      
+      if (audioCtx.state == 'suspended') {
+        audioCtx.resume();
+      }
       //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
       //this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
         // console.log("audio ready:::: " + this.props.audioRef.current.readyState);
@@ -39,16 +43,20 @@ export default class Episode extends Component {
       this.props.updateNowPlaying(this.state.episode.name, this.props.playlistLink, this.props.itemIndex)
       this.props.audioRef.current.src =  this.state.episode.file;
       this.props.audioRef.current.load();
+      this.props.audioRef.current.play();
       
       const audio = this.props.audioRef.current;
-      audio.addEventListener('canplaythrough', function() { 
-        audio.play();
-      }, false);
-
+      // audio.addEventListener('canplay', function() { 
+      //   audio.play();
+      // }, false);
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
       const updateBg = this.props.updateBackground;
       const itemBgColor = this.state.episode.backgroundColor;
-      audio.addEventListener('playing', function() {
-        updateBg(itemBgColor);
+      audio.addEventListener('play', function() {
+        console.log("playing...")
+          updateBg(itemBgColor);
 
       })
     }
@@ -63,13 +71,17 @@ export default class Episode extends Component {
   //async componentDidMount() {
   componentDidMount() {
     const audio = this.props.audioRef.current;
-    if (audio && audio.src == this.state.episode.file) {
-      this.setState({isCurrent : true})
-      if (!audio.paused) {
-        this.setState({isPlaying: true})
+    if (audio) {
+      if (audio.src == this.state.episode.file) {
+        this.setState({isCurrent : true})
+        if (!audio.paused) {
+          this.setState({isPlaying: true})
+        }
+      } else {
+        audio.src = this.state.episode.file;
       }
-    }
-    console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
+  }
+    //console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
     // const resolve = this.props.resolve;
     // const { default: episodeAudio } = await resolve();
     // this.setState({ episodeAudio });
@@ -117,7 +129,14 @@ export default class Episode extends Component {
               <div className="music-playlistSliderControl music-prevSliderControl" onClick={this.props.goBack}>prev</div>
               <div className="music-audioControlContainer">
                 {this.state.isPlaying ? (
-                  <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
+                  // <Link 
+                  //   to={{pathname: `${this.props.match.path}/${this.props.playlistLink}`, 
+                  //   state: {
+                  //     fromLink: true,
+                  //     showCover: false
+                  //   }}}>
+                    <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
+                  // </Link>
                 ) : (
                   <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
 
@@ -127,7 +146,7 @@ export default class Episode extends Component {
             </div>
           {/* <Player resolve={() => import('../audio/' + this.state.episode.file)}/>  */}
             {/* <AudioPlayer 
-            // src={this.state.episodeAudio}
+            src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
             layout="stacked"
             showJumpControls={false}
             customVolumeControls={[]}

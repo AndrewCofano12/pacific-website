@@ -15,11 +15,12 @@ import Home from './home/Home';
 
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
-import JournalRouterMobile from './components-mobile/JournalRouterMobile';
-import FilmsRouter from './films/FilmsRouter'
-import JournalEntry from './journal/JournalEntry';
-import JournalRouter from './journal/JournalRouter';
-import Journal from './journal/Journal';
+//import JournalRouterMobile from './components-mobile/JournalRouterMobile';
+import FilmsRouter from './films/FilmsRouter';
+import Narrative from './narrative/Narrative';
+//import JournalEntry from './journal/JournalEntry';
+//import JournalRouter from './journal/JournalRouter';
+//import Journal from './journal/Journal';
 import db from './data/data.json';
 require('typeface-questrial')
 
@@ -30,7 +31,7 @@ export default class App extends Component {
   render() {
     const home = db.home;
     const music = db.music;
-    const journal = db.journal;
+    const narrative = db.narrative;
     const films = db.films;
 
     if(!isMobile) {
@@ -40,7 +41,7 @@ export default class App extends Component {
             <BrowserView>
               <Route path="/music" render={(props) => <Music {...props} dbdata={music}/>}/>
               <Route path="/films" render={(props) => <FilmsRouter {...props} dbdata={films}/>}/>
-              <Route path="/journal" render={(props) => <JournalRouter {...props} dbdata={journal}/>}/>
+              <Route path="/narrative" render={(props) => <Narrative {...props} dbdata={narrative}/>}/>
               <Route exact path="/" render={(props) => <Home {...props} dbdata={home}/>}/>
             </BrowserView>
           </Switch>
@@ -53,7 +54,7 @@ export default class App extends Component {
             <MobileView>
               <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/>
               {/* <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
-              <Route path="/journal" render={(props) => <JournalRouterMobile {...props} dbdata={journal}/>}/>
+              {/* <Route path="/journal" render={(props) => <JournalRouterMobile {...props} dbdata={journal}/>}/> */}
               <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/>
             </MobileView>
           </Switch>

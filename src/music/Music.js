@@ -1,7 +1,7 @@
 import React, { createRef, Component } from 'react';
 import NavigationHeader from '../components/NavigationHeader';
 import './MusicStyles.css';
-import PlaylistGridItem from './PlaylistGridItem';
+// import PlaylistGridItem from './PlaylistGridItem';
 import Playlist from './Playlist';
 // import EpisodeSlider from './EpisodeSlider';
 import { FaRegPlayCircle, FaRegPauseCircle} from 'react-icons/fa';
@@ -31,9 +31,9 @@ export default class Music extends Component {
       
     };
     this.showCover = false;
-    this.itemIndex = 2;
+    this.itemIndex = null;
     this.audio = createRef()
-
+    this.audioContext = null;
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
@@ -43,8 +43,8 @@ export default class Music extends Component {
   updateCurrentSelected() {
     const path = document.location.pathname;
     $('.music-playlistNavigationItem').each(function(i, obj) {
-      // console.log($(obj).data())
-      if ($(obj).data("url") == path) {
+      const url = $(obj).data("url")
+      if (path.indexOf(url) > 0) {
         $(obj).addClass("music-playlistNavigationItem-selected");
       }
       else {
@@ -73,35 +73,15 @@ export default class Music extends Component {
   handlePlay(file, backgroundColor) {
     console.log(file);
     if (this.state.isPlaying) {
-      //if (this.state.npPlaylist == playlistIndex && this.state.npItem == itemIndex) {
-      
-        // resume current item
-        // pause currently playing item
-        // play new item
-        //let file = this.state.musicObject.playlists[playlistIndex].items[itemIndex].file;
-        // const resolve = () => import('../audio/' + file);
-        // const { default: nowPlayingAudio} = await resolve();
-        // this.setState({ nowPlayingAudio });
-        // this.forceUpdate()
 
-        // this.audio.current.play();
+
     } else {
       // play new item
-      //console.log("Hitting " + this.state.musicObject.playlists[playlistIndex]);
-      //let file = this.state.musicObject.playlists[playlistIndex].items[itemIndex].file;
-      // const resolve = () => import('../audio/' + file);
       const nowPlayingAudio = `http://www.pacificfilm.co/wp-content/media/${file}`
       this.setState({ nowPlayingAudio });
       this.handleColorOnSliderChange(backgroundColor)
-      // this.forceUpdate()
-
-      // this.audio.current.play();
 
     }
-    // const resolve = () => import('../audio/test.mp3');
-    // const { default: nowPlayingAudio} = await resolve();
-    // this.setState({ nowPlayingAudio });
-
   }
 
   handlePause() {
@@ -110,29 +90,18 @@ export default class Music extends Component {
 
   updateNowPlaying(itemName, playlist, index) {
     this.setState({npItem: itemName, npPlaylist: playlist, npIndex: index});
-    /* Pass this function to Playlist, then PlaylistCoverView. When player is started, 
-     replace nowPlayingObject with the currently playing player (so when current Playlist is unmounted, audio doesn't stop).
-     Then give PlaylistGridItem a ref to the audio player so it can play & pause.
-     Still need to figure out how to start audio from GridItem (maybe a callback function?).
-     
-     Thought: the only functional AudioPlayer exists within Music. As you render sub components (PlaylistGridItem, PlaylistCoverView),
-     replace the AudioPlayer in that component with the currently playing one.
-    */ 
+
   }
 
   componentDidMount () {
-    // $('html, body').css('overflow', 'hidden'); 
-    // const path = document.location.pathname;
-    // this.setState({})
-    // console.log(path);
+    const context = new (window.AudioContext || window.webkitAudioContext)();      
+
+    // const AudioContext = window.AudioContext || window.webkitAudioContext;
+    // this.audioContext = new AudioContext();
+
     this.updateCurrentSelected();
+    this.updateView(false, null);
 
-    //this.handlePlay(0,0)
-
-
-
-    // force update to pass this.audio to child components
-    // this.forceUpdate()
     // audio player object
     const audio = this.audio.current
 
@@ -170,6 +139,10 @@ export default class Music extends Component {
     
   }
 
+  componentWillReceiveProps(newProps) {
+    console.log("Music will receive");
+  }
+
   componentDidUpdate(prevProps, prevState) {
     this.updateCurrentSelected();
     console.log("SHOW COVER: " + this.showCover + " ... INDEX: " + this.itemIndex)
@@ -205,7 +178,7 @@ export default class Music extends Component {
 
                 {/* Now Playing Title */}
                 {/* <NowPlaying/> */}
-                <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/${this.state.npPlaylist}`, 
+                <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/${this.state.npPlaylist}/view`, 
                                 state: {
                                   fromLink: true,
                                   showCover: true,
@@ -231,7 +204,7 @@ export default class Music extends Component {
                                   fromLink: true,
                                   showCover: false
                                 }}}>
-                        <div data-url={`/music/${playlist.url}`} className="music-link music-playlistNavigationItem">
+                        <div data-url={playlist.url} className="music-link music-playlistNavigationItem">
                           {playlist.playlistName}
                         </div>
                       </Link>
@@ -257,10 +230,12 @@ export default class Music extends Component {
             />
              {this.state.musicObject.playlists.map((playlist,i) => {
                  return (
-                  <Route path={`${this.props.match.path}/${playlist.url}`} render={(props) => 
+                <div>
+                  <Route exact path={`${this.props.match.path}/${playlist.url}`} render={(props) => 
                     <Playlist {...props} 
                       showCover={this.showCover}
-                      atIndex={this.itemIndex} 
+                      atIndex={this.itemIndex}
+                      matchURL={this.props.match.path} 
                       playlistKey={i} 
                       playlistData={playlist} 
                       linkPrefix={this.props.match.path} 
@@ -271,7 +246,22 @@ export default class Music extends Component {
                       updateView={this.updateView}
                       updateNowPlaying={this.updateNowPlaying}
                       npFile={this.state.npFile}/>} />
-                 )
+                      <Route path={`${this.props.match.path}/${playlist.url}/view`} render={(props) => 
+                        <PlaylistCoverView 
+                        {...props} 
+                        playlistKey={i}
+                        playlistLink={playlist.url} 
+                        selectedIndex={this.state.viewIndex} 
+                        playlistData={playlist} 
+                        audioRef={this.audio} 
+                        onPlay={this.handlePlay} 
+                        onPause={this.handlePause}
+                        npFile={this.state.npFile}
+                        updateView={this.updateView}
+                        updateNowPlaying={this.updateNowPlaying}
+                        updateBackground={this.updateBackground}/>}/>
+              </div>
+                        )
                }
              )}               
 

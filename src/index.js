@@ -5,15 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
 var doc = document.getElementById('root')
-var scroll = function(e) {
-    // compute state
-    
-}
-doc.addEventListener(
-    'mousewheel',
-    scroll,
-    false
-    );
+
 ReactDOM.render(
     <BrowserRouter>
     <App />
