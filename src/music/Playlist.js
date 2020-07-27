@@ -17,26 +17,18 @@ export default class Playlist extends Component {
   }
 
     componentDidMount() {
-    console.log("PLAYLIST MOUNTED: " + this.props);
-    if (this.props.location.state && this.props.location.state.fromLink) {
-        if (!this.props.location.state.showCover) {
-            this.setState({gridView: true})
-        }
-        else {
-            this.setState({gridView: false, viewIndex: this.props.location.state.showCoverIndex})
-            this.props.updateView(true, this.props.location.state.showCoverIndex)
+        console.log("PLAYLIST MOUNTED: " + this.props);
+        if (this.props.location.state && this.props.location.state.fromLink) {
+            if (!this.props.location.state.showCover) {
+                this.setState({gridView: true})
+            }
+            else {
+                this.setState({gridView: false, viewIndex: this.props.location.state.showCoverIndex})
+                this.props.updateView(true, this.props.location.state.showCoverIndex)
+            }
+
         }
 
-    }
-    else {
-        //console.log("PLAYLIST DID MOUNT " + this.props.showCover)
-        if (this.props.showCover) {
-            this.setState({gridView: false, viewIndex: this.props.atIndex})
-        }
-        else {
-            this.setState({gridView: true})
-        }    
-    }
   }
 
 
@@ -50,15 +42,6 @@ export default class Playlist extends Component {
             this.setState({gridView: false, viewIndex: newProps.location.state.showCoverIndex})
         }
       } 
-      else {
-        console.log("PLAYLIST WILL RECEIVE " + this.props.showCover)
-        if (this.props.showCover) {
-            this.setState({gridView: false, viewIndex: this.props.atIndex})
-        }
-        else {
-            this.setState({gridView: true})
-        }
-      }
 
   }
 
@@ -77,6 +60,7 @@ render() {
                     return (
                         <PlaylistGridItem 
                             key={i} 
+                            npTitle={this.props.npTitle}
                             playlistKey={this.state.playlistData.url} 
                             matchURL={this.props.matchURL}
                             itemIndex={i} 

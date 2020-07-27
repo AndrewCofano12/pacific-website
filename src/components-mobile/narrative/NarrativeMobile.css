@@ -1,4 +1,4 @@
-.narrative-logoContainer {
+.narrativeMobile-logoContainer {
     padding-top: 45px;
     top: 0;
     position: fixed;
@@ -12,25 +12,25 @@
 }
 
 
-.narrative-logoName {
+.narrativeMobile-logoName {
     font-family: 'questrial';
     font-size: 35px;
     color: white;
     text-decoration: none;
 }
 
-.narrative-logoName:hover {
+.narrativeMobile-logoName:hover {
     color: white;
 }
 
-.narrative-footer {
+.narrativeMobile-footer {
     font-family: 'helvetica', sans-serif;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 50px;
 }
 
-.narrative-elementsContainer {
+.narrativeMobile-elementsContainer {
     display: flex;
     flex-direction: column;
     padding-top: 7%;
@@ -38,7 +38,7 @@
     /* overflow: scroll !important; */
 }
 
-.narrative-backButtonContainer {
+.narrativeMobile-backButtonContainer {
     position:fixed;
     top:0;
     left:0;
@@ -47,7 +47,7 @@
 
 }
 
-.narrative-backButton {
+.narrativeMobile-backButton {
     width: 30px;
     height: 30px;
     color: black;
@@ -55,7 +55,7 @@
 
 }
 
-.narrative-backButtonLink {
+.narrativeMobile-backButtonLink {
     position:absolute;
     top:50%;
     left:50%;

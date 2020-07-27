@@ -11,6 +11,10 @@
     width: 0;
 }
 
+.imageLoader-backgroundPhoto {
+    display: block;
+}
+
 @media only screen and (max-width: 100px) {
 
     .ImageLoader {

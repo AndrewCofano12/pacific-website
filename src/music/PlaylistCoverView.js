@@ -30,8 +30,13 @@ export default class PlaylistCoverView extends Component {
 }
 
   componentWillReceiveProps(newProps) {
-    console.log("RECEIVING...")
+    console.log("RECEIVING..." + newProps.location.state.fromLink + newProps.location.state.showCoverIndex);
+  
     if (newProps.location.state && newProps.location.state.fromLink) {
+    //if (newProps.location.state && newProps.location.state.fromNp) {
+      // this.setState({value : newProps.location.state.showCoverIndex})
+      // history.replace({ state: {} })
+
       if (newProps.location.state.showCoverIndex != this.state.value) {
        // Do nothing 
       } else {
@@ -78,6 +83,7 @@ export default class PlaylistCoverView extends Component {
                       key={i} 
                       playlistKey={this.props.playlistKey} 
                       playlistLink={this.props.playlistLink}
+                      playlistLength={this.state.playlistItems.length}
                       itemIndex={i} 
                       epData={episode} 
                       audioRef={this.props.audioRef} 

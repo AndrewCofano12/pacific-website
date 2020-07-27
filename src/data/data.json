@@ -104,26 +104,32 @@
                 "items" : [
                     {
                         "name": "pacific music ep. 3",
+                        "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
                         "frontArtwork": "03-front.jpg",
                         "backArtwork": "03-back.jpg",
                         "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3",
                         "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                        "duration": "37:26",
                         "backgroundColor" : "rgb(199, 196, 183)"
                     },
                     {
                         "name": "pacific music ep. 2",
+                        "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
                         "frontArtwork": "02-front.JPG",
                         "backArtwork": "02-back.jpg",
                         "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-2.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
+                        "duration": "44:39",
                         "backgroundColor" : "rgb(189, 182, 174)"
                     },
                     {
                         "name": "pacific music ep. 1",
+                        "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
                         "frontArtwork": "01-front.png",
                         "backArtwork": "01-back.jpeg",
                         "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-1.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
+                        "duration": "47:02",
                         "backgroundColor" : "rgb(200, 201, 187)"
 
                     }
@@ -135,13 +141,58 @@
                 "items" : [
                     {
                         "name": "mvsic shit vol. 1",
+                        "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
                         "frontArtwork": "vol-1-front.png",
                         "backArtwork": "03-back.jpg",
                         "file": "http://www.pacificfilm.co/wp-content/media/test.mp3",
                         "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                        "duration": "52:50",
                         "backgroundColor" : "rgb(199, 196, 183)"
                     }
                 ]
+            }
+        ],
+        "timeline" : [
+            {
+                "name": "mvsic shit vol. 1",
+                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "frontArtwork": "vol-1-front.png",
+                "backArtwork": "03-back.jpg",
+                "file": "http://www.pacificfilm.co/wp-content/media/test.mp3",
+                "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                "duration": "52:50",
+                "backgroundColor" : "rgb(87, 87, 87)"
+            },
+            {
+                "name": "pacific music ep. 3",
+                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "frontArtwork": "03-front.jpg",
+                "backArtwork": "03-back.jpg",
+                "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3",
+                "link": "https://www.soundcloud.com/pacificstudios/not-a-virus",
+                "duration": "37:26",
+                "backgroundColor" : "rgb(199, 196, 183)"
+            },
+            {
+                "name": "pacific music ep. 2",
+                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "frontArtwork": "02-front.JPG",
+                "backArtwork": "02-back.jpg",
+                "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-2.mp3",
+                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
+                "duration": "44:39",
+                "backgroundColor" : "rgb(189, 182, 174)"
+            },
+            {
+                "name": "pacific music ep. 1",
+                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "frontArtwork": "01-front.png",
+                "backArtwork": "01-back.jpeg",
+                "file": "http://www.pacificfilm.co/wp-content/media/pM_Ep-1.mp3",
+                "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
+                "duration": "47:02",
+                "backgroundColor" : "rgb(200, 201, 187)"
+
             }
         ]
     },

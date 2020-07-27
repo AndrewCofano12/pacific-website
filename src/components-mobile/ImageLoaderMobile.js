@@ -34,7 +34,7 @@ export default class ImageLoaderMobile extends Component {
                 {this.state.images.map((item,i) => {
                     if (i == 0) {
                         return (
-                            <LazyLoad height="400" key={i} once>
+                            <LazyLoad key={i} once>
                             <img className="imageLoaderMobile-backgroundPhoto"
                             style={{
                                 top: 0,
@@ -52,7 +52,7 @@ export default class ImageLoaderMobile extends Component {
                     }
                     else {
                         return (
-                            <LazyLoad height="400" key={i} once>
+                            <LazyLoad key={i} once>
                             <img className="imageLoaderMobile-backgroundPhoto"
                             style={{
                                 top: 0,

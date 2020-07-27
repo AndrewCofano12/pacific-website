@@ -16,6 +16,7 @@ export default class Episode extends Component {
         episodeAudio: null,
         isPlaying: false,
         isCurrent: false,
+        showCredits: false
     };
 
     // this.handlePlay = this.handlePlay.bind(this);
@@ -68,6 +69,10 @@ export default class Episode extends Component {
 
   }
 
+  showCredits = () => {
+    this.setState({showCredits : true})
+  }
+
   //async componentDidMount() {
   componentDidMount() {
     const audio = this.props.audioRef.current;
@@ -77,9 +82,8 @@ export default class Episode extends Component {
         if (!audio.paused) {
           this.setState({isPlaying: true})
         }
-      } else {
-        audio.src = this.state.episode.file;
       }
+    }
   }
     //console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
     // const resolve = this.props.resolve;
@@ -106,9 +110,6 @@ export default class Episode extends Component {
 
     // }
 
-    
-  }
-
 
   render() {
     return (
@@ -124,25 +125,45 @@ export default class Episode extends Component {
         <div className="music-audioPlayerContainer">
             <PlaybackSeekbar 
               audioRef={this.props.audioRef}
-              isCurrent={this.state.isCurrent}/>
-            <div className="music-itemControllerContainer">
-              <div className="music-playlistSliderControl music-prevSliderControl" onClick={this.props.goBack}>prev</div>
-              <div className="music-audioControlContainer">
-                {this.state.isPlaying ? (
-                  // <Link 
-                  //   to={{pathname: `${this.props.match.path}/${this.props.playlistLink}`, 
-                  //   state: {
-                  //     fromLink: true,
-                  //     showCover: false
-                  //   }}}>
-                    <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
-                  // </Link>
-                ) : (
-                  <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
+              isCurrent={this.state.isCurrent}
+              audioDuration={this.state.episode.duration}/>
+            <div className="music-itemControllerContainer">              
+            <div className="music-creditsOuterContainer">
+                <div className="music-creditsInnerContainer">
+                  {this.state.showCredits ? null : (<div className="music-creditsButton" onClick={this.showCredits}>show credits</div>)}
+                  {this.state.showCredits ? 
+                  (<div className="music-credits">
+                    {this.state.episode.credits.map((credit,i) => {
+                      return (
+                        <div>{credit}</div>
+                        )
+                    }
+                    )}
+                  </div>) : 
+                  null}
+                </div>
+                </div>
+              <div className="music-itemControllers">
+                <div className={`music-playlistSliderControl music-prevSliderControl ${this.props.itemIndex > 0 ? "" : "music-inactive"}`} onClick={this.props.goBack}>prev</div>
+                <div className="music-audioControlContainer">
+                  {this.state.isPlaying ? (
+                    // <Link 
+                    //   to={{pathname: `${this.props.match.path}/${this.props.playlistLink}`, 
+                    //   state: {
+                    //     fromLink: true,
+                    //     showCover: false
+                    //   }}}>
+                      <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
+                    // </Link>
+                  ) : (
+                    <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
 
-                )}
+                  )}
+                </div>
+                <div className={`music-playlistSliderControl music-nextSliderControl ${this.props.itemIndex < (this.props.playlistLength - 1) ? "" : "music-inactive"}`} onClick={this.props.goForward}>next</div>
               </div>
-              <div className="music-playlistSliderControl music-nextSliderControl" onClick={this.props.goForward}>next</div>
+              <div className="music-soundcloudContainer">soundcloud</div>
+
             </div>
           {/* <Player resolve={() => import('../audio/' + this.state.episode.file)}/>  */}
             {/* <AudioPlayer 

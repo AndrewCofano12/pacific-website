@@ -32,7 +32,20 @@
     flex-direction: row;
     margin-top: 30px;
     align-items: center;
+    justify-content: space-between;
+    
+}
+
+.music-itemControllers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+}
+
+.music-soundcloudContainer {
+    width: 33%;
+    text-align: right;
 }
 
 .music-itemPlayControlAction {
@@ -70,12 +83,32 @@
     height: inherit;
 } 
 
+.music-inactive {
+    color: #E5E5E5;
+    cursor: default;
+}
+
 .music-artworkWrapper {
     display: flex;
     background-color: inherit;
     flex-direction: row;     /* make main axis horizontal (default setting) */
-    height: 53vh;
+    height: 50vh;
     width: 100%;
     justify-content: center;
     margin-bottom: 50px;
 }
+
+.music-creditsOuterContainer {
+    width: 33%;
+}
+
+.music-creditsInnerContainer {
+    float: left;
+    text-align: left;
+}
+
+.music-creditsButton {
+    font-size: 11px;
+    cursor: pointer;
+}
+

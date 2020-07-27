@@ -171,7 +171,7 @@ export default class PlaybackSeekbar extends Component {
                         <div className="seekbar-downloadProgress"/>
                     </div>
                 </div>
-                <div className="seekbar-playbackLength">{this.formatTime(this.state.playbackLength)}</div>
+                <div className="seekbar-playbackLength">{this.props.audioDuration}</div>
             </div>
         )
     }

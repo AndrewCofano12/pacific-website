@@ -1,0 +1,33 @@
+.narrativeMobile-img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.narrativeMobile-elementContainer {
+    margin: 0 auto;
+}
+
+.narrativeMobile-elementArticle {
+    /* position: relative;
+    text-align: center; */
+}
+
+
+.narrative-noselect {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.narrativeMobile-element-small {
+    width: 500px;
+
+}
+
+.narrativeMobile-element-big {
+    width: 560px;
+
+}
+

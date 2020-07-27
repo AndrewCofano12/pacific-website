@@ -17,27 +17,20 @@ export default class Music extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        nowPlayingAudio: null,
+        npFile: '',
         npPlaylist: null,
-        npItem: '',
+        npTitle: '',
         npIndex: null,
-        nowPlayingTitle: null,
         isPlaying: false,
         musicObject: props.dbdata,
-        currentView: {
-          showCover: false,
-          item: null,
-        }
       
     };
-    this.showCover = false;
-    this.itemIndex = null;
+
     this.audio = createRef()
     this.audioContext = null;
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
-    // this.updateView = this.updateView.bind(this);
   }
 
   updateCurrentSelected() {
@@ -89,7 +82,7 @@ export default class Music extends Component {
   }
 
   updateNowPlaying(itemName, playlist, index) {
-    this.setState({npItem: itemName, npPlaylist: playlist, npIndex: index});
+    this.setState({npTitle: itemName, npPlaylist: playlist, npIndex: index});
 
   }
 
@@ -181,11 +174,12 @@ export default class Music extends Component {
                 <Link className="music-nowPlayingLink" to={{pathname: `${this.props.match.path}/${this.state.npPlaylist}/view`, 
                                 state: {
                                   fromLink: true,
+                                  fromNp: true,
                                   showCover: true,
                                   showCoverIndex: this.state.npIndex
                                 }}}>
                 <div className="music-nowPlayingTitle">
-                  {this.state.npItem}
+                  {this.state.npTitle}
                 </div>
                 </Link>
 
@@ -196,7 +190,6 @@ export default class Music extends Component {
               <div className="music-playlistNavigationContainer">
 
                 {/* Playlist Navigation Item Container */}
-                {/* <div className="music-playlistNavigationItemContainer"> */}
                 {this.state.musicObject.playlists.map((playlist,i) => {
                     return (
                       <Link to={{pathname: `${this.props.match.path}/${playlist.url}`, 
@@ -233,6 +226,7 @@ export default class Music extends Component {
                 <div>
                   <Route exact path={`${this.props.match.path}/${playlist.url}`} render={(props) => 
                     <Playlist {...props} 
+                      npTitle={this.state.npTitle}
                       showCover={this.showCover}
                       atIndex={this.itemIndex}
                       matchURL={this.props.match.path} 
@@ -245,28 +239,30 @@ export default class Music extends Component {
                       updateBackground={this.updateBackground}
                       updateView={this.updateView}
                       updateNowPlaying={this.updateNowPlaying}
-                      npFile={this.state.npFile}/>} />
-                      <Route path={`${this.props.match.path}/${playlist.url}/view`} render={(props) => 
-                        <PlaylistCoverView 
-                        {...props} 
-                        playlistKey={i}
-                        playlistLink={playlist.url} 
-                        selectedIndex={this.state.viewIndex} 
-                        playlistData={playlist} 
-                        audioRef={this.audio} 
-                        onPlay={this.handlePlay} 
-                        onPause={this.handlePause}
-                        npFile={this.state.npFile}
-                        updateView={this.updateView}
-                        updateNowPlaying={this.updateNowPlaying}
-                        updateBackground={this.updateBackground}/>}/>
+                      npItem={this.state.nowPlayingAudio}/>} />
+
+                  <Route path={`${this.props.match.path}/${playlist.url}/view`} render={(props) => 
+                    <PlaylistCoverView 
+                    {...props} 
+                    npTitle={this.state.npTitle}
+                    playlistKey={i}
+                    playlistLink={playlist.url} 
+                    selectedIndex={this.state.viewIndex} 
+                    playlistData={playlist} 
+                    audioRef={this.audio} 
+                    onPlay={this.handlePlay} 
+                    onPause={this.handlePause}
+                    npFile={this.state.npFile}
+                    updateView={this.updateView}
+                    updateNowPlaying={this.updateNowPlaying}
+                    updateBackground={this.updateBackground}/>}/>
               </div>
                         )
                }
              )}               
 
           </div>
-
+          <div className="music-spacerContainer"></div>
       </div>
       <audio 
         ref={this.audio}

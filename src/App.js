@@ -15,6 +15,8 @@ import Home from './home/Home';
 
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
+
+import NarrativeMobile from './components-mobile/narrative/NarrativeMobile';
 //import JournalRouterMobile from './components-mobile/JournalRouterMobile';
 import FilmsRouter from './films/FilmsRouter';
 import Narrative from './narrative/Narrative';
@@ -54,7 +56,7 @@ export default class App extends Component {
             <MobileView>
               <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/>
               {/* <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
-              {/* <Route path="/journal" render={(props) => <JournalRouterMobile {...props} dbdata={journal}/>}/> */}
+              <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/>
               <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/>
             </MobileView>
           </Switch>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './Narrative.css';
+import './NarrativeMobile.css';
 import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
-import NarrativeElement from './NarrativeElement';
+import NarrativeElementMobile from './NarrativeElementMobile';
 import {BsArrowLeft} from 'react-icons/bs';
 
 
 
-export default class Narrative extends Component {
+export default class NarrativeMobile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,18 +30,18 @@ export default class Narrative extends Component {
   render() {
     return (
       <div>
-        <div className="narrative-logoContainer" 
+        <div className="narrativeMobile-logoContainer" 
         onMouseEnter={this.handleMouseHover}
         onMouseLeave={this.handleMouseHover}>
-            <div className="narrative-logoName">
-              <Link to="/" className="narrative-logoName" >
+            <div className="narrativeMobile-logoName">
+              <Link to="/" className="narrativeMobile-logoName" >
                 pacific          
               </Link>
             </div>        
         {this.state.isHovering ? 
-          (<div className="narrative-backButtonContainer">
-                <Link className="narrative-backButtonLink" to="/">     
-                    <BsArrowLeft className="narrative-backButton"/>
+          (<div className="narrativeMobile-backButtonContainer">
+                <Link className="narrativeMobile-backButtonLink" to="/">     
+                    <BsArrowLeft className="narrativeMobile-backButton"/>
                 </Link>
               </div>) : 
           null
@@ -50,15 +50,15 @@ export default class Narrative extends Component {
 
         </div>
 
-        <div className="narrative-elementsContainer">
+        <div className="narrativeMobile-elementsContainer">
           {this.state.dbObject.story.map((item,i) => {
             return (
               <LazyLoad key={i} once>
-                <NarrativeElement itemData={item}/>
+                <NarrativeElementMobile itemData={item}/>
               </LazyLoad>
               )
           })}
-          <div className="narrative-footer">© pacific 2020</div>
+          <div className="narrativeMobile-footer">© pacific 2020</div>
         </div>
       </div>
     );

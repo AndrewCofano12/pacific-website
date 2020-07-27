@@ -23,7 +23,7 @@ export default class MusicMobile extends Component {
         colorDataAttribute='data-background-color'
         initialRgb='rgb(0, 0, 0)'/>
         <div className="musicMobile-episodeSectionContainer">
-            {this.state.musicObject.episodes.map((episode,i) => {
+            {this.state.musicObject.timeline.map((episode,i) => {
                 return (
                     <section
                     data-background-color={episode.backgroundColor}
@@ -32,7 +32,7 @@ export default class MusicMobile extends Component {
                         <LazyLoad height={500} key={i} once>
                         <div className="musicMobile-episodeContainer">
                             <div className="musicMobile-artworkWrapper">
-                                <img draggable="false" className="musicMobile-coverImage musicMobile-noselect" src={require('../images/' + episode.frontArtwork)} alt="fuck"/>
+                                <img draggable="false" className="musicMobile-coverImage musicMobile-noselect" src={require('../images/music/' + episode.frontArtwork)} alt="fuck"/>
                             </div>
                             <div className="musicMobile-linkContainer">
                                 <a className="musicMobile-episodeLink" href={episode.link}>listen on SoundCloud</a>

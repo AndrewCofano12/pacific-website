@@ -46,24 +46,24 @@ export default class HomeMobile extends Component {
             <div className="homeMobile-nameSubChild">
               <Link to="/music" className="homeMobile-homePageNav">
                 <div className="homeMobile-subTitle">music</div>
-                <div className="homeMobile-leftDescription">lorem ipsum dolor sit amet, vis ea deleniti pertinax tincidunt</div>
+                <div className="homeMobile-leftDescription">universial connection in energy</div>
               </Link>
             </div>
             <div className="homeMobile-nameSubChild">
-              <Link to="/journal" className="homeMobile-homePageNav">
-                <div className="homeMobile-subTitle">journal</div>
-                <div className="homeMobile-middleDescription">lorem ipsum dolor sit amet, vis e</div>
+              <Link to="/narrative" className="homeMobile-homePageNav">
+                <div className="homeMobile-subTitle">narrative</div>
+                <div className="homeMobile-middleDescription">portraying stories of personal nature</div>
               </Link>
             </div>
             <div className="homeMobile-nameSubChild">
               <Link to="/films" className="homeMobile-homePageNav">
-                <div className="homeMobile-subTitle">films</div>
-                <div className="homeMobile-rightDescription">lorem ipsum dolor sit amet, vis ea deleniti</div>
+                <div className="homeMobile-subTitle">visual</div>
+                <div className="homeMobile-rightDescription">motion in landscape and time</div>
               </Link>
             </div>
             <div className="homeMobile-nameSubChild homeMobile-contactInfoCopy">
-              <div><a className="homeMobile-emailLink" href="mailto:pacificfilmstudio@gmail.com">pacificfilmstudio@gmail.com</a></div>
-              <div><a className="homeMobile-socialLink" href="https://www.instagram.com/pacific.film/">@pacific.film</a></div>
+              <div><a className="homeMobile-emailLink" href="mailto:pacificfilmstudio@gmail.com">contact@pacificfilm.co</a></div>
+              <div><a className="homeMobile-socialLink" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
             </div>
                 </div>
         </div>
