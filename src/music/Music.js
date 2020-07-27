@@ -86,8 +86,21 @@ export default class Music extends Component {
 
   }
 
+  unlockAudioContext(audioCtx) {
+    if (audioCtx && audioCtx.state !== 'suspended') {
+      return
+    };      
+    audioCtx.resume();
+    const b = document.body;
+    const events = ['touchstart','touchend', 'mousedown','keydown', 'click', 'play'];
+    events.forEach(e => b.addEventListener(e, unlock, false));
+    function unlock() { if (audioCtx) { audioCtx.resume().then();} }
+    function clean() { events.forEach(e => b.removeEventListener(e, unlock)); }
+  }
+
   componentDidMount () {
-    const context = new (window.AudioContext || window.webkitAudioContext)();      
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    this.unlockAudioContext(audioCtx);
 
     // const AudioContext = window.AudioContext || window.webkitAudioContext;
     // this.audioContext = new AudioContext();
@@ -262,13 +275,13 @@ export default class Music extends Component {
              )}               
 
           </div>
-          <div className="music-spacerContainer"></div>
+          {/* <div className="music-spacerContainer"></div> */}
       </div>
       <audio 
         ref={this.audio}
         src={this.state.nowPlayingAudio}
         // src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
-        preload="auto"
+        preload="none"
         controls={false}
         loop={false}
         autoPlay={false}

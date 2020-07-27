@@ -61,6 +61,10 @@
     color: #606060;
 }
 
+.pageNav:hover {
+    color: white !important;
+}
+
 .pageNav.lightFormat {
     text-decoration: none;
     color: #EAEAEA;

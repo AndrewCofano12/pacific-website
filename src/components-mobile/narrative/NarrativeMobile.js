@@ -16,36 +16,16 @@ export default class NarrativeMobile extends Component {
     };
   }
 
-  handleMouseHover = () => {
-    this.setState(this.toggleHoverState);
-  }
-
-  toggleHoverState(state) {
-    return {
-      isHovering: !state.isHovering,
-    };
-  }
-
 
   render() {
     return (
       <div>
-        <div className="narrativeMobile-logoContainer" 
-        onMouseEnter={this.handleMouseHover}
-        onMouseLeave={this.handleMouseHover}>
+        <div className="narrativeMobile-logoContainer">
             <div className="narrativeMobile-logoName">
               <Link to="/" className="narrativeMobile-logoName" >
                 pacific          
               </Link>
             </div>        
-        {this.state.isHovering ? 
-          (<div className="narrativeMobile-backButtonContainer">
-                <Link className="narrativeMobile-backButtonLink" to="/">     
-                    <BsArrowLeft className="narrativeMobile-backButton"/>
-                </Link>
-              </div>) : 
-          null
-        }
 
 
         </div>

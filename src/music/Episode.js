@@ -33,26 +33,28 @@ export default class Episode extends Component {
     }
     else {
       // const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();      
-      if (audioCtx.state == 'suspended') {
-        audioCtx.resume();
-      }
+      // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();      
+      // if (audioCtx.state == 'suspended') {
+      //   audioCtx.resume();
+      // }
+
       //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
       //this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
         // console.log("audio ready:::: " + this.props.audioRef.current.readyState);
       this.setState({isPlaying : true, isCurrent: true})
       this.props.updateNowPlaying(this.state.episode.name, this.props.playlistLink, this.props.itemIndex)
       this.props.audioRef.current.src =  this.state.episode.file;
-      this.props.audioRef.current.load();
+      this.props.audioRef.current.load();            
+
       this.props.audioRef.current.play();
-      
+
       const audio = this.props.audioRef.current;
       // audio.addEventListener('canplay', function() { 
       //   audio.play();
       // }, false);
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-    }
+    //   if (audioCtx.state === 'suspended') {
+    //     audioCtx.resume();
+    // }
       const updateBg = this.props.updateBackground;
       const itemBgColor = this.state.episode.backgroundColor;
       audio.addEventListener('play', function() {
@@ -62,6 +64,8 @@ export default class Episode extends Component {
       })
     }
   }
+
+
 
   handlePause() {
     this.setState({isPlaying : false})
@@ -83,7 +87,8 @@ export default class Episode extends Component {
           this.setState({isPlaying: true})
         }
       }
-    }
+    }      
+
   }
     //console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
     // const resolve = this.props.resolve;
@@ -130,7 +135,7 @@ export default class Episode extends Component {
             <div className="music-itemControllerContainer">              
             <div className="music-creditsOuterContainer">
                 <div className="music-creditsInnerContainer">
-                  {this.state.showCredits ? null : (<div className="music-creditsButton" onClick={this.showCredits}>show credits</div>)}
+                  {this.state.showCredits ? null : (<div className="music-extrasButton music-extrasLink" onClick={this.showCredits}>show credits</div>)}
                   {this.state.showCredits ? 
                   (<div className="music-credits">
                     {this.state.episode.credits.map((credit,i) => {
@@ -147,14 +152,7 @@ export default class Episode extends Component {
                 <div className={`music-playlistSliderControl music-prevSliderControl ${this.props.itemIndex > 0 ? "" : "music-inactive"}`} onClick={this.props.goBack}>prev</div>
                 <div className="music-audioControlContainer">
                   {this.state.isPlaying ? (
-                    // <Link 
-                    //   to={{pathname: `${this.props.match.path}/${this.props.playlistLink}`, 
-                    //   state: {
-                    //     fromLink: true,
-                    //     showCover: false
-                    //   }}}>
                       <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
-                    // </Link>
                   ) : (
                     <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
 
@@ -162,7 +160,7 @@ export default class Episode extends Component {
                 </div>
                 <div className={`music-playlistSliderControl music-nextSliderControl ${this.props.itemIndex < (this.props.playlistLength - 1) ? "" : "music-inactive"}`} onClick={this.props.goForward}>next</div>
               </div>
-              <div className="music-soundcloudContainer">soundcloud</div>
+              <div className="music-soundcloudContainer music-extrasButton"><a className="music-extrasLink" target="_blank" href={this.state.episode.link}>soundcloud</a></div>
 
             </div>
           {/* <Player resolve={() => import('../audio/' + this.state.episode.file)}/>  */}

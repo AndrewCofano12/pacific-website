@@ -33,7 +33,7 @@
 .narrativeMobile-elementsContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 7%;
+    padding-top: 29%;
     align-items: center;
     /* overflow: scroll !important; */
 }
