@@ -110,6 +110,17 @@
 
 }
 
+.films-creditsContainer {
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top: 50px;
+    margin-left: 80px;
+    z-index:300;
+    min-width:0;
+
+}
+
 .playbackTime {
     font-family: 'Questrial', sans-serif;
     font-size: 14px;

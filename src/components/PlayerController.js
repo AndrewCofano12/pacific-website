@@ -7,6 +7,7 @@ import {
   FiPlay,
   FiPause,
 } from "react-icons/fi";
+import CreditsOverlay from './CreditsOverlay';
 
 export default class PlayerController extends Component {
   
@@ -36,6 +37,14 @@ export default class PlayerController extends Component {
     );
   }
 
+  renderCredits() {
+    return (
+      <div className="films-creditsContainer">
+        <CreditsOverlay filmObject={this.props.filmObject}/>
+      </div>
+    );
+  }
+
   formatTime(time) {
     var minute = Math.floor(time / 60);
     var seconds = Math.floor(time % 60);
@@ -50,6 +59,7 @@ export default class PlayerController extends Component {
       return (
         <div
         className={this.props.isShowing ? "fade-in" : "fade-out"}>
+          {this.renderCredits()}
           {this.renderExitCircle()}
           <div
             className="films-controlContainer"

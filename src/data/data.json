@@ -151,21 +151,30 @@
             }
 
         ]
-
+ 
     },
     "films" : {
         "filmsEntries" : [
             {
                 "id": "film1",
-                "src":"https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false"
+                "name": "motion + sound",
+                "director": "peter hou",
+                "releaseDate": "04.06.20",
+                "src":"https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false&playsinline=0"
             },
             {
                 "id": "film2",
-                "src":"https://player.vimeo.com/video/326483854?autoplay=true&controls=false&muted=false"
+                "name": "thanks for the memories",
+                "director": "peter hou",
+                "releaseDate": "03.25.19",
+                "src":"https://player.vimeo.com/video/326483854?autoplay=true&controls=false&muted=false&playsinline=0"
             },
             {
                 "id": "film3",
-                "src":"https://player.vimeo.com/video/273835449?autoplay=true&controls=false&muted=false"
+                "name": "pacificMUSIC ep. 1",
+                "director": "peter hou",
+                "releaseDate": "06.07.18",
+                "src":"https://player.vimeo.com/video/273835449?autoplay=true&controls=false&muted=false&playsinline=0"
             }
 
         ]

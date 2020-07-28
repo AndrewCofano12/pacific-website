@@ -30,8 +30,11 @@ export default class VideoPlayer extends Component {
 
   showPlayerControls() {
     if (!this.state.showPlayerControls) {
+      if (this.state.isPlaying) {
       clearTimeout(this.timer);
       this.hideWithTimer();
+      }
+
       this.setState({ showPlayerControls: true });
     }
   }
@@ -43,7 +46,8 @@ export default class VideoPlayer extends Component {
   hideWithTimer() {
     this.timer = setTimeout(() => {
       this.hidePlayerControls();
-    }, 4000);
+    }, 3000);
+
   }
 
   handleResize() {
@@ -58,6 +62,8 @@ export default class VideoPlayer extends Component {
       this.setState({
         isPlaying: false,
       });
+      clearTimeout(this.timer);
+      this.showPlayerControls();
     });
   }
 
@@ -67,6 +73,7 @@ export default class VideoPlayer extends Component {
         isPlaying: true,
         looped: false,
       });
+      this.hideWithTimer();
     });
   }
 
@@ -129,6 +136,7 @@ export default class VideoPlayer extends Component {
 
     this.player.on("play", function () {
       this.setState({ isPlaying: true });
+
     });
 
     this.player.on("timeupdate", (event) => {
@@ -153,6 +161,7 @@ export default class VideoPlayer extends Component {
       isPlaying: false,
       looped: true,
     });
+    this.showPlayerControls.bind(this);
   }
 
   /** Funcs to pass as props */
@@ -184,6 +193,8 @@ export default class VideoPlayer extends Component {
   renderVideoFrame() {
     return (
       <div
+      onClick={this.handlePlayPause}
+
       style={{
         display:"block",
         overflow:"hidden",
@@ -223,6 +234,7 @@ export default class VideoPlayer extends Component {
           goFull={this.goFull}
           exitFull={this.exitFull}
           looped={this.state.looped}
+          filmObject={this.props.filmObject}
         />
       </div>
     );

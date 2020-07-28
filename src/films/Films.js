@@ -36,8 +36,6 @@ export default class Films extends Component {
         autoPlay={true}
         loop={true} 
         muted={true}
-        webkit-playsinline={true} 
-        playsinline={true}
         src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
         >
 
