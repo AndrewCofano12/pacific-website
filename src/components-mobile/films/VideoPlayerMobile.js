@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import "./VideoPlayer.css";
+import "../../components/VideoPlayer.css";
 import Vimeo from "@vimeo/player";
-import Fullscreen from "react-full-screen";
-import PlayerController from "./PlayerController";
-import CreditsOverlay from "./CreditsOverlay"
 
-export default class VideoPlayer extends Component {
+export default class VideoPlayerMobile extends Component {
 //   timer;
 //   seekbar;
   volume = 30;
@@ -81,11 +78,11 @@ export default class VideoPlayer extends Component {
     // this.handleResize();
 
     var iframe = document.querySelector("iframe");
-    this.player = new Vimeo(iframe);
+    this.player = new Vimeo(iframe, {playsinline: false});
 
     this.player.setVolume(this.volume);
 
-    this.attachListeners();
+    // this.attachListeners();
     this.attachVideoListener();
   }
 
@@ -152,18 +149,39 @@ export default class VideoPlayer extends Component {
 
   renderVideoFrame() {
     return (
-        <video
+      //   <video
+      //   className="frame"
+      //   title="video"
+      //   src={this.props.src}
+      //   backgroundColor="black"
+      //   mozallowfullscreen="true"
+      //   allowFullScreen={true}
+      //   playsinline
+      //   fullscreen="true"
+      //   allow="autoplay"
+      // />
+      <div
+      // onClick={this.handlePlayPause}
+
+      
+    >
+        <iframe
         className="frame"
         title="video"
         src={this.props.src}
         backgroundColor="black"
+        style={this.state.looped ? {opacity: .5} : {opacity: 1}}
+        width={this.state.width}
+        height={this.state.height}
+        frameBorder="0"
+        webkitallowfullscreen="true"
         mozallowfullscreen="true"
         allowFullScreen={true}
         playsinline
         fullscreen="true"
-        allow="autoplay"
+        // allow="autoplay"
       />
-      
+      </div>
     );
   }
 

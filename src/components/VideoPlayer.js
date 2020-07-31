@@ -28,7 +28,7 @@ export default class VideoPlayer extends Component {
     };
   }
 
-  showPlayerControls() {
+  showPlayerControls = () => {
     if (!this.state.showPlayerControls) {
       if (this.state.isPlaying) {
       clearTimeout(this.timer);
@@ -161,7 +161,7 @@ export default class VideoPlayer extends Component {
       isPlaying: false,
       looped: true,
     });
-    this.showPlayerControls.bind(this);
+    this.showPlayerControls();
   }
 
   /** Funcs to pass as props */

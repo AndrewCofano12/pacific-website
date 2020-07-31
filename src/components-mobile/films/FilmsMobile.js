@@ -2,6 +2,8 @@ import React, { Component,  useState  } from 'react';
 import NavigationHeader from '../../components/NavigationHeader';
 import './FilmsMobile.css';
 import Vimeo from "@vimeo/player";
+import { Link } from 'react-router-dom';  
+
 
 export default class Films extends Component {  
     videoPlayers = [];
@@ -13,20 +15,20 @@ export default class Films extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      filmsObject: this.props.dbdata
+      filmsObject: this.props.entries
     }
   }
 
   componentDidMount() {
-    this.state.filmsObject.filmsEntries.map((entry, i) => {
-        var idString = 'film'
-        var options = {
-            playsinline: false,
-        }
-        var videoPlayer = new Vimeo(`film${i}`, options);
-        videoPlayer.setVolume(this.volume);
-        this.videoPlayers.push(videoPlayer);
-    });
+    // this.state.filmsObject.map((entry, i) => {
+    //     var idString = 'film'
+    //     var options = {
+    //         playsinline: false,
+    //     }
+    //     var videoPlayer = new Vimeo(`film${i}`, options);
+    //     videoPlayer.setVolume(this.volume);
+    //     this.videoPlayers.push(videoPlayer);
+    // });
 
 
   }
@@ -65,12 +67,16 @@ export default class Films extends Component {
         </video>       
         <div className="films-linkContainer">
 
-        {this.state.filmsObject.filmsEntries.map((entry, i) => {
+        {this.state.filmsObject.map((entry, i) => {
             console.log(`film${i}`);
             return (
                 <div className="filmSeletion" >
-                    <div onClick={() => this.handlePlay(i)}>{entry.name}</div>
-                    <div style={{display: 'none'}} id={`film${i}`} data-vimeo-url={entry.src}></div>
+                    <Link to={`${this.props.linkPrefix}/${this.state.filmsObject[0].id}`} >
+                      <div>{entry.name}</div>
+                    </Link>
+
+                    {/* <div onClick={() => this.handlePlay(i)}>{entry.name}</div> */}
+                    {/* <div style={{display: 'none'}} id={`film${i}`} data-vimeo-url={entry.src}></div> */}
                 </div>
             );
             })};
