@@ -1,0 +1,11 @@
+.films-creditContent {
+    font-size: 16px;
+    color: white;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.films-creditName {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+

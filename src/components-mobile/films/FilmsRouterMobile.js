@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import VideoPlayer from '../components/VideoPlayer';
+import VideoPlayerMobile from './VideoPlayerMobile';
 import styled from "styled-components";
-import Films from './Films'
+import FilmsMobile from './FilmsMobile'
 import { Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -37,22 +37,12 @@ export default class FilmsRouter extends Component {
     console.log(this.state.filmsObject)
     return (
             <div>
-              {/* <Wrapper>
-                <TransitionGroup className="transition-group">
-                  <CSSTransition
-                  // key={location.key}
-                  timeout={{ enter: 300, exit: 300 }}
-                  classNames="fade"
-                  > */}
-                    <Route exact path={this.props.match.path} render={(props) => <Films {...props} entries={this.state.filmsObject.filmsEntries} linkPrefix={this.props.match.path}/>} />
+                    <Route exact path={this.props.match.path} render={(props) => <FilmsMobile {...props} entries={this.state.filmsObject.filmsEntries} linkPrefix={this.props.match.path}/>} />
                     {this.state.filmsObject.filmsEntries.map((item,i) => {
                       return (
-                        <Route path={`${this.props.match.path}/${item.id}`} key={i} render={(props) => <VideoPlayer {...props} src={item.src} filmObject={item}/>}/>
+                        <Route path={`${this.props.match.path}/${item.id}`} key={i} render={(props) => <VideoPlayerMobile {...props} src={item.src} filmObject={item}/>}/>
                       )
                     })}
-                  {/* </CSSTransition>
-                </TransitionGroup>
-                </Wrapper> */}
             </div>
     )}
 

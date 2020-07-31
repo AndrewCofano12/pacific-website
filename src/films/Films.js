@@ -5,6 +5,7 @@ import Iframe from 'react-iframe'
 import VideoPlayer from '../components/VideoPlayer'
 import request from "../node/vimeoApi"
 import { Link } from 'react-router-dom';  
+import ReactPlayer from "react-player";
 import myVideo from '../audio/test.MP4'
 
 
@@ -18,6 +19,7 @@ export default class Films extends Component {
     }
   }
   render() {
+
     // console.log("this.props.entries is not null " + this.props.entries.id != null)
 
     // this.props.entries.map ((entry) => console.log(entry.id))
@@ -26,27 +28,19 @@ export default class Films extends Component {
     //   setVideoPath(URL.createObjectURL('../../public/test.MP4'));
     //   };
     
-    
     return (
       <div className="videoPlayer">
         <NavigationHeader formatString="lightFormat" page="films"/>
-        {/* <ReactPlayer className="testVideo" url={myVideo} playing volume="0"/> */}
         <video 
         className="testVideo"
-        //style={{height: "100vw", width: "100vw", position:"absolute", top: 0, bottom: 0, right: 0, left: 0}}
         autoPlay={true}
         loop={true} 
         muted={true}
-        webkit-playsinline={true} 
-        playsinline={true}
-        //src={myVideo}
         src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
         >
 
-
         </video> 
         
-
         <div className="films-linkContainer" >
           <div className="filmSeletion">
             <Link to={`${this.props.linkPrefix}/${this.state.entries[0].id}`} >
