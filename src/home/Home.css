@@ -126,6 +126,10 @@
     text-decoration: none;
     color: white;
   }
+
+  .home-homePageNav:hover {
+    color: #e5e5e5;
+  }
   
   .home-titleText {
     font-weight: 400;
@@ -206,6 +210,9 @@
       
     }
   } */
+
+
+
   .home-brandChild {
     min-width: 120px;
     width: auto;

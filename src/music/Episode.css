@@ -30,7 +30,8 @@
 .music-itemControllerContainer {
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    height: 120px;
     align-items: center;
     justify-content: space-between;
     
@@ -40,8 +41,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: flex-start;
     justify-content: center;
 }
+
 
 .music-soundcloudContainer {
     width: 33%;
@@ -108,8 +111,19 @@
 }
 
 .music-extrasButton {
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
+}
+
+.music-credits {
+    font-size: 15px;
+    margin-top: -9px;
+    z-index: 3000;
+    position: absolute;
+}
+
+.music-creditline {
+    margin-bottom: 9px;
 }
 
 .music-extrasLink {

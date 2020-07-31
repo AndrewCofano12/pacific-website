@@ -13,7 +13,7 @@ export default class NarrativeMobileElement extends Component {
 
   render() {
     return (
-      <article className="narrativeMobile-elementArticle" style={{marginBottom: `${this.state.element.bottomSpacing}px`}}>
+      <article className="narrativeMobile-elementArticle" style={{marginBottom: `${this.state.element.bottomSpacing - 20}px`}}>
           <div className={`narrativeMobile-elementContainer narrativeMobile-element-${this.state.element.size}`}>
             <img draggable="false" className="narrativeMobile-img narrative-noselect" src={`http://www.pacificfilm.co/wp-content/images/narrative/${this.state.element.file}`} alt="fuck"/>
         </div>             

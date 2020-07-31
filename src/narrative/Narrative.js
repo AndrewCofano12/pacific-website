@@ -12,8 +12,22 @@ export default class Narrative extends Component {
     super(props);
     this.state = {
         dbObject: props.dbdata,
-        isHovering: false
+        isHovering: false,
+        showBack: true
     };
+  }
+
+  getPostion = () => {    
+    if (window.scrollY < 10) {
+      this.setState({showBack : true});
+    }
+    else {
+      this.setState({showBack: false});
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.getPostion.bind(this));
   }
 
   handleMouseHover = () => {
@@ -38,11 +52,11 @@ export default class Narrative extends Component {
                 pacific          
               </Link>
             </div>        
-        {this.state.isHovering ? 
-          (<div className="narrative-backButtonContainer">
-                <Link className="narrative-backButtonLink" to="/">     
+        {this.state.isHovering || this.state.showBack ? 
+          (<div className="narrative-backButtonContainer" onClick={() => {window.history.back()}}>
+                {/* <Link className="narrative-backButtonLink" to="/">      */}
                     <BsArrowLeft className="narrative-backButton"/>
-                </Link>
+                {/* </Link> */}
               </div>) : 
           null
         }

@@ -33,7 +33,7 @@
 .narrative-elementsContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 7%;
+    padding-top: 120px;
     align-items: center;
     /* overflow: scroll !important; */
 }
@@ -44,6 +44,7 @@
     left:0;
     margin-left: 60px;
     margin-top: 60px; 
+    cursor: pointer;
 
 }
 

@@ -135,17 +135,18 @@ export default class Episode extends Component {
             <div className="music-itemControllerContainer">              
             <div className="music-creditsOuterContainer">
                 <div className="music-creditsInnerContainer">
-                  {this.state.showCredits ? null : (<div className="music-extrasButton music-extrasLink" onClick={this.showCredits}>show credits</div>)}
                   {this.state.showCredits ? 
                   (<div className="music-credits">
                     {this.state.episode.credits.map((credit,i) => {
                       return (
-                        <div>{credit}</div>
+                        <div claasName="music-creditline">{credit}</div>
                         )
                     }
                     )}
                   </div>) : 
                   null}
+                  {this.state.showCredits ? null : (<div className="music-extrasButton music-extrasLink" onClick={this.showCredits}>show credits</div>)}
+
                 </div>
                 </div>
               <div className="music-itemControllers">
