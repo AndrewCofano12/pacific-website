@@ -94,7 +94,7 @@ export default class Home extends Component {
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
                   <div className="home-leftSubTitle home-titleText">music</div>
-                  <div className="home-subtext">universial connection in energy</div>
+                  <div className="home-subtext">impressions from our surroundings</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild">
@@ -106,7 +106,7 @@ export default class Home extends Component {
               <div id="home-visualLink" className="home-gridItem home-nameSubChild">
                 <Link to="/films" className="home-homePageNav">
                   <div className="home-rightSubTitle home-titleText">visual</div>
-                  <div className="home-subtext">motion in landscape and time</div>
+                  <div className="home-subtext">motion in form and figure</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-contactInfoCopy">

@@ -16,7 +16,7 @@ export default class NarrativeElement extends Component {
       <article className="narrative-elementArticle" style={{marginBottom: `${this.state.element.bottomSpacing}px`}}>
           <div className={`narrative-elementContainer narrative-element-${this.state.element.size}`}>
             <img draggable="false" className="narrative-img narrative-noselect" src={`http://www.pacificfilm.co/wp-content/images/narrative/${this.state.element.file}`} alt="fuck"/>
-        </div>             
+        </div>
       </article>
     );
   }
