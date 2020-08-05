@@ -4,7 +4,7 @@ import './FilmsMobile.css';
 import Vimeo from "@vimeo/player";
 
 export default class Films extends Component {  
-    videoPlayer;
+    videoPlayers = [];
     volume = 30;
 
 
@@ -17,31 +17,51 @@ export default class Films extends Component {
   }
 
   componentDidMount() {
-    var options = {
-      playsinline: false,
-      autoPlay: true
-    }
-    this.videoPlayer = new Vimeo("filmsPlayer", options);
-    this.videoPlayer.setVolume(this.volume);
+    this.state.filmsObject.filmsEntries.map((entry, i) => {
+      var idString = 'film'
+      var options = {
+          playsinline: false,
+      }
+      var videoPlayer = new Vimeo(`film${i}`, options);
+      videoPlayer.setVolume(this.volume);
+      this.videoPlayers.push(videoPlayer);
+  });
+
+
+
+    // var options = {
+    //   playsinline: false,
+    //   autoPlay: true
+    // }
+    // this.videoPlayer = new Vimeo("filmsPlayer", options);
+    // this.videoPlayer.setVolume(this.volume);
 
 
   }
-
 
   handlePlay = (i) => {
-    // console.log(i)
-    // console.log('film'+ i);
-    
-    // var player = document.getElementById(`film${i}`);
-    // console.log(player)
-    this.setState({playURL: this.state.filmsObject.filmsEntries[i].src})
-    console.log("play")
-    const videoP = this.videoPlayer;
-    this.videoPlayer.on("loaded", function() {
-      console.log("loaded") 
-      videoP.play()});
-
+    console.log(i)
+    console.log('film'+ i);
+    var player = document.getElementById(`film${i}`);
+    console.log(player)
+    this.videoPlayers[i].play();
   }
+
+
+  // handlePlay = (i) => {
+  //   // console.log(i)
+  //   // console.log('film'+ i);
+    
+  //   // var player = document.getElementById(`film${i}`);
+  //   // console.log(player)
+  //   this.setState({playURL: this.state.filmsObject.filmsEntries[i].src})
+  //   console.log("play")
+  //   const videoP = this.videoPlayer;
+  //   this.videoPlayer.on("loaded", function() {
+  //     console.log("loaded") 
+  //     videoP.play()});
+
+  // }
 
   render() {
 
@@ -55,18 +75,25 @@ export default class Films extends Component {
     
     return (
       <div className="videoPlayer">
+
+
+
         <NavigationHeader formatString="lightFormat" page="films"/>
         <video 
-        className="testVideo"
-        autoPlay={true}
-        loop={true} 
-        muted={true}
-        src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
-        >
+        playsInline
+        autoPlay
+        loop
+        muted
+        className="testVideo">
 
-        </video>              
-         <div id="filmsPlayer" data-vimeo-url={this.state.playURL}></div>
+          <source type="video/mp4" src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"/>
 
+        </video>        
+        {this.state.filmsObject.filmsEntries.map((entry, i) => {
+          return (
+            <div className="filmsPlayer" id={`film${i}`} data-vimeo-url={entry.src}></div>
+          )
+        })}
         <div className="films-linkContainer">
 
         {this.state.filmsObject.filmsEntries.map((entry, i) => {

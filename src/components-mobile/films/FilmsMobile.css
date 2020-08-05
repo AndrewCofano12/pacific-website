@@ -32,7 +32,7 @@
     overflow-y: hidden;
 }
 
-#filmsPlayer {
+.filmsPlayer {
     margin-left: -90000px;
     position: absolute;
 }
