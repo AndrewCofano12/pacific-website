@@ -3,42 +3,44 @@ import NavigationHeader from '../../components/NavigationHeader';
 import './FilmsMobile.css';
 import Vimeo from "@vimeo/player";
 
-export default class FilmsMobile extends Component {  
-    videoPlayers = [];
-    video2Player;
-    video3Player;
+export default class Films extends Component {  
+    videoPlayer;
     volume = 30;
 
 
   constructor(props) {
     super(props)
     this.state = {
-      filmsObject: this.props.dbdata
+      filmsObject: this.props.dbdata,
+      playURL: ''
     }
   }
 
   componentDidMount() {
-    this.state.filmsObject.filmsEntries.map((entry, i) => {
-        var idString = 'film'
-        var options = {
-            playsinline: false,
-        }
-        var videoPlayer = new Vimeo(`film${i}`, options);
-        videoPlayer.setVolume(this.volume);
-        this.videoPlayers.push(videoPlayer);
-    });
+    var options = {
+      playsinline: false,
+      autoPlay: true
+    }
+    this.videoPlayer = new Vimeo("filmsPlayer", options);
+    this.videoPlayer.setVolume(this.volume);
 
 
   }
 
 
   handlePlay = (i) => {
-    console.log(i)
-    console.log('film'+ i);
-    var player = document.getElementById(`film${i}`);
-    console.log(player)
-    player.style["display"] = 'block';
-    this.videoPlayers[i].play();
+    // console.log(i)
+    // console.log('film'+ i);
+    
+    // var player = document.getElementById(`film${i}`);
+    // console.log(player)
+    this.setState({playURL: this.state.filmsObject.filmsEntries[i].src})
+    console.log("play")
+    const videoP = this.videoPlayer;
+    this.videoPlayer.on("loaded", function() {
+      console.log("loaded") 
+      videoP.play()});
+
   }
 
   render() {
@@ -55,15 +57,16 @@ export default class FilmsMobile extends Component {
       <div className="videoPlayer">
         <NavigationHeader formatString="lightFormat" page="films"/>
         <video 
-        playsInline
-        autoPlay
-        loop
-        muted
-        className="testVideo">
+        className="testVideo"
+        autoPlay={true}
+        loop={true} 
+        muted={true}
+        src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
+        >
 
-          <source type="video/mp4" src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"/>
+        </video>              
+         <div id="filmsPlayer" data-vimeo-url={this.state.playURL}></div>
 
-        </video>
         <div className="films-linkContainer">
 
         {this.state.filmsObject.filmsEntries.map((entry, i) => {
@@ -71,10 +74,9 @@ export default class FilmsMobile extends Component {
             return (
                 <div className="filmSeletion" >
                     <div onClick={() => this.handlePlay(i)}>{entry.name}</div>
-                    <div style={{display: 'none'}} id={`film${i}`} data-vimeo-url={entry.src}></div>
                 </div>
             );
-            })};
+            })}
         </div>
     </div>
 

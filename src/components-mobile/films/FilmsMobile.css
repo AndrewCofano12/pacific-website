@@ -28,13 +28,21 @@
     bottom: 80px;
     left: 100px;
     position: absolute;
+    height: auto;
+    overflow-y: hidden;
+}
+
+#filmsPlayer {
+    margin-left: -90000px;
+    position: absolute;
 }
 
 .filmSeletion {
     font-family: 'Helvetica Neue', sans-serif;
-    margin-right: 35px;
     z-index: 20;
-    font-size: 16px;
+    font-size: 16px;   
+     color: white;
+
 }
 
 a {
