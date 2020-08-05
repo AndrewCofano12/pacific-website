@@ -42,8 +42,10 @@ export default class Films extends Component {
   handlePlay = (i) => {
     console.log(i)
     console.log('film'+ i);
-    var player = document.getElementById(`film${i}`);
-    console.log(player)
+    if (this.videoPlayers[i].getCurrentTime() > 0) {
+      console.log("curentTime " + this.videoPlayers[i].getCurrentTime())
+      this.videoPlayers[i].setCurrentTime(0)
+    }
     this.videoPlayers[i].play();
   }
 

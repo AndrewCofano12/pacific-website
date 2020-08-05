@@ -13,6 +13,8 @@ import { Route, Redirect, Link, useLocation } from 'react-router-dom';
 
 
 export default class Music extends Component {
+  audioCtx = null;
+
 
   constructor(props) {
     super(props);
@@ -99,8 +101,8 @@ export default class Music extends Component {
   }
 
   componentDidMount () {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    this.unlockAudioContext(audioCtx);
+    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    this.unlockAudioContext(this.audioCtx);
 
     // const AudioContext = window.AudioContext || window.webkitAudioContext;
     // this.audioContext = new AudioContext();
@@ -155,6 +157,29 @@ export default class Music extends Component {
     
   }
 
+
+  getData(src) {
+    this.source = this.audioCtx.createBufferSource();
+  
+    var myRequest = new Request(src);
+  
+    fetch(myRequest).then(function(response) {
+      return response.arrayBuffer();
+    }).then(function(buffer) {
+      this.audioCtx.decodeAudioData(buffer, function(decodedData) {
+        this.source.buffer = decodedData;
+        this.source.connect(this.audioCtx.destination);
+      });
+    });
+  }
+  
+  // wire up buttons to stop and play audio
+  
+  playItem = (src) => {
+    this.getData(src);
+    this.source.start(0);
+    // play.setAttribute('disabled', 'disabled');
+  }
 
   render() {
     let firstPlaylist = this.state.musicObject.playlists[0];
