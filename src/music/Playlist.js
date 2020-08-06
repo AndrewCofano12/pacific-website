@@ -74,7 +74,9 @@ render() {
                             updateNowPlaying={this.props.updateNowPlaying}
                             audioRef={this.props.audioRef} 
                             updateBackground={this.props.updateBackground}
-                            playItem={this.props.playItem}/>
+                            playItem={this.props.playItem}
+                            context={this.props.context}
+                            handlePlay={this.props.handlePlay}/>
                     )
                     })}
                 </div>

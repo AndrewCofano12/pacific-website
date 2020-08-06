@@ -41,6 +41,7 @@ export default class Music extends Component {
         npIndex: null,
         isPlaying: false,
         musicObject: props.dbdata,
+        
       
     };
 
@@ -50,6 +51,7 @@ export default class Music extends Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
     this.playItem = this.playItem.bind(this);
+    this.loadSound = this.loadSound.bind(this);
   }
 
   updateCurrentSelected() {
@@ -89,9 +91,41 @@ export default class Music extends Component {
 
     } else {
       // play new item
-      const nowPlayingAudio = `http://www.pacificfilm.co/wp-content/media/${file}`
-      this.setState({ nowPlayingAudio });
-      this.handleColorOnSliderChange(backgroundColor)
+
+      // const nowPlayingAudio = `http://www.pacificfilm.co/wp-content/media/${file}`
+      // this.setState({ npFile: file, d });
+      // this.audio.current.src = file;
+
+
+      var audio = document.querySelector('audio');
+      audio.src = file;
+      var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      // var source = audioCtx.createMediaElementSource(audio);
+      // this.audio.current.play();
+
+      var analyser = audioCtx.createAnalyser();
+
+
+      // Wait for window.onload to fire. See crbug.com/112368
+      window.addEventListener('load', function(e) {      
+        // Our <audio> element will be the audio source.
+        var source = audioCtx.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+        // ...call requestAnimationFrame() and render the analyser's output to canvas.
+      }, false);
+      // Create a gain node
+      // var gainNode = audioCtx.createGain();
+      // gainNode.gain.value = 10;
+      // source.connect(gainNode);
+      // gainNode.connect(audioCtx.destination);
+      // var buffersource = audioCtx.createBufferSource()
+      // buffersource.start(0);  
+        audio.play();
+
+
+      console.log(audioCtx);
+      this.updateBackground(backgroundColor)
 
     }
   }
@@ -105,21 +139,11 @@ export default class Music extends Component {
 
   }
 
-  unlockAudioContext(audioCtx) {
-    if (audioCtx && audioCtx.state !== 'suspended') {
-      return
-    };      
-    audioCtx.resume();
-    const b = document.body;
-    const events = ['touchstart','touchend', 'mousedown','keydown', 'click', 'play'];
-    events.forEach(e => b.addEventListener(e, unlock, false));
-    function unlock() { if (audioCtx) { audioCtx.resume().then();} }
-    function clean() { events.forEach(e => b.removeEventListener(e, unlock)); }
-  }
+
+
 
   componentDidMount () {
-    this.context = new (window.AudioContext || window.webkitAudioContext)();
-    // this.unlockAudioContext(this.context);
+    // this.context = new (window.AudioContext || window.webkitAudioContext)();
     // this.playItem("http://www.pacificfilm.co/wp-content/audio/pM_Ep-3.mp3");
     
     // this.lowLag = new function() {
@@ -502,12 +526,23 @@ export default class Music extends Component {
   
   // wire up buttons to stop and play audio
   
-  playItem(src) {
+  playItem = (src) => {
     this.getData(src);
     this.source.start(0);
     // play.setAttribute('disabled', 'disabled');
   }
 
+  unlockAudioContext(audioCtx) {
+    if (audioCtx && audioCtx.state !== 'suspended') {
+      return
+    };      
+    audioCtx.resume();
+    const b = document.body;
+    const events = ['touchstart','touchend', 'mousedown','keydown', 'click', 'play'];
+    events.forEach(e => b.addEventListener(e, unlock, false));
+    function unlock() { if (audioCtx) { audioCtx.resume().then();} }
+    function clean() { events.forEach(e => b.removeEventListener(e, unlock)); }
+  }
 
 
 
@@ -528,17 +563,19 @@ loadSound(url) {
 
 
 let headers = new Headers({
-  'Access-Control-Allow-Origin':'*',
   'Content-Type': 'audio/mpeg',
-  'mode':'cors'
   });
   console.log("loading...")
+  console.log(dbConfig.USER)
+  // const proxyurl = "https://cors-anywhere.pacificfilm.co/";
   return window.fetch(url, {method:'GET',
   headers: headers,
-  //credentials: 'user:passwd'
- })
+  mode: 'cors',
+  credentials: 'same-origin', // include, *same-origin, omit
+})
       .then(response => response.arrayBuffer())
       .then(arrayBuffer => {
+        console.log("arraybuffer")
           return new Promise((resolve, reject) => {
               this.context.decodeAudioData(arrayBuffer, (buffer) => {
                   resolve(buffer);
@@ -575,12 +612,17 @@ init = async() => {
 * @param time
 */
 playSound = (buffer, time) => {
+  console.log("play SOUND!!! " + typeof buffer )
   if (typeof buffer !== 'object') return;
-
+  console.log("cmonnnn")
   const source = this.context.createBufferSource();
-  source.buffer = buffer;
+  source.buffer = buffer;  
+  console.log(source.buffer);
   source.connect(this.context.destination);
-  source.start(time);
+  console.log(this.context)
+  source.start(0);  
+  this.unlockAudioContext(this.context);
+
 };
 
 /**
@@ -594,6 +636,7 @@ processInteraction = async() => {
   const sound = document.querySelector(`audio[data-key=pM]`);
   if (!sound) return;
   console.log("audio contxt " + this.context)
+
   this.context
       ? this.playSound(this.buf)
       : sound.cloneNode().play();
@@ -699,9 +742,11 @@ processInteraction = async() => {
                       onPause={this.handlePause} 
                       updateBackground={this.updateBackground}
                       updateView={this.updateView}
+                      handlePlay={this.handlePlay}
                       updateNowPlaying={this.updateNowPlaying}
                       npItem={this.state.nowPlayingAudio}/>}
-                      playItem={this.playItem} />
+                      playItem={this.playItem} 
+                      context={this.context}/>
 
                   <Route path={`${this.props.match.path}/${playlist.url}/view`} render={(props) => 
                     <PlaylistCoverView 
@@ -726,10 +771,10 @@ processInteraction = async() => {
           </div>
           {/* <div className="music-spacerContainer"></div> */}
       </div>
-      <button onClick={() => this.processInteraction()}>Cmon</button>
+      {/* <button onClick={() => this.processInteraction()}>Cmon</button> */}
       <audio 
         ref={this.audio}
-        src={this.state.playing}
+        // src={this.state.playing}
         preload="none"
         data-key="pM"
         controls={false}

@@ -53,6 +53,8 @@ export default class PlaylistGridItem extends Component {
     return !audio.paused && !audio.ended
   }
 
+
+
   handlePlay = (e) => {
     if (!e) var e = window.event;
     e.cancelBubble = true;
@@ -71,20 +73,31 @@ export default class PlaylistGridItem extends Component {
     // }
     // else {
       this.setState({isPlaying : true, isCurrent: true})
-      this.props.updateNowPlaying(this.state.itemData.name, this.props.playlistKey, this.props.itemIndex)
+      this.props.handlePlay(this.state.itemData.file, this.state.itemData.backgroundColor);
+      this.props.updateNowPlaying(this.state.itemData.name, this.props.playlistKey, this.props.itemIndex)       
+
+
       // this.props.audioRef.current.src =  this.state.itemData.file;
-      this.props.audioRef.current.load();
-      this.props.audioRef.current.play();
+    
+      // const audio = this.props.audioRef;
       
-      const audio = this.props.audioRef.current;
+      
+      // this.props.audioRef.current.load();
+      // this.props.audioRef.current.play();
+
+      // connect the AudioBufferSourceNode to the gainNode
+      // and the gainNode to the destination, so we can play the
+      // music and adjust the volume using the mouse cursor
+      // this.unlockAudioContext(this.context);
+
 
       const updateBg = this.props.updateBackground;
       const itemBgColor = this.state.itemData.backgroundColor;
-      audio.addEventListener('play', function() {
-        console.log("playing...")
-          updateBg(itemBgColor);
+      // audio.addEventListener('play', function() {
+      //   console.log("playing...")
+      //     updateBg(itemBgColor);
 
-      })
+      // })
     // }
   }
 
