@@ -34,7 +34,7 @@ export default class ImageLoaderMobile extends Component {
                 {this.state.images.map((item,i) => {
                     if (i == 0) {
                         return (
-                            <LazyLoad key={i} once>
+                            // <LazyLoad key={i} once>
                             <img className="imageLoaderMobile-backgroundPhoto"
                             style={{
                                 top: 0,
@@ -46,13 +46,14 @@ export default class ImageLoaderMobile extends Component {
                                 width: "100%"
             
                             }} 
-                            src={require('../images/homepage/' + item.url)} alt="fuck"/>
-                            </LazyLoad>
+                            // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            // </LazyLoad>
                         )
                     }
                     else {
                         return (
-                            <LazyLoad key={i} once>
+                            // <LazyLoad key={i} once>
                             <img className="imageLoaderMobile-backgroundPhoto"
                             style={{
                                 top: 0,
@@ -64,8 +65,10 @@ export default class ImageLoaderMobile extends Component {
                                 width: "100%"
             
                             }} 
-                            src={require('../images/homepage/' + item.url)} alt="fuck"/>
-                            </LazyLoad>
+                            // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+
+                            // </LazyLoad>
                         )
     
                     }

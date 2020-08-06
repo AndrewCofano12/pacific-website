@@ -36,7 +36,7 @@ export default class ImageLoader extends Component {
                 {this.state.images.map((item,i) => {
                     if (i == 0) {
                         return (
-                            <LazyLoad key={i} overflow once>
+                            // <LazyLoad key={i} overflow once>
                                 <img className="imageLoader-backgroundPhoto imageLoader-full"
                                 style={{
                                     top: 0,
@@ -48,13 +48,15 @@ export default class ImageLoader extends Component {
                                     width: "101vw"
                 
                                 }} 
-                                src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
-                            </LazyLoad>
-                        )
+                                // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                                src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+
+                                // </LazyLoad>
+                            )
                     }
                     else {
                         return (
-                            <LazyLoad key={i} overflow once>
+                            // <LazyLoad key={i} overflow once>
                             <img className={`imageLoader-backgroundPhoto ${item.sizing == "full" ? "imageLoader-full" : "imageLoader-half"} `}
                             style={{
                                 top: 0,
@@ -66,8 +68,10 @@ export default class ImageLoader extends Component {
                                 width: (item.sizing == "full" ? "102vw" : "52vw")
             
                             }} 
-                            src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
-                            </LazyLoad>
+                            // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+
+                            // </LazyLoad>
 
                         )
     

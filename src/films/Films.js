@@ -6,7 +6,6 @@ import VideoPlayer from '../components/VideoPlayer'
 import request from "../node/vimeoApi"
 import { Link } from 'react-router-dom';  
 import ReactPlayer from "react-player";
-import myVideo from '../audio/test.MP4'
 
 
 let Vimeo = require('vimeo').Vimeo;

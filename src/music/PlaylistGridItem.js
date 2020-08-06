@@ -57,6 +57,9 @@ export default class PlaylistGridItem extends Component {
     if (!e) var e = window.event;
     e.cancelBubble = true;
     if (e.stopPropagation) e.stopPropagation();
+    // console.log(this.props.playItem);
+    // const updateItem = this.props.playItem;
+    // updateItem(this.state.itemData.file);
     const audio = this.props.audioRef.current;
     if (this.state.isCurrent) {
       if (audio.paused && audio.src) {

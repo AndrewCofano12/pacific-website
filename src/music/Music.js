@@ -33,6 +33,7 @@ export default class Music extends Component {
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
+    this.playItem = this.playItem.bind(this);
   }
 
   updateCurrentSelected() {
@@ -162,7 +163,7 @@ export default class Music extends Component {
     this.source = this.audioCtx.createBufferSource();
   
     var myRequest = new Request(src);
-  
+    console.log(src);
     fetch(myRequest).then(function(response) {
       return response.arrayBuffer();
     }).then(function(buffer) {
@@ -175,7 +176,7 @@ export default class Music extends Component {
   
   // wire up buttons to stop and play audio
   
-  playItem = (src) => {
+  playItem(src) {
     this.getData(src);
     this.source.start(0);
     // play.setAttribute('disabled', 'disabled');
@@ -277,7 +278,8 @@ export default class Music extends Component {
                       updateBackground={this.updateBackground}
                       updateView={this.updateView}
                       updateNowPlaying={this.updateNowPlaying}
-                      npItem={this.state.nowPlayingAudio}/>} />
+                      npItem={this.state.nowPlayingAudio}/>}
+                      playItem={this.playItem} />
 
                   <Route path={`${this.props.match.path}/${playlist.url}/view`} render={(props) => 
                     <PlaylistCoverView 

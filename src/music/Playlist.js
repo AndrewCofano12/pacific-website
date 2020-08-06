@@ -71,7 +71,8 @@ render() {
                             npFile={this.props.npFile}
                             updateNowPlaying={this.props.updateNowPlaying}
                             audioRef={this.props.audioRef} 
-                            updateBackground={this.props.updateBackground}/>
+                            updateBackground={this.props.updateBackground}
+                            playItem={this.props.playItem}/>
                     )
                     })}
                 </div>
