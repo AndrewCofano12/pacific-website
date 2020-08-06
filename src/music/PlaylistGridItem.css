@@ -3,17 +3,26 @@
 
     /* height: 100%; */
     /* vertical-align: text-top; */
-    width: 310px;
+    /* width: 310px; */
     position: relative;
-    height: 310px;
+    /* height: 310px; */
+    max-width: 1000px;
+    max-height: 1000px;
     /* margin-left: auto; */
     /* margin-right: auto; */
 }
 
 
 .music-gridItemImage {
-    width: 310px;
-    height: 310px;
+    /* width: 310px;
+    height: 310px; */
+    height: inherit;
+}
+
+
+.music-gridItemImageContainer {
+    height: 32vh;
+    width: 100%;
 }
 
 .music-gridItemPlaybackControl {

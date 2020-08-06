@@ -66,7 +66,7 @@
 /* MUSIC NAVIGATION CONTAINER */
 
 .music-musicNavigationContainer {
-    width: 15%;
+    width: 11%;
     padding-left: 60px;
 }
 
@@ -122,7 +122,7 @@
 /* PLAYLIST CONTENT CONTAINER */
 
 .music-playlistContentContainer {
-    width: 78%;
+    width: 89%;
     overflow: scroll;
 }
 
@@ -136,15 +136,19 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+.music-playlistGridContainer {
+    padding-left: 7vw;
+}
+
 
 .music-playlistGridView {
     display: grid;
-    width: 80%;
+    width: 70%;
 
     /* grid-template-columns: auto auto auto auto; */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 50px;
+    grid-column-gap: 70px;
     grid-row-gap: 50px;
     /*grid-row-gap: 410px; */
 }
@@ -152,6 +156,37 @@
 
 /* CAROUSEL */
 
+
 .BrainhubCarousel__track {
-    margin-left: -120px !important;
+    margin-left: -6vw !important;
 } 
+
+
+
+@media only screen and (max-width: 1350px) {
+
+.BrainhubCarousel__track {
+    margin-left: -20px !important;
+} 
+
+
+.music-musicNavigationContainer {
+    width: 10%;
+}
+
+
+
+.music-playlistContentContainer {
+    width: 90%;
+}
+
+  }
+
+@media only screen and (max-width: 1200px) {
+
+.BrainhubCarouselItem {
+    padding-right: 70px !important;
+}
+
+  }
+

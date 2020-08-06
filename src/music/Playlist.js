@@ -52,7 +52,7 @@ handleGridItemSelect(index) {
 
 render() {
     return (
-        <div>
+        <div className="music-playlistGridContainer">
             {/* {this.state.gridView ? 
             ( */}
                 <div className="music-playlistGridView">

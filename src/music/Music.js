@@ -33,7 +33,6 @@ export default class Music extends Component {
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
-    this.playItem = this.playItem.bind(this);
   }
 
   updateCurrentSelected() {
@@ -157,38 +156,13 @@ export default class Music extends Component {
     console.log("SHOW COVER: " + this.showCover + " ... INDEX: " + this.itemIndex)
     
   }
-
-
-  getData(src) {
-    this.source = this.audioCtx.createBufferSource();
-  
-    var myRequest = new Request(src);
-    console.log(src);
-    fetch(myRequest).then(function(response) {
-      return response.arrayBuffer();
-    }).then(function(buffer) {
-      this.audioCtx.decodeAudioData(buffer, function(decodedData) {
-        this.source.buffer = decodedData;
-        this.source.connect(this.audioCtx.destination);
-      });
-    });
-  }
-  
-  // wire up buttons to stop and play audio
-  
-  playItem(src) {
-    this.getData(src);
-    this.source.start(0);
-    // play.setAttribute('disabled', 'disabled');
-  }
-
   render() {
     let firstPlaylist = this.state.musicObject.playlists[0];
     
     // console.log(this.state.musicObject)
     return (
       <div className="music-musicBackground" style={{backgroundColor: firstPlaylist.items[0].backgroundColor}}>
-        <NavigationHeader formatString="lightFormat" page="music"/>
+        <NavigationHeader className="" formatString="lightFormat" page="music"/>
         {/* <EpisodeSlider episodes={this.state.musicObject.episodes}/> */}
 
 

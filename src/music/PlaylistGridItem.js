@@ -137,8 +137,9 @@ export default class PlaylistGridItem extends Component {
             fromLink: true,
             showCoverIndex: this.props.itemIndex
           }}}>
-
+            <div className="music-gridItemImageContainer">
             <img draggable="false" className="music-gridItemImage music-noselect" src={require('../images/music/' + this.state.itemData.frontArtwork)} alt="fuck"/>
+            </div>
         </Link>
 
             <div>
