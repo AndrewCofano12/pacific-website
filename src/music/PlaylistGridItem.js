@@ -60,19 +60,19 @@ export default class PlaylistGridItem extends Component {
     // console.log(this.props.playItem);
     // const updateItem = this.props.playItem;
     // updateItem(this.state.itemData.file);
-    const audio = this.props.audioRef.current;
-    if (this.state.isCurrent) {
-      if (audio.paused && audio.src) {
-        const audioPromise = audio.play()
-        audioPromise.then(null).catch((err) => {
+    // const audio = this.props.audioRef.current;
+    // if (this.state.isCurrent) {
+    //   if (audio.paused && audio.src) {
+    //     const audioPromise = audio.play()
+    //     audioPromise.then(null).catch((err) => {
        
-      })
-      }
-    }
-    else {
+    //   })
+    //   }
+    // }
+    // else {
       this.setState({isPlaying : true, isCurrent: true})
       this.props.updateNowPlaying(this.state.itemData.name, this.props.playlistKey, this.props.itemIndex)
-      this.props.audioRef.current.src =  this.state.itemData.file;
+      // this.props.audioRef.current.src =  this.state.itemData.file;
       this.props.audioRef.current.load();
       this.props.audioRef.current.play();
       
@@ -85,7 +85,7 @@ export default class PlaylistGridItem extends Component {
           updateBg(itemBgColor);
 
       })
-    }
+    // }
   }
 
   handlePause = () => {

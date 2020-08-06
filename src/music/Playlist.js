@@ -29,6 +29,8 @@ export default class Playlist extends Component {
 
         }
 
+        // this.props.playItem("http://www.pacificfilm.co/wp-content/audio/pM_Ep-3.mp3")
+
   }
 
 

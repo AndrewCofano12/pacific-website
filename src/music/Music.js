@@ -10,11 +10,27 @@ import $ from 'jquery';
 import PlaylistCoverView from './PlaylistCoverView';
 import { Route, Redirect, Link, useLocation } from 'react-router-dom';
 //import './MusicScripts.js';
+const dbConfig = require("../config/db.config.js");
+let base64 = require('base-64');
 
 
 export default class Music extends Component {
   audioCtx = null;
+  lowLag = null;
 
+  context = null;
+  buf = null;
+  keyToSoundMap = {
+     a: 'http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3',
+     s: 'http://www.pacificfilm.co/wp-content/audio/pM_Ep-2.mp3',
+     d: 'audio/kick-808.wav',
+     f: 'audio/openhat-808.wav',
+     g: 'audio/kick-big.wav',
+     h: 'audio/ride-acoustic01.wav',
+     j: 'audio/snare-analog.wav',
+     k: 'audio/tom-acoustic01.wav',
+     l: 'audio/crash-acoustic.wav'
+ };
 
   constructor(props) {
     super(props);
@@ -102,8 +118,314 @@ export default class Music extends Component {
   }
 
   componentDidMount () {
-    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    this.unlockAudioContext(this.audioCtx);
+    this.context = new (window.AudioContext || window.webkitAudioContext)();
+    // this.unlockAudioContext(this.context);
+    // this.playItem("http://www.pacificfilm.co/wp-content/audio/pM_Ep-3.mp3");
+    
+    // this.lowLag = new function() {
+    //   this.someVariable = undefined;
+    //   this.showNeedInit = function() {
+    //     this.msg("this.lowLag: you must call lowLag.init() first!");
+    //   }
+    //   this.load = this.showNeedInit;
+    //   this.play = this.showNeedInit;
+    //   this.pause = this.showNeedInit;
+    //   this.stop = this.showNeedInit;
+    //   this.switch = this.showNeedInit;
+    //   this.change = this.showNeedInit;
+      
+    //   this.audioContext = undefined;
+    //   this.audioContextPendingRequest = {};
+    //   this.audioBuffers = {};
+    //   this.audioBufferSources = {};
+    //   this.currentTag = undefined;
+    //   this.currentPlayingTag = undefined;
+    
+    //   this.init = function() {
+    //     this.msg("init audioContext");
+    //     this.load = this.loadSoundAudioContext;
+    //     this.play = this.playSoundAudioContext;
+    //     this.pause = this.pauseSoundAudioContext;
+    //     this.stop = this.stopSoundAudioContext;
+    //     this.switch = this.switchSoundAudioContext;
+    //     this.change = this.changeSoundAudioContext;
+    
+    //     if (!this.audioContext) {
+    //       this.audioContext = new(window.AudioContext || window.webkitAudioContext)();
+    //     }
+    //   }
+    
+    //   //we'll use the tag they hand us, or else the url as the tag if it's a single tag,
+    //   //or the first url 
+    //   this.getTagFromURL = function(url, tag) {
+    //     if (tag != undefined) return tag;
+    //     return this.getSingleURL(url);
+    //   }
+    //   this.getSingleURL = function(urls) {
+    //     if (typeof(urls) == "string") return urls;
+    //     return urls[0];
+    //   }
+    //   //coerce to be an array
+    //   this.getURLArray = function(urls) {
+    //     if (typeof(urls) == "string") return [urls];
+    //     return urls;
+    //   }
+    
+    //   this.loadSoundAudioContext = function(urls, tag) {
+    //     var url = this.getSingleURL(urls);
+    //     tag = this.getTagFromURL(urls, tag);
+    //     this.msg('webkit/chrome audio loading ' + url + ' as tag ' + tag);
+    //     var request = new XMLHttpRequest();
+    //     request.open('GET', url, true);
+    //     request.responseType = 'arraybuffer';
+    
+    //     // Decode asynchronously
+    //     request.onload = function() {
+    //       // if you want "successLoadAudioFile" to only be called one time, you could try just using Promises (the newer return value for decodeAudioData)
+    //       // Ref: https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/decodeAudioData
+    
+    //       //Older callback syntax:
+    //       //baseAudioContext.decodeAudioData(ArrayBuffer, successCallback, errorCallback);
+    //       //Newer promise-based syntax:
+    //       //Promise<decodedData> baseAudioContext.decodeAudioData(ArrayBuffer);
+    
+    
+    //       // ... however you might want to use a pollfil for browsers that support Promises, but does not yet support decodeAudioData returning a Promise.
+    //       // Ref: https://github.com/mohayonao/promise-decode-audio-data
+    //       // Ref: https://caniuse.com/#search=Promise
+    
+    //       // var retVal = this.lowLag.audioContext.decodeAudioData(request.response);
+    
+    //       // Note: "successLoadAudioFile" is called twice. Once for legacy syntax (success callback), and once for newer syntax (Promise)
+    //       var retVal = this.audioContext.decodeAudioData(request.response, successLoadAudioFile, errorLoadAudioFile);
+    //       //Newer versions of audioContext return a promise, which could throw a DOMException
+    //       if (retVal && typeof retVal.then == 'function') {
+    //         retVal.then(successLoadAudioFile).catch(function(e) {
+    //           errorLoadAudioFile(e);
+    //           urls.shift(); //remove the first url from the array
+    //           if (urls.length > 0) {
+    //             this.loadSoundAudioContext(urls, tag); //try the next url
+    //           }
+    //         });
+    //       }
+    //     };
+    
+    //     request.send();
+    
+    //     function successLoadAudioFile(buffer) {
+    //       this.audioBuffers[tag] = buffer;
+    //       if (this.audioContextPendingRequest[tag]) { //a request might have come in, try playing it now
+    //         this.playSoundAudioContext(tag);
+    //       }
+    //     }
+    
+    //     function errorLoadAudioFile(e) {
+    //       this.msg("Error loading webkit/chrome audio: " + e);
+    //     }
+    //   }
+    
+    //   this.playSoundAudioContext = function(tag) {
+    //     var context = this.audioContext;
+    
+    //     // if some audio is currently active and hasn't been switched, or you are explicitly asking to play audio that is already active... then see if it needs to be unpaused
+    //     // ... if you've switch audio, or are explicitly asking to play new audio (that is not the currently active audio) then skip trying to unpause the audio
+    //     if ((this.currentPlayingTag && this.currentTag && this.currentPlayingTag === this.currentTag) || (tag && this.currentPlayingTag && this.currentPlayingTag === tag)) {
+    //       // find currently paused audio (suspended) and unpause it (resume)
+    //       if (context !== undefined) {
+    //         // ref: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/suspend
+    //         if (context.state === 'suspended') {
+    //           context.resume().then(function() {
+    //             this.msg("playSoundAudioContext resume " + this.currentPlayingTag);
+    //             return;
+    //           }).catch(function(e) {
+    //             this.msg("playSoundAudioContext resume error for " + this.currentPlayingTag + ". Error: " + e);
+    //           });
+    //           return;
+    //         }
+    //       }
+    //     }
+        
+    //     if (tag === undefined) {
+    //       tag = this.currentTag;
+    //     }
+    
+    //     if (this.currentPlayingTag && this.currentPlayingTag === tag) {
+    //       // ignore request to play same sound a second time - it's already playing
+    //       this.msg("playSoundAudioContext already playing " + tag);
+    //       return;
+    //     } else {
+    //       this.msg("playSoundAudioContext " + tag);
+    //     }
+    
+    //     var buffer = this.audioBuffers[tag];
+    //     if (buffer === undefined) { //possibly not loaded; put in a request to play onload
+    //       this.audioContextPendingRequest[tag] = true;
+    //       this.msg("playSoundAudioContext pending request " + tag);
+    //       return;
+    //     }
+    
+    //     // need to create a new AudioBufferSourceNode every time... 
+    //     // you can't call start() on an AudioBufferSourceNode more than once. They're one-time-use only.
+    //     var source;
+    //     source = context.createBufferSource(); // creates a sound source
+    //     source.buffer = buffer; // tell the source which sound to play
+    //     source.connect(context.destination); // connect the source to the context's destination (the speakers)
+    //     source.loop = true;
+    //     this.audioBufferSources[tag] = source;
+    
+    //     // find current playing audio and stop it
+    //     var sourceOld = this.currentPlayingTag ? this.audioBufferSources[this.currentPlayingTag] : undefined;
+    //     if (sourceOld !== undefined) {
+    //       if (typeof(sourceOld.noteOff) == "function") {
+    //         sourceOld.noteOff(0);
+    //       } else {
+    //         sourceOld.stop();
+    //       }
+    //       this.msg("playSoundAudioContext stopped " + this.currentPlayingTag);
+    //       this.audioBufferSources[this.currentPlayingTag] = undefined;
+    //       this.currentPlayingTag = undefined;
+    //     }
+    
+    //     // play the new source audio
+    //     if (typeof(source.noteOn) == "function") {
+    //       source.noteOn(0);
+    //     } else {
+    //       source.start();
+    //     }
+    //     this.currentTag = tag;
+    //     this.currentPlayingTag = tag;
+        
+    //     if (context.state === 'running') {
+    //       this.msg("playSoundAudioContext started " + tag);
+    //     } else if (context.state === 'suspended') {
+    //       /// if the audio context is in a suspended state then unpause (resume)
+    //       context.resume().then(function() {
+    //         this.msg("playSoundAudioContext started and then resumed " + tag);
+    //       }).catch(function(e) {
+    //         this.msg("playSoundAudioContext started and then had a resuming error for " + tag + ". Error: " + e);
+    //       });
+    //     } else if (context.state === 'closed') {
+    //       // ignore request to pause sound - it's already closed
+    //       this.msg("playSoundAudioContext failed to start, context closed for " + tag);
+    //     } else {
+    //       this.msg("playSoundAudioContext unknown AudioContext.state for " + tag + ". State: " + context.state);
+    //     }
+    //   }
+    
+    //   this.pauseSoundAudioContext = function() {
+    //     // not passing in a "tag" parameter because we are playing all audio in one channel
+    //     var tag = this.currentPlayingTag;
+    //     var context = this.audioContext;
+    
+    //     if (tag === undefined) {
+    //       // ignore request to pause sound as nothing is currently playing
+    //       this.msg("pauseSoundAudioContext nothing to pause");
+    //       return;
+    //     }
+    
+    //     // find currently playing (running) audio and pause it (suspend)
+    //     if (context !== undefined) {
+    //       // ref: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/suspend
+    //       if (context.state === 'running') {
+    //         this.msg("pauseSoundAudioContext " + tag);
+    //         context.suspend().then(function() {
+    //           this.msg("pauseSoundAudioContext suspended " + tag);
+    //         }).catch(function(e) {
+    //           this.msg("pauseSoundAudioContext suspend error for " + tag + ". Error: " + e);
+    //         });
+    //       } else if (context.state === 'suspended') {
+    //         // ignore request to pause sound - it's already suspended
+    //         this.msg("pauseSoundAudioContext already suspended " + tag);
+    //       } else if (context.state === 'closed') {
+    //         // ignore request to pause sound - it's already closed
+    //         this.msg("pauseSoundAudioContext already closed " + tag);
+    //       } else {
+    //         this.msg("pauseSoundAudioContext unknown AudioContext.state for " + tag + ". State: " + context.state);
+    //       }
+    //     }
+    //   }
+    
+    //   this.stopSoundAudioContext = function() {
+    //     // not passing in a "tag" parameter because we are playing all audio in one channel
+    //     var tag = this.currentPlayingTag;
+    
+    //     if (tag === undefined) {
+    //       // ignore request to stop sound as nothing is currently playing
+    //       this.msg("stopSoundAudioContext nothing to stop");
+    //       return;
+    //     } else {
+    //       this.msg("stopSoundAudioContext " + tag);
+    //     }
+    
+    //     // find current playing audio and stop it
+    //     var source = this.audioBufferSources[tag];
+    //     if (source !== undefined) {
+    //       if (typeof(source.noteOff) == "function") {
+    //         source.noteOff(0);
+    //       } else {
+    //         source.stop();
+    //       }
+    //       this.msg("stopSoundAudioContext stopped " + tag);
+    //       this.audioBufferSources[tag] = undefined;
+    //       this.currentPlayingTag = undefined;
+    //     }
+    //   }
+    
+    //   this.switchSoundAudioContext = function(autoplay) {
+    //     this.msg("switchSoundAudioContext " + (autoplay ? 'and autoplay' : 'and do not autoplay'));
+    
+    //     if (this.currentTag && this.currentTag == 'audio1') {
+    //       this.currentTag = 'audio2';
+    //     } else {
+    //       this.currentTag = 'audio1';
+    //     }
+    
+    //     if (autoplay) {
+    //       this.playSoundAudioContext();
+    //     }
+    //   }
+    
+    //   this.changeSoundAudioContext = function(tag, autoplay) {
+    //     this.msg("changeSoundAudioContext to tag " + tag + " " + (autoplay ? 'and autoplay' : 'and do not autoplay'));
+    
+    //     if(tag === undefined) {
+    //       this.msg("changeSoundAudioContext tag is undefined");
+    //       return;
+    //     }
+        
+    //     this.currentTag = tag;
+    
+    //     if (autoplay) {
+    //       this.playSoundAudioContext();
+    //     }
+    //   }
+    
+    //   this.msg = function(m) {
+    //     m = "-- lowLag " + m;
+    //     console.log(m);
+    //   }
+    // }
+  
+
+    // /*** PLEASE WORK ***/
+    // this.lowLag.init();
+    // this.lowLag.load(['http://www.pacificfilm.co/wp-content/audio/pM_Ep-3.mp3'], 'audio1');
+    // // lowLag.load(['https://coubsecure-s.akamaihd.net/get/b173/p/coub/simple/cw_looped_audio/0d5adfff2ee/80432a356484068bb0e15/med_1550254045_med.mp3'], 'audio2');
+    // // starts with audio1
+    // this.lowLag.changeSoundAudioContext('audio1', false);
+
+
+
+
+
+    if (!window.console) console = {
+      log: function() {}
+    };
+
+    
+    
+    
+    /** PLEASSEEEEEEE ***/
 
     // const AudioContext = window.AudioContext || window.webkitAudioContext;
     // this.audioContext = new AudioContext();
@@ -148,6 +470,10 @@ export default class Music extends Component {
     
   }
 
+
+
+  
+
   componentWillReceiveProps(newProps) {
     console.log("Music will receive");
   }
@@ -181,6 +507,102 @@ export default class Music extends Component {
     this.source.start(0);
     // play.setAttribute('disabled', 'disabled');
   }
+
+
+
+
+/**
+ * Load sound into AudioBuffer
+ * @param url
+ * @returns {Promise<AudioBuffer>}
+ */
+loadSound(url) {
+
+//   let username = dbConfig.USER;
+//   let password = dbConfig.PASSWORD;
+
+// let headers = new Headers();
+
+// //headers.append('Content-Type', 'text/json');
+// headers.append('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+
+
+let headers = new Headers({
+  'Access-Control-Allow-Origin':'*',
+  'Content-Type': 'audio/mpeg',
+  'mode':'cors'
+  });
+  console.log("loading...")
+  return window.fetch(url, {method:'GET',
+  headers: headers,
+  //credentials: 'user:passwd'
+ })
+      .then(response => response.arrayBuffer())
+      .then(arrayBuffer => {
+          return new Promise((resolve, reject) => {
+              this.context.decodeAudioData(arrayBuffer, (buffer) => {
+                  resolve(buffer);
+              }, (e) => { reject(e); });
+          })
+      });
+}
+
+/**
+* Initialize sound map
+* @returns {Promise<void>}
+*/
+initSoundMap = async() => {
+      await this.loadSound("http://www.pacificfilm.co/wp-content/audio/pM_Ep-3.mp3").then(audioBuffer => this.buf = audioBuffer);
+}
+
+/**
+* Initialise app
+* @returns {Promise<void>}
+*/
+init = async() => {
+  console.log(this.context)
+  // if (this.context) return;
+
+  // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  // this.context = new AudioContext();
+
+  await this.initSoundMap();
+}
+
+/**
+* Play Sound
+* @param buffer
+* @param time
+*/
+playSound = (buffer, time) => {
+  if (typeof buffer !== 'object') return;
+
+  const source = this.context.createBufferSource();
+  source.buffer = buffer;
+  source.connect(this.context.destination);
+  source.start(time);
+};
+
+/**
+* Play sound and highlight the pressed
+* @param letter
+*/
+processInteraction = async() => {
+  console.log("processing...")
+  await this.init()
+  // Play audio
+  const sound = document.querySelector(`audio[data-key=pM]`);
+  if (!sound) return;
+  console.log("audio contxt " + this.context)
+  this.context
+      ? this.playSound(this.buf)
+      : sound.cloneNode().play();
+
+
+  // Highlight button
+};
+
+
 
   render() {
     let firstPlaylist = this.state.musicObject.playlists[0];
@@ -304,15 +726,17 @@ export default class Music extends Component {
           </div>
           {/* <div className="music-spacerContainer"></div> */}
       </div>
+      <button onClick={() => this.processInteraction()}>Cmon</button>
       <audio 
         ref={this.audio}
-        src={this.state.nowPlayingAudio}
-        // src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
+        src={this.state.playing}
         preload="none"
+        data-key="pM"
         controls={false}
         loop={false}
         autoPlay={false}
         />
+        {/* <button onClick={this.audio.current.play}></button> */}
     </div>
       );  }
 }
