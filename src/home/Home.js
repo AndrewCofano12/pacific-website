@@ -94,7 +94,7 @@ export default class Home extends Component {
               <div className="home-gridItem home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
                   <div className="home-leftSubTitle home-titleText">music</div>
-                  <div className="home-subtext">collective progression <br/> of sound</div>
+                  <div className="home-subtext">collective progression of sound</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild">

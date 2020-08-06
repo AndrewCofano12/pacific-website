@@ -149,6 +149,22 @@
                         "backgroundColor" : "rgb(199, 196, 183)"
                     }
                 ]
+            },
+            {
+                "playlistName" : "urmom0069",
+                "url": "urmom0069",
+                "items" : [
+                    {
+                        "name": "mvsic shit vol. 1",
+                        "credits": ["mixing: andrew cofano", "artwork: andrew cofano", "released: 04.21.20"],
+                        "frontArtwork": "vol-1-front.png",
+                        "backArtwork": "03-back.jpg",
+                        "file": "http://www.pacificfilm.co/wp-content/media/test.mp3",
+                        "link": "https://soundcloud.com/pacificstudios/music-shit-vol-1",
+                        "duration": "52:50",
+                        "backgroundColor" : "rgb(199, 196, 183)"
+                    }
+                ]
             }
         ],
         "timeline" : [
@@ -289,20 +305,21 @@
             },
 
             {
-                "file" : "bc022-2.jpg",
-                "size" : "small",
-                "bottomSpacing" : 140
-            },
-            {
                 "file" : "bc023.jpg",
-                "size" : "big",
-                "bottomSpacing" : 140
+                "size" : "small",
+                "bottomSpacing" : 170
             },
             {
                 "file" : "bc021.jpg",
                 "size" : "small",
                 "bottomSpacing" : 170
+            },            
+            {
+                "file" : "bc022-2.jpg",
+                "size" : "small",
+                "bottomSpacing" : 190
             },
+
             {
                 "file" : "bc026.jpg",
                 "size" : "big",
@@ -358,37 +375,7 @@
                 "file" : "bc049.jpg",
                 "size" : "small",
                 "bottomSpacing" : 140
-            },
-            {
-                "file" : "bc035.jpg",
-                "size" : "big",
-                "bottomSpacing" : 140
-            },
-            {
-                "file" : "bc036.jpg",
-                "size" : "small",
-                "bottomSpacing" : 150
-            },
-            {
-                "file" : "bc037.jpg",
-                "size" : "big",
-                "bottomSpacing" : 130
-            },
-            {
-                "file" : "bc038.jpg",
-                "size" : "small",
-                "bottomSpacing" : 130
-            },
-            {
-                "file" : "bc040.jpg",
-                "size" : "big",
-                "bottomSpacing" : 120
-            },
-            {
-                "file" : "bc041.jpg",
-                "size" : "big",
-                "bottomSpacing" : 140
-            },
+            },            
             {
                 "file" : "bc042.jpg",
                 "size" : "small",
@@ -448,7 +435,17 @@
             {
                 "file" : "bc053.jpg",
                 "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc053-2.jpg",
+                "size" : "small",
                 "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc053-3.jpg",
+                "size" : "big",
+                "bottomSpacing" : 190
             },
             {
                 "file" : "bc054.jpg",
@@ -518,7 +515,192 @@
             {
                 "file" : "bc067.jpg",
                 "size" : "big",
+                "bottomSpacing" : 210
+            },
+            {
+                "file" : "bc068.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc069.jpg",
+                "size" : "small",
+                "bottomSpacing" : 130
+            },
+            {
+                "file" : "bc070.jpg",
+                "size" : "small",
                 "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc071.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc072.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc073.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc074.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc075.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc076.jpg",
+                "size" : "small",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc077.jpg",
+                "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc078.jpg",
+                "size" : "big",
+                "bottomSpacing" : 120
+            },
+            {
+                "file" : "bc079.jpg",
+                "size" : "small",
+                "bottomSpacing" : 120
+            },
+            {
+                "file" : "bc080.jpg",
+                "size" : "small",
+                "bottomSpacing" : 220
+            },
+            {
+                "file" : "bc081.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc082.jpg",
+                "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc083.jpg",
+                "size" : "big",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc085.jpg",
+                "size" : "small",
+                "bottomSpacing" : 130
+            },
+            {
+                "file" : "bc086.jpg",
+                "size" : "small",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc087.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc088.jpg",
+                "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc089.jpg",
+                "size" : "small",
+                "bottomSpacing" : 230
+            },
+            {
+                "file" : "bc090.jpg",
+                "size" : "big",
+                "bottomSpacing" : 170
+            },
+            {
+                "file" : "bc091.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc092.jpg",
+                "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc093.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc094.jpg",
+                "size" : "small",
+                "bottomSpacing" : 120
+            },
+            {
+                "file" : "bc095.jpg",
+                "size" : "small",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc096.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc097.jpg",
+                "size" : "big",
+                "bottomSpacing" : 200
+            },
+            {
+                "file" : "bc098.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc099.jpg",
+                "size" : "small",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc100.jpg",
+                "size" : "big",
+                "bottomSpacing" : 140
+            },
+            {
+                "file" : "bc101.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc102.jpg",
+                "size" : "small",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc103.jpg",
+                "size" : "small",
+                "bottomSpacing" : 160
+            },
+            {
+                "file" : "bc104.jpg",
+                "size" : "big",
+                "bottomSpacing" : 170
+            },
+            {
+                "file" : "bc105.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
             }
             
             
