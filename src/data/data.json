@@ -115,7 +115,7 @@
                     {
                         "name": "pacific music ep. 2",
                         "credits": ["mixing: andrew cofano", "artwork: costin pirvu", "released: 08.22.18"],
-                        "frontArtwork": "02-front.JPG",
+                        "frontArtwork": "02-front.jpg",
                         "backArtwork": "02-back.jpg",
                         "file": "http://www.pacificfilm.co/wp-content/audio/pM_Ep-2.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-2",
@@ -125,8 +125,8 @@
                     {
                         "name": "pacific music ep. 1",
                         "credits": ["mixing: andrew cofano", "artwork: costin pirvu", "released: 02.15.18"],
-                        "frontArtwork": "01-front.png",
-                        "backArtwork": "01-back.jpeg",
+                        "frontArtwork": "01-front.jpg",
+                        "backArtwork": "01-back.jpg",
                         "file": "http://www.pacificfilm.co/wp-content/audio/pM_Ep-1.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-1",
                         "duration": "47:02",
