@@ -148,7 +148,7 @@ export default class PlaylistGridItem extends Component {
             showCoverIndex: this.props.itemIndex
           }}}>
             <div className="music-gridItemImageContainer">
-            <img draggable="false" className="music-gridItemImage music-noselect" src={require('../images/music/' + this.state.itemData.frontArtwork)} alt="fuck"/>
+            <img draggable="false" className="music-gridItemImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.itemData.frontArtwork} alt="fuck"/>
             </div>
             <div className={`${(this.state.isPlaying && this.state.isLoading) ? 'music-showLoading' : 'music-hideLoading'} music-gridLoadingIndContainer`}>
               <div className="music-gridLoadingInd">loading...</div>

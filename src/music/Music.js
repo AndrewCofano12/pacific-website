@@ -201,7 +201,7 @@ export default class Music extends Component {
     
     // console.log(this.state.musicObject)
     return (
-      <div className="music-musicBackground" style={{backgroundColor: firstPlaylist.items[0].backgroundColor}}>
+      <div className="music-musicBackground" style={{backgroundColor: this.state.musicObject.homeColor}}>
         <NavigationHeader className="" formatString="lightFormat" page="music"/>
         {/* <EpisodeSlider episodes={this.state.musicObject.episodes}/> */}
 

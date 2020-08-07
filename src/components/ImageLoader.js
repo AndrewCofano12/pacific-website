@@ -36,7 +36,7 @@ export default class ImageLoader extends Component {
                 {this.state.images.map((item,i) => {
                     if (i == 0) {
                         return (
-                            // <LazyLoad key={i} overflow once>
+                            // <LazyLoad key={i} once>
                                 <img className="imageLoader-backgroundPhoto imageLoader-full"
                                 style={{
                                     top: 0,
@@ -55,7 +55,7 @@ export default class ImageLoader extends Component {
                     }
                     else {
                         return (
-                            // <LazyLoad key={i} overflow once>
+                            // <LazyLoad key={i}  once>
                             <img className={`imageLoader-backgroundPhoto ${item.sizing == "full" ? "imageLoader-full" : "imageLoader-half"} `}
                             style={{
                                 top: 0,
