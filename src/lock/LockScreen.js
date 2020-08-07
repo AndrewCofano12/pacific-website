@@ -14,6 +14,13 @@ export default class LockScreen extends Component {
       }
     
 
+      componentDidMount() {
+        var input = document.querySelector("input");
+        input.addEventListener('keypress', (event) => {
+            this.handleLoginSubmit(event);
+        })
+      }
+
 
     handlePasswordChange = (e) => {
         this.setState({passwordInput: e.target.value});
@@ -36,6 +43,11 @@ export default class LockScreen extends Component {
             //bad combination
             this.setState({showAlert: true});
         }   
+    }
+
+    componentWillUnmount() {
+        var input = document.querySelector("input");
+        input.removeEventListener('keypress', null);
     }
 
 
