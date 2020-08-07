@@ -16,7 +16,8 @@ export default class PlaylistGridItem extends Component {
         itemData: props.itemData,
         isHovering: false,
         isCurrent: false,
-        isPlaying: false
+        isPlaying: false,
+        isLoading: false
     };
   }
 
@@ -76,22 +77,28 @@ export default class PlaylistGridItem extends Component {
       this.props.updateNowPlaying(this.state.itemData.name, this.props.playlistKey, this.props.itemIndex)
       this.props.audioRef.current.src =  this.state.itemData.file;
       this.props.audioRef.current.load();
+      this.setState({isLoading: true});
+
       this.props.audioRef.current.play();
       
       const audio = this.props.audioRef.current;
 
       const updateBg = this.props.updateBackground;
       const itemBgColor = this.state.itemData.backgroundColor;
-      audio.addEventListener('play', function() {
+      audio.addEventListener('timeupdate', function() {
+        this.setState({isLoading: false});
         console.log("playing...")
           updateBg(itemBgColor);
 
-      })
+      }.bind(this))
+
+      audio.removeEventListener('timeupdate', null);
     }
   }
 
   handlePause = () => {
     this.props.audioRef.current.pause();
+    this.setState({isPlaying: false});
   }
 
   renderControls = () => {
@@ -142,6 +149,9 @@ export default class PlaylistGridItem extends Component {
           }}}>
             <div className="music-gridItemImageContainer">
             <img draggable="false" className="music-gridItemImage music-noselect" src={require('../images/music/' + this.state.itemData.frontArtwork)} alt="fuck"/>
+            </div>
+            <div className={`${(this.state.isPlaying && this.state.isLoading) ? 'music-showLoading' : 'music-hideLoading'} music-gridLoadingIndContainer`}>
+              <div className="music-gridLoadingInd">loading...</div>
             </div>
         </Link>
 

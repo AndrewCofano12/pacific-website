@@ -32,6 +32,7 @@ export default class Music extends Component {
     this.audioContext = null;
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
     this.updateBackground = this.updateBackground.bind(this);
   }
 
@@ -65,22 +66,61 @@ export default class Music extends Component {
 
   
   // async handlePlay(playlistIndex, itemIndex) {
-  handlePlay(file, backgroundColor) {
+  handlePlay(itemName, playlist, index, file, backgroundColor) {
     console.log(file);
-    if (this.state.isPlaying) {
+    // if file is current one, resume playing
+    if (this.state.npFile == file) {
+      this.audio.current.play();
+      this.setState({isPlaying: true})
+    }
+
+    // else, play new track
+    else {
+      // set state of npFile to file
+      this.setState({npFile: file});
+      this.setState({isPlaying: true})
+
+      console.log("playing new shit");
+      // updateNowPlaying()
+      this.updateNowPlaying(itemName, playlist, index)
+
+      // set audio src & load
+      this.audio.current.src = file;
+      this.audio.current.load();    
+      console.log("playing new shit2 ");
+
+      // set isLoading to true
+      this.setState({isLoading: true});
+
+      // play audio
+      this.audio.current.play();
+
+      // add event listener for timeupdate -- change background
+      const audio = this.audio.current;
+      const updateBg = this.updateBackground;
+      const itemBgColor = backgroundColor;
+      audio.addEventListener('timeupdate', function() {
+        this.setState({isLoading: false});
+        console.log("playing...")
+          updateBg(itemBgColor);
+
+      }.bind(this))
+      console.log("playing new shit3");
 
 
-    } else {
-      // play new item
-      const nowPlayingAudio = `http://www.pacificfilm.co/wp-content/media/${file}`
-      this.setState({ nowPlayingAudio });
-      this.handleColorOnSliderChange(backgroundColor)
+      // remove event listener
+      audio.removeEventListener('timeupdate', null);
+
+
 
     }
   }
 
   handlePause() {
-    // pause current item
+    console.log("pausing...")
+    this.setState({isPlaying : false})
+    const audio = this.audio.current
+    audio.pause();
   }
 
   updateNowPlaying(itemName, playlist, index) {
@@ -135,7 +175,7 @@ export default class Music extends Component {
     })
 
     // When the user pauses playback
-    audio.addEventListener('pause', this.handlePause)
+    // audio.addEventListener('pause', this.handlePause)
 
     // audio.addEventListener(
     //   'timeupdate',
@@ -249,6 +289,7 @@ export default class Music extends Component {
                       audioRef={this.audio} 
                       onPlay={this.handlePlay} 
                       onPause={this.handlePause} 
+                      isPlaying={this.state.isPlaying}
                       updateBackground={this.updateBackground}
                       updateView={this.updateView}
                       updateNowPlaying={this.updateNowPlaying}
@@ -266,6 +307,7 @@ export default class Music extends Component {
                     audioRef={this.audio} 
                     onPlay={this.handlePlay} 
                     onPause={this.handlePause}
+                    isPlaying={this.state.isPlaying}
                     npFile={this.state.npFile}
                     updateView={this.updateView}
                     updateNowPlaying={this.updateNowPlaying}
@@ -280,7 +322,6 @@ export default class Music extends Component {
       </div>
       <audio 
         ref={this.audio}
-        src={this.state.nowPlayingAudio}
         // src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
         preload="none"
         controls={false}

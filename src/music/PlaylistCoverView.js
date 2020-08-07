@@ -88,6 +88,7 @@ export default class PlaylistCoverView extends Component {
                       epData={episode} 
                       audioRef={this.props.audioRef} 
                       onPlay={this.props.onPlay} 
+                      onPause={this.props.onPause}
                       resolve={() => import('../audio/' + episode.file)} 
                       goForward={this.goForward} 
                       goBack={this.goBack}

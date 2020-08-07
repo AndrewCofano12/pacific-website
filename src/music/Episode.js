@@ -18,7 +18,8 @@ export default class Episode extends Component {
         episodeAudio: null,
         isPlaying: false,
         isCurrent: false,
-        showCredits: false
+        showCredits: false,
+        isLoading: false
     };
 
     // this.handlePlay = this.handlePlay.bind(this);
@@ -34,36 +35,26 @@ export default class Episode extends Component {
 
     }
     else {
-      // const AudioContext = window.AudioContext || window.webkitAudioContext;
-      // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();      
-      // if (audioCtx.state == 'suspended') {
-      //   audioCtx.resume();
-      // }
 
-      //this.props.onPlay(this.props.playlistKey, this.props.itemIndex);
-      //this.props.onPlay(this.state.episode.file, this.state.episode.backgroundColor);
-        // console.log("audio ready:::: " + this.props.audioRef.current.readyState);
       this.setState({isPlaying : true, isCurrent: true})
       this.props.updateNowPlaying(this.state.episode.name, this.props.playlistLink, this.props.itemIndex)
       this.props.audioRef.current.src =  this.state.episode.file;
       this.props.audioRef.current.load();            
+      this.setState({isLoading: true});
 
       this.props.audioRef.current.play();
 
       const audio = this.props.audioRef.current;
-      // audio.addEventListener('canplay', function() { 
-      //   audio.play();
-      // }, false);
-    //   if (audioCtx.state === 'suspended') {
-    //     audioCtx.resume();
-    // }
       const updateBg = this.props.updateBackground;
       const itemBgColor = this.state.episode.backgroundColor;
-      audio.addEventListener('play', function() {
+      audio.addEventListener('timeupdate', function() {
+        this.setState({isLoading: false});
         console.log("playing...")
           updateBg(itemBgColor);
 
-      })
+      }.bind(this))
+
+      audio.removeEventListener('timeupdate', null);
     }
   }
 
@@ -92,30 +83,7 @@ export default class Episode extends Component {
     }      
 
   }
-    //console.log("this episode's "+ this.state.episode.name + "index is ..." + this.props.itemIndex)
-    // const resolve = this.props.resolve;
-    // const { default: episodeAudio } = await resolve();
-    // this.setState({ episodeAudio });
 
-    // if (this.props.childKey == 0) {
-    //   var prevControl = $('<span />').addClass('music-playlistSliderControl music-prevSliderControl').html('prev');
-    //   var goBack = this.props.goBack;
-    //   prevControl.click(function() {
-    //     goBack();
-    //   });
-
-    //   var nextControl = $('<span />').addClass('music-playlistSliderControl music-nextSliderControl').html('next');
-    //   var goForward = this.props.goForward;
-    //   nextControl.click(function() {
-    //     goForward();
-    //   });
-
-
-    //   // $('.rhap_main-controls').prepend(`<span className='music-playlistSliderControl music-prevSliderControl'>prev</span>`);
-    //   $('.rhap_main-controls').prepend(prevControl);
-    //   $('.rhap_main-controls').append(nextControl);
-
-    // }
 
 
   render() {
@@ -169,16 +137,9 @@ export default class Episode extends Component {
               <div className="music-soundcloudContainer music-extrasButton"><a className="music-extrasLink" target="_blank" href={this.state.episode.link}>soundcloud</a></div>
 
             </div>
-          {/* <Player resolve={() => import('../audio/' + this.state.episode.file)}/>  */}
-            {/* <AudioPlayer 
-            src="http://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3"
-            layout="stacked"
-            showJumpControls={false}
-            customVolumeControls={[]}
-            customAdditionalControls={[]}
-            onError={console.log("hitting error")}
-            /> */}
-
+            <div className={`${(this.state.isPlaying && this.state.isLoading) ? 'music-showLoading' : 'music-hideLoading'} music-loadingIndContainer`}>
+              <div className="music-loadingInd">loading...</div>
+            </div>
 
 
             

@@ -17,6 +17,7 @@ export default class Films extends Component {
   }
 
   componentDidMount() {
+
     this.state.filmsObject.filmsEntries.map((entry, i) => {
       var idString = 'film'
       var options = {
@@ -76,7 +77,7 @@ export default class Films extends Component {
     //   };
     
     return (
-      <div className="videoPlayer">
+      <div className="filmsMobile-videoPlayer">
 
 
 
@@ -96,17 +97,21 @@ export default class Films extends Component {
             <div className="filmsPlayer" id={`film${i}`} data-vimeo-url={entry.src}></div>
           )
         })}
-        <div className="films-linkContainer">
+        <div className="filmsMobile-contentContainer">
+
+        <div className="filmsMobile-linkContainer">
 
         {this.state.filmsObject.filmsEntries.map((entry, i) => {
             console.log(`film${i}`);
             return (
-                <div className="filmSeletion" >
+                <div className="filmsMobile-filmSeletion" >
                     <div onClick={() => this.handlePlay(i)}>{entry.name}</div>
                 </div>
             );
             })}
         </div>
+        </div>
+
     </div>
 
     );

@@ -46,7 +46,7 @@ export default class HomeMobile extends Component {
             <div className="homeMobile-nameSubChild">
               <Link to="/music" className="homeMobile-homePageNav">
                 <div className="homeMobile-subTitle">music</div>
-                <div className="homeMobile-leftDescription">collective progression of sound</div>
+                <div className="homeMobile-leftDescription">collective progression <br className="homeMobile-break"/> of sound</div>
               </Link>
             </div>
             <div className="homeMobile-nameSubChild">
@@ -62,7 +62,7 @@ export default class HomeMobile extends Component {
               </Link>
             </div>
             <div className="homeMobile-nameSubChild homeMobile-contactInfoCopy">
-              <div><a className="homeMobile-emailLink" href="mailto:pacificfilmstudio@gmail.com">contact@pacificfilm.co</a></div>
+              <div><a className="homeMobile-emailLink" href="mailto:contact@pacificfilm.co">contact@pacificfilm.co</a></div>
               <div><a className="homeMobile-socialLink" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
             </div>
                 </div>

@@ -37,7 +37,6 @@
   }
 
 
-
   .homeMobile-sticky + .homeMobile-subContainer {
     padding-top: 52px;
   }
@@ -86,4 +85,15 @@
   .homeMobile-homePageNav {
     text-decoration: none;
     color: white;
+  }
+
+
+
+
+  @media only screen and (min-width: 563px) {
+
+    .home-break {
+      display: none;
+    }
+
   }

@@ -25,9 +25,14 @@
 }
 
 .musicMobile-linkContainer {
-    padding-top: 50px;
+    padding-top: 30px;
     text-align: center;
-    font-family: 'questrial', sans-serif;
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+}
+
+.musicMobile-release {
+    margin-bottom: 25px;
 }
 
 .musicMobile-episodeLink {
@@ -45,7 +50,7 @@
     display: flex;
     background-color: inherit;
     flex-direction: column;
-    padding-top: 35px;
+    padding-top: 8%;
     width: 100%; 
     height: 100%;
 }

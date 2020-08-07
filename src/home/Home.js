@@ -94,7 +94,7 @@ export default class Home extends Component {
               <div className="home-gridItem home-subChild home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
                   <div className="home-leftSubTitle home-titleText">music</div>
-                  <div className="home-subtext">collective progression of sound</div>
+                  <div className="home-subtext">collective progression <br className="home-break"/> of sound</div>
                 </Link>
               </div>
               <div className="home-gridItem home-subChild home-nameSubChild">
@@ -124,7 +124,7 @@ export default class Home extends Component {
                   </div>
               </div>
               <div className="home-gridItem home-logoSub home-logoSubChild home-subChild home-homePageNav">                 
-                <div className="home-email home-subtext"><a className="home-socialLink" href="mailto:info@pacificfilm.com">contact@pacificfilm.co</a></div>
+                <div className="home-email home-subtext"><a className="home-socialLink" href="mailto:contact@pacificfilm.co">contact@pacificfilm.co</a></div>
                 <div id="home-subtext"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
               </div>
             </div>

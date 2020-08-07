@@ -159,6 +159,34 @@
 }
 
 
+.music-loadingIndContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.music-gridLoadingIndContainer {
+    right: 0;
+    bottom: 0; 
+    position: absolute;
+
+    z-index: 100; 
+}
+
+.music-gridLoadingInd {
+    padding: 11px;
+}
+
+.music-showLoading {
+    opacity: 1;
+    transition: all 500ms linear;
+}
+
+.music-hideLoading {
+    opacity: 0;
+    transition: all 500ms linear;
+  }
+
+
 /* CAROUSEL */
 
 
