@@ -8,6 +8,10 @@ import {
   FiPause,
 } from "react-icons/fi";
 import CreditsOverlay from './CreditsOverlay';
+import PlayNoCircleIcon from '../icons/PlayNoCircle.svg';
+import PauseNoCircleIcon from '../icons/PauseNoCircle.svg';
+
+
 
 export default class PlayerController extends Component {
   
@@ -74,17 +78,9 @@ export default class PlayerController extends Component {
           >
             <span className="films-playVideo">
               {this.props.isPlaying ? (
-                <FiPause
-                  className="playControlAction"
-                  id="playControl"
-                  onClick={() => this.props.handlePlayPause()}
-                />
+              <img className="playControlAction" src={PauseNoCircleIcon} id="playControl" alt="pause" onClick={() => this.props.handlePlayPause()}/>
               ) : (
-                <FiPlay
-                  className="playControlAction"
-                  id="pauseControl"
-                  onClick={() => this.props.handlePlayPause()}
-                />
+                <img className="playControlAction" src={PlayNoCircleIcon} id="pauseControl" alt="play" onClick={() => this.props.handlePlayPause()}/>
               )}
             </span>
 

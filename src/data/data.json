@@ -104,7 +104,7 @@
                 "items" : [
                     {
                         "name": "pacific music ep. 3",
-                        "credits": ["mixing: andrew cofano", "artwork: costin pirvu", "released: 10.12.19"],
+                        "credits": ["mix: andrew cofano", "artwork: costin pirvu", "10.12.19"],
                         "frontArtwork": "03-front.jpg",
                         "backArtwork": "03-back.jpg",
                         "file": "http://narc:deepinbopz@pacificfilm.co/wp-content/audio/pM_Ep-3.mp3",
@@ -137,22 +137,6 @@
             {
                 "playlistName" : "b-sides",
                 "url": "b-sides",
-                "items" : [
-                    {
-                        "name": "mvsic shit vol. 1",
-                        "credits": ["mixing: andrew cofano", "artwork: andrew cofano", "released: 04.21.20"],
-                        "frontArtwork": "vol-1-front.png",
-                        "backArtwork": "03-back.jpg",
-                        "file": "http://www.pacificfilm.co/wp-content/media/test.mp3",
-                        "link": "https://soundcloud.com/pacificstudios/music-shit-vol-1",
-                        "duration": "52:50",
-                        "backgroundColor" : "rgb(199, 196, 183)"
-                    }
-                ]
-            },
-            {
-                "playlistName" : "urmom0069",
-                "url": "urmom0069",
                 "items" : [
                     {
                         "name": "mvsic shit vol. 1",
@@ -553,11 +537,6 @@
                 "bottomSpacing" : 150
             },
             {
-                "file" : "bc075.jpg",
-                "size" : "big",
-                "bottomSpacing" : 150
-            },
-            {
                 "file" : "bc076.jpg",
                 "size" : "small",
                 "bottomSpacing" : 160
@@ -684,11 +663,6 @@
             },
             {
                 "file" : "bc102.jpg",
-                "size" : "small",
-                "bottomSpacing" : 160
-            },
-            {
-                "file" : "bc103.jpg",
                 "size" : "small",
                 "bottomSpacing" : 160
             },

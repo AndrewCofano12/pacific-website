@@ -5,7 +5,11 @@
 }
 
 .films-creditName {
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.films-creditline {
+    margin-bottom: 1px;
+    
 }
 

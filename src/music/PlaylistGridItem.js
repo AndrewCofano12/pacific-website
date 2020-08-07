@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './PlaylistGridItem.css';
 import { RiPlayCircleLine, RiPauseCircleLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import PlayIcon from '../icons/playButton.svg';
+import PauseIcon from '../icons/pauseButton.svg';
 
 
 
@@ -95,12 +97,13 @@ export default class PlaylistGridItem extends Component {
   renderControls = () => {
     const isPlaying = this.isPlaying()
     if (this.state.isCurrent && isPlaying) {
-      return <RiPauseCircleLine className="music-playControlAction" id="music-playControl" onClick={this.handlePause}/>
+      return <img className="music-playControlAction" id="music-playControl" src={PauseIcon} alt="pause" onClick={this.handlePause} />
+
     }
     else {
       if (this.state.isHovering) {
-        return <RiPlayCircleLine className="music-playControlAction" id="music-playControl" onMouseDown={e => e.stopPropagation()} onClick={this.handlePlay}/>
-      }
+        return <img src={PlayIcon} className="music-playControlAction" id="music-playControl" alt="play" onClick={this.handlePlay}/>
+       }
     }
   }
 

@@ -35,7 +35,8 @@ export default class MusicMobile extends Component {
                                 <img draggable="false" className="musicMobile-coverImage musicMobile-noselect" src={require('../images/music/' + episode.frontArtwork)} alt="fuck"/>
                             </div>
                             <div className="musicMobile-linkContainer">
-                                <a className="musicMobile-episodeLink" href={episode.link}>listen on SoundCloud</a>
+                                <a className="musicMobile-episodeLink" href={episode.link}>listen on soundcloud</a>
+
                             </div>
                         </div>
                         </LazyLoad>

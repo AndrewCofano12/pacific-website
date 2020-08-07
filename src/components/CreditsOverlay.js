@@ -15,8 +15,8 @@ export default class CreditsOverlay extends Component {
         return (
             <div className="films-creditContent">
                 <div className="films-creditName">{this.state.filmObject.name}</div>
-                <div className="films-creditDirector">director: {this.state.filmObject.director}</div>
-                <div className="films-creditReleased">released: {this.state.filmObject.releaseDate}</div>
+                <div className="films-creditline">director: {this.state.filmObject.director}</div>
+                <div className="films-creditline">{this.state.filmObject.releaseDate}</div>
 
             </div>
         )

@@ -7,6 +7,8 @@ import $ from 'jquery';
 import PlaybackSeekbar from '../components/PlaybackSeekbar';
 import { RiPlayCircleLine, RiPauseCircleLine } from "react-icons/ri";
 import './Episode.css'
+import PlayIcon from '../icons/playButton.svg';
+import PauseIcon from '../icons/pauseButton.svg';
 
 export default class Episode extends Component {
   constructor(props) {
@@ -139,13 +141,13 @@ export default class Episode extends Component {
                   (<div className="music-credits">
                     {this.state.episode.credits.map((credit,i) => {
                       return (
-                        <div claasName="music-creditline">{credit}</div>
+                        <div className="music-creditline">{credit}</div>
                         )
                     }
                     )}
                   </div>) : 
                   null}
-                  {this.state.showCredits ? null : (<div className="music-extrasButton music-extrasLink" onClick={this.showCredits}>show credits</div>)}
+                  {this.state.showCredits ? null : (<div className="music-extrasButton music-extrasLink" onClick={this.showCredits}>notes</div>)}
 
                 </div>
                 </div>
@@ -153,9 +155,12 @@ export default class Episode extends Component {
                 <div className={`music-playlistSliderControl music-prevSliderControl ${this.props.itemIndex > 0 ? "" : "music-inactive"}`} onClick={this.props.goBack}>prev</div>
                 <div className="music-audioControlContainer">
                   {this.state.isPlaying ? (
-                      <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
-                  ) : (
-                    <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
+                      // <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
+                      <img className="music-itemPlayControlAction" src={PauseIcon} alt="pause" onClick={this.handlePause} />
+                      ) : (
+                        <img src={PlayIcon} className="music-itemPlayControlAction" alt="play" onClick={this.handlePlay}/>
+
+                    // <RiPlayCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePlay}/>
 
                   )}
                 </div>

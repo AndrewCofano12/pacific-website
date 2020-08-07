@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="51px" viewBox="0 0 44 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="play-button-1---vector-copy" transform="translate(-110.000000, -100.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(110.000000, 100.000000)">
+                <path d="M24.5935216,8.46085708 L44.3791504,42.4921386 C45.2119192,43.924501 44.7258526,45.7607527 43.2934902,46.5935216 C42.8355683,46.8597552 42.3153201,47 41.7856288,47 L2.2143712,47 C0.557516946,47 -0.785628805,45.6568542 -0.785628805,44 C-0.785628805,43.4703087 -0.645384041,42.9500606 -0.379150365,42.4921386 L19.4064784,8.46085708 C20.2392473,7.02849468 22.075499,6.54242805 23.5078614,7.3751969 C23.9577935,7.63678533 24.3319331,8.01092497 24.5935216,8.46085708 Z" id="Triangle" transform="translate(22.000000, 25.500000) rotate(90.000000) translate(-22.000000, -25.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

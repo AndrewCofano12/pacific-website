@@ -24,8 +24,8 @@
 
 .films-linkContainer {
     display: flex;
-    flex-direction: row;
-    bottom: 80px;
+    flex-direction: column;
+    bottom: 135px;
     left: 100px;
     position: absolute;
     height: auto;

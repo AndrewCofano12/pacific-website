@@ -175,7 +175,7 @@ export default class Music extends Component {
           <div className="music-musicNavigationContainer">
 
               {/* Now Playing Container  */}
-              <div className="music-nowPlayingContainer">
+              <div className="music-navSub music-nowPlayingContainer">
 
                 {/* Now Playing Indicator*/}
                 <div className="music-nowPlayingIndictator">
@@ -200,7 +200,7 @@ export default class Music extends Component {
 
 
               {/* Playlist Navigation Container */ }
-              <div className="music-playlistNavigationContainer">
+              <div className="music-navSub music-playlistNavigationContainer">
 
                 {/* Playlist Navigation Item Container */}
                 {this.state.musicObject.playlists.map((playlist,i) => {

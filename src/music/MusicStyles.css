@@ -65,8 +65,12 @@
 
 /* MUSIC NAVIGATION CONTAINER */
 
+.music-navSub {
+    margin-left: 23px;
+}
+
 .music-musicNavigationContainer {
-    width: 11%;
+    width: 12%;
     padding-left: 60px;
 }
 
@@ -80,11 +84,12 @@
     color: #E5E5E5;
     font-weight: 400;
     font-size: 16px;
+    margin-bottom: 2px;
 }
 
 .music-nowPlayingTitle {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 450;
     color: white;
 }
 
@@ -93,7 +98,7 @@
 }
 
 .music-playlistNavigationContainer {
-    font-weight: 500;
+    font-weight: 400;
     color: #e4e4e4;
 }
 
@@ -102,8 +107,8 @@
 } 
 
 .music-playlistNavigationItem {
-    margin-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: 18px;
+    font-size: 19px;
     text-decoration: none !important;
     color: #e4e4e4;
 }
@@ -122,7 +127,7 @@
 /* PLAYLIST CONTENT CONTAINER */
 
 .music-playlistContentContainer {
-    width: 89%;
+    width: 88%;
     overflow: scroll;
 }
 
@@ -137,7 +142,7 @@
 }
 
 .music-playlistGridContainer {
-    padding-left: 7vw;
+    padding-left: 5vw;
 }
 
 
@@ -148,7 +153,7 @@
     /* grid-template-columns: auto auto auto auto; */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 70px;
+    grid-column-gap: 60px;
     grid-row-gap: 50px;
     /*grid-row-gap: 410px; */
 }
@@ -158,11 +163,25 @@
 
 
 .BrainhubCarousel__track {
-    margin-left: -6vw !important;
+    margin-left: -6.5vw !important;
 } 
 
 
 
+@media only screen and (min-width: 2050px) {
+
+.music-playlistGridContainer {
+    padding-left: 9vw;
+    grid-column-gap: 69px;
+}
+
+.music-navSub {
+    margin-left: 60px
+}
+
+
+
+  }
 @media only screen and (max-width: 1350px) {
 
 .BrainhubCarousel__track {
@@ -190,3 +209,14 @@
 
   }
 
+
+
+
+@media only screen and (min-height: 1100px) {
+
+    .music-mainContainer {
+        margin-top: 12%
+    }
+    
+    
+}

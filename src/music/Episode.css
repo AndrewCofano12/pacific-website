@@ -52,8 +52,8 @@
 }
 
 .music-itemPlayControlAction {
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     color: white;
     font-weight: 100;
     margin-left: 50px;
@@ -95,10 +95,10 @@
     display: flex;
     background-color: inherit;
     flex-direction: row;     /* make main axis horizontal (default setting) */
-    height: 50vh;
+    height: 49vh;
     width: 100%;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 54px;
 }
 
 .music-creditsOuterContainer {
@@ -123,7 +123,7 @@
 }
 
 .music-creditline {
-    margin-bottom: 9px;
+    margin-bottom: 1px;
 }
 
 .music-extrasLink {
@@ -134,4 +134,14 @@
 .music-extrasLink:hover {
     color: white;
     text-decoration: underline;
+}
+
+
+@media only screen and (min-width: 2050px) {
+
+    .music-artworkWrapper {
+        height: 45vh;
+        margin-bottom: 54px;
+    }
+    
 }

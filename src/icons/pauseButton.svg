@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="113px" height="113px" viewBox="0 0 113 113" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pause-button-1---vector" transform="translate(-69.000000, -69.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(73.000000, 73.000000)">
+                <path d="M52.5,-3.5 C21.572054,-3.5 -3.5,21.572054 -3.5,52.5 C-3.5,83.427946 21.572054,108.5 52.5,108.5 C83.427946,108.5 108.5,83.427946 108.5,52.5 C108.5,21.572054 83.427946,-3.5 52.5,-3.5 Z M52.5,3.5 C79.5619527,3.5 101.5,25.4380473 101.5,52.5 C101.5,79.5619527 79.5619527,101.5 52.5,101.5 C25.4380473,101.5 3.5,79.5619527 3.5,52.5 C3.5,25.4380473 25.4380473,3.5 52.5,3.5 Z" id="Oval" fill-rule="nonzero"></path>
+                <g id="pause" transform="translate(35.000000, 30.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="10" height="45" rx="3"></rect>
+                    <rect id="Rectangle-Copy" x="25" y="0" width="10" height="45" rx="3"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

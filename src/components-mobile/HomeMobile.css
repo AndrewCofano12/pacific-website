@@ -48,25 +48,29 @@
 
   .homeMobile-brandName {
     text-align: left;
-    font-size: 50px;
+    font-size: 45px;
     font-family: 'Questrial';
     color: white;
     
   }
 
   .homeMobile-nameSubChild {
-    font-size:16px;
+    font-size:17px;
     text-align: left;
     font-family: 'Helvetica', sans-serif;
     color: white;
-    width: 70%;
+    width: 52%;
     margin-bottom: 25px;
    
+  }
+
+  .homeMobile-contactInfoCopy {
+    margin-top: 83px;
   }
   
 
   .homeMobile-subTitle {
-    margin-bottom: 5px;
+    margin-bottom: -2px;
   }
 
   .homeMobile-emailLink {

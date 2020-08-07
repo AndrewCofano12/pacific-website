@@ -33,7 +33,7 @@
 .narrative-elementsContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 120px;
+    padding-top: 140px;
     align-items: center;
     /* overflow: scroll !important; */
 }
@@ -61,4 +61,13 @@
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
+}
+
+
+@media only screen and (min-height: 1200px) {
+
+    .narrative-elementsContainer {
+        padding-top: 180px;
+    }
+    
 }

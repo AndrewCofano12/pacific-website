@@ -78,7 +78,7 @@ export default class Home extends Component {
         </div>
         <div className="home-contentContainer">
           <div className="home-childContent">
-            <div className="home-leftGridContainer">
+            <div className="home-gridContainer home-leftGridContainer">
               
               <div className="home-gridItem">
 
@@ -91,25 +91,25 @@ export default class Home extends Component {
               <div className="home-gridItem">
               </div>
               
-              <div className="home-gridItem home-nameSubChild">
+              <div className="home-gridItem home-subChild home-nameSubChild">
                 <Link to="/music" className="home-homePageNav">
                   <div className="home-leftSubTitle home-titleText">music</div>
                   <div className="home-subtext">collective progression of sound</div>
                 </Link>
               </div>
-              <div className="home-gridItem home-nameSubChild">
+              <div className="home-gridItem home-subChild home-nameSubChild">
                 <Link to="/narrative" className="home-homePageNav">
                   <div className="home-middleSubTitle home-titleText">narrative</div>
                   <div className="home-subtext">portraying stories of personal nature</div>
                 </Link>
               </div>
-              <div id="home-visualLink" className="home-gridItem home-nameSubChild">
+              <div id="home-visualLink" className="home-gridItem home-subChild home-nameSubChild">
                 <Link to="/films" className="home-homePageNav">
                   <div className="home-rightSubTitle home-titleText">visual</div>
                   <div className="home-subtext">motion in form and figure</div>
                 </Link>
               </div>
-              <div className="home-gridItem home-nameSubChild home-contactInfoCopy">
+              <div className="home-gridItem home-nameSubChild home-subChild home-contactInfoCopy">
                 <div className="home-contactText">pacificfilmstudio@gmail.com</div>
                 <div>@pacific.film</div>
               </div>
@@ -117,13 +117,13 @@ export default class Home extends Component {
           </div>
           
           <div className="home-rightChild home-childContent">
-            <div className="home-rightGridContainer">
+            <div className="home-gridContainer  home-rightGridContainer">
               <div className="home-gridItem">
                 <div className="home-brandLogoContainer">
                     <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
                   </div>
               </div>
-              <div className="home-gridItem home-logoSub home-logoSubChild home-homePageNav">                 
+              <div className="home-gridItem home-logoSub home-logoSubChild home-subChild home-homePageNav">                 
                 <div className="home-email home-subtext"><a className="home-socialLink" href="mailto:info@pacificfilm.com">contact@pacificfilm.co</a></div>
                 <div id="home-subtext"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
               </div>

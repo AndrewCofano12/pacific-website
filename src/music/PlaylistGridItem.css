@@ -36,10 +36,10 @@
 .music-playControlAction {
     left: 0;
     bottom: 0;
-    padding: 10px;
+    padding: 11px;
     z-index: 100; 
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     color: white;
     font-weight: 100;
     position:absolute;                  
