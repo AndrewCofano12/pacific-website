@@ -1,0 +1,45 @@
+.lock-page {
+
+    background-color: rgb(27, 26, 26);
+
+}
+
+.lock-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    height: 85%;
+    width: 100%;
+}
+
+
+.lock-info {
+    color: #cccccc;
+    font-size: 20px;
+    font-family: 'Questrial';
+    padding-top: 40px;
+    text-align: center;
+}
+
+.lock-trademarked {
+}
+
+.lock-form-group {
+    
+}
+
+#lock-logo {
+    width: 500px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+#lock-logo {
+    width: 300px;
+}
+
+}

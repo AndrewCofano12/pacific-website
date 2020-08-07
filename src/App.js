@@ -12,7 +12,7 @@ import {
 } from "react-device-detect";
 import Music from './music/Music';
 import Home from './home/Home';
-
+import LockScreen from './lock/LockScreen';
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
 import FilmsMobile from './components-mobile/films/FilmsMobile';
@@ -46,7 +46,24 @@ export default class App extends Component {
               <Route path="/music" render={(props) => <Music {...props} dbdata={music}/>}/>
               <Route path="/films" render={(props) => <FilmsRouter {...props} dbdata={films}/>}/>
               <Route path="/narrative" render={(props) => <Narrative {...props} dbdata={narrative}/>}/>
-              <Route exact path="/" render={(props) => <Home {...props} dbdata={home}/>}/>
+              <Route
+              exact path="/"
+              render={(props) => {
+                if (!sessionStorage.getItem('auth-token')) {
+                    return <LockScreen/>
+                } else {
+                  const authToken = '123456abcdef';
+                  if (sessionStorage.getItem('auth-token') == authToken) {
+                      console.log('good token. Log in.')
+                      return <Home {...props} dbdata={home}/>
+                    } else {
+                      console.log('bad token.')
+                      return <LockScreen/>
+                    }
+                }
+              }}
+            />
+              {/* <Route exact path="/" render={(props) => <Home {...props} dbdata={home}/>}/> */}
             </BrowserView>
           </Switch>
         </div>
