@@ -14,12 +14,11 @@
     height: 45%;
     width: 100%;
 }
-*:not(input.field) {    
+*{    
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
 }
 .lock-info {
     color: #cccccc;
@@ -33,15 +32,26 @@
 
 }
 
-/* .lock-form-control {
-    height: 35px;
+input, select, textarea {
+    border-radius: 6px;
+    border: 1px solid #d0d0d0;
+    outline: 0;
+    font-family: Roboto;
+    padding: 15px 10px;  /*<<<<<<<*/
+    font-size: 15px;
+    webkit-user-select: auto;
+  }
+
+.lock-form-control {
+    height: 27px;
     width: 200px;
     
-} */
+}
 
 .lock-form-group {
     display: block;
-    
+    align-items: center;
+    text-align: center;
 }
 
 #lock-logo {

@@ -52,7 +52,7 @@ export default class App extends Component {
                 if (!sessionStorage.getItem('auth-token')) {
                     return <LockScreen/>
                 } else {
-                  const authToken = '13456abcdef';
+                  const authToken = '3456abcdef';
                   if (sessionStorage.getItem('auth-token') == authToken) {
                       console.log('good token. Log in.')
                       return <Home {...props} dbdata={home}/>

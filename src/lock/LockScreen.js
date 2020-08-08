@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./LockScreen.css";
-import history from '../history';
+import history from 'history';
 import $ from 'jquery';
-import Squiggles from '../icons/squiggles-v2.svg'
+import Squiggles from '../icons/squiggles-v2.svg';
 
 export default class LockScreen extends Component {
     value = '';
@@ -16,6 +16,7 @@ export default class LockScreen extends Component {
         }
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
     
 
@@ -44,6 +45,29 @@ export default class LockScreen extends Component {
       }
 
 
+      handleSubmit(event) {
+        event.preventDefault();
+        const data = event.target.value
+        let hardcodedCred = {
+            password: 'deepinbopz'
+        }
+
+        if (data == hardcodedCred.password) {
+            //combination is good. Log them in.
+            //this token can be anything. You can use random.org to generate a random string;
+            const token = '3456abcdef';
+            sessionStorage.setItem('auth-token', token);
+            //go to www.website.com/todo
+            // history.push('/');
+            window.location.reload(true);
+
+        } else {
+            //bad combination
+            this.setState({showAlert: true});
+        }   
+
+
+      }
       handleChange(event) {
         this.setState({value: event.target.value});
       }
@@ -62,10 +86,12 @@ export default class LockScreen extends Component {
         if (this.state.passwordInput == hardcodedCred.password) {
             //combination is good. Log them in.
             //this token can be anything. You can use random.org to generate a random string;
-            const token = '13456abcdef';
+            const token = '3456abcdef';
             sessionStorage.setItem('auth-token', token);
             //go to www.website.com/todo
-            history.push('/');
+            // history.push('/');
+            window.location.reload(true);
+
         } else {
             //bad combination
             this.setState({showAlert: true});
@@ -86,15 +112,17 @@ export default class LockScreen extends Component {
                         <img id="lock-logo" src={Squiggles} alt="squiggles"/>
                     </div>
                 </div>                
-                
+                {/* <InputGroup>
+
+                    <FormControl type="text" placeholder="Normal text" />
+                </InputGroup> */}
+
                 <div className="lock-form-group">
                     <input
-                    key={1}
                     type="password"
                     className="lock-form-control"
                     id="lock-form"
-                    value={this.state.passwordInput}
-                    onChange={(event)=> this.handlePasswordChange(event)}
+                    
                 />
             </div>
                     

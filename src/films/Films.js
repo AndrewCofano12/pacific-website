@@ -5,7 +5,6 @@ import Iframe from 'react-iframe'
 import VideoPlayer from '../components/VideoPlayer'
 import request from "../node/vimeoApi"
 import { Link } from 'react-router-dom';  
-import ReactPlayer from "react-player";
 
 
 let Vimeo = require('vimeo').Vimeo;
