@@ -1,0 +1,68 @@
+.lock-page {
+
+    background-color: rgb(27, 26, 26);
+    height: 100vh;
+}
+
+.lock-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    height: 45%;
+    width: 100%;
+}
+*{    
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.lock-info {
+    color: #cccccc;
+    font-size: 20px;
+    font-family: 'Questrial';
+    padding-top: 40px;
+    text-align: center;
+}
+
+.lock-trademarked {
+
+}
+
+input, select, textarea {
+    border-radius: 6px;
+    border: 1px solid #d0d0d0;
+    outline: 0;
+    font-family: Roboto;
+    padding: 15px 10px;  /*<<<<<<<*/
+    font-size: 15px;
+    webkit-user-select: auto;
+  }
+
+.lock-form-control {
+    height: 27px;
+    width: 200px;
+    
+}
+
+.lock-form-group {
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+#lock-logo {
+    width: 400px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+#lock-logo {
+    width: 300px;
+}
+
+}

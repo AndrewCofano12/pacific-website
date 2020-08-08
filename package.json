@@ -1,5 +1,6 @@
 {
   "name": "pacific_film_react",
+  "homepage": "https://www.pacificfilm.co",
   "version": "0.1.0",
   "main": "server.js",
   "private": true,

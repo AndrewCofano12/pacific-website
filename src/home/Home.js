@@ -104,14 +104,14 @@ export default class Home extends Component {
                 </Link>
               </div>
               <div id="home-visualLink" className="home-gridItem home-subChild home-nameSubChild">
-                <Link to="/films" className="home-homePageNav">
+                <Link to="/visual" className="home-homePageNav">
                   <div className="home-rightSubTitle home-titleText">visual</div>
                   <div className="home-subtext">motion in form and figure</div>
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-subChild home-contactInfoCopy">
                 <div className="home-contactText">pacificfilmstudio@gmail.com</div>
-                <div>@pacific.film</div>
+                <div>pacific.film</div>
               </div>
             </div>
           </div>

@@ -29,7 +29,7 @@ export default class Films extends Component {
     
     return (
       <div className="videoPlayer">
-        <NavigationHeader formatString="lightFormat" page="films"/>
+        <NavigationHeader formatString="lightFormat" page="visual"/>
         <video 
         className="testVideo"
         autoPlay={true}

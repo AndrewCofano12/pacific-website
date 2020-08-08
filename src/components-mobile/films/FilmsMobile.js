@@ -81,7 +81,7 @@ export default class Films extends Component {
 
 
 
-        <NavigationHeader formatString="lightFormat" page="films"/>
+        <NavigationHeader formatString="lightFormat" page="visual"/>
         <video 
         playsInline
         autoPlay

@@ -56,7 +56,7 @@ export default class HomeMobile extends Component {
               </Link>
             </div>
             <div className="homeMobile-nameSubChild">
-              <Link to="/films" className="homeMobile-homePageNav">
+              <Link to="/visual" className="homeMobile-homePageNav">
                 <div className="homeMobile-subTitle">visual</div>
                 <div className="homeMobile-rightDescription">motion in form and figure</div>
               </Link>
