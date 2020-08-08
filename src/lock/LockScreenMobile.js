@@ -3,7 +3,7 @@ import "./LockScreen.css";
 import Squiggles from '../icons/squiggles-v2.svg';
 import { Formik, Field, Form} from 'formik';
 
-export default class LockScreen extends Component {
+export default class LockScreenMobile extends Component {
     value = '';
 
     constructor(props) {
@@ -33,19 +33,11 @@ export default class LockScreen extends Component {
             password: 'deepinbopz'
         }
 
-        if (this.state.passwordInput == hardcodedCred.password) {
-            //combination is good. Log them in.
-            //this token can be anything. You can use random.org to generate a random string;
-            const token = '456abcdef';
-            sessionStorage.setItem('auth-token', token);
-            //go to www.website.com/todo
-            // history.push('/');
-            window.location.reload(true);
-
-        } else {
-            //bad combination
-            this.setState({showAlert: true});
-        }   
+        const token = '456abcdef';
+        sessionStorage.setItem('auth-token', token);
+        //go to www.website.com/todo
+        // history.push('/');
+        window.location.reload(true);
 
 
       }

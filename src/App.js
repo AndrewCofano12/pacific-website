@@ -13,6 +13,7 @@ import {
 import Music from './music/Music';
 import Home from './home/Home';
 import LockScreen from './lock/LockScreen';
+import LockScreenMobile from './lock/LockScreenMobile';
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
 import FilmsMobile from './components-mobile/films/FilmsMobile';
@@ -43,6 +44,20 @@ export default class App extends Component {
           } else {
             console.log('bad token.')
             return <LockScreen/>
+          }
+      }
+  } 
+  passwordMobileSetup = (comp) => {
+      if (!sessionStorage.getItem('auth-token')) {
+          return <LockScreenMobile/>
+      } else {
+        const authToken = '456abcdef';
+        if (sessionStorage.getItem('auth-token') == authToken) {
+            console.log('good token. Log in.')
+            return comp
+          } else {
+            console.log('bad token.')
+            return <LockScreenMobile/>
           }
       }
   } 
@@ -78,13 +93,13 @@ export default class App extends Component {
           <Switch>
             <MobileView>
               {/* <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/> */}
-              <Route path="/music" render={(props) => this.passwordSetup(<MusicMobile {...props} dbdata={music}/>)}/>
+              <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/>
               {/* // <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
-              <Route path="/visual" render={(props) => this.passwordSetup(<FilmsMobile {...props} dbdata={films}/>)}/>
+              <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobile {...props} dbdata={films}/>)}/>
               {/* <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/> */}
-              <Route path="/narrative" render={(props) => this.passwordSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
+              <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
               {/* <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/> */}
-              <Route exact path="/" render={(props) => this.passwordSetup(<HomeMobile {...props} dbdata={home}/>)}/>
+              <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/>
             </MobileView>
           </Switch>
         </div>
