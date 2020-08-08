@@ -136,7 +136,7 @@ export default class VideoPlayerMobile extends Component {
 //   };
 
   handleExit = () => {
-    this.props.history.push("/films");
+    this.props.history.push("/visual");
   };
 
   handlePlayPause = () => {
