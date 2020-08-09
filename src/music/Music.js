@@ -309,6 +309,7 @@ export default class Music extends Component {
                     onPause={this.handlePause}
                     isPlaying={this.state.isPlaying}
                     npFile={this.state.npFile}
+                    npTitle={this.state.npTitle}
                     updateView={this.updateView}
                     updateNowPlaying={this.updateNowPlaying}
                     updateBackground={this.updateBackground}/>}/>

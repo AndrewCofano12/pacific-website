@@ -15,7 +15,8 @@ export default class PlaybackSeekbar extends Component {
             playbackPosition: 0,
             showPlayerControls: false,
             playbackLength: 0,
-            currentTimePos: '0%'
+            currentTimePos: '0%',
+            isCurrent: this.props.isCurrent
         };
       }
 
@@ -68,6 +69,12 @@ export default class PlaybackSeekbar extends Component {
             window.addEventListener('touchend', this.handleWindowMouseOrTouchUp)
             }
         }
+    }
+
+    componentWillReceiveProps(newProps) {
+      if (newProps.npTitle != newProps.thisTitle) {
+        this.setState({isCurrent : false});
+      }
     }
 
     handleWindowMouseOrTouchMove = (event) => {
@@ -141,6 +148,7 @@ export default class PlaybackSeekbar extends Component {
     
 
     }
+
 
     componentDidUpdate() { 
       const audio  = this.props.audioRef.current;

@@ -58,7 +58,11 @@ export default class Episode extends Component {
     }
   }
 
-
+  componentWillReceiveProps(newProps) {
+    if (newProps.npTitle != this.state.episode.name) {
+      this.setState({isCurrent : false});
+    }
+  }
 
   handlePause() {
     this.setState({isPlaying : false})
@@ -101,6 +105,8 @@ export default class Episode extends Component {
             <PlaybackSeekbar 
               audioRef={this.props.audioRef}
               isCurrent={this.state.isCurrent}
+              npTitle={this.props.npTitle}
+              thisTitle={this.state.episode.name}
               audioDuration={this.state.episode.duration}/>
             <div className="music-itemControllerContainer">              
             <div className="music-creditsOuterContainer">
@@ -122,7 +128,7 @@ export default class Episode extends Component {
               <div className="music-itemControllers">
                 <div className={`music-playlistSliderControl music-prevSliderControl ${this.props.itemIndex > 0 ? "" : "music-inactive"}`} onClick={this.props.goBack}>prev</div>
                 <div className="music-audioControlContainer">
-                  {this.state.isPlaying ? (
+                  {(this.state.isPlaying && this.state.isCurrent) ? (
                       // <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
                       <img className="music-itemPlayControlAction" src={PauseIcon} alt="pause" onClick={this.handlePause} />
                       ) : (

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./LockScreen.css";
 import Squiggles from '../icons/squiggles-v2.svg';
-import { Formik, Field, Form} from 'formik';
 
 export default class LockScreen extends Component {
     value = '';

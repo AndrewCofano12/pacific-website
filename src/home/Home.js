@@ -110,8 +110,8 @@ export default class Home extends Component {
                 </Link>
               </div>
               <div className="home-gridItem home-nameSubChild home-subChild home-contactInfoCopy">
-                <div className="home-contactText">pacificfilmstudio@gmail.com</div>
-                <div>pacific.film</div>
+              <div className="home-email home-subtext"><a className="home-socialLink" href="mailto:contact@pacificfilm.co">contact@pacificfilm.co</a></div>
+                <div id="home-subtext"><a className="home-socialLink" target="_blank" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
               </div>
             </div>
           </div>

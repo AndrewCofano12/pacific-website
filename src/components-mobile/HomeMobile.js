@@ -63,7 +63,7 @@ export default class HomeMobile extends Component {
             </div>
             <div className="homeMobile-nameSubChild homeMobile-contactInfoCopy">
               <div><a className="homeMobile-emailLink" href="mailto:contact@pacificfilm.co">contact@pacificfilm.co</a></div>
-              <div><a className="homeMobile-socialLink" href="https://www.instagram.com/pacific.film/">pacific.film</a></div>
+              <div><a className="homeMobile-socialLink" href="https://www.instagram.com/pacific.film/" target="_blank">pacific.film</a></div>
             </div>
                 </div>
         </div>
