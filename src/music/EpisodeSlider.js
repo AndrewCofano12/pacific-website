@@ -6,7 +6,6 @@ import Pagination from '../components/pagination/Pagination';
 //import 'react-h5-audio-player/lib/styles.css';
 import LazyLoad from 'react-lazyload';
 // import Episode from './Episode';
-import pMepisode from '../audio/test.mp3'
 
 
 export default class EpisodeSlider extends Component {
