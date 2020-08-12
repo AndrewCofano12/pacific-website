@@ -79,6 +79,7 @@ export default class Episode extends Component {
     const audio = this.props.audioRef.current;
     if (audio) {
       if (audio.src == this.state.episode.file) {
+        console.log("this one is current!!! " + this.state.episode.file)
         this.setState({isCurrent : true})
         if (!audio.paused) {
           this.setState({isPlaying: true})
@@ -105,8 +106,9 @@ export default class Episode extends Component {
             <PlaybackSeekbar 
               audioRef={this.props.audioRef}
               isCurrent={this.state.isCurrent}
+              isPlaying={this.state.isPlaying}
               npTitle={this.props.npTitle}
-              thisTitle={this.state.episode.name}
+              file={this.state.episode.file}
               audioDuration={this.state.episode.duration}/>
             <div className="music-itemControllerContainer">              
             <div className="music-creditsOuterContainer">

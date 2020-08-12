@@ -16,7 +16,7 @@ export default class PlaybackSeekbar extends Component {
             showPlayerControls: false,
             playbackLength: 0,
             currentTimePos: '0%',
-            isCurrent: this.props.isCurrent
+            isCurrent: false
         };
       }
 
@@ -72,9 +72,15 @@ export default class PlaybackSeekbar extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-      if (newProps.npTitle != newProps.thisTitle) {
-        this.setState({isCurrent : false});
-      }
+      console.log("componentWillReceiveProps");
+
+      const audio = this.props.audioRef;
+      console.log("componentWillReceiveProps: audio src is " + audio.current.src + " && this file is " + this.props.file)
+      if (audio) {
+        if (audio.src == this.props.file) {
+          this.setState({isCurrent : true})
+        }
+      }      
     }
 
     handleWindowMouseOrTouchMove = (event) => {
@@ -126,7 +132,30 @@ export default class PlaybackSeekbar extends Component {
     }, this.props.progressUpdateInterval)
   
     componentDidMount() {
-        const audio = this.props.audioRef;
+
+      
+        console.log("componentDidMount");
+        const audio  = this.props.audioRef.current;
+        if (audio) {
+          if (this.props.isCurrent) {         
+            const { currentTime } = audio
+            this.setState({playbackPosition: currentTime})
+            if (!this.hasAddedAudioEventListener) {
+              this.audio = audio
+              this.hasAddedAudioEventListener = true
+              audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
+              audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
+            }
+          }
+          else if (this.hasAddedAudioEventListener) {
+            this.setState({playbackPosition: 0})
+            this.hasAddedAudioEventListener = false
+            audio.removeEventListener('timeupdate', this.handleAudioTimeUpdate);
+            audio.removeEventListener('progress', this.handleAudioDownloadProgressUpdate)
+  
+          }
+        }
+  
         // console.log("AUDIO COMPONENT IS: " + audio);
         // audio.addEventListener('timeupdate', (event) => {
         //   console.log('The currentTime attribute has been updated. Again.');
@@ -150,13 +179,31 @@ export default class PlaybackSeekbar extends Component {
     }
 
 
-    componentDidUpdate() { 
+    componentDidUpdate() {
+      console.log("componentDidUpdate");
+ 
       const audio  = this.props.audioRef.current;
-      if (audio && !this.hasAddedAudioEventListener && this.props.isCurrent) {
-          this.audio = audio
-          this.hasAddedAudioEventListener = true
-          audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
-          audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
+      if (audio) {
+        if (this.props.isCurrent) {
+          const { currentTime } = audio
+          if (!this.props.isPlaying && this.state.playbackPosition != currentTime) {
+            this.setState({playbackPosition: currentTime})
+          }
+
+          if (!this.hasAddedAudioEventListener) {
+            this.audio = audio
+            this.hasAddedAudioEventListener = true
+            audio.addEventListener('timeupdate', this.handleAudioTimeUpdate)
+            audio.addEventListener('progress', this.handleAudioDownloadProgressUpdate)
+          }
+        }
+        else if (this.hasAddedAudioEventListener) {
+          this.setState({playbackPosition: 0})
+          this.hasAddedAudioEventListener = false
+          audio.removeEventListener('timeupdate', this.handleAudioTimeUpdate);
+          audio.removeEventListener('progress', this.handleAudioDownloadProgressUpdate)
+
+        }
       }
     }
     
