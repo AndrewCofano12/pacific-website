@@ -33,13 +33,16 @@ export default class HomeMobile extends Component {
   render() {
     return (
     <div className="HomeMobile">
+        <a name="top"></a>
         <div className="homeMobile-imageLoaderContainer">
           <ImageLoaderMobile images={this.state.homeObject.images}/> 
         </div>
           <div className="homeMobile-spacerContainer"></div>
           <div className="homeMobile-brandContainer" id="homeMobile-logoHeader">
             <div className="homeMobile-brandName">
-              pacific
+              <a href="#top">
+                pacific
+              </a>
             </div>
           </div>
           <div className="homeMobile-subContainer">

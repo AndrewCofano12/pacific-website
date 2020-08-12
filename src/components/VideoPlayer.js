@@ -3,7 +3,7 @@ import "./VideoPlayer.css";
 import Vimeo from "@vimeo/player";
 import Fullscreen from "react-full-screen";
 import PlayerController from "./PlayerController";
-import CreditsOverlay from "./CreditsOverlay"
+import CreditsOverlay from "./CreditsOverlay";
 
 export default class VideoPlayer extends Component {
   timer;
@@ -49,6 +49,28 @@ export default class VideoPlayer extends Component {
     }, 3000);
 
   }
+
+  // hideCursor() {
+  //   $('html').css({
+  //     cursor: 'none'
+  //   });
+  //   justHidden = true;
+  //   setTimeout(function() {
+  //     justHidden = false;
+  //   }, 500);
+  // }
+
+  // $(document).mousemove(function() {
+  //   if (!justHidden) {
+  //     justHidden = false;
+  //     console.log('move');
+  //     clearTimeout(j);
+  //     $('html').css({
+  //       cursor: 'default'
+  //     });
+  //     j = setTimeout(hide, 1000);
+  //   }
+  // });
 
   handleResize() {
     this.setState({
@@ -147,9 +169,12 @@ export default class VideoPlayer extends Component {
     });
   }
 
+
+
   attachListeners() {
     window.addEventListener("resize", this.handleResize.bind(this));
     window.addEventListener("mousemove", this.showPlayerControls.bind(this));
+    window.addEventListener("keyup", this.handleSpacebar.bind(this));
   }
 
   goBackToBeginning() {
@@ -169,13 +194,29 @@ export default class VideoPlayer extends Component {
   updateVideoPosition = (time) => {
     this.player.setCurrentTime(time);
   };
+  
+
+  handleSpacebar = (event) => {
+    if (event.keyCode == 32) {
+      this.handlePlayPause();
+    }
+  }
+
+  escFunction = (event) => {
+    if (event.keyCode === 27) {
+      this.setState({ isFull: false });
+    }
+  }
 
   goFull = () => {
     this.setState({ isFull: true });
+    window.addEventListener('keydown', this.escFunction.bind(this));
   };
 
   exitFull = () => {
     this.setState({ isFull: false });
+    window.removeEventListener('keydown', null);
+
   };
 
   handleExit = () => {
@@ -244,14 +285,16 @@ export default class VideoPlayer extends Component {
     return (
       <div>
       <Fullscreen
-          enabled={this.state.isFull}
+            enabled={this.state.isFull}
+
           onChange={(isFull) => this.setState({ 
             isFull
           })}
-        >
+
+         >
           
       <div
-        className="films-videoPage"
+        className={`${this.state.showPlayerControls ? '' : ' films-hideCursor'} films-videoPage`}
         style={{
           height: "100%",
           width: "100vw",

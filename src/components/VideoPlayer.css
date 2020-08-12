@@ -63,6 +63,10 @@
     cursor: pointer;
 }
 
+.films-hideCursor {
+    cursor: none;
+}
+
 .films-playVideo {
 
     position:relative;                  

@@ -135,9 +135,11 @@
     color: white;
     text-decoration: underline;
 }
+/* BrainhubCarouselItem BrainhubCarouselItem--clickable BrainhubCarouselItem--active
+.BrainhubCarouselItem  */
 
-.BrainhubCarouselItem .BrainhubCarouselItem--clickable {
-    cursor: default;
+.BrainhubCarouselItem--clickable {
+    cursor: default !important;
 }
 
 .loading {

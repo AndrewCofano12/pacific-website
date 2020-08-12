@@ -6,6 +6,7 @@ import $ from 'jquery';
 export default class PlaybackSeekbar extends Component {
     timeOnMouseMove = 0
     progressBar = createRef();
+    hasAddedAudioEventListener = false;
 
     constructor(props) {
         super(props);
@@ -96,7 +97,7 @@ export default class PlaybackSeekbar extends Component {
         if (isDraggingProgress) {
           const { currentTime, currentTimePos } = this.getCurrentProgress(event)
           this.timeOnMouseMove = currentTime
-          this.setState({ currentTimePos })
+          this.setState({ currentTimePos, playbackPosition: currentTime})
         }
       }
     
@@ -148,7 +149,7 @@ export default class PlaybackSeekbar extends Component {
             }
           }
           else if (this.hasAddedAudioEventListener) {
-            this.setState({playbackPosition: 0})
+            this.setState({playbackPosition: 0, currentTimePos: '0%'})
             this.hasAddedAudioEventListener = false
             audio.removeEventListener('timeupdate', this.handleAudioTimeUpdate);
             audio.removeEventListener('progress', this.handleAudioDownloadProgressUpdate)
@@ -181,7 +182,8 @@ export default class PlaybackSeekbar extends Component {
 
     componentDidUpdate() {
       console.log("componentDidUpdate");
- 
+      console.log("eventListeners " + this.hasAddedAudioEventListener)
+
       const audio  = this.props.audioRef.current;
       if (audio) {
         if (this.props.isCurrent) {
@@ -198,7 +200,8 @@ export default class PlaybackSeekbar extends Component {
           }
         }
         else if (this.hasAddedAudioEventListener) {
-          this.setState({playbackPosition: 0})
+          this.setState({playbackPosition: 0, currentTimePos: '0%'})
+
           this.hasAddedAudioEventListener = false
           audio.removeEventListener('timeupdate', this.handleAudioTimeUpdate);
           audio.removeEventListener('progress', this.handleAudioDownloadProgressUpdate)
@@ -217,7 +220,7 @@ export default class PlaybackSeekbar extends Component {
                     aria-valuemax={100}
                     aria-valuenow={Number(this.state.currentTimePos.split('%')[0])}
                     ref={this.progressBar}
-                    onMouseDown={this.handleMouseDownOrTouchStartProgressBar}
+                    onMouseDown={this.props.isCurrent ? this.handleMouseDownOrTouchStartProgressBar : null}
                 >
                     <div className="seekbar-progressBar">
                         {/* <progress ref={this.myRef} className="seekbar-progressBarComponent" value={this.state.playbackPosition} max={this.state.playbackLength}/> */}

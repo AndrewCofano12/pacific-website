@@ -29,6 +29,8 @@
 }
 
 .filmsMobile-linkContainer {
+    /* margin-left: auto;
+    margin-right: auto; */
     display: flex;
     flex-direction: row;
     bottom: 135px;
@@ -36,8 +38,11 @@
     z-index: 20;
     justify-content: space-evenly;
     position: absolute;
+
     height: auto;
     overflow-y: hidden;
+    text-align: center;
+    align-items: center;
 }
 
 .filmsPlayer {

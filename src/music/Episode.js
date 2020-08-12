@@ -11,6 +11,9 @@ import PlayIcon from '../icons/playButton.svg';
 import PauseIcon from '../icons/pauseButton.svg';
 
 export default class Episode extends Component {
+  hasAddedAudioEventListener = false;
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +22,8 @@ export default class Episode extends Component {
         isPlaying: false,
         isCurrent: false,
         showCredits: false,
-        isLoading: false
+        isLoading: false,
+        hasEventListener: false
     };
 
     // this.handlePlay = this.handlePlay.bind(this);
@@ -61,6 +65,14 @@ export default class Episode extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.npTitle != this.state.episode.name) {
       this.setState({isCurrent : false});
+      window.removeEventListener("keyup", this.handleSpacebarPress.bind(this))
+      this.hasAddedAudioEventListener = false;
+    }
+    else {
+      window.addEventListener("keyup", this.handleSpacebarPress.bind(this));
+      this.hasAddedAudioEventListener = true;
+
+
     }
   }
 
@@ -74,12 +86,24 @@ export default class Episode extends Component {
     this.setState({showCredits : true})
   }
 
+  handleSpacebarPress = (event) => {
+    console.log("spacebarrrr")
+    if (event.keyCode == 32) {
+      if (this.state.isPlaying) {
+          this.handlePause();
+
+      }
+      else {
+        this.handlePlay();
+      }
+    } 
+  }
+
   //async componentDidMount() {
   componentDidMount() {
     const audio = this.props.audioRef.current;
     if (audio) {
       if (audio.src == this.state.episode.file) {
-        console.log("this one is current!!! " + this.state.episode.file)
         this.setState({isCurrent : true})
         if (!audio.paused) {
           this.setState({isPlaying: true})
@@ -88,6 +112,14 @@ export default class Episode extends Component {
     }      
 
   }
+
+  componentWillUnmount() {
+    console.log("unmounting....")
+
+  }
+
+
+
 
 
 

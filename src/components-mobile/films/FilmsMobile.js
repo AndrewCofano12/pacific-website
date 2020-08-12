@@ -2,6 +2,7 @@ import React, { Component,  useState  } from 'react';
 import NavigationHeader from '../../components/NavigationHeader';
 import './FilmsMobile.css';
 import Vimeo from "@vimeo/player";
+import { text } from 'body-parser';
 
 export default class Films extends Component {  
     videoPlayers = [];
@@ -28,7 +29,10 @@ export default class Films extends Component {
       this.videoPlayers.push(videoPlayer);
   });
 
-
+    var header = document.getElementsByClassName("siteLogoContainer");
+    console.log(header);
+    var textContainer = document.getElementsByClassName("filmsMobile-linkContainer")[0];
+    textContainer.style.left = header[0].offsetLeft;
 
     // var options = {
     //   playsinline: false,

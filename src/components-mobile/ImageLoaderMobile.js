@@ -46,8 +46,7 @@ export default class ImageLoaderMobile extends Component {
                                 width: "100%"
             
                             }} 
-                            // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
-                            src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
                             // </LazyLoad>
                         )
                     }
@@ -65,8 +64,7 @@ export default class ImageLoaderMobile extends Component {
                                 width: "100%"
             
                             }} 
-                            // src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
-                            src={`http://narc:deepinbopz@pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`http://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
 
                             // </LazyLoad>
                         )

@@ -672,16 +672,50 @@
                 "bottomSpacing" : 160
             },
             {
-                "file" : "bc104.jpg",
+                "file" : "bc105.jpg",
+                "size" : "small",
+                "bottomSpacing" : 180
+            },
+            {
+                "file" : "bc106.jpg",
+                "size" : "small",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc107.jpg",
                 "size" : "big",
                 "bottomSpacing" : 170
             },
             {
-                "file" : "bc105.jpg",
+                "file" : "bc108.jpg",
+                "size" : "small",
+                "bottomSpacing" : 170
+            },
+            {
+                "file" : "bc109.jpg",
                 "size" : "small",
                 "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc110.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc111.jpg",
+                "size" : "big",
+                "bottomSpacing" : 150
+            },
+            {
+                "file" : "bc112.jpg",
+                "size" : "small",
+                "bottomSpacing" : 180
+            },
+            {
+                "file" : "bc113.jpg",
+                "size" : "big",
+                "bottomSpacing" : 120
             }
-            
             
         ]
 
