@@ -10,12 +10,25 @@ import { Link } from 'react-router-dom';
 let Vimeo = require('vimeo').Vimeo;
 
 export default class Films extends Component {  
+
+
   constructor(props) {
     super(props)
     this.state = {
-      entries: this.props.entries
+      entries: this.props.entries,
+      loops:this.props.loops
     }
   }
+
+
+  componentDidMount() {
+    var loopsArray= this.state.loops;
+    var random = Math.floor(Math.random() * loopsArray.length)
+    var videoEL = document.querySelector("video");
+    /** uncomment for our shit */
+    //videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
+  }
+
   render() {
 
     // console.log("this.props.entries is not null " + this.props.entries.id != null)
@@ -35,6 +48,7 @@ export default class Films extends Component {
         loop={true} 
         muted={true}
         src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
+        // src={`http://www.pacificfilm.co/wp-content/videos/tunnel.mov${this.state.loop}`}
         >
 
         </video> 

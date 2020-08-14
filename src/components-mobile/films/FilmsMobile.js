@@ -13,11 +13,18 @@ export default class Films extends Component {
     super(props)
     this.state = {
       filmsObject: this.props.dbdata,
+      loops: this.props.loops,
       playURL: ''
     }
   }
 
   componentDidMount() {
+    var loopsArray= this.state.loops;
+    var random = Math.floor(Math.random() * loopsArray.length)
+    var videoEL = document.querySelector("source");
+    
+    /** uncomment for our shit */
+    //videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
 
     this.state.filmsObject.filmsEntries.map((entry, i) => {
       var idString = 'film'

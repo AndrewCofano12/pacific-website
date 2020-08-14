@@ -721,6 +721,24 @@
 
     },
     "films" : {
+        "homeLoops": [
+            {
+                "id":"vibe + tunnel",
+                "file":"tunnel.mov"
+            },
+            {
+                "id":"smoke + dark",
+                "file":"smoke.mov"
+            },
+            {
+                "id":"end + light",
+                "file":"clip.mov"               
+            },
+            {
+                "id":"build + up",
+                "file":"enter.mov"               
+            }
+        ],
         "filmsEntries" : [
             {
                 "id": "film1",
