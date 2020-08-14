@@ -13,13 +13,12 @@ export default class Films extends Component {
     super(props)
     this.state = {
       filmsObject: this.props.dbdata,
-      loops: this.props.loops,
       playURL: ''
     }
   }
 
   componentDidMount() {
-    var loopsArray= this.state.loops;
+    var loopsArray = this.state.filmsObject.homeLoops;
     var random = Math.floor(Math.random() * loopsArray.length)
     var videoEL = document.querySelector("source");
     
