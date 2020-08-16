@@ -723,20 +723,20 @@
     "films" : {
         "homeLoops": [
             {
-                "id":"vibe + tunnel",
-                "file":"tunnel.mov"
+                "id":"fog + rukus",
+                "file":"rukus01.mp4"
             },
             {
-                "id":"smoke + dark",
-                "file":"smoke.mov"
+                "id":"speed + rukus",
+                "file":"rukus02.mp4"
             },
             {
-                "id":"end + light",
-                "file":"clip.mov"               
+                "id":"tailights + rukus",
+                "file":"rukus03.mp4"               
             },
             {
-                "id":"build + up",
-                "file":"enter.mov"               
+                "id":"skate + peter",
+                "file":"skate.mp4"               
             }
         ],
         "filmsEntries" : [

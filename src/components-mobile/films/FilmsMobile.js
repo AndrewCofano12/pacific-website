@@ -23,7 +23,7 @@ export default class Films extends Component {
     var videoEL = document.querySelector("source");
     
     /** uncomment for our shit */
-    //videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
+    videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
 
     this.state.filmsObject.filmsEntries.map((entry, i) => {
       var idString = 'film'
@@ -99,7 +99,7 @@ export default class Films extends Component {
         muted
         className="testVideo">
 
-          <source type="video/mp4" src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"/>
+          <source type="video/mp4"/>
 
         </video>        
         {this.state.filmsObject.filmsEntries.map((entry, i) => {

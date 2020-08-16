@@ -26,7 +26,7 @@ export default class Films extends Component {
     var random = Math.floor(Math.random() * loopsArray.length)
     var videoEL = document.querySelector("video");
     /** uncomment for our shit */
-    //videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
+    videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
   }
 
   render() {
@@ -47,7 +47,7 @@ export default class Films extends Component {
         autoPlay={true}
         loop={true} 
         muted={true}
-        src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
+        // src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
         // src={`http://www.pacificfilm.co/wp-content/videos/tunnel.mov${this.state.loop}`}
         >
 
