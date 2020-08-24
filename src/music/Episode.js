@@ -124,8 +124,8 @@ export default class Episode extends Component {
         
         {/* Item Artwork */}
         <div className="music-artworkWrapper" style={{backgroundColor: this.state.color}}>
-            <img draggable="false" className="music-artwork music-coverImage music-noselect" src={"http://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.frontArtwork} alt="fuck"/>
-            <img draggable="false" className="music-artwork music-tracklistImage music-noselect" src={"http://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.backArtwork} alt="fuck"/>
+            <img draggable="false" className="music-artwork music-coverImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.frontArtwork} alt="fuck"/>
+            <img draggable="false" className="music-artwork music-tracklistImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.backArtwork} alt="fuck"/>
         </div>
 
         {/* Item Playback Control */}
