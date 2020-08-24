@@ -26,7 +26,7 @@ export default class Films extends Component {
     var random = Math.floor(Math.random() * loopsArray.length)
     var videoEL = document.querySelector("video");
     /** uncomment for our shit */
-    videoEL.src = `http://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
+    videoEL.src = `https://www.pacificfilm.co/wp-content/videos/home-loops/${loopsArray[random].file}`;
   }
 
   render() {

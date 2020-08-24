@@ -65,15 +65,21 @@ export default class Episode extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.npTitle != this.state.episode.name) {
       this.setState({isCurrent : false});
-      window.removeEventListener("keyup", this.handleSpacebarPress.bind(this))
+      // window.removeEventListener("keyup", this.handleSpacebarPress.bind(this))
       this.hasAddedAudioEventListener = false;
     }
     else {
-      window.addEventListener("keyup", this.handleSpacebarPress.bind(this));
+      // window.addEventListener("keyup", this.handleSpacebarPress.bind(this));
       this.hasAddedAudioEventListener = true;
 
 
     }
+  }
+
+  isPlaying = () => {
+    const audio = this.props.audioRef.current
+    if (!audio) return false
+    return !audio.paused && !audio.ended
   }
 
   handlePause() {
@@ -86,18 +92,7 @@ export default class Episode extends Component {
     this.setState({showCredits : true})
   }
 
-  handleSpacebarPress = (event) => {
-    console.log("spacebarrrr")
-    if (event.keyCode == 32) {
-      if (this.state.isPlaying) {
-          this.handlePause();
 
-      }
-      else {
-        this.handlePlay();
-      }
-    } 
-  }
 
   //async componentDidMount() {
   componentDidMount() {
@@ -162,7 +157,7 @@ export default class Episode extends Component {
               <div className="music-itemControllers">
                 <div className={`music-playlistSliderControl music-prevSliderControl ${this.props.itemIndex > 0 ? "" : "music-inactive"}`} onClick={this.props.goBack}>prev</div>
                 <div className="music-audioControlContainer">
-                  {(this.state.isPlaying && this.state.isCurrent) ? (
+                  {(this.isPlaying() && this.state.isCurrent) ? (
                       // <RiPauseCircleLine className="music-itemPlayControlAction" id={`music-playControl${this.props.playlistKey}${this.props.itemIndex}`} onClick={this.handlePause}/>
                       <img className="music-itemPlayControlAction" src={PauseIcon} alt="pause" onClick={this.handlePause} />
                       ) : (

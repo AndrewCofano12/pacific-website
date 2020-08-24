@@ -8,7 +8,9 @@ import {
   BrowserView,
   MobileView,
   isBrowser,
-  isMobile
+  isMobile,
+  isMobileOnly,
+  isTablet
 } from "react-device-detect";
 import Music from './music/Music';
 import Home from './home/Home';
@@ -17,6 +19,7 @@ import LockScreenMobile from './lock/LockScreenMobile';
 import MusicMobile from './components-mobile/MusicMobile';
 import HomeMobile from './components-mobile/HomeMobile';
 import FilmsMobile from './components-mobile/films/FilmsMobile';
+import FilmsMobileTablet from './components-mobile/films/FilmsMobileTablet';
 
 import NarrativeMobile from './components-mobile/narrative/NarrativeMobile';
 //import JournalRouterMobile from './components-mobile/JournalRouterMobile';
@@ -87,7 +90,7 @@ export default class App extends Component {
           </Switch>
         </div>
       );
-    } else {
+    } else if (isMobileOnly) {
       return (
         <div>
           <Switch>
@@ -96,6 +99,23 @@ export default class App extends Component {
               <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/>
               {/* // <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
               <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobile {...props} dbdata={films}/>)}/>
+              {/* <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/> */}
+              <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
+              {/* <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/> */}
+              <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/>
+            </MobileView>
+          </Switch>
+        </div>
+      )
+    } else if (isTablet) {
+      return (
+        <div>
+          <Switch>
+            <MobileView>
+              {/* <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/> */}
+              <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/>
+              {/* // <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
+              <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobileTablet {...props} dbdata={films}/>)}/>
               {/* <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/> */}
               <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
               {/* <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/> */}

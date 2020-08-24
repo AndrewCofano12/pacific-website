@@ -22,6 +22,7 @@ export default class PlaylistGridItem extends Component {
   }
 
   componentDidMount() {
+    this.setState({isPlaying: this.isPlaying()})
     console.log("npTitle is: " + this.props.npTitle)
     if (this.props.npTitle == this.state.itemData.name) {
       this.setState({isCurrent : true});

@@ -63,6 +63,19 @@ export default class Music extends Component {
 
   }
 
+  handleSpacebarPress = (event) => {
+    if (event.keyCode == 32) {
+      if (this.audio.current.paused) {
+          this.audio.current.play();
+          this.setState({isPlaying: true})
+      }
+      else {
+        this.audio.current.pause();
+        this.setState({isPlaying: false})
+
+      }
+    } 
+  }
 
   
   // async handlePlay(playlistIndex, itemIndex) {
@@ -152,6 +165,9 @@ export default class Music extends Component {
 
     // audio player object
     const audio = this.audio.current
+
+    window.addEventListener("keyup", this.handleSpacebarPress.bind(this));
+
 
      // When enough of the file has downloaded to start playing
      audio.addEventListener('canplay', (e) => {

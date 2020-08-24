@@ -4,7 +4,7 @@ import './FilmsMobile.css';
 import Vimeo from "@vimeo/player";
 import { text } from 'body-parser';
 
-export default class FilmsMobile extends Component {  
+export default class FilmsMobileTablet extends Component {  
     videoPlayers = [];
     volume = 30;
 
@@ -60,6 +60,75 @@ export default class FilmsMobile extends Component {
       this.videoPlayers[i].setCurrentTime(0)
     }
     this.videoPlayers[i].play();
+    var iframe = document.getElementsByTagName('iframe')[i];
+    var fullscreen = iframe.requestFullscreen || iframe.webkitRequestFullScreen || iframe.mozRequestFullScreen || iframe.msRequestFullscreen;
+    fullscreen.call(iframe);
+    var videoPs = this.videoPlayers;
+    document.addEventListener('webkitfullscreenchange', (event) => {
+      // document.fullscreenElement will point to the element that
+      // is in fullscreen mode if there is one. If there isn't one,
+      // the value of the property is null.
+      if (document.fullscreenElement) {
+        // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+      } else {
+        console.log(videoPs)
+        console.log("INDEX " + i)
+        videoPs[i].pause();
+        console.log(videoPs)
+
+
+        videoPs[i].setCurrentTime(0);
+      }
+    });
+    document.addEventListener('fullscreenchange', (event) => {
+      // document.fullscreenElement will point to the element that
+      // is in fullscreen mode if there is one. If there isn't one,
+      // the value of the property is null.
+      if (document.fullscreenElement) {
+        // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+      } else {
+        console.log(videoPs)
+        console.log("INDEX " + i)
+        videoPs[i].pause();
+        console.log(videoPs)
+
+
+        videoPs[i].setCurrentTime(0);
+      }
+    });
+    document.addEventListener('mozfullscreenchange', (event) => {
+      // document.fullscreenElement will point to the element that
+      // is in fullscreen mode if there is one. If there isn't one,
+      // the value of the property is null.
+      if (document.fullscreenElement) {
+        // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+      } else {
+        console.log(videoPs)
+        console.log("INDEX " + i)
+        videoPs[i].pause();
+        console.log(videoPs)
+
+
+        videoPs[i].setCurrentTime(0);
+      }
+    });
+    document.addEventListener('msfullscreenchange', (event) => {
+      // document.fullscreenElement will point to the element that
+      // is in fullscreen mode if there is one. If there isn't one,
+      // the value of the property is null.
+      if (document.fullscreenElement) {
+        // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+      } else {
+        console.log(videoPs)
+        console.log("INDEX " + i)
+        videoPs[i].pause();
+        console.log(videoPs)
+
+
+        videoPs[i].setCurrentTime(0);
+      }
+    });
+    // document.getElementsByTagName('iframe')[i].web kitRequestFullScreen();
   }
 
 
