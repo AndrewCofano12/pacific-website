@@ -34,7 +34,7 @@ export default class FilmsRouter extends Component {
         transition: opacity 300ms ease-in;
     }
 `;
-    console.log(this.state.filmsObject)
+    // console.log(this.state.filmsObject)
     return (
             <div>
                     <Route exact path={this.props.match.path} render={(props) => <FilmsMobile {...props} entries={this.state.filmsObject.filmsEntries} loops={this.state.filmsObject.homeLoops} linkPrefix={this.props.match.path}/>} />

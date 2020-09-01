@@ -23,11 +23,11 @@ export default class LockScreen extends Component {
 
 
       handleSubmit(event) {
-          console.log("yesss")
+        //   console.log("yesss")
         event.preventDefault();
-        console.log(event.target.value);
+        // console.log(event.target.value);
         const data = event.target.value
-        console.log(this.state.passwordInput)
+        // console.log(this.state.passwordInput)
         let hardcodedCred = {
             password: 'deepinbopz'
         }
@@ -53,7 +53,7 @@ export default class LockScreen extends Component {
       }
 
     handlePasswordChange = (e) =>  {
-        console.log(e);
+        // console.log(e);
 
         this.setState({passwordInput: e.target.value});
     }

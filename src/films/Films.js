@@ -47,29 +47,20 @@ export default class Films extends Component {
         autoPlay={true}
         loop={true} 
         muted={true}
-        // src="http://danielcaesar.com/admin/wp-content/uploads/2016/11/Clip-driver.mp4"
-        // src={`http://www.pacificfilm.co/wp-content/videos/tunnel.mov${this.state.loop}`}
         >
 
         </video> 
         
         <div className="films-linkContainer" >
-          <div className="filmSeletion">
-            <Link to={`${this.props.linkPrefix}/${this.state.entries[0].id}`} >
-            <text>motion + sound</text>
-            </Link>
-          </div>
-
-          <div className="filmSeletion">
-            <Link to={`${this.props.linkPrefix}/${this.state.entries[1].id}`}>
-              <text>thanks for the memories</text>
-            </Link>
-          </div>
-          <div className="filmSeletion">
-            <Link to={`${this.props.linkPrefix}/${this.state.entries[2].id}`}>
-              <text>pacificMUSIC ep. 1</text>
-            </Link>
-          </div>
+        {this.state.entries.map((entry, i) => {
+            return (
+              <div className="filmSeletion">
+                <Link to={`${this.props.linkPrefix}/${entry.id}`} >
+                  <text>{entry.name}</text>
+                </Link>
+            </div>
+            );
+            })}
         </div>
         {/* <VideoPlayer videoSrc={this.props.src}/> */}
       </div>

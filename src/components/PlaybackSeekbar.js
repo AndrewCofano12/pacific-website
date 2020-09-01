@@ -73,10 +73,10 @@ export default class PlaybackSeekbar extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-      console.log("componentWillReceiveProps");
+      // console.log("componentWillReceiveProps");
 
       const audio = this.props.audioRef;
-      console.log("componentWillReceiveProps: audio src is " + audio.current.src + " && this file is " + this.props.file)
+      // console.log("componentWillReceiveProps: audio src is " + audio.current.src + " && this file is " + this.props.file)
       if (audio) {
         if (audio.src == this.props.file) {
           this.setState({isCurrent : true})
@@ -135,7 +135,7 @@ export default class PlaybackSeekbar extends Component {
     componentDidMount() {
 
       
-        console.log("componentDidMount");
+        // console.log("componentDidMount");
         const audio  = this.props.audioRef.current;
         if (audio) {
           if (this.props.isCurrent) {         
@@ -181,8 +181,8 @@ export default class PlaybackSeekbar extends Component {
 
 
     componentDidUpdate() {
-      console.log("componentDidUpdate");
-      console.log("eventListeners " + this.hasAddedAudioEventListener)
+      // console.log("componentDidUpdate");
+      // console.log("eventListeners " + this.hasAddedAudioEventListener)
 
       const audio  = this.props.audioRef.current;
       if (audio) {

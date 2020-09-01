@@ -39,7 +39,7 @@ export default class FilmsMobile extends Component {
     // console.log(header[0].style.);
     var textContainer = document.getElementsByClassName("filmsMobile-linkContainer")[0];
     textContainer.style.offsetWidth = header[0].offsetWidth;
-    console.log(header[0].offsetWidth);
+    // console.log(header[0].offsetWidth);
     textContainer.style.left = header[0].offsetLeft;
 
     // var options = {
@@ -53,10 +53,10 @@ export default class FilmsMobile extends Component {
   }
 
   handlePlay = (i) => {
-    console.log(i)
-    console.log('film'+ i);
+    // console.log(i)
+    // console.log('film'+ i);
     if (this.videoPlayers[i].getCurrentTime() > 0) {
-      console.log("curentTime " + this.videoPlayers[i].getCurrentTime())
+      // console.log("curentTime " + this.videoPlayers[i].getCurrentTime())
       this.videoPlayers[i].setCurrentTime(0)
     }
     this.videoPlayers[i].play();
@@ -114,7 +114,7 @@ export default class FilmsMobile extends Component {
         <div className="filmsMobile-linkContainer">
 
         {this.state.filmsObject.filmsEntries.map((entry, i) => {
-            console.log(`film${i}`);
+            // console.log(`film${i}`);
             return (
                 <div className="filmsMobile-filmSeletion" >
                     <div onClick={() => this.handlePlay(i)}>{entry.name}</div>

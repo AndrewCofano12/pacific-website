@@ -34,7 +34,7 @@ export default class FilmsRouter extends Component {
         transition: opacity 300ms ease-in;
     }
 `;
-    console.log(this.state.filmsObject)
+    // console.log(this.state.filmsObject)
     return (
             <div>
               {/* <Wrapper>

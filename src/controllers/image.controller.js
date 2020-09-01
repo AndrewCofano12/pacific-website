@@ -7,7 +7,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Images from the database.
 exports.findAll = (req, res) => {
-    console.log("hitting...")
+    // console.log("hitting...")
     Image.getAll((err, data) => {
       if (err)
         res.status(500).send({

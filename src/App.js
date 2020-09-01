@@ -76,15 +76,13 @@ export default class App extends Component {
         <div>
           <Switch>
             <BrowserView>
-              {/* <Route path="/music" render={(props) => <Music {...props} dbdata={music}/>}/> */}
-              <Route path="/music" render={(props) => this.passwordSetup(<Music {...props} dbdata={music}/>)}/>
-              {/* <Route path="/films" render={(props) => <FilmsRouter {...props} dbdata={films}/>}/> */}
-              <Route path="/visual" render={(props) =>  this.passwordSetup(<FilmsRouter {...props} dbdata={films}/>)}/>
-              {/* <Route path="/narrative" render={(props) => <Narrative {...props} dbdata={narrative}/>}/> */}
-              <Route path="/narrative" render={(props) =>  this.passwordSetup(<Narrative {...props} dbdata={narrative}/>)}/>
-              <Route
-              exact path="/"
-              render={(props) => this.passwordSetup(<Home {...props} dbdata={home}/>)}
+              <Route path="/music" render={(props) => <Music {...props} dbdata={music}/>}/>
+              {/* <Route path="/music" render={(props) => this.passwordSetup(<Music {...props} dbdata={music}/>)}/> */}
+              <Route path="/visual" render={(props) => <FilmsRouter {...props} dbdata={films}/>}/>
+              {/* <Route path="/visual" render={(props) =>  this.passwordSetup(<FilmsRouter {...props} dbdata={films}/>)}/> */}
+              <Route path="/narrative" render={(props) => <Narrative {...props} dbdata={narrative}/>}/>
+              {/* <Route path="/narrative" render={(props) =>  this.passwordSetup(<Narrative {...props} dbdata={narrative}/>)}/> */}
+              <Route exact path="/" render={(props) => <Home {...props} dbdata={home}/>}
             />            
             </BrowserView>
           </Switch>
@@ -95,14 +93,14 @@ export default class App extends Component {
         <div>
           <Switch>
             <MobileView>
-              {/* <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/> */}
-              <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/>
-              {/* // <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
-              <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobile {...props} dbdata={films}/>)}/>
-              {/* <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/> */}
-              <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
-              {/* <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/> */}
-              <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/>
+              <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/>
+              {/* <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/> */}
+              <Route path="/visual" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/>
+              {/* <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobile {...props} dbdata={films}/>)}/> */}
+              <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/>
+              {/* <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/> */}
+              <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/>
+              {/* <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/> */}
             </MobileView>
           </Switch>
         </div>
@@ -112,14 +110,14 @@ export default class App extends Component {
         <div>
           <Switch>
             <MobileView>
-              {/* <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/> */}
-              <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/>
-              {/* // <Route path="/films" render={(props) => <FilmsMobile {...props} dbdata={films}/>}/> */}
-              <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobileTablet {...props} dbdata={films}/>)}/>
-              {/* <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/> */}
-              <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/>
-              {/* <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/> */}
-              <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/>
+              <Route path="/music" render={(props) => <MusicMobile {...props} dbdata={music}/>}/>
+              {/* <Route path="/music" render={(props) => this.passwordMobileSetup(<MusicMobile {...props} dbdata={music}/>)}/> */}
+              <Route path="/visual" render={(props) => <FilmsMobileTablet {...props} dbdata={films}/>}/>
+              {/* <Route path="/visual" render={(props) => this.passwordMobileSetup(<FilmsMobileTablet {...props} dbdata={films}/>)}/> */}
+              <Route path="/narrative" render={(props) => <NarrativeMobile {...props} dbdata={narrative}/>}/>
+              {/* <Route path="/narrative" render={(props) => this.passwordMobileSetup(<NarrativeMobile {...props} dbdata={narrative}/>)}/> */}
+              <Route exact path="/" render={(props) => <HomeMobile {...props} dbdata={home}/>}/>
+              {/* <Route exact path="/" render={(props) => this.passwordMobileSetup(<HomeMobile {...props} dbdata={home}/>)}/> */}
             </MobileView>
           </Switch>
         </div>

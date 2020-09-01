@@ -737,16 +737,26 @@
         ],
         "filmsEntries" : [
             {
+                "film": "film0",
+                "name": "pacificMUSIC ep. 3",
+                "director": "peter hou",
+                "credits": ["director: peter hou", "creative: costin pirvu, andrew cofano"],
+                "releaseDate": "09.01.20",
+                "src": "https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false&playsinline=0"
+            },
+            {
                 "id": "film1",
                 "name": "motion + sound",
                 "director": "peter hou",
                 "releaseDate": "04.06.20",
+                "credits": ["director: peter hou"],
                 "src":"https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false&playsinline=0"
             },
             {
                 "id": "film2",
                 "name": "thanks for the memories",
                 "director": "peter hou",
+                "credits": ["director: peter hou"],
                 "releaseDate": "03.25.19",
                 "src":"https://player.vimeo.com/video/326483854?autoplay=true&controls=false&muted=false&playsinline=0"
             },
@@ -754,6 +764,7 @@
                 "id": "film3",
                 "name": "pacificMUSIC ep. 1",
                 "director": "peter hou",
+                "credits": ["director: peter hou"],
                 "releaseDate": "06.07.18",
                 "src":"https://player.vimeo.com/video/273835449?autoplay=true&controls=false&muted=false&playsinline=0"
             }

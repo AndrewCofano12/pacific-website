@@ -37,8 +37,18 @@ export default class Home extends Component {
       return false;
   }
 
+  playJeffpardy() {
+    console.log("uhh jeff for 600.");
+    console.log("jeff jeff jeff jeff jeff");
+    console.log("what is san francisco?");
+    console.log("no.");
+    console.log("what is jeff?");
+    console.log("right again.");
+
+  }
+
   componentDidMount() {
-    
+      this.playJeffpardy()
       document.addEventListener('wheel', this.changeScroll, {passive: false});
       // // Call our fetch function below once the component mounts
       // this.callBackendAPI()

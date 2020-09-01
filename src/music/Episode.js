@@ -53,7 +53,7 @@ export default class Episode extends Component {
       const itemBgColor = this.state.episode.backgroundColor;
       audio.addEventListener('timeupdate', function() {
         this.setState({isLoading: false});
-        console.log("playing...")
+        //console.log("playing...")
           updateBg(itemBgColor);
 
       }.bind(this))
@@ -108,10 +108,7 @@ export default class Episode extends Component {
 
   }
 
-  componentWillUnmount() {
-    console.log("unmounting....")
 
-  }
 
 
 

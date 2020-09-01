@@ -39,7 +39,7 @@ export default class FilmsMobileTablet extends Component {
     // console.log(header[0].style.);
     var textContainer = document.getElementsByClassName("filmsMobile-linkContainer")[0];
     textContainer.style.offsetWidth = header[0].offsetWidth;
-    console.log(header[0].offsetWidth);
+    // console.log(header[0].offsetWidth);
     textContainer.style.left = header[0].offsetLeft;
 
     // var options = {
@@ -53,10 +53,10 @@ export default class FilmsMobileTablet extends Component {
   }
 
   handlePlay = (i) => {
-    console.log(i)
-    console.log('film'+ i);
+    // console.log(i)
+    // console.log('film'+ i);
     if (this.videoPlayers[i].getCurrentTime() > 0) {
-      console.log("curentTime " + this.videoPlayers[i].getCurrentTime())
+      // console.log("curentTime " + this.videoPlayers[i].getCurrentTime())
       this.videoPlayers[i].setCurrentTime(0)
     }
     this.videoPlayers[i].play();
@@ -71,10 +71,10 @@ export default class FilmsMobileTablet extends Component {
       if (document.fullscreenElement) {
         // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
       } else {
-        console.log(videoPs)
-        console.log("INDEX " + i)
+        // console.log(videoPs)
+        // console.log("INDEX " + i)
         videoPs[i].pause();
-        console.log(videoPs)
+        // console.log(videoPs)
 
 
         videoPs[i].setCurrentTime(0);
@@ -87,10 +87,10 @@ export default class FilmsMobileTablet extends Component {
       if (document.fullscreenElement) {
         // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
       } else {
-        console.log(videoPs)
-        console.log("INDEX " + i)
+        // console.log(videoPs)
+        // console.log("INDEX " + i)
         videoPs[i].pause();
-        console.log(videoPs)
+        // console.log(videoPs)
 
 
         videoPs[i].setCurrentTime(0);
@@ -103,10 +103,10 @@ export default class FilmsMobileTablet extends Component {
       if (document.fullscreenElement) {
         // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
       } else {
-        console.log(videoPs)
-        console.log("INDEX " + i)
+        // console.log(videoPs)
+        // console.log("INDEX " + i)
         videoPs[i].pause();
-        console.log(videoPs)
+        // console.log(videoPs)
 
 
         videoPs[i].setCurrentTime(0);
@@ -119,10 +119,10 @@ export default class FilmsMobileTablet extends Component {
       if (document.fullscreenElement) {
         // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
       } else {
-        console.log(videoPs)
-        console.log("INDEX " + i)
+        // console.log(videoPs)
+        // console.log("INDEX " + i)
         videoPs[i].pause();
-        console.log(videoPs)
+        // console.log(videoPs)
 
 
         videoPs[i].setCurrentTime(0);
@@ -183,7 +183,7 @@ export default class FilmsMobileTablet extends Component {
         <div className="filmsMobile-linkContainer">
 
         {this.state.filmsObject.filmsEntries.map((entry, i) => {
-            console.log(`film${i}`);
+            // console.log(`film${i}`);
             return (
                 <div className="filmsMobile-filmSeletion" >
                     <div onClick={() => this.handlePlay(i)}>{entry.name}</div>
