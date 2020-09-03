@@ -26,8 +26,13 @@
 .narrative-footer {
     font-family: 'helvetica', sans-serif;
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 50px;
+    font-weight: 400;
+    margin-bottom: 65px;
+    text-align: center;
+}
+
+.narrative-footerLine {
+    margin-bottom: 12px;
 }
 
 .narrative-elementsContainer {

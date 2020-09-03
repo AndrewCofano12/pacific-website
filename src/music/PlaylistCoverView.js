@@ -23,7 +23,7 @@ export default class PlaylistCoverView extends Component {
 
   componentDidMount() {
 
-    console.log("MOUNTING...")
+    // console.log("MOUNTING...")
     if (this.props.location.state && this.props.location.state.fromLink) {
       this.setState({value : this.props.location.state.showCoverIndex})
       this.value = this.props.location.state.showCoverIndex;
@@ -36,7 +36,7 @@ export default class PlaylistCoverView extends Component {
 }
 
   componentWillReceiveProps(newProps) {
-    console.log("RECEIVING..." + newProps.location.state.fromLink + newProps.location.state.showCoverIndex);
+    // console.log("RECEIVING..." + newProps.location.state.fromLink + newProps.location.state.showCoverIndex);
     if (newProps.location.state && newProps.location.state.fromLink) {
       
     //if (newProps.location.state && newProps.location.state.fromNp) {
@@ -57,11 +57,11 @@ export default class PlaylistCoverView extends Component {
   }
 
   onChange(value) {
-    console.log("VALUE " + value)
+    // console.log("VALUE " + value)
     if (!this.state.animation) {
     this.setState({animation: true})
     }        
-      console.log("about to change")
+      // console.log("about to change")
 
   }
 

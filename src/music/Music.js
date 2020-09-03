@@ -52,7 +52,7 @@ export default class Music extends Component {
   }
 
   updateView = (cover, item) => {
-    console.log("UPDATE VIEW:   " + cover + " " + item)
+    // console.log("UPDATE VIEW:   " + cover + " " + item)
     this.showCover = cover;
     this.itemIndex = item;
   }
@@ -80,7 +80,7 @@ export default class Music extends Component {
   
   // async handlePlay(playlistIndex, itemIndex) {
   handlePlay(itemName, playlist, index, file, backgroundColor) {
-    console.log(file);
+    // console.log(file);
     // if file is current one, resume playing
     if (this.state.npFile == file) {
       this.audio.current.play();
@@ -93,14 +93,14 @@ export default class Music extends Component {
       this.setState({npFile: file});
       this.setState({isPlaying: true})
 
-      console.log("playing new shit");
+      // console.log("playing new shit");
       // updateNowPlaying()
       this.updateNowPlaying(itemName, playlist, index)
 
       // set audio src & load
       this.audio.current.src = file;
       this.audio.current.load();    
-      console.log("playing new shit2 ");
+      // console.log("playing new shit2 ");
 
       // set isLoading to true
       this.setState({isLoading: true});
@@ -114,11 +114,11 @@ export default class Music extends Component {
       const itemBgColor = backgroundColor;
       audio.addEventListener('timeupdate', function() {
         this.setState({isLoading: false});
-        console.log("playing...")
+        // console.log("playing...")
           updateBg(itemBgColor);
 
       }.bind(this))
-      console.log("playing new shit3");
+      // console.log("playing new shit3");
 
 
       // remove event listener
@@ -130,7 +130,7 @@ export default class Music extends Component {
   }
 
   handlePause() {
-    console.log("pausing...")
+    // console.log("pausing...")
     this.setState({isPlaying : false})
     const audio = this.audio.current
     audio.pause();
@@ -203,13 +203,9 @@ export default class Music extends Component {
     
   }
 
-  componentWillReceiveProps(newProps) {
-    console.log("Music will receive");
-  }
-
   componentDidUpdate(prevProps, prevState) {
     this.updateCurrentSelected();
-    console.log("SHOW COVER: " + this.showCover + " ... INDEX: " + this.itemIndex)
+    // console.log("SHOW COVER: " + this.showCover + " ... INDEX: " + this.itemIndex)
     
   }
   render() {

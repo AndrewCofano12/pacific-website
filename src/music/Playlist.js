@@ -17,7 +17,7 @@ export default class Playlist extends Component {
   }
 
     componentDidMount() {
-        console.log("PLAYLIST MOUNTED: " + this.props);
+        // console.log("PLAYLIST MOUNTED: " + this.props);
         if (this.props.location.state && this.props.location.state.fromLink) {
             if (!this.props.location.state.showCover) {
                 this.setState({gridView: true})
@@ -33,7 +33,7 @@ export default class Playlist extends Component {
 
 
   componentWillReceiveProps(newProps) {
-      console.log("PLAYLIST :: will receive ");
+    //   console.log("PLAYLIST :: will receive ");
       if (newProps.location.state && newProps.location.state.fromLink) {
         if (!newProps.location.state.showCover) {
             this.setState({gridView: true})

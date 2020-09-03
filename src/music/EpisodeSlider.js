@@ -37,7 +37,7 @@ export default class EpisodeSlider extends Component {
     };
     
     nextPage() {
-        console.log("nextPage")
+        // console.log("nextPage")
         var index = this.state.index;
         if(this.state.index < (this.state.episodes.length - 1)){
             this.setState({
@@ -48,7 +48,7 @@ export default class EpisodeSlider extends Component {
     }
 
     previousPage() {
-        console.log("previousPage")
+        // console.log("previousPage")
         var index = this.state.index;
         if(this.state.index > 0){
             this.setState({

@@ -72,7 +72,10 @@ export default class Narrative extends Component {
               </LazyLoad>
               )
           })}
-          <div className="narrative-footer">© pacific 2020</div>
+          <div className="narrative-footer">
+            <div className="narrative-footerLine">Begin the process with the end in mind.</div>
+            <div className="narrative-footerLine">Don't lose sight.</div>
+          </div>
         </div>
       </div>
     );

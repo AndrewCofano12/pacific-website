@@ -38,7 +38,10 @@ export default class NarrativeMobile extends Component {
               </LazyLoad>
               )
           })}
-          <div className="narrativeMobile-footer">© pacific 2020</div>
+          <div className="narrativeMobile-footer">
+            <div className="narrativeMobile-footerLine">Begin the process with the end in mind.</div>
+            <div className="narrativeMobile-footerLine">Don't lose sight.</div>
+          </div>
         </div>
       </div>
     );

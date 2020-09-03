@@ -23,7 +23,7 @@ export default class PlaylistGridItem extends Component {
 
   componentDidMount() {
     this.setState({isPlaying: this.isPlaying()})
-    console.log("npTitle is: " + this.props.npTitle)
+    // console.log("npTitle is: " + this.props.npTitle)
     if (this.props.npTitle == this.state.itemData.name) {
       this.setState({isCurrent : true});
     }
@@ -88,7 +88,7 @@ export default class PlaylistGridItem extends Component {
       const itemBgColor = this.state.itemData.backgroundColor;
       audio.addEventListener('timeupdate', function() {
         this.setState({isLoading: false});
-        console.log("playing...")
+        // console.log("playing...")
           updateBg(itemBgColor);
 
       }.bind(this))
