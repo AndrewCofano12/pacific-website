@@ -111,7 +111,7 @@
                         "file": "https://www.pacificfilm.co/wp-content/audio/pM_Ep-3-1.mp3",
                         "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-3",
                         "duration": "37:26",
-                        "backgroundColor" : "rgb(199, 196, 183)"
+                        "backgroundColor" : "rgb(186, 183, 166)"
                     },
                     {
                         "name": "pacific music ep. 2",
@@ -173,7 +173,7 @@
                 "link": "https://soundcloud.com/pacificstudios/pacific-music-ep-3",
                 "duration": "37:26",
                 "release": "10.10.19",
-                "backgroundColor" : "rgb(199, 196, 183)"
+                "backgroundColor" : "rgb(186, 183, 166)"
             },
             {
                 "name": "pacific music ep. 2",
