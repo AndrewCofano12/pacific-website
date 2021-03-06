@@ -11,9 +11,12 @@ export default class Playlist extends Component {
     this.state = {
         playlistData: props.playlistData,
         gridView: null,
-        viewIndex: this.props.atIndex
+        viewIndex: this.props.atIndex,
+        allLoaded: false,
+        imgCount: 0
     };
     this.handleGridItemSelect = this.handleGridItemSelect.bind(this);
+    this.handleImgLoaded = this.handleImgLoaded.bind(this);
   }
 
     componentDidMount() {
@@ -50,7 +53,20 @@ handleGridItemSelect(index) {
     this.props.updateView(true, index)
 }
 
+
+handleImgLoaded() {
+    this.setState({imgCount : this.state.imgCount + 1}, () => {
+        // console.log(`imgCount is ... ${this.state.imgCount}`)
+        if (this.state.imgCount == this.state.playlistData.items.length) {
+
+            this.setState({allLoaded: true});
+        }
+    })
+}
+
 render() {
+    const loaded = this.state.imgCount;
+    // console.log(`allLoaded is ... ${this.state.allLoaded}`)
     return (
         <div className="music-playlistGridContainer">
             {/* {this.state.gridView ? 
@@ -72,7 +88,10 @@ render() {
                             updateNowPlaying={this.props.updateNowPlaying}
                             audioRef={this.props.audioRef} 
                             updateBackground={this.props.updateBackground}
-                            playItem={this.props.playItem}/>
+                            playItem={this.props.playItem}
+                            reportImgLoaded={this.handleImgLoaded}
+                            // allLoaded={(loaded < this.state.playlistData.items.length) ? false : true}/>
+                            allLoaded={this.state.allLoaded}/>
                     )
                     })}
                 </div>

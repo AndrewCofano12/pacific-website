@@ -9,6 +9,7 @@ import { RiPlayCircleLine, RiPauseCircleLine } from "react-icons/ri";
 import './Episode.css'
 import PlayIcon from '../icons/playButton.svg';
 import PauseIcon from '../icons/pauseButton.svg';
+import ImagePlaceholder from '../components/ImagePlaceholder';
 
 export default class Episode extends Component {
   hasAddedAudioEventListener = false;
@@ -23,7 +24,8 @@ export default class Episode extends Component {
         isCurrent: false,
         showCredits: false,
         isLoading: false,
-        hasEventListener: false
+        hasEventListener: false,
+        imgsLoaded: 0
     };
 
     // this.handlePlay = this.handlePlay.bind(this);
@@ -111,20 +113,30 @@ export default class Episode extends Component {
 
 
 
+  handleImageLoaded() {
+    this.setState({ imgsLoaded: this.state.imgsLoaded + 1 });
+  }
 
 
 
 
   render() {
+    const loaded = this.state.imgsLoaded;
+    const imageStyle = loaded < 2 ? { display: "none" } : {};
     return (
       <div className="music-singleEpisodeContainer" style={Object.assign({})}>
         
         {/* Item Artwork */}
         <div className="music-artworkWrapper" style={{backgroundColor: this.state.color}}>
-            <img draggable="false" className="music-artwork music-coverImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.frontArtwork} alt="fuck"/>
-            <img draggable="false" className="music-artwork music-tracklistImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.backArtwork} alt="fuck"/>
+          <div className="music-epImageContainer music-coverImage">
+            {loaded < 2 ? <ImagePlaceholder grid={true}/> : null}
+            <img draggable="false"  style={imageStyle} onLoad={this.handleImageLoaded.bind(this)} className="music-artwork music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.frontArtwork} alt="img"/>
+          </div>
+          <div className="music-epImageContainer music-tracklistImage">
+            {loaded < 2 ? <ImagePlaceholder grid={true}/> : null}
+            <img draggable="false"  style={imageStyle} onLoad={this.handleImageLoaded.bind(this)} className="music-artwork music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.episode.backArtwork} alt="img"/>
+          </div>
         </div>
-
         {/* Item Playback Control */}
         <div className="music-audioPlayerContainer">
             <PlaybackSeekbar 

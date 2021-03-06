@@ -94,8 +94,8 @@ export default class EpisodeSlider extends Component {
                                 {/* <Episode epData={episode} resolve={() => import('../audio/' + episode.file)}/> */}
                             {/* <div className="music-singleEpisodeContainer"style={Object.assign({})}>
                                 <div className="music-artworkWrapper" style={{backgroundColor: this.state.color}}>
-                                    <img draggable="false" className="music-artwork music-coverImage music-noselect" src={require('../images/' + episode.frontArtwork)} alt="fuck"/>
-                                    <img draggable="false" className="music-artwork music-tracklistImage music-noselect" src={require('../images/' + episode.backArtwork)} alt="fuck"/>
+                                    <img draggable="false" className="music-artwork music-coverImage music-noselect" src={require('../images/' + episode.frontArtwork)} alt="img"/>
+                                    <img draggable="false" className="music-artwork music-tracklistImage music-noselect" src={require('../images/' + episode.backArtwork)} alt="img"/>
                                 </div>
                                 <div className="music-audioPlayerContainer">
                                     <AudioPlayer 

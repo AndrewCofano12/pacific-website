@@ -25,7 +25,7 @@ export default class JournalElementMobile extends Component {
                     height: "auto", 
                     width: 'auto',
                 }} 
-                src={require('../images/' + this.props.imgSrc)} alt="fuck"/>
+                src={require('../images/' + this.props.imgSrc)} alt="img"/>
           <div className="journalElMobile-centered">
               <text style={{marginRight: 20}} className="journalElMobile-titleText">{this.props.title}</text>
               <text className="journalElMobile-titleText">shot by {this.props.shotBy}</text>

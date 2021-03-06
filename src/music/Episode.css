@@ -101,6 +101,11 @@
     margin-bottom: 54px;
 }
 
+
+.music-epImageContainer {
+    width: 49vh;
+}
+
 .music-creditsOuterContainer {
     width: 33%;
 }
@@ -149,7 +154,6 @@
 @media only screen and (min-width: 2050px) {
 
     .music-artworkWrapper {
-        height: 45vh;
         margin-bottom: 54px;
     }
     

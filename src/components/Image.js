@@ -10,6 +10,6 @@ export default function ImageThing({path}) {
             left: 0,
             height: "100%", 
             maxWidth: "100%"}} 
-        src={require(path)} alt="fuck"/>
+        src={require(path)} alt="img"/>
     )
 }

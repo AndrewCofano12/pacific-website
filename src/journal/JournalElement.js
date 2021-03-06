@@ -24,7 +24,7 @@ export default class JournalElement extends Component {
                     width: 'auto',
                 }} 
                 src={require('../images/' + this.props.imgSrc)} 
-                alt="fuck"
+                alt="img"
                 />
         <JournalHeaderText link={false} title={this.props.title} shotBy={this.props.shotBy}/>
 

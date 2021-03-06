@@ -4,7 +4,7 @@ import { RiPlayCircleLine, RiPauseCircleLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import PlayIcon from '../icons/playButton.svg';
 import PauseIcon from '../icons/pauseButton.svg';
-
+import ImagePlaceholder from '../components/ImagePlaceholder';
 
 
 export default class PlaylistGridItem extends Component {
@@ -17,7 +17,9 @@ export default class PlaylistGridItem extends Component {
         isHovering: false,
         isCurrent: false,
         isPlaying: false,
-        isLoading: false
+        isLoading: false,
+        imgsLoaded: false,
+        allLoaded: props.allLoaded
     };
   }
 
@@ -109,7 +111,7 @@ export default class PlaylistGridItem extends Component {
 
     }
     else {
-      if (this.state.isHovering) {
+      if (this.state.imgLoaded && this.state.isHovering) {
         return <img src={PlayIcon} className="music-playControlAction" id="music-playControl" alt="play" onClick={this.handlePlay}/>
        }
     }
@@ -131,8 +133,16 @@ export default class PlaylistGridItem extends Component {
   }
   
 
-
+  handleImageLoaded() {
+    // console.log("img loaded...");
+    this.props.reportImgLoaded();
+    // this.setState({ imgLoaded: true });
+  }
+  
   render() {
+    const loaded = this.props.allLoaded;
+    const imageStyle = !loaded ? { display: "none" } : {};
+    // console.log(loaded);
     return (
     <div  
         onMouseEnter={this.handleMouseHover}
@@ -149,7 +159,8 @@ export default class PlaylistGridItem extends Component {
             showCoverIndex: this.props.itemIndex
           }}}>
             <div className="music-gridItemImageContainer">
-            <img draggable="false" className="music-gridItemImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.itemData.frontArtwork} alt="fuck"/>
+              {loaded ? null : <ImagePlaceholder grid={true}/>}
+              <img draggable="false"  style={imageStyle} onLoad={this.handleImageLoaded.bind(this)} className="music-gridItemImage music-noselect" src={"https://www.pacificfilm.co/wp-content/images/music/" + this.state.itemData.frontArtwork} alt="img"/>
             </div>
             <div className={`${(this.state.isPlaying && this.state.isLoading) ? 'music-showLoading' : 'music-hideLoading'} music-gridLoadingIndContainer`}>
               <div className="music-gridLoadingInd">loading...</div>

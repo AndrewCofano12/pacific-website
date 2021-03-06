@@ -48,7 +48,7 @@ export default class ImageLoader extends Component {
                                     width: "101vw"
                 
                                 }} 
-                                src={`https://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                                src={`https://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="img"/>
 
                                 // </LazyLoad>
                             )
@@ -67,7 +67,7 @@ export default class ImageLoader extends Component {
                                 width: (item.sizing == "full" ? "102vw" : "52vw")
             
                             }} 
-                            src={`https://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="fuck"/>
+                            src={`https://www.pacificfilm.co/wp-content/images/home/${item.url}`} alt="img"/>
 
                             // </LazyLoad>
 

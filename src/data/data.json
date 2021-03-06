@@ -10,18 +10,6 @@
                 "sizing":"full"
             },
             {
-                "url":"03.jpg",
-                "sizing":"half"
-            },
-            {
-                "url":"04.jpg",
-                "sizing":"half"
-            },
-            {
-                "url":"05.jpg",
-                "sizing":"full"
-            },
-            {
                 "url":"06.jpg",
                 "sizing":"half"
             },
@@ -36,14 +24,14 @@
             {
                 "url":"09.jpg",
                 "sizing":"full"
-            },
+            },            
             {
-                "url":"10.jpg",
+                "url":"22.jpg",
                 "sizing":"full"
             },
             {
-                "url":"11.jpg",
-                "sizing":"half"
+                "url":"23.jpg",
+                "sizing":"full"
             },
             {
                 "url":"12.jpg",
@@ -84,15 +72,8 @@
             {
                 "url":"21.jpg",
                 "sizing":"full"
-            },           
-            {
-                "url":"22.jpg",
-                "sizing":"full"
-            },
-            {
-                "url":"23.jpg",
-                "sizing":"full"
-            }
+            }           
+
         ]
    
     },
@@ -115,7 +96,7 @@
                     },
                     {
                         "name": "pacific music ep. 2",
-                        "credits": ["mix: andrew cofano", "artwork: costin pirvu", "released: 08.22.18"],
+                        "credits": ["mix: andrew cofano", "artwork: costin pirvu", "08.22.18"],
                         "frontArtwork": "02-front.jpg",
                         "backArtwork": "02-back.jpg",
                         "file": "https://www.pacificfilm.co/wp-content/audio/pM_Ep-2.mp3",
@@ -125,7 +106,7 @@
                     },
                     {
                         "name": "pacific music ep. 1",
-                        "credits": ["mix: andrew cofano", "artwork: costin pirvu", "released: 02.15.18"],
+                        "credits": ["mix: andrew cofano", "artwork: costin pirvu", "02.15.18"],
                         "frontArtwork": "01-front.jpg",
                         "backArtwork": "01-back.jpg",
                         "file": "https://www.pacificfilm.co/wp-content/audio/pM_Ep-1.mp3",
@@ -139,6 +120,16 @@
                 "playlistName" : "b-sides",
                 "url": "b-sides",
                 "items" : [
+                    {
+                        "name": "jungle near the water",
+                        "credits": ["mix: joe iorio", "artwork: costin pirvu, mason tobia", "02.03.21"],
+                        "frontArtwork": "lofi-front.jpeg",
+                        "backArtwork": "lofi-back.jpeg",
+                        "file": "https://www.pacificfilm.co/wp-content/audio/lofi-mix.mp3",
+                        "link": "https://soundcloud.com/pacificstudios/jungle-near-the-water",
+                        "duration": "41:43",
+                        "backgroundColor" : "rgb(152, 159, 137)"
+                    },
                     {
                         "name": "mvsic shit vol. 1",
                         "credits": ["mix: andrew cofano", "artwork: andrew cofano", "04.21.20"],
@@ -154,8 +145,19 @@
         ],
         "timeline" : [
             {
+                "name": "jungle near the water",
+                "credits": ["mix: joe iorio", "artwork: costin pirvu, mason tobia", "02.03.21"],
+                "frontArtwork": "lofi-front.jpeg",
+                "backArtwork": "lofi-back.jpeg",
+                "file": "https://www.pacificfilm.co/wp-content/audio/lofi-mix.mp3",
+                "link": "https://soundcloud.com/pacificstudios/jungle-near-the-water",
+                "release": "02.03.21",
+                "duration": "41:43",
+                "backgroundColor" : "rgb(152, 159, 137)"
+            },
+            {
                 "name": "mvsic shit vol. 1",
-                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "credits": ["mix: andrew cofano", "artwork: andrew cofano", "04.21.20"],
                 "frontArtwork": "vol-1_side-a.jpg",
                 "backArtwork": "vol-1_side-b.jpg",
                 "file": "https://www.pacificfilm.co/wp-content/audio/music-shit_vol-1.mp3",
@@ -166,7 +168,7 @@
             },
             {
                 "name": "pacific music ep. 3",
-                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "credits": ["mix: andrew cofano", "artwork: costin pirvu", "10.10.19"],
                 "frontArtwork": "03-front.jpg",
                 "backArtwork": "03-back.jpg",
                 "file": "https://www.pacificfilm.co/wp-content/media/pM_Ep-3.mp3",
@@ -177,7 +179,7 @@
             },
             {
                 "name": "pacific music ep. 2",
-                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "credits": ["mix: andrew cofano", "artwork: costin pirvu", "08.22.18"],
                 "frontArtwork": "02-front.jpg",
                 "backArtwork": "02-back.jpg",
                 "file": "https://www.pacificfilm.co/wp-content/media/pM_Ep-2.mp3",
@@ -188,7 +190,7 @@
             },
             {
                 "name": "pacific music ep. 1",
-                "credits": ["mixed by: andrew cofano", "artwork by: costin pirvu", "release date: September 20, 2020"],
+                "credits": ["mix: andrew cofano", "artwork: costin pirvu", "02.15.18"],
                 "frontArtwork": "01-front.jpg",
                 "backArtwork": "01-back.jpg",
                 "file": "https://www.pacificfilm.co/wp-content/media/pM_Ep-1.mp3",

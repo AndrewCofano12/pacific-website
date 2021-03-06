@@ -22,7 +22,7 @@ export default class JournalEntryElement extends Component {
     return (
       <article class="journalEntryEl-journalArticle">
           <div class="journalEntryEl-container">
-            <img class="journalEntryEl-entryImg" src={require('../images/' + this.props.imgSrc)} alt="fuck"/>
+            <img class="journalEntryEl-entryImg" src={require('../images/' + this.props.imgSrc)} alt="img"/>
             {this.showText()}
         </div>             
       </article>

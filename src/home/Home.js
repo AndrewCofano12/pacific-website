@@ -130,7 +130,7 @@ export default class Home extends Component {
             <div className="home-gridContainer  home-rightGridContainer">
               <div className="home-gridItem">
                 <div className="home-brandLogoContainer">
-                    <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="fuck"/>
+                    <img id="home-brandLogoImage" src={require("../images/squiggles.png")} alt="img"/>
                   </div>
               </div>
               <div className="home-gridItem home-logoSub home-logoSubChild home-subChild home-homePageNav">                 
