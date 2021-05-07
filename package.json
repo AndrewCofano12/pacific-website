@@ -50,7 +50,7 @@
     "soundcloud-audio": "^1.4.0",
     "styled-components": "^5.1.1",
     "typeface-questrial": "0.0.72",
-    "underscore": "^1.10.2",
+    "underscore": "^1.12.1",
     "use-constant": "^1.0.0",
     "vimeo": "^2.1.1"
   },
