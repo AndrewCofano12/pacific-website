@@ -46,8 +46,9 @@ export default class FilmsRouter extends Component {
                   > */}
                     <Route exact path={this.props.match.path} render={(props) => <Films {...props} entries={this.state.filmsObject.filmsEntries} loops={this.state.filmsObject.homeLoops} linkPrefix={this.props.match.path}/>} />
                     {this.state.filmsObject.filmsEntries.map((item,i) => {
+                      console.log(item);
                       return (
-                        <Route path={`${this.props.match.path}/${item.id}`} key={i} render={(props) => <VideoPlayer {...props} src={item.src} filmObject={item}/>}/>
+                        <Route key={i} path={`${this.props.match.path}/${item.id}`} key={i} render={(props) => <VideoPlayer {...props} src={item.src} filmObject={item}/>}/>
                       )
                     })}
                   {/* </CSSTransition>

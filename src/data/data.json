@@ -739,7 +739,7 @@
         ],
         "filmsEntries" : [
             {
-                "id": "film2",
+                "id": "film3",
                 "name": "thanks for the memories",
                 "director": "peter hou",
                 "credits": ["director: peter hou"],
@@ -747,7 +747,7 @@
                 "src":"https://player.vimeo.com/video/326483854?autoplay=true&controls=false&muted=false&playsinline=0"
             },
             {
-                "id": "film1",
+                "id": "film2",
                 "name": "motion + sound",
                 "director": "peter hou",
                 "releaseDate": "04.06.20",
@@ -755,12 +755,20 @@
                 "src":"https://player.vimeo.com/video/404538737?autoplay=true&controls=false&muted=false&playsinline=0"
             },
             {
-                "film": "film0",
+                "id": "film1",
                 "name": "return in thought",
                 "director": "peter hou",
                 "credits": ["director: peter hou", "creative: costin pirvu, andrew cofano"],
                 "releaseDate": "09.02.20",
                 "src": "https://player.vimeo.com/video/453910748?autoplay=true&controls=false&muted=false&playsinline=0"
+            },
+            {
+                "id": "film0",
+                "name": "jungle near the water",
+                "director": "costin pirvu",
+                "credits": ["director: costin pirvu"],
+                "releaseDate": "03.10.21",
+                "src": "https://player.vimeo.com/video/521780274?autoplay=true&controls=false&muted=false&playsinline=0&quality=1080p"
             }
 
         ]
